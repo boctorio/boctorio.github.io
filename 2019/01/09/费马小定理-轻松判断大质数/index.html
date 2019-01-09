@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="算法,费马小定理,质数,">
 
 
 
@@ -81,13 +81,20 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="开局先放一题： 题目描述 在算法竞赛中你会遇到各种各样的有关素数的问题，今天你来解决一个最基础的问题：如何判定一个素数。对于给定的正整数p，若p非素数，输出-1若p是素数 输出 ：{sigma(a^(p-1) % p) ，其中a的下界为1，上界为p-1}即：   输入 多实例测试，每组数据包含一个正整数p（p &amp;lt; 10^16）。 输出 根据情况输出一个正整数，保证答案在int64之内，输出占">
+<meta name="keywords" content="算法,费马小定理,质数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="费马小定理--轻松判断大质数">
+<meta property="og:url" content="http://yoursite.com/2019/01/09/费马小定理-轻松判断大质数/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="开局先放一题： 题目描述 在算法竞赛中你会遇到各种各样的有关素数的问题，今天你来解决一个最基础的问题：如何判定一个素数。对于给定的正整数p，若p非素数，输出-1若p是素数 输出 ：{sigma(a^(p-1) % p) ，其中a的下界为1，上界为p-1}即：   输入 多实例测试，每组数据包含一个正整数p（p &amp;lt; 10^16）。 输出 根据情况输出一个正整数，保证答案在int64之内，输出占">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2019/01/09/费马小定理-轻松判断大质数/判断素数.png">
+<meta property="og:updated_time" content="2019-01-09T01:58:11.375Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="费马小定理--轻松判断大质数">
+<meta name="twitter:description" content="开局先放一题： 题目描述 在算法竞赛中你会遇到各种各样的有关素数的问题，今天你来解决一个最基础的问题：如何判定一个素数。对于给定的正整数p，若p非素数，输出-1若p是素数 输出 ：{sigma(a^(p-1) % p) ，其中a的下界为1，上界为p-1}即：   输入 多实例测试，每组数据包含一个正整数p（p &amp;lt; 10^16）。 输出 根据情况输出一个正整数，保证答案在int64之内，输出占">
+<meta name="twitter:image" content="http://yoursite.com/2019/01/09/费马小定理-轻松判断大质数/判断素数.png">
 
 
 
@@ -117,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/2019/01/09/费马小定理-轻松判断大质数/">
 
 
 
 
 
-  <title>Hexo</title>
+  <title>费马小定理--轻松判断大质数 | Hexo</title>
   
 
 
@@ -142,8 +149,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
@@ -215,9 +221,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -247,9 +253,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/09/费马小定理-轻松判断大质数/" itemprop="url">费马小定理--轻松判断大质数</a></h1>
+          <h1 class="post-title" itemprop="name headline">费马小定理--轻松判断大质数</h1>
         
 
         <div class="post-meta">
@@ -299,9 +303,7 @@
       
 
       
-        
-          
-            <p>开局先放一题：</p>
+        <p>开局先放一题：</p>
 <p>题目描述</p>
 <p>在算法竞赛中你会遇到各种各样的有关素数的问题，今天你来解决一个最基础的问题：如何判定一个素数。<br>对于给定的正整数p，若p非素数，输出-1<br>若p是素数 输出 ：{sigma(a^(p-1) % p) ，其中a的下界为1，上界为p-1}<br>即：</p>
 <p> <img src="/2019/01/09/费马小定理-轻松判断大质数/判断素数.png" alt=""></p>
@@ -321,8 +323,6 @@
 <p>代码如下：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">include&lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> n,res,x;</span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">gcd</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> a,<span class="keyword">long</span> <span class="keyword">long</span> b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> b?gcd(b,a%b):a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">feima</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> a)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> sum;</span><br><span class="line">    <span class="keyword">if</span>(x&lt;=<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> (a*res)%n;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(x%<span class="number">2</span>==<span class="number">0</span>)&#123;</span><br><span class="line">        a=(a*a)%n;</span><br><span class="line">        x/=<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">return</span> feima(a);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        res=(res*a)%n;</span><br><span class="line">        a=(a*a)%n;</span><br><span class="line">        x/=<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">return</span> feima(a);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> t,i;</span><br><span class="line">    <span class="comment">//以下是我自己列举的一些随机数，我们也可以用一些随机数函数来找一些随机数 </span></span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> a[<span class="number">20</span>]=&#123;<span class="number">7</span>,<span class="number">43</span>,<span class="number">64</span>,<span class="number">69</span>,<span class="number">87</span>,<span class="number">31</span>,<span class="number">45</span>,<span class="number">72</span>,<span class="number">81</span>,<span class="number">79</span>,<span class="number">47</span>,<span class="number">33</span>,<span class="number">43</span>,<span class="number">97</span>,<span class="number">121</span>,<span class="number">199</span>,<span class="number">173</span>,<span class="number">153</span>,<span class="number">157</span>,<span class="number">53</span>&#125;; </span><br><span class="line">    <span class="keyword">while</span>(~<span class="built_in">scanf</span>(<span class="string">"%lld"</span>,&amp;n))&#123;</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">2</span>)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"1\n"</span>);</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">20</span>;i++)&#123;</span><br><span class="line">            res=<span class="number">1</span>;</span><br><span class="line">            x=n<span class="number">-1</span>;</span><br><span class="line">            <span class="keyword">if</span>(gcd(a[i],n)!=<span class="number">1</span> || feima(a[i])!=<span class="number">1</span>)&#123;<span class="comment">//两个判断条件，两个数字互质且符合费马小定理 </span></span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(i==<span class="number">20</span>)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,n<span class="number">-1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"-1\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h5 id="用以上方法即可迅速判断一个数是否是质数，对特别大的数字尤其适用。"><a href="#用以上方法即可迅速判断一个数是否是质数，对特别大的数字尤其适用。" class="headerlink" title="用以上方法即可迅速判断一个数是否是质数，对特别大的数字尤其适用。"></a>用以上方法即可迅速判断一个数是否是质数，对特别大的数字尤其适用。</h5>
-          
-        
       
     </div>
     
@@ -337,294 +337,50 @@
     
     <div>
       
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/09/算数基本定理-容斥定理/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/09/算数基本定理-容斥定理/" itemprop="url">算数基本定理 + 容斥定理</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-09T09:22:54+08:00">
-                2019-01-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/算法/" rel="tag"><i class="fa fa-tag"></i> 算法</a>
           
-            
+            <a href="/tags/费马小定理/" rel="tag"><i class="fa fa-tag"></i> 费马小定理</a>
           
-
+            <a href="/tags/质数/" rel="tag"><i class="fa fa-tag"></i> 质数</a>
           
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="算数基本定理"><a href="#算数基本定理" class="headerlink" title="算数基本定理"></a>算数基本定理</h2><p>定义：任何一个大于1的自然数，如果N不为质数，那么N可以分解成有限个质数的乘积，并且在不计次序的情况下，这种分解方式是唯一的。</p>
-<p>例如：60可以分解为 2^2 * 3 * 5</p>
-<p>数学公式描述</p>
-<p>N=P1^r1 * P2^r2 * P3^r3 * … * Pn^rn  （P1&lt;P2&lt;P3&lt;…<pn &="" pi="" 是质数="" ri="">=0）</pn></p>
-<h4 id="质因子分解计算方法-算法复杂度-O-√n"><a href="#质因子分解计算方法-算法复杂度-O-√n" class="headerlink" title="质因子分解计算方法 算法复杂度  ( O(√n)  )"></a>质因子分解计算方法 算法复杂度  ( O(√n)  )</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; prime_factor(<span class="keyword">int</span> n)&#123;</span><br><span class="line">    <span class="built_in">map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt;ans;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i*i&lt;n;i++)&#123;</span><br><span class="line">        <span class="keyword">while</span>(n%i==<span class="number">0</span>)&#123;</span><br><span class="line">            ++ans[i];</span><br><span class="line">            n/=i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(n!=<span class="number">1</span>)</span><br><span class="line">        ans[n]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="算数基本定理的应用"><a href="#算数基本定理的应用" class="headerlink" title="算数基本定理的应用"></a>算数基本定理的应用</h4><p>如何求N有几个因子？</p>
-<p>根据算数基本定理：N=P1^r1 * P2^r2 * P3^r3 * … * Pn^rn</p>
-<p>根据排列组合得到结果：</p>
-<p>ans=(1+r1) * (1+r2) * (1+r3) * … * (1+rn)</p>
-<p> <img src="/2019/01/09/算数基本定理-容斥定理/因子之和.png" alt=""></p>
-<p>如何求N的所有因子之和？</p>
-<p>根据算数基本定理：N=P1^r1 * P2^r2 * P3^r3 * … * Pn^rn</p>
-<p>求GCD(X,Y)和LCM(X,Y)</p>
-<p>根据算数基本定理：</p>
-<p>X=P1^x1 * P2^x2 * P3^x3 * … * Pn^xn</p>
-<p>Y=P1^y1 * P2^y2 * P3^y3 *… * Pn^yn</p>
-<p>根据GCD和LCM的定义</p>
-<p><img src="/2019/01/09/算数基本定理-容斥定理/GCD.png" alt=""></p>
-<p><img src="/2019/01/09/算数基本定理-容斥定理/LCM.png" alt=""></p>
-<h2 id="容斥定理"><a href="#容斥定理" class="headerlink" title="容斥定理"></a>容斥定理</h2><p>要计算几个集合并集的大小，我们要先将所有单个集合的大 小计算出来，然后减去所有两个集合相交的部分，再加回所 有三个集合相交的部分，再减去所有四个集合相交的部分， 依此类推，一直计算到所有集合相交的部分。</p>
-<p>用Venn图来表示</p>
-<p><img src="/2019/01/09/算数基本定理-容斥定理/veen.png" alt=""></p>
-<p>数学公式描述</p>
-<p><img src="/2019/01/09/算数基本定理-容斥定理/数学公式.png" alt=""></p>
-<p>如果要对n个物体进行选择，那么有多少种情况？</p>
-<p>代码    复杂度为O(2^n)</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;(<span class="number">1</span> &lt;&lt; m);i++)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d"</span>,i&gt;&gt;j &amp; <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">""</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="容斥定理的应用"><a href="#容斥定理的应用" class="headerlink" title="容斥定理的应用"></a>容斥定理的应用</h4><p>问题：魔镜给小明m个数字（a1、a2 …… am）和一个整数n，魔镜定义：如果有一个数，是这m个数字里面任意一 个数的倍数，那么这个数称为LuckyNumber。而小明会的题 数为[1,n]闭区间内LuckyNumber的数量。 (0 &lt; m &lt; 15) 那么请你帮小明计算一下他会的题目数。</p>
-<p>代码  复杂度为O(2^n)</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">LL ans=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;(i&lt;&lt;m);i++)&#123;</span><br><span class="line">    <span class="keyword">int</span> cnt=<span class="number">0</span>;</span><br><span class="line">    LL LCM=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;m;j++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="number">1</span>&amp;(i&gt;&gt;j))&#123;<span class="comment">//按位运算判断第m个数是否使用 </span></span><br><span class="line">            cnt++;</span><br><span class="line">            LCM=lcm(LCM,a[j]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(cnt&amp;<span class="number">1</span>) ans+=n/LCM;<span class="comment">//判断n中元素使用的个数，奇加偶减</span></span><br><span class="line">    <span class="keyword">else</span> ans-=n/LCM;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,ans);</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-    
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
       
 
       
       
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
       
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/08/BFS与DFS/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/08/BFS与DFS/" itemprop="url">BFS与DFS</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-08T22:02:47+08:00">
-                2019-01-08
-              </time>
+              <a href="/2019/01/09/算数基本定理-容斥定理/" rel="next" title="算数基本定理 + 容斥定理">
+                <i class="fa fa-chevron-left"></i> 算数基本定理 + 容斥定理
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-    
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -634,258 +390,11 @@
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/08/前言/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/08/前言/" itemprop="url">前言</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-08T13:49:42+08:00">
-                2019-01-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>现在已经是2019年。我加入HPU-ACM（现为算法协会）是在18年3月份左右，虽然时间不长，但是已经成为这个大家庭的一份子了。经过了近一年的学习与比赛，我觉得收获了很多，但是回头一想，却又想不起来我到底学过了多少的东西。看着协会里的成员一个个的在努力，在进步，我也希望能够继续深入学习，在ACM的路上走的更远。</p>
-
-          
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-    
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/07/First blog/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/07/First blog/" itemprop="url">My First Blog</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-07T22:19:17+08:00">
-                2019-01-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>纪念我的第一篇博客 ^_^</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-    
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
@@ -893,6 +402,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -913,8 +426,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -972,6 +494,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#用以上方法即可迅速判断一个数是否是质数，对特别大的数字尤其适用。"><span class="nav-number">1.</span> <span class="nav-text">用以上方法即可迅速判断一个数是否是质数，对特别大的数字尤其适用。</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1119,6 +657,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
