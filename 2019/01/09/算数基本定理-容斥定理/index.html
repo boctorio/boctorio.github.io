@@ -81,23 +81,23 @@
 
 
 
-<meta name="description" content="算数基本定理定义：任何一个大于1的自然数，如果N不为质数，那么N可以分解成有限个质数的乘积，并且在不计次序的情况下，这种分解方式是唯一的。 例如：60可以分解为 2^2 * 3 * 5 数学公式描述 N=P1^r1 * P2^r2 * P3^r3 * … * Pn^rn  （P1&amp;lt;P2&amp;lt;P3&amp;lt;…=0） 质因子分解计算方法 算法复杂度  ( O(√n)  )123456789101">
+<meta name="description" content="算数基本定理定义：任何一个大于1的自然数，如果N不为质数，那么N可以分解成有限个质数的乘积，并且在不计次序的情况下，这种分解方式是唯一的。 例如：60可以分解为 2^2 * 3 * 5">
 <meta name="keywords" content="算法,算数基本定理,容斥定理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算数基本定理 + 容斥定理">
 <meta property="og:url" content="https://boctorio.github.io/2019/01/09/算数基本定理-容斥定理/index.html">
 <meta property="og:site_name" content="Boctorio&#39;s Blog">
-<meta property="og:description" content="算数基本定理定义：任何一个大于1的自然数，如果N不为质数，那么N可以分解成有限个质数的乘积，并且在不计次序的情况下，这种分解方式是唯一的。 例如：60可以分解为 2^2 * 3 * 5 数学公式描述 N=P1^r1 * P2^r2 * P3^r3 * … * Pn^rn  （P1&amp;lt;P2&amp;lt;P3&amp;lt;…=0） 质因子分解计算方法 算法复杂度  ( O(√n)  )123456789101">
+<meta property="og:description" content="算数基本定理定义：任何一个大于1的自然数，如果N不为质数，那么N可以分解成有限个质数的乘积，并且在不计次序的情况下，这种分解方式是唯一的。 例如：60可以分解为 2^2 * 3 * 5">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://boctorio.github.io/2019/01/09/算数基本定理-容斥定理/因子之和.png">
 <meta property="og:image" content="https://boctorio.github.io/2019/01/09/算数基本定理-容斥定理/GCD.png">
 <meta property="og:image" content="https://boctorio.github.io/2019/01/09/算数基本定理-容斥定理/LCM.png">
 <meta property="og:image" content="https://boctorio.github.io/2019/01/09/算数基本定理-容斥定理/veen.png">
 <meta property="og:image" content="https://boctorio.github.io/2019/01/09/算数基本定理-容斥定理/数学公式.png">
-<meta property="og:updated_time" content="2019-01-09T01:51:15.886Z">
+<meta property="og:updated_time" content="2019-01-09T13:39:38.152Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算数基本定理 + 容斥定理">
-<meta name="twitter:description" content="算数基本定理定义：任何一个大于1的自然数，如果N不为质数，那么N可以分解成有限个质数的乘积，并且在不计次序的情况下，这种分解方式是唯一的。 例如：60可以分解为 2^2 * 3 * 5 数学公式描述 N=P1^r1 * P2^r2 * P3^r3 * … * Pn^rn  （P1&amp;lt;P2&amp;lt;P3&amp;lt;…=0） 质因子分解计算方法 算法复杂度  ( O(√n)  )123456789101">
+<meta name="twitter:description" content="算数基本定理定义：任何一个大于1的自然数，如果N不为质数，那么N可以分解成有限个质数的乘积，并且在不计次序的情况下，这种分解方式是唯一的。 例如：60可以分解为 2^2 * 3 * 5">
 <meta name="twitter:image" content="https://boctorio.github.io/2019/01/09/算数基本定理-容斥定理/因子之和.png">
 
 
@@ -309,6 +309,7 @@
       
         <h2 id="算数基本定理"><a href="#算数基本定理" class="headerlink" title="算数基本定理"></a>算数基本定理</h2><p>定义：任何一个大于1的自然数，如果N不为质数，那么N可以分解成有限个质数的乘积，并且在不计次序的情况下，这种分解方式是唯一的。</p>
 <p>例如：60可以分解为 2^2 * 3 * 5</p>
+<a id="more"></a>
 <p>数学公式描述</p>
 <p>N=P1^r1 * P2^r2 * P3^r3 * … * Pn^rn  （P1&lt;P2&lt;P3&lt;…<pn &="" pi="" 是质数="" ri="">=0）</pn></p>
 <h4 id="质因子分解计算方法-算法复杂度-O-√n"><a href="#质因子分解计算方法-算法复杂度-O-√n" class="headerlink" title="质因子分解计算方法 算法复杂度  ( O(√n)  )"></a>质因子分解计算方法 算法复杂度  ( O(√n)  )</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; prime_factor(<span class="keyword">int</span> n)&#123;</span><br><span class="line">    <span class="built_in">map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt;ans;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i*i&lt;n;i++)&#123;</span><br><span class="line">        <span class="keyword">while</span>(n%i==<span class="number">0</span>)&#123;</span><br><span class="line">            ++ans[i];</span><br><span class="line">            n/=i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(n!=<span class="number">1</span>)</span><br><span class="line">        ans[n]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>

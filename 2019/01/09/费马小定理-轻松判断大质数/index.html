@@ -81,19 +81,19 @@
 
 
 
-<meta name="description" content="题目描述在算法竞赛中你会遇到各种各样的有关素数的问题，今天你来解决一个最基础的问题：如何判定一个素数。对于给定的正整数p，若p非素数，输出-1若p是素数 输出 ：{sigma(a^(p-1) % p) ，其中a的下界为1，上界为p-1}即：   输入 多实例测试，每组数据包含一个正整数p（p &amp;lt; 10^16）。 输出 根据情况输出一个正整数，保证答案在int64之内，输出占一行。 样例输入">
+<meta name="description" content="题目描述在算法竞赛中你会遇到各种各样的有关素数的问题，今天你来解决一个最基础的问题：如何判定一个素数。对于给定的正整数p，若p非素数，输出-1若p是素数 输出 ：{sigma(a^(p-1) % p) ，其中a的下界为1，上界为p-1}">
 <meta name="keywords" content="算法,费马小定理,质数">
 <meta property="og:type" content="article">
 <meta property="og:title" content="费马小定理--轻松判断大质数">
 <meta property="og:url" content="https://boctorio.github.io/2019/01/09/费马小定理-轻松判断大质数/index.html">
 <meta property="og:site_name" content="Boctorio&#39;s Blog">
-<meta property="og:description" content="题目描述在算法竞赛中你会遇到各种各样的有关素数的问题，今天你来解决一个最基础的问题：如何判定一个素数。对于给定的正整数p，若p非素数，输出-1若p是素数 输出 ：{sigma(a^(p-1) % p) ，其中a的下界为1，上界为p-1}即：   输入 多实例测试，每组数据包含一个正整数p（p &amp;lt; 10^16）。 输出 根据情况输出一个正整数，保证答案在int64之内，输出占一行。 样例输入">
+<meta property="og:description" content="题目描述在算法竞赛中你会遇到各种各样的有关素数的问题，今天你来解决一个最基础的问题：如何判定一个素数。对于给定的正整数p，若p非素数，输出-1若p是素数 输出 ：{sigma(a^(p-1) % p) ，其中a的下界为1，上界为p-1}">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://boctorio.github.io/2019/01/09/费马小定理-轻松判断大质数/判断素数.png">
-<meta property="og:updated_time" content="2019-01-09T02:08:17.461Z">
+<meta property="og:updated_time" content="2019-01-09T13:39:26.246Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="费马小定理--轻松判断大质数">
-<meta name="twitter:description" content="题目描述在算法竞赛中你会遇到各种各样的有关素数的问题，今天你来解决一个最基础的问题：如何判定一个素数。对于给定的正整数p，若p非素数，输出-1若p是素数 输出 ：{sigma(a^(p-1) % p) ，其中a的下界为1，上界为p-1}即：   输入 多实例测试，每组数据包含一个正整数p（p &amp;lt; 10^16）。 输出 根据情况输出一个正整数，保证答案在int64之内，输出占一行。 样例输入">
+<meta name="twitter:description" content="题目描述在算法竞赛中你会遇到各种各样的有关素数的问题，今天你来解决一个最基础的问题：如何判定一个素数。对于给定的正整数p，若p非素数，输出-1若p是素数 输出 ：{sigma(a^(p-1) % p) ，其中a的下界为1，上界为p-1}">
 <meta name="twitter:image" content="https://boctorio.github.io/2019/01/09/费马小定理-轻松判断大质数/判断素数.png">
 
 
@@ -303,7 +303,9 @@
       
 
       
-        <h5 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h5><p>在算法竞赛中你会遇到各种各样的有关素数的问题，今天你来解决一个最基础的问题：如何判定一个素数。<br>对于给定的正整数p，若p非素数，输出-1<br>若p是素数 输出 ：{sigma(a^(p-1) % p) ，其中a的下界为1，上界为p-1}<br>即：</p>
+        <h5 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h5><p>在算法竞赛中你会遇到各种各样的有关素数的问题，今天你来解决一个最基础的问题：如何判定一个素数。<br>对于给定的正整数p，若p非素数，输出-1<br>若p是素数 输出 ：{sigma(a^(p-1) % p) ，其中a的下界为1，上界为p-1}</p>
+<a id="more"></a>
+<p>即：</p>
 <p> <img src="/2019/01/09/费马小定理-轻松判断大质数/判断素数.png" alt=""></p>
 <p>输入</p>
 <p>多实例测试，每组数据包含一个正整数p（p &lt; 10^16）。</p>
