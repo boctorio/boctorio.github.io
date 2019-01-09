@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-01-08T14:02:47.989Z</updated>
+  <updated>2019-01-09T01:47:35.617Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,27 +17,13 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>BFS与DFS</title>
-    <link href="http://yoursite.com/2019/01/08/BFS%E4%B8%8EDFS/"/>
-    <id>http://yoursite.com/2019/01/08/BFS与DFS/</id>
-    <published>2019-01-08T14:02:47.000Z</published>
-    <updated>2019-01-08T14:02:47.989Z</updated>
+    <title>算数基本定理 + 容斥定理</title>
+    <link href="http://yoursite.com/2019/01/09/%E7%AE%97%E6%95%B0%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86-%E5%AE%B9%E6%96%A5%E5%AE%9A%E7%90%86/"/>
+    <id>http://yoursite.com/2019/01/09/算数基本定理-容斥定理/</id>
+    <published>2019-01-09T01:22:54.000Z</published>
+    <updated>2019-01-09T01:47:35.617Z</updated>
     
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>算数基本定理+容斥定理</title>
-    <link href="http://yoursite.com/2019/01/08/%E7%AE%97%E6%95%B0%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86-%E5%AE%B9%E6%96%A5%E5%AE%9A%E7%90%86/"/>
-    <id>http://yoursite.com/2019/01/08/算数基本定理-容斥定理/</id>
-    <published>2019-01-08T13:53:22.000Z</published>
-    <updated>2019-01-08T15:01:07.196Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="算数基本定理"><a href="#算数基本定理" class="headerlink" title="算数基本定理"></a>算数基本定理</h2><p>定义：任何一个大于1的自然数，如果N不为质数，那么N可以分解成有限个质数的乘积，并且在不计次序的情况下，这种分解方式是唯一的。</p><p>例如：60可以分解为 2^2 <em> 3 </em> 5</p><p>数学公式描述</p><p>N=P1^r1 <em> P2^r2 </em> P3^r3 <em> … </em> Pn^rn  （P1&lt;P2&lt;P3&lt;…<pn &="" pi="" 是质数="" ri="">=0）</pn></p><h4 id="质因子分解计算方法-算法复杂度-O-√n"><a href="#质因子分解计算方法-算法复杂度-O-√n" class="headerlink" title="质因子分解计算方法 算法复杂度  ( O(√n)  )"></a>质因子分解计算方法 算法复杂度  ( O(√n)  )</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; prime_factor(<span class="keyword">int</span> n)&#123;</span><br><span class="line">    <span class="built_in">map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt;ans;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i*i&lt;n;i++)&#123;</span><br><span class="line">        <span class="keyword">while</span>(n%i==<span class="number">0</span>)&#123;</span><br><span class="line">            ++ans[i];</span><br><span class="line">            n/=i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(n!=<span class="number">1</span>)</span><br><span class="line">        ans[n]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="算数基本定理的应用"><a href="#算数基本定理的应用" class="headerlink" title="算数基本定理的应用"></a>算数基本定理的应用</h4><p>如何求N有几个因子？</p><p>根据算数基本定理：N=P1^r1 <em> P2^r2 </em>P3^r3<em>…</em>Pn^rn</p><p>根据排列组合得到结果：</p><p>ans=(1+r1)<em>(1+r2)</em>(1+r3)<em>…</em>(1+rn)</p><p>如何求N的所有因子之和？</p><p>根据算数基本定理：N=P1^r1 <em> P2^r2 </em>P3^r3<em>…</em>Pn^rn</p><p><img src="/2019/01/08/算数基本定理-容斥定理/算数基本定理+容斥定理.md/N的所有因子之和.png" alt="N的所有因子之和"></p><p>求GCD(X,Y)和LCM(X,Y)</p><p>根据算数基本定理：</p><p>X=P1^x1 <em> P2^x2 </em>P3^x3<em>…</em>Pn^xn</p><p>Y=P1^y1 <em> P2^y2 </em>P3^y3<em>…</em>Pn^yn</p><p>根据GCD和LCM的定义</p><p><img src="/2019/01/08/算数基本定理-容斥定理/算数基本定理+容斥定理.md/GCD.png" alt="GCD"></p><p> <img src="/2019/01/08/算数基本定理-容斥定理/算数基本定理+容斥定理.md/LCM.png" alt="LCM"></p><h2 id="容斥定理"><a href="#容斥定理" class="headerlink" title="容斥定理"></a>容斥定理</h2><p>要计算几个集合并集的大小，我们要先将所有单个集合的大 小计算出来，然后减去所有两个集合相交的部分，再加回所 有三个集合相交的部分，再减去所有四个集合相交的部分， 依此类推，一直计算到所有集合相交的部分。</p><p>用Venn图来表示</p><p><img src="/2019/01/08/算数基本定理-容斥定理/算数基本定理+容斥定理.md/容斥定理venn图.png" alt="容斥定理venn图"></p><p>数学公式描述</p><p><img src="/2019/01/08/算数基本定理-容斥定理/算数基本定理+容斥定理.md/容斥定理数学公式描述.png" alt="容斥定理数学公式描述"></p><p>如果要对n个物体进行选择，那么有多少种情况？</p><p>代码    复杂度为O(2^n)</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;(<span class="number">1</span> &lt;&lt; m);i++)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d"</span>,i&gt;&gt;j &amp; <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">""</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="容斥定理的应用"><a href="#容斥定理的应用" class="headerlink" title="容斥定理的应用"></a>容斥定理的应用</h4><p>问题：魔镜给小明m个数字（a1、a2 …… am）和一个整数n，魔镜定义：如果有一个数，是这m个数字里面任意一 个数的倍数，那么这个数称为LuckyNumber。而小明会的题 数为[1,n]闭区间内LuckyNumber的数量。 (0 &lt; m &lt; 15) 那么请你帮小明计算一下他会的题目数。</p><p>代码  复杂度为O(2^n)</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">LL ans=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;(i&lt;&lt;m);i++)&#123;</span><br><span class="line">    <span class="keyword">int</span> cnt=<span class="number">0</span>;</span><br><span class="line">    LL LCM=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;m;j++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="number">1</span>&amp;(i&gt;&gt;j))&#123;<span class="comment">//按位运算判断第m个数是否使用 </span></span><br><span class="line">            cnt++;</span><br><span class="line">            LCM=lcm(LCM,a[j]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(cnt&amp;<span class="number">1</span>) ans+=n/LCM;<span class="comment">//判断n中元素使用的个数，奇加偶减</span></span><br><span class="line">    <span class="keyword">else</span> ans-=n/LCM;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,ans);</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h2 id="算数基本定理"><a href="#算数基本定理" class="headerlink" title="算数基本定理"></a>算数基本定理</h2><p>定义：任何一个大于1的自然数，如果N不为质数，那么N可以分解成有限个质数的乘积，并且在不计次序的情况下，这种分解方式是唯一的。</p><p>例如：60可以分解为 2^2 * 3 * 5</p><p>数学公式描述</p><p>N=P1^r1 * P2^r2 * P3^r3 * … * Pn^rn  （P1&lt;P2&lt;P3&lt;…<pn &="" pi="" 是质数="" ri="">=0）</pn></p><h4 id="质因子分解计算方法-算法复杂度-O-√n"><a href="#质因子分解计算方法-算法复杂度-O-√n" class="headerlink" title="质因子分解计算方法 算法复杂度  ( O(√n)  )"></a>质因子分解计算方法 算法复杂度  ( O(√n)  )</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; prime_factor(<span class="keyword">int</span> n)&#123;</span><br><span class="line">    <span class="built_in">map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt;ans;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i*i&lt;n;i++)&#123;</span><br><span class="line">        <span class="keyword">while</span>(n%i==<span class="number">0</span>)&#123;</span><br><span class="line">            ++ans[i];</span><br><span class="line">            n/=i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(n!=<span class="number">1</span>)</span><br><span class="line">        ans[n]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="算数基本定理的应用"><a href="#算数基本定理的应用" class="headerlink" title="算数基本定理的应用"></a>算数基本定理的应用</h4><p>如何求N有几个因子？</p><p>根据算数基本定理：N=P1^r1 * P2^r2 * P3^r3 * … * Pn^rn</p><p>根据排列组合得到结果：</p><p>ans=(1+r1) * (1+r2) * (1+r3) * … * (1+rn)</p><p> <img src="/2019/01/09/算数基本定理-容斥定理/因子之和.png" alt=""></p><p>如何求N的所有因子之和？</p><p>根据算数基本定理：N=P1^r1 * P2^r2 * P3^r3 * … * Pn^rn</p><p>求GCD(X,Y)和LCM(X,Y)</p><p>根据算数基本定理：</p><p>X=P1^x1 * P2^x2 * P3^x3 * … * Pn^xn</p><p>Y=P1^y1 * P2^y2 * P3^y3 *… * Pn^yn</p><p>根据GCD和LCM的定义</p><p><img src="/2019/01/09/算数基本定理-容斥定理/GCD.png" alt=""></p><p><img src="/2019/01/09/算数基本定理-容斥定理/LCM.png" alt=""></p><h2 id="容斥定理"><a href="#容斥定理" class="headerlink" title="容斥定理"></a>容斥定理</h2><p>要计算几个集合并集的大小，我们要先将所有单个集合的大 小计算出来，然后减去所有两个集合相交的部分，再加回所 有三个集合相交的部分，再减去所有四个集合相交的部分， 依此类推，一直计算到所有集合相交的部分。</p><p>用Venn图来表示</p><p><img src="/2019/01/09/算数基本定理-容斥定理/veen.png" alt=""></p><p>数学公式描述</p><p><img src="/2019/01/09/算数基本定理-容斥定理/数学公式.png" alt=""></p><p>如果要对n个物体进行选择，那么有多少种情况？</p><p>代码    复杂度为O(2^n)</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;(<span class="number">1</span> &lt;&lt; m);i++)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d"</span>,i&gt;&gt;j &amp; <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">""</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="容斥定理的应用"><a href="#容斥定理的应用" class="headerlink" title="容斥定理的应用"></a>容斥定理的应用</h4><p>问题：魔镜给小明m个数字（a1、a2 …… am）和一个整数n，魔镜定义：如果有一个数，是这m个数字里面任意一 个数的倍数，那么这个数称为LuckyNumber。而小明会的题 数为[1,n]闭区间内LuckyNumber的数量。 (0 &lt; m &lt; 15) 那么请你帮小明计算一下他会的题目数。</p><p>代码  复杂度为O(2^n)</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">LL ans=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;(i&lt;&lt;m);i++)&#123;</span><br><span class="line">    <span class="keyword">int</span> cnt=<span class="number">0</span>;</span><br><span class="line">    LL LCM=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;m;j++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="number">1</span>&amp;(i&gt;&gt;j))&#123;<span class="comment">//按位运算判断第m个数是否使用 </span></span><br><span class="line">            cnt++;</span><br><span class="line">            LCM=lcm(LCM,a[j]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(cnt&amp;<span class="number">1</span>) ans+=n/LCM;<span class="comment">//判断n中元素使用的个数，奇加偶减</span></span><br><span class="line">    <span class="keyword">else</span> ans-=n/LCM;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,ans);</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
@@ -49,11 +35,31 @@
     </summary>
     
     
-      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="算数基本定理" scheme="http://yoursite.com/tags/%E7%AE%97%E6%95%B0%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86/"/>
     
       <category term="容斥定理" scheme="http://yoursite.com/tags/%E5%AE%B9%E6%96%A5%E5%AE%9A%E7%90%86/"/>
+    
+      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>BFS与DFS</title>
+    <link href="http://yoursite.com/2019/01/08/BFS%E4%B8%8EDFS/"/>
+    <id>http://yoursite.com/2019/01/08/BFS与DFS/</id>
+    <published>2019-01-08T14:02:47.000Z</published>
+    <updated>2019-01-09T01:37:05.027Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="BFS" scheme="http://yoursite.com/tags/BFS/"/>
+    
+      <category term="DFS" scheme="http://yoursite.com/tags/DFS/"/>
     
   </entry>
   
