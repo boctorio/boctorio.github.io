@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next gemini use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -81,16 +81,16 @@
 
 
 
-<meta name="description" content="以此记录我学过的部分算法与我刷过的部分题目">
+<meta name="description" content="无人与我立黄昏，无人问我粥可温">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Boctorio&#39;s Blog">
 <meta property="og:url" content="https://boctorio.github.io/index.html">
 <meta property="og:site_name" content="Boctorio&#39;s Blog">
-<meta property="og:description" content="以此记录我学过的部分算法与我刷过的部分题目">
+<meta property="og:description" content="无人与我立黄昏，无人问我粥可温">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Boctorio&#39;s Blog">
-<meta name="twitter:description" content="以此记录我学过的部分算法与我刷过的部分题目">
+<meta name="twitter:description" content="无人与我立黄昏，无人问我粥可温">
 
 
 
@@ -98,7 +98,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
+    scheme: 'Gemini',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -219,6 +219,156 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://boctorio.github.io/2019/01/09/素数筛选法/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Boctorio">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Boctorio's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/09/素数筛选法/" itemprop="url">素数筛选法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-09T21:03:37+08:00">
+                2019-01-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>素数，是指因子只包含1和其本身的数，那么，我们怎么判断素数呢？</p>
+<p><strong>（以下代码均基于打表（1~1e6）的基础上完成）</strong></p>
+<h4 id="1-按照定义计算"><a href="#1-按照定义计算" class="headerlink" title="1.按照定义计算"></a>1.按照定义计算</h4><p>素数的定义就是一个数的因子只包含1和其本身，那么我们直接就按照定义写：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta"># <span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta"># <span class="meta-keyword">define</span> maxn 1000000+10</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> pri[maxn];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">isprime</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;n;i++)</span><br><span class="line">		<span class="keyword">if</span>(n%i==<span class="number">0</span>)</span><br><span class="line">			<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	pri[<span class="number">1</span>]=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=maxn;i++)&#123;</span><br><span class="line">		pri[i]=isprime(i);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这是最基础的写法，也是最小白的写法。毕竟，当时我刚高一加入大学的某个协会时，考的就有判断素数…</p>
+<p>这种算法的复杂度为O(n^2),复杂度非常的大，对于1e6的数据范围来说肯定要超时，那么还有没有更优化的算法？答案是肯定的</p>
+<h4 id="2-基于定义计算的优化算法"><a href="#2-基于定义计算的优化算法" class="headerlink" title="2.基于定义计算的优化算法"></a>2.基于定义计算的优化算法</h4><p>我们对一个合数进行考虑，例如12：</p>
+<p>它的因子有1 2 3 4 6 12 ，而且1<em>12=12 ，  2</em>6=12 ， 3*4=12</p>
+<p>可见，每一个因子都会有另一个对应的因子，观察可得，它们的分布是平均的，左边的一半对应右边的一半，那么最中间的分界线应该是什么？ √n 。</p>
+<p>因此，我们只需要对√n 前面的数字进行判断即可。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta"># <span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta"># <span class="meta-keyword">define</span> maxn 1000000+10</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> pri[maxn];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">isprime</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i*i&lt;=n;i++)<span class="comment">//只需要将i变成i*i即可 </span></span><br><span class="line">		<span class="keyword">if</span>(n%i==<span class="number">0</span>)</span><br><span class="line">			<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	pri[<span class="number">1</span>]=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;maxn;i++)&#123;</span><br><span class="line">		pri[i]=isprime(i);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这种算法的复杂度要比上一种好的多，复杂度为O(n√n),但是对于1e6的数据范围来说还是太大了。有没有再快一点的算法？</p>
+<h4 id="3-素数筛选法"><a href="#3-素数筛选法" class="headerlink" title="3.素数筛选法"></a>3.素数筛选法</h4><p>素数筛选法的思想为：</p>
+<p>从2开始，因为2的倍数一定不是素数，所以先把2的倍数全部删去；</p>
+<p>接着找下一个素数3，把3的倍数全部删去；</p>
+<p>因为4是2的倍数，已经被删去，所以直接找下一个素数5，把5的倍数全部删去；</p>
+<p>接着7的倍数，11的倍数，……直到把1e6范围内的合数全部筛选出去，剩下的即为素数：</p>
+<p>//以下优化均基于打表的基础上</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta"># <span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta"># <span class="meta-keyword">define</span> maxn 1000000+10</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> vis[maxn];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">isprime</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">memset</span>(vis,<span class="number">0</span>,<span class="keyword">sizeof</span>(vis));<span class="comment">//此处vis[i]=1表示不是素数，vis[i]=0表示是素数 </span></span><br><span class="line">	vis[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">	<span class="comment">//由于i*i的数据范围可能会超过int，所以需要用long long表示</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">long</span> <span class="keyword">long</span> i=<span class="number">2</span>;i*i&lt;=maxn;i++)&#123;<span class="comment">//此处有优化，因为如果一个合数&gt;sqrt(maxn),那么他必定在前面已经被标记过。 </span></span><br><span class="line">		<span class="keyword">if</span>(!vis[i])&#123;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">long</span> <span class="keyword">long</span> j=i*i;j&lt;=maxn;j+=i)&#123;<span class="comment">//此处也有优化，我们只需要判断从i*i开始判断即可。 </span></span><br><span class="line">				vis[j]=<span class="number">1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	isprime();</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这种算法的复杂度应该为O(n);，是一种非常快速的判断素数的算法。</p>
+<p>上述代码有两处优化，第一处优化的证明如下：</p>
+<p><strong>假设 maxn &gt; i &gt; sqrt(maxn)并且为合数，那么，他肯定会有一个因子小于等于sqrt(maxn)，因此，i一定在之前已经被标记过了。</strong></p>
+<p>第二处优化证明为：</p>
+<p><strong>假设i&gt;2，那么对于 i * ( i - 1 )：</strong></p>
+<p><strong>如果 i - 1是素数，那么 i * ( i - 1 ) 一定在之前已经被标记过；</strong></p>
+<p><strong>否则，如果 i - 1 是合数，那么  i - 1能被分成更小的素数。设其中一个为a，那么 i <em> ( i - 1 )= i </em> ( i - 1 ) / a * a 也一定被标记过。</strong></p>
+<p>优化后的算法时间会节省非常多，在平常的算法竞赛中，用上述代码就已经可以解决大部分的涉及素数打表的问题。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+    
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -1024,7 +1174,7 @@
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
               <p class="site-author-name" itemprop="name">Boctorio</p>
-              <p class="site-description motion-element" itemprop="description">以此记录我学过的部分算法与我刷过的部分题目</p>
+              <p class="site-description motion-element" itemprop="description">无人与我立黄昏，无人问我粥可温</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -1034,7 +1184,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1047,7 +1197,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1117,7 +1267,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
 
 
 
