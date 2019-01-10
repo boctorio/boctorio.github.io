@@ -33,9 +33,9 @@
     </summary>
     
     
-      <category term="算法" scheme="https://boctorio.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="素数" scheme="https://boctorio.github.io/tags/%E7%B4%A0%E6%95%B0/"/>
+    
+      <category term="算法" scheme="https://boctorio.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -80,11 +80,11 @@
     </summary>
     
     
+      <category term="算法" scheme="https://boctorio.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
       <category term="算数基本定理" scheme="https://boctorio.github.io/tags/%E7%AE%97%E6%95%B0%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86/"/>
     
       <category term="容斥定理" scheme="https://boctorio.github.io/tags/%E5%AE%B9%E6%96%A5%E5%AE%9A%E7%90%86/"/>
-    
-      <category term="算法" scheme="https://boctorio.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
