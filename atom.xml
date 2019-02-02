@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Boctorio&#39;s Blog</title>
   
-  <subtitle>欢迎访问我校oj   www.hpuoj.com</subtitle>
+  <subtitle>欢迎访问我校OJ   https://www.hpuoj.com</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://boctorio.github.io/"/>
-  <updated>2019-01-09T13:38:10.356Z</updated>
+  <updated>2019-02-02T13:17:47.657Z</updated>
   <id>https://boctorio.github.io/</id>
   
   <author>
@@ -15,6 +15,117 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>GCD与LCM及其部分性质</title>
+    <link href="https://boctorio.github.io/2019/02/01/GCD%E4%B8%8ELCM%E5%8F%8A%E5%85%B6%E9%83%A8%E5%88%86%E6%80%A7%E8%B4%A8/"/>
+    <id>https://boctorio.github.io/2019/02/01/GCD与LCM及其部分性质/</id>
+    <published>2019-02-01T11:32:38.000Z</published>
+    <updated>2019-02-02T13:17:47.657Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="GCD"><a href="#GCD" class="headerlink" title="GCD"></a>GCD</h3><p>GCD，即最大公约数，指两个或多个整数共有约数中最大的一个。</p><p>求最大公约数有多种方法，常见的有质因数分解法、短除法、辗转相除法、更相减损法。</p><p>在一般竞赛中，求GCD一般使用辗转相除法。其复杂度约为O(log(max(n,m)))，是一种很高效的算法。而且其代码量也非常少</p><a id="more"></a><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span> </span>&#123; <span class="keyword">return</span> b ? gcd(b,a%b) : a; &#125;</span><br></pre></td></tr></table></figure><h4 id="拓展性质"><a href="#拓展性质" class="headerlink" title="拓展性质"></a>拓展性质</h4><p>如果GCD( n , a ) = 1 , n&gt;a 则GCD( n , n - a ) = 1。</p><p>可以用反证法证明</p><blockquote><p>假设GCD( n , n - a ) = i   ( i &gt; 1 )，设 n = k1 * i，n - a = k2 * i（ k1 &gt; k2 &gt; 0 ），</p><p>则 n -( n -a ) = a = (k1-k2) * i，与GCD( n , a ) = 1 矛盾，所以上述性质成立。</p></blockquote><h4 id="扩展欧几里得算法"><a href="#扩展欧几里得算法" class="headerlink" title="扩展欧几里得算法"></a>扩展欧几里得算法</h4><p>设a , b为常数，对于一个表达式 a * x + b * y =GCD( a , b ) ，一定存在解（ x , y）使之成立。</p><p>我们就可以通过扩展原来的辗转相除法来求解。</p><p>求解的过程如下（最好自己手推一下）：</p><blockquote><p>初始表达式<br>$$<br>a * x + b * y =GCD( a , b )<br>$$<br>由之前的知识可得<br>$$<br>GCD( a , b ) =GCD( b , a \% b )<br>$$<br>因此<br>$$<br>a*x_1+b*y_1=GCD( a , b ) =GCD( b , a\%b ) =b*x_2+(a\%b)*y_2<br>$$</p><p>$$<br>a\%b=a-[a/b]*b<br>$$</p><p>其中[a/b]表示整除。带入化简可得：<br>$$<br>a*x_1+b*y_1=a*x_2+b*(x_2-[a/b])*y_2<br>$$<br>由恒等关系可得<br>$$<br>x_1=y_2<br>$$</p><p>$$<br>y_1=(x_2-[a/b])<br>$$</p><p>因此我们只要求出 x2 和 y2 的值就可以求解 x1 和 y1。而 x2 ,  y2 可通过同种方法求解。</p><p>特别的，当 b=0时，表达式为 a * x + b * y = GCD( a , b ) =GCD( a , 0 ) = 0 </p><p>此时,可求得 x = 1 。y 的值对表达式的值没有影响。</p><p>上面就是求解初始表达式的方法。</p></blockquote><p>代码如下：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">extGcd</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b,<span class="keyword">int</span> &amp;x,<span class="keyword">int</span> &amp;y)</span><span class="comment">//这里取 x , y的地址 </span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(b==<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        x=<span class="number">1</span>;y=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> a;<span class="comment">//函数的返回值一直是 gcd(a,b) </span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> r=exGcd(b,a%b,x,y);</span><br><span class="line">    <span class="keyword">int</span> t=x;</span><br><span class="line">x=y;   <span class="comment">//x1=y2</span></span><br><span class="line">y=t-a/b*y;<span class="comment">//y1=x2-[a/b]*b</span></span><br><span class="line">    <span class="keyword">return</span> r;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="LCM"><a href="#LCM" class="headerlink" title="LCM"></a>LCM</h3><p>LCM，即最小公倍数，指两个或多个整数共有倍数中最小的一个。</p><p>LCM的求法可以基于GCD的基础上：<br>$$<br>LCM(a,b)=a*b/GCD(a,b)<br>$$<br>证明略。</p><p>一般题目求解时使用GCD更多一些，所以LCM相关知识就不多写了。(我也没找到太多关于LCM的相关文献)</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;GCD&quot;&gt;&lt;a href=&quot;#GCD&quot; class=&quot;headerlink&quot; title=&quot;GCD&quot;&gt;&lt;/a&gt;GCD&lt;/h3&gt;&lt;p&gt;GCD，即最大公约数，指两个或多个整数共有约数中最大的一个。&lt;/p&gt;
+&lt;p&gt;求最大公约数有多种方法，常见的有质因数分解法、短除法、辗转相除法、更相减损法。&lt;/p&gt;
+&lt;p&gt;在一般竞赛中，求GCD一般使用辗转相除法。其复杂度约为O(log(max(n,m)))，是一种很高效的算法。而且其代码量也非常少&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="GCD" scheme="https://boctorio.github.io/tags/GCD/"/>
+    
+      <category term="LCM" scheme="https://boctorio.github.io/tags/LCM/"/>
+    
+      <category term="数论" scheme="https://boctorio.github.io/tags/%E6%95%B0%E8%AE%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>欧拉函数及其部分性质</title>
+    <link href="https://boctorio.github.io/2019/02/01/%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0%E5%8F%8A%E5%85%B6%E9%83%A8%E5%88%86%E6%80%A7%E8%B4%A8/"/>
+    <id>https://boctorio.github.io/2019/02/01/欧拉函数及其部分性质/</id>
+    <published>2019-02-01T09:16:15.000Z</published>
+    <updated>2019-02-02T13:20:09.881Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="欧拉函数"><a href="#欧拉函数" class="headerlink" title="欧拉函数"></a>欧拉函数</h3><h4 id="欧拉函数-1"><a href="#欧拉函数-1" class="headerlink" title="欧拉函数"></a>欧拉函数</h4><p>在数论，<strong>对正整数n，欧拉函数是小于n的正整数中与n互质的数的数目（φ(1)=1）</strong>。此函数以其首名研究者欧拉命名(Euler’s totient function)，它又称为Euler’s totient function、φ函数、欧拉商数等。 例如φ(8)=4，因为1,3,5,7均和8互质。 从欧拉函数引伸出来在环论方面的事实和拉格朗日定理构成了欧拉定理的证明。</p><p>欧拉函数的适用范围非常大，许多题目中都会用到欧拉函数的性质。</p><a id="more"></a><h5 id="欧拉函数表达式1："><a href="#欧拉函数表达式1：" class="headerlink" title="欧拉函数表达式1："></a>欧拉函数表达式1：</h5><p>欧拉函数的表达为：<br>$$<br>\varphi (x)=x\prod_{i=1}^{n}{(1-\frac{1}{p_i})}<br>$$</p><p>其中p1,p2,…,pn 表示x的所有质因子，x是不为0的整数。</p><h5 id="欧拉函数表达式2："><a href="#欧拉函数表达式2：" class="headerlink" title="欧拉函数表达式2："></a>欧拉函数表达式2：</h5><p>假设<br>$$<br>x= {p_1}^{k_1} * {p_2}^{k_2} * … * {p_n}^{k_n}<br>$$</p><p>p1,p2,…,pn同上，则其另一种表达为：<br>$$<br>\varphi(x)=\prod_{i=1}^{n}{(p_i-1)*p_i^{k_i-1}}<br>$$</p><p>特别的，<br>$$<br>\varphi(1)=1<br>$$</p><h4 id="欧拉函数证明"><a href="#欧拉函数证明" class="headerlink" title="欧拉函数证明"></a>欧拉函数证明</h4><h5 id="容斥定理来证明"><a href="#容斥定理来证明" class="headerlink" title="容斥定理来证明"></a>容斥定理来证明</h5><p>对于正整数 x 而言，假设其质因子为p1,p2,p3,…,pn，则小于等于 x 且与 x 不互质的数字的个数为：<br>$$<br>g(x)=\frac{x}{p_1}+\frac{x}{p_2}+…+\frac{x}{p_n}-\frac{x}{p_1*p_2}-\frac{x}{p_1*p_3}- …<br>$$</p><p>小于 x 且与 x 互质的数字的个数：<br>$$<br>f(x)=x-g(x)=n-\frac{x}{p_1}-\frac{x}{p_2}- … -\frac{x}{p_n}+\frac{x}{p_1*p_2}+\frac{x}{p_1*p_3}+ …<br>$$</p><p>化简即可得表达式1。（具体化简过程我也不会）</p><h4 id="欧拉函数计算"><a href="#欧拉函数计算" class="headerlink" title="欧拉函数计算"></a>欧拉函数计算</h4><p>在编程时，习惯上，我们经常用<strong>表达式2</strong>计算欧拉函数的值：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">eular</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ret=<span class="number">1</span>,i;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">2</span>;i*i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">n%i==0时，i为n的质因子，因为如果i不是质因子，</span></span><br><span class="line"><span class="comment">则一i定能分成更小的因子，对应的更小的因子一定在之前出现过了，与之矛盾，</span></span><br><span class="line"><span class="comment">所以i一定不能分割成更小的因子，即i为n的质因子。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">        <span class="keyword">if</span>(n%i==<span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            n/=i,ret*=i<span class="number">-1</span>;</span><br><span class="line">            <span class="keyword">while</span>(n%i==<span class="number">0</span>) n/=i,ret*=i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(n&gt;<span class="number">1</span>) ret*=n<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="欧拉函数性质"><a href="#欧拉函数性质" class="headerlink" title="欧拉函数性质"></a>欧拉函数性质</h4><h5 id="互质数之和"><a href="#互质数之和" class="headerlink" title="互质数之和"></a>互质数之和</h5><p>小于n的正整数中与n互质的数的数字之和为<br>$$<br>f(n)={n}*\frac{\varphi(n)}{2}<br>$$</p><p>证明如下：</p><blockquote><p>对于每个小于 n 的数正整数 a ，如果gcd( n , a )=1,则gcd( n , n-a )=1（ 此处为gcd相关性质，不再证明。）。</p><p>所以对于每个与 n 互质的正整数 a ，一定有一个与之对应的与 n 互质数的 n - a ;</p><p>由此可知，欧拉函数的值总为偶数（1除外），并且总有一对之和为 n，</p><p>至此，小于n的正整数中与n互质的数的数字之和就可以计算出来了。</p></blockquote><h5 id="积性函数"><a href="#积性函数" class="headerlink" title="积性函数"></a>积性函数</h5><p>欧拉函数是一个积性函数，如果 n , m 互质，则：<br>$$<br>\varphi(nm)=\varphi(n)*\varphi(m)<br>$$<br>可以推出，如果n为质数，则：<br>$$<br>\varphi(2n)=\varphi(n)<br>$$</p><h5 id="欧拉定理变式"><a href="#欧拉定理变式" class="headerlink" title="欧拉定理变式"></a>欧拉定理变式</h5><p>对于任何两个互质的正整数 a , n ，(n&gt;2)<br>$$<br>{a}^{\varphi(n)}\equiv 1 mod n<br>$$</p><h5 id="费马小定理"><a href="#费马小定理" class="headerlink" title="费马小定理"></a>费马小定理</h5><p>当 n = p 且 a 与素数 p 互质时，上式可变为</p><p>$$<br>{a}^{p-1}\equiv 1 mod p<br>$$</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;欧拉函数&quot;&gt;&lt;a href=&quot;#欧拉函数&quot; class=&quot;headerlink&quot; title=&quot;欧拉函数&quot;&gt;&lt;/a&gt;欧拉函数&lt;/h3&gt;&lt;h4 id=&quot;欧拉函数-1&quot;&gt;&lt;a href=&quot;#欧拉函数-1&quot; class=&quot;headerlink&quot; title=&quot;欧拉函数&quot;&gt;&lt;/a&gt;欧拉函数&lt;/h4&gt;&lt;p&gt;在数论，&lt;strong&gt;对正整数n，欧拉函数是小于n的正整数中与n互质的数的数目（φ(1)=1）&lt;/strong&gt;。此函数以其首名研究者欧拉命名(Euler’s totient function)，它又称为Euler’s totient function、φ函数、欧拉商数等。 例如φ(8)=4，因为1,3,5,7均和8互质。 从欧拉函数引伸出来在环论方面的事实和拉格朗日定理构成了欧拉定理的证明。&lt;/p&gt;
+&lt;p&gt;欧拉函数的适用范围非常大，许多题目中都会用到欧拉函数的性质。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="数论" scheme="https://boctorio.github.io/tags/%E6%95%B0%E8%AE%BA/"/>
+    
+      <category term="欧拉函数" scheme="https://boctorio.github.io/tags/%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HDU-2036</title>
+    <link href="https://boctorio.github.io/2019/01/17/HDU-2036/"/>
+    <id>https://boctorio.github.io/2019/01/17/HDU-2036/</id>
+    <published>2019-01-17T06:52:20.000Z</published>
+    <updated>2019-02-01T13:31:39.598Z</updated>
+    
+    <content type="html"><![CDATA[<p>题目大意：</p><p>给你一个多边形，求它的面积。</p><p>多边形面积可以用向量知识来求解。</p><p>对于一个<strong>凸多边形</strong>，如下：</p><a id="more"></a><p><img src="/2019/01/17/HDU-2036/凸.png" alt=""></p><p>其面积可以表示为 S = S△OAB+S△OBC+S△OCD+S△ODE</p><p>对于△OAB 其面积用向量表示为 0.5 * |OA| * |OB| * sin∠AOB=0.5 * | <strong>OA</strong> x <strong>OB</strong>|</p><p>其中<strong>OA</strong> x <strong>OB</strong>表示叉乘（非点乘，具体详见百度百科“向量积”）</p><p>但因为向量叉乘有正有负，所以我们取的是绝对值，保证题目答案的正负。（正负取决于两条边的位置状态）</p><p>这时候就可以简单的计算出多边形的面积。</p><p>对于一个 <strong>凹多边形</strong>，如下：</p><p><img src="/2019/01/17/HDU-2036/凹.png" alt=""></p><p>其面积依然就可以用向量的方法求解</p><p>假设点O为坐标原点，则 S = S△OAB+S△OBC+S△OCD+S△ODE+S△OEA</p><p>S△OAB = 0.5 * <strong>OA</strong> x <strong>OB</strong> =0.5 * ( A.x * B.y - A.y * B.x )</p><p>其中S均表示在叉乘意义下的值，由于其具有正负之分，所以可以用来计算凹多边形的面积（具体证明过程略）。</p><p>这时候就可以计算出多边形的面积。</p><p>代码如下：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta"># <span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">int</span> n,i;</span><br><span class="line"><span class="keyword">double</span> a[<span class="number">1000</span>];</span><br><span class="line"><span class="keyword">double</span> b[<span class="number">1000</span>];</span><br><span class="line"><span class="keyword">while</span>(~<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n) &amp;&amp; n)&#123;</span><br><span class="line"><span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">"%lf %lf"</span>,&amp;a[i],&amp;b[i]);</span><br><span class="line">&#125;</span><br><span class="line">a[<span class="number">0</span>]=a[n];</span><br><span class="line">b[<span class="number">0</span>]=b[n];</span><br><span class="line"><span class="keyword">double</span> res=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">res=res+(a[i]*b[i+<span class="number">1</span>]-b[i]*a[i+<span class="number">1</span>])/<span class="number">2</span>;<span class="comment">//由于是逆时针方向，所以求出来结果为正。 </span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%.1lf\n"</span>,res);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;题目大意：&lt;/p&gt;
+&lt;p&gt;给你一个多边形，求它的面积。&lt;/p&gt;
+&lt;p&gt;多边形面积可以用向量知识来求解。&lt;/p&gt;
+&lt;p&gt;对于一个&lt;strong&gt;凸多边形&lt;/strong&gt;，如下：&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="几何" scheme="https://boctorio.github.io/tags/%E5%87%A0%E4%BD%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>广西大学第一届程序设计大赛-数论只会GCD</title>
+    <link href="https://boctorio.github.io/2019/01/16/%E5%B9%BF%E8%A5%BF%E5%A4%A7%E5%AD%A6%E7%AC%AC%E4%B8%80%E5%B1%8A%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%A4%A7%E8%B5%9B-D%E9%A2%98/"/>
+    <id>https://boctorio.github.io/2019/01/16/广西大学第一届程序设计大赛-D题/</id>
+    <published>2019-01-16T09:01:38.000Z</published>
+    <updated>2019-02-02T14:22:09.694Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>题目描述</strong></p><blockquote><p>  小西买了一堆肥宅快乐水和肥宅快乐茶，准备和室友比谁更肥宅。 </p><p>  快乐水有A瓶，快乐茶B瓶。 </p><p>  小西和室友的规则是这样的： </p><ol><li><p>小西先手，轮流到每个人的回合，每个回合只能喝剩余数量较多的饮料 </p></li><li><p>满足规则1的同时，每次只能喝另一种饮料剩余数量的正整数倍 </p></li><li><p>满足1、2的同时，不能超额喝饮料，也就是说剩下2瓶的时候不能喝大于2瓶的数量。 </p></li><li><p>每个人在自己的回合如果能喝完剩下的其中一种饮料，那么就获得胜利。 </p><p>例如A=10，B=2。 </p><p>小西只能喝快乐水，且只能喝2/4/6/8/10瓶快乐水。小西可以喝10瓶快乐水直接获得胜利。 </p><p>小西和室友都是肥宅，所以他们都会才采取为了胜利最优的行动。 </p><p>现在请你判断小西是否能赢得胜利。 </p></li></ol></blockquote><a id="more"></a><p>输入描述:</p><blockquote><p>第一行输入一个整数T，表示有T组数据</p><p>接下来T行，每行为一组数据，每行有两个正整数表示A和B的初始数量</p><p>1 ≤ T ≤ 500 , 1 ≤ A,B ≤ 10^12 </p></blockquote><p>输出描述:</p><blockquote><p>对于每组数据，若小西可以获得胜利则输出一行“wula”，否则输出一行“mmp”，不需要输出引号</p></blockquote><p>你真的会GCD吗</p><p>这道题其实就和求GCD的过程有关。</p><p>求GCD的过程就是GCD( a , b ) = GCD( b , a % b )，其过程就是把 a 减去 b 的正整数倍，然后依次递归求解。</p><p>那么对于这个题，最后的状态一定是一个数量为 0 ，一个数量为正整数。而逆推就可以得到题目给出的 A , B 值。</p><ol><li>假设 A &lt; 2 * B,那么接下来的操作之后一定是（ A - B , B），接下来也一直持续这个过程，而且这个过程是可以一直递推求出来唯一解的。</li></ol><ol start="2"><li>假如 A &gt; 2 * B , 那么因为两人足够聪明，接下来的状态可以变为（ A , A%B）或者（ A , A % B + A ）。</li></ol><p>可以看到，第二个状态只能有一种操作：（ A , A % B + A ）- &gt;（ A , A%B）,因此这个时候可操作的人就能够随意挑选这两种状态之一来掌握自己的胜负。</p><ol start="3"><li>假设A % B=0 那就不多说了，直接就赢了。</li></ol><p>代码如下：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta"># <span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">ll t,a,b;</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">"%lld"</span>,&amp;t);</span><br><span class="line"><span class="keyword">while</span>(t--)&#123;</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">"%lld %lld"</span>,&amp;a,&amp;b);</span><br><span class="line">ll flag=<span class="number">1</span>;<span class="comment">//用flag来记录当前的赢家，因为此时我们并不知道谁有主动权 </span></span><br><span class="line"><span class="keyword">while</span>(<span class="literal">true</span>)&#123;<span class="comment">//遇到可以判断赢家的条件时，循环就结束了 </span></span><br><span class="line"><span class="keyword">if</span>(a&gt;b) swap(a,b);</span><br><span class="line"><span class="keyword">if</span>(b%a==<span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(a*<span class="number">2</span>&lt;b) <span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">flag*=<span class="number">-1</span>;</span><br><span class="line">b=b-a;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(flag==<span class="number">1</span>)&#123;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"wula\n"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"mmp\n"</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;  小西买了一堆肥宅快乐水和肥宅快乐茶，准备和室友比谁更肥宅。 &lt;/p&gt;
+&lt;p&gt;  快乐水有A瓶，快乐茶B瓶。 &lt;/p&gt;
+&lt;p&gt;  小西和室友的规则是这样的： &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;小西先手，轮流到每个人的回合，每个回合只能喝剩余数量较多的饮料 &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;满足规则1的同时，每次只能喝另一种饮料剩余数量的正整数倍 &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;满足1、2的同时，不能超额喝饮料，也就是说剩下2瓶的时候不能喝大于2瓶的数量。 &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;每个人在自己的回合如果能喝完剩下的其中一种饮料，那么就获得胜利。 &lt;/p&gt;
+&lt;p&gt;例如A=10，B=2。 &lt;/p&gt;
+&lt;p&gt;小西只能喝快乐水，且只能喝2/4/6/8/10瓶快乐水。小西可以喝10瓶快乐水直接获得胜利。 &lt;/p&gt;
+&lt;p&gt;小西和室友都是肥宅，所以他们都会才采取为了胜利最优的行动。 &lt;/p&gt;
+&lt;p&gt;现在请你判断小西是否能赢得胜利。 &lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="博弈" scheme="https://boctorio.github.io/tags/%E5%8D%9A%E5%BC%88/"/>
+    
+  </entry>
   
   <entry>
     <title>素数筛选法</title>
