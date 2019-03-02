@@ -34,9 +34,9 @@
     </summary>
     
     
-      <category term="算法" scheme="https://boctorio.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="并查集" scheme="https://boctorio.github.io/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/"/>
+    
+      <category term="算法" scheme="https://boctorio.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -83,9 +83,9 @@
     </summary>
     
     
-      <category term="子序列" scheme="https://boctorio.github.io/tags/%E5%AD%90%E5%BA%8F%E5%88%97/"/>
-    
       <category term="算法" scheme="https://boctorio.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="子序列" scheme="https://boctorio.github.io/tags/%E5%AD%90%E5%BA%8F%E5%88%97/"/>
     
   </entry>
   
@@ -107,11 +107,11 @@
     </summary>
     
     
+      <category term="数论" scheme="https://boctorio.github.io/tags/%E6%95%B0%E8%AE%BA/"/>
+    
       <category term="GCD" scheme="https://boctorio.github.io/tags/GCD/"/>
     
       <category term="LCM" scheme="https://boctorio.github.io/tags/LCM/"/>
-    
-      <category term="数论" scheme="https://boctorio.github.io/tags/%E6%95%B0%E8%AE%BA/"/>
     
   </entry>
   
@@ -132,9 +132,9 @@
     </summary>
     
     
-      <category term="数论" scheme="https://boctorio.github.io/tags/%E6%95%B0%E8%AE%BA/"/>
-    
       <category term="欧拉函数" scheme="https://boctorio.github.io/tags/%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0/"/>
+    
+      <category term="数论" scheme="https://boctorio.github.io/tags/%E6%95%B0%E8%AE%BA/"/>
     
   </entry>
   
