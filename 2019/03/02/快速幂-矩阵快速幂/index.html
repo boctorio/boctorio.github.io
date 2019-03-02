@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="算法,算数基本定理,容斥定理,">
+  <meta name="keywords" content="算法,快速幂,">
 
 
 
@@ -88,24 +88,18 @@
 
 
 
-<meta name="description" content="算数基本定理定义：任何一个大于1的自然数，如果N不为质数，那么N可以分解成有限个质数的乘积，并且在不计次序的情况下，这种分解方式是唯一的。 例如：60可以分解为 2^2 * 3 * 5">
-<meta name="keywords" content="算法,算数基本定理,容斥定理">
+<meta name="description" content="快速幂顾名思义，快速幂就是快速算底数的n次幂。其时间复杂度为 O(log₂N)， 与朴素的O(N)相比效率有了极大的提高。 以a^b为例，假设b=11，则$$a^{11}=a^{2^{0}+2^{1}+2^{3}}$$因为11的二进制为1011，11=2^0 +2^1+2^3,所以可得上式。">
+<meta name="keywords" content="算法,快速幂">
 <meta property="og:type" content="article">
-<meta property="og:title" content="算数基本定理 + 容斥定理">
-<meta property="og:url" content="https://boctorio.github.io/2019/01/09/算数基本定理-容斥定理/index.html">
+<meta property="og:title" content="快速幂+矩阵快速幂">
+<meta property="og:url" content="https://boctorio.github.io/2019/03/02/快速幂-矩阵快速幂/index.html">
 <meta property="og:site_name" content="Boctorio&#39;s Blog">
-<meta property="og:description" content="算数基本定理定义：任何一个大于1的自然数，如果N不为质数，那么N可以分解成有限个质数的乘积，并且在不计次序的情况下，这种分解方式是唯一的。 例如：60可以分解为 2^2 * 3 * 5">
+<meta property="og:description" content="快速幂顾名思义，快速幂就是快速算底数的n次幂。其时间复杂度为 O(log₂N)， 与朴素的O(N)相比效率有了极大的提高。 以a^b为例，假设b=11，则$$a^{11}=a^{2^{0}+2^{1}+2^{3}}$$因为11的二进制为1011，11=2^0 +2^1+2^3,所以可得上式。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://boctorio.github.io/2019/01/09/算数基本定理-容斥定理/因子之和.png">
-<meta property="og:image" content="https://boctorio.github.io/2019/01/09/算数基本定理-容斥定理/GCD.png">
-<meta property="og:image" content="https://boctorio.github.io/2019/01/09/算数基本定理-容斥定理/LCM.png">
-<meta property="og:image" content="https://boctorio.github.io/2019/01/09/算数基本定理-容斥定理/veen.png">
-<meta property="og:image" content="https://boctorio.github.io/2019/01/09/算数基本定理-容斥定理/数学公式.png">
-<meta property="og:updated_time" content="2019-01-09T13:39:38.152Z">
+<meta property="og:updated_time" content="2019-03-02T12:55:50.824Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="算数基本定理 + 容斥定理">
-<meta name="twitter:description" content="算数基本定理定义：任何一个大于1的自然数，如果N不为质数，那么N可以分解成有限个质数的乘积，并且在不计次序的情况下，这种分解方式是唯一的。 例如：60可以分解为 2^2 * 3 * 5">
-<meta name="twitter:image" content="https://boctorio.github.io/2019/01/09/算数基本定理-容斥定理/因子之和.png">
+<meta name="twitter:title" content="快速幂+矩阵快速幂">
+<meta name="twitter:description" content="快速幂顾名思义，快速幂就是快速算底数的n次幂。其时间复杂度为 O(log₂N)， 与朴素的O(N)相比效率有了极大的提高。 以a^b为例，假设b=11，则$$a^{11}=a^{2^{0}+2^{1}+2^{3}}$$因为11的二进制为1011，11=2^0 +2^1+2^3,所以可得上式。">
 
 
 
@@ -135,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="https://boctorio.github.io/2019/01/09/算数基本定理-容斥定理/">
+  <link rel="canonical" href="https://boctorio.github.io/2019/03/02/快速幂-矩阵快速幂/">
 
 
 
 
 
-  <title>算数基本定理 + 容斥定理 | Boctorio's Blog</title>
+  <title>快速幂+矩阵快速幂 | Boctorio's Blog</title>
   
 
 
@@ -299,7 +293,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://boctorio.github.io/2019/01/09/算数基本定理-容斥定理/">
+    <link itemprop="mainEntityOfPage" href="https://boctorio.github.io/2019/03/02/快速幂-矩阵快速幂/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Boctorio">
@@ -316,7 +310,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">算数基本定理 + 容斥定理</h1>
+          <h1 class="post-title" itemprop="name headline">快速幂+矩阵快速幂</h1>
         
 
         <div class="post-meta">
@@ -328,8 +322,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-09T09:22:54+08:00">
-                2019-01-09
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-02T19:03:53+08:00">
+                2019-03-02
               </time>
             
 
@@ -360,7 +354,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  650
+                  1.1k
                 </span>
               
 
@@ -376,7 +370,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  4
                 </span>
               
             </div>
@@ -397,37 +391,27 @@
       
 
       
-        <h2 id="算数基本定理"><a href="#算数基本定理" class="headerlink" title="算数基本定理"></a>算数基本定理</h2><p>定义：任何一个大于1的自然数，如果N不为质数，那么N可以分解成有限个质数的乘积，并且在不计次序的情况下，这种分解方式是唯一的。</p>
-<p>例如：60可以分解为 2^2 * 3 * 5</p>
+        <h3 id="快速幂"><a href="#快速幂" class="headerlink" title="快速幂"></a>快速幂</h3><p>顾名思义，快速幂就是快速算底数的n次幂。其时间复杂度为 O(log₂N)， 与朴素的O(N)相比效率有了极大的提高。</p>
+<p>以a^b为例，假设b=11，则<br>$$<br>a^{11}=a^{2^{0}+2^{1}+2^{3}}<br>$$<br>因为11的二进制为1011，11=2^0 +2^1+2^3,所以可得上式。</p>
 <a id="more"></a>
-<p>数学公式描述</p>
-<p>N=P1^r1 * P2^r2 * P3^r3 * … * Pn^rn  （P1&lt;P2&lt;P3&lt;…<pn &="" pi="" 是质数="" ri="">=0）</pn></p>
-<h4 id="质因子分解计算方法-算法复杂度-O-√n"><a href="#质因子分解计算方法-算法复杂度-O-√n" class="headerlink" title="质因子分解计算方法 算法复杂度  ( O(√n)  )"></a>质因子分解计算方法 算法复杂度  ( O(√n)  )</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; prime_factor(<span class="keyword">int</span> n)&#123;</span><br><span class="line">    <span class="built_in">map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt;ans;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i*i&lt;n;i++)&#123;</span><br><span class="line">        <span class="keyword">while</span>(n%i==<span class="number">0</span>)&#123;</span><br><span class="line">            ++ans[i];</span><br><span class="line">            n/=i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(n!=<span class="number">1</span>)</span><br><span class="line">        ans[n]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="算数基本定理的应用"><a href="#算数基本定理的应用" class="headerlink" title="算数基本定理的应用"></a>算数基本定理的应用</h4><p>如何求N有几个因子？</p>
-<p>根据算数基本定理：N=P1^r1 * P2^r2 * P3^r3 * … * Pn^rn</p>
-<p>根据排列组合得到结果：</p>
-<p>ans=(1+r1) * (1+r2) * (1+r3) * … * (1+rn)</p>
-<p> <img src="/2019/01/09/算数基本定理-容斥定理/因子之和.png" alt=""></p>
-<p>如何求N的所有因子之和？</p>
-<p>根据算数基本定理：N=P1^r1 * P2^r2 * P3^r3 * … * Pn^rn</p>
-<p>求GCD(X,Y)和LCM(X,Y)</p>
-<p>根据算数基本定理：</p>
-<p>X=P1^x1 * P2^x2 * P3^x3 * … * Pn^xn</p>
-<p>Y=P1^y1 * P2^y2 * P3^y3 *… * Pn^yn</p>
-<p>根据GCD和LCM的定义</p>
-<p><img src="/2019/01/09/算数基本定理-容斥定理/GCD.png" alt=""></p>
-<p><img src="/2019/01/09/算数基本定理-容斥定理/LCM.png" alt=""></p>
-<h2 id="容斥定理"><a href="#容斥定理" class="headerlink" title="容斥定理"></a>容斥定理</h2><p>要计算几个集合并集的大小，我们要先将所有单个集合的大 小计算出来，然后减去所有两个集合相交的部分，再加回所 有三个集合相交的部分，再减去所有四个集合相交的部分， 依此类推，一直计算到所有集合相交的部分。</p>
-<p>用Venn图来表示</p>
-<p><img src="/2019/01/09/算数基本定理-容斥定理/veen.png" alt=""></p>
-<p>数学公式描述</p>
-<p><img src="/2019/01/09/算数基本定理-容斥定理/数学公式.png" alt=""></p>
-<p>如果要对n个物体进行选择，那么有多少种情况？</p>
-<p>代码    复杂度为O(2^n)</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;(<span class="number">1</span> &lt;&lt; m);i++)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d"</span>,i&gt;&gt;j &amp; <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">""</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="容斥定理的应用"><a href="#容斥定理的应用" class="headerlink" title="容斥定理的应用"></a>容斥定理的应用</h4><p>问题：魔镜给小明m个数字（a1、a2 …… am）和一个整数n，魔镜定义：如果有一个数，是这m个数字里面任意一 个数的倍数，那么这个数称为LuckyNumber。而小明会的题 数为[1,n]闭区间内LuckyNumber的数量。 (0 &lt; m &lt; 15) 那么请你帮小明计算一下他会的题目数。</p>
-<p>代码  复杂度为O(2^n)</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">LL ans=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;(i&lt;&lt;m);i++)&#123;</span><br><span class="line">    <span class="keyword">int</span> cnt=<span class="number">0</span>;</span><br><span class="line">    LL LCM=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;m;j++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="number">1</span>&amp;(i&gt;&gt;j))&#123;<span class="comment">//按位运算判断第m个数是否使用 </span></span><br><span class="line">            cnt++;</span><br><span class="line">            LCM=lcm(LCM,a[j]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(cnt&amp;<span class="number">1</span>) ans+=n/LCM;<span class="comment">//判断n中元素使用的个数，奇加偶减</span></span><br><span class="line">    <span class="keyword">else</span> ans-=n/LCM;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,ans);</span><br></pre></td></tr></table></figure>
+<p>所以我们只要判断幂的二进制的值，就可以计算在log()级别的时间求解出答案。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> mod;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">mulpow</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> n)</span></span>&#123;<span class="comment">//求a^n</span></span><br><span class="line">	<span class="keyword">int</span> res=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span>(n&gt;<span class="number">0</span>)&#123;</span><br><span class="line">		<span class="keyword">if</span>(n&amp;<span class="number">1</span>) res=res*a%mod;<span class="comment">//如果当前位为1，则进行计算</span></span><br><span class="line">		a=a*a%mod;<span class="comment">//a^(2^i),i为循环次数</span></span><br><span class="line">		n/=<span class="number">2</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>函数中间的运算数可能超过int的范围，所以当我们使用时要注意数据范围而选取适当的数据类型(int,long long)。</p>
+<h3 id="矩阵快速幂"><a href="#矩阵快速幂" class="headerlink" title="矩阵快速幂"></a>矩阵快速幂</h3><p>矩阵快速幂思想和快速幂一样，只不过由单纯的数字运算变成了矩阵运算（这里需要了解矩阵的运算方法）。</p>
+<p>使用矩阵快速幂的场合一般为知道递推式，求解相应的第n项的值。</p>
+<p>下面以这个式子为样例，来进行矩阵快速幂的讲解。<br>$$<br>a_{n}=2*a_{n-1}+1<br>$$<br>我们用这个式子构造一个矩阵：<br>$$<br>\left[<br> \begin{matrix}<br> a_n \\<br> 1<br> \end{matrix}<br>\right]<br>=<br>\left[<br> \begin{matrix}<br>   2 &amp; 1 \\<br>   0 &amp; 1<br>  \end{matrix}<br>  \right]<br>  *<br>\left[<br> \begin{matrix}<br> a_{n-1}\\<br> 1<br> \end{matrix}<br>\right]<br>$$<br>如果没学过矩阵运算的相关知识，可以去百度进行学习。</p>
+<p>然后我们继续递推：<br>$$<br>\left[<br> \begin{matrix}<br> a_{n-1} \\<br> 1<br> \end{matrix}<br>\right]<br>=<br>\left[<br> \begin{matrix}<br>   2 &amp; 1 \\<br>   0 &amp; 1<br>  \end{matrix}<br>  \right]<br>  *<br>\left[<br> \begin{matrix}<br> a_{n-2}\\<br> 1<br> \end{matrix}<br>\right]<br>$$</p>
+<p>$$<br>…<br>$$</p>
+<p>$$<br>\left[<br> \begin{matrix}<br> a_2 \\<br> 1<br> \end{matrix}<br>\right]<br>=<br>\left[<br> \begin{matrix}<br>   2 &amp; 1 \\<br>   0 &amp; 1<br>  \end{matrix}<br>  \right]<br>  *<br>\left[<br> \begin{matrix}<br> a_{1} \\<br> 1<br> \end{matrix}<br>\right]<br>$$</p>
+<p>所以<br>$$<br>\left[<br> \begin{matrix}<br> a_n \\<br> 1<br> \end{matrix}<br>\right]<br>=<br>{\left[<br> \begin{matrix}<br>   2 &amp; 1 \\<br>   0 &amp; 1<br>  \end{matrix}<br>  \right]}^{n-1}<br>  *<br>\left[<br> \begin{matrix}<br> a_{1}\\<br> 1<br> \end{matrix}<br>\right]<br>$$<br>所以我们只需要求出中间的矩阵的结果就可以求出答案。</p>
+<p>其大致步骤和快速幂一样。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> x[<span class="number">5</span>][<span class="number">5</span>];<span class="comment">//一般构造的矩阵大小不会超过5，大小根据情况而定 </span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> mod,n,a1;</span><br><span class="line"><span class="function">node <span class="title">ope</span><span class="params">(node a,node b)</span></span>&#123;<span class="comment">//注意函数返回类型为 node,下面的 mulpow()函数返回类型同样是 node; </span></span><br><span class="line">	node r;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">2</span>;i++)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;<span class="number">2</span>;j++)&#123;</span><br><span class="line">			r.x[i][j]=<span class="number">0</span>;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">0</span>;k&lt;<span class="number">2</span>;k++)&#123;<span class="comment">//这里是矩阵乘法的运算方法</span></span><br><span class="line">				r.x[i][j]+=a.x[i][k]*b.x[k][j];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> r;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">node <span class="title">mulpow</span><span class="params">(node a,<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">	<span class="comment">//这里用到了一个知识，一个矩阵乘以单位矩阵结果仍为原矩阵，所以这一步相当于快速幂里面的 res=1，具体详见百度百科 单位矩阵 </span></span><br><span class="line">	node res;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">2</span>;i++)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;<span class="number">2</span>;j++)</span><br><span class="line">			<span class="keyword">if</span>(i==j) res.x[i][j]=<span class="number">1</span>;</span><br><span class="line">			<span class="keyword">else</span> res.x[i][j]=<span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">while</span>(n&gt;<span class="number">0</span>)&#123;</span><br><span class="line">		<span class="keyword">if</span>(n&amp;<span class="number">1</span>) res=ope(res,a);</span><br><span class="line">		a=ope(a,a);</span><br><span class="line">		n/=<span class="number">2</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="comment">//构造需要求幂的初始矩阵 </span></span><br><span class="line">	node a;</span><br><span class="line">	a.x[<span class="number">0</span>][<span class="number">0</span>]=<span class="number">2</span>;</span><br><span class="line">	a.x[<span class="number">0</span>][<span class="number">1</span>]=a.x[<span class="number">1</span>][<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">	a.x[<span class="number">1</span>][<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">	</span><br><span class="line">	node s=mulpow(a,n<span class="number">-1</span>);</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//最后一步矩阵乘法,参考前面最后展示的一个的矩阵</span></span><br><span class="line">	<span class="keyword">int</span> res = s.x[<span class="number">0</span>][<span class="number">0</span>] * a1 + s.x[<span class="number">0</span>][<span class="number">1</span>];</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,res);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>矩阵乘法也几乎是模板，其难点在于矩阵的构造，给你一个递推式，你必须推出相应的矩阵才可以进行运算，因此需要多学习一些矩阵的知识。</p>
+<p>接下来展示一个Fibonacci的递推矩阵：</p>
+<p>Fibonacci的定义式：<br>$$<br>F(1)=f(2)=1\<br>F(n)=F(n-1)+F(n-2) (n&gt;2)<br>$$</p>
+<p>递推矩阵：<br>$$<br>\left[<br>\begin{matrix}<br> F(n)\\<br> F(n-1)<br>\end{matrix}<br>\right]<br>=<br>\left[<br>\begin{matrix}<br> 1 &amp; 1\\<br> 1 &amp; 0<br>\end{matrix}<br>\right]<br>*<br>\left[<br>\begin{matrix}<br>F(n-1)\\<br>F(n-2)<br>\end{matrix}<br>\right]<br>$$<br>虽然这这个矩阵的第二个运算式子 F( n - 1 )=F( n - 1 ) 看起来是废话，但我们构造矩阵的目的是<strong>合理性</strong>，只要矩阵符合条件，就可以进行计算。</p>
+<p>计算这个式子时需要注意矩阵快速幂的指数。</p>
+<p>相关题目可以百度进行搜索。</p>
 
       
     </div>
@@ -486,9 +470,7 @@
           
             <a href="/tags/算法/" rel="tag"><i class="fa fa-tag"></i> 算法</a>
           
-            <a href="/tags/算数基本定理/" rel="tag"><i class="fa fa-tag"></i> 算数基本定理</a>
-          
-            <a href="/tags/容斥定理/" rel="tag"><i class="fa fa-tag"></i> 容斥定理</a>
+            <a href="/tags/快速幂/" rel="tag"><i class="fa fa-tag"></i> 快速幂</a>
           
         </div>
       
@@ -501,8 +483,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/08/BFS与DFS/" rel="next" title="BFS与DFS">
-                <i class="fa fa-chevron-left"></i> BFS与DFS
+              <a href="/2019/03/02/并查集/" rel="next" title="并查集">
+                <i class="fa fa-chevron-left"></i> 并查集
               </a>
             
           </div>
@@ -510,10 +492,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/01/09/费马小定理-轻松判断大质数/" rel="prev" title="费马小定理--轻松判断大质数">
-                费马小定理--轻松判断大质数 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -674,7 +652,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算数基本定理"><span class="nav-number">1.</span> <span class="nav-text">算数基本定理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#质因子分解计算方法-算法复杂度-O-√n"><span class="nav-number">1.0.1.</span> <span class="nav-text">质因子分解计算方法 算法复杂度  ( O(√n)  )</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#算数基本定理的应用"><span class="nav-number">1.0.2.</span> <span class="nav-text">算数基本定理的应用</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#容斥定理"><span class="nav-number">2.</span> <span class="nav-text">容斥定理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#容斥定理的应用"><span class="nav-number">2.0.1.</span> <span class="nav-text">容斥定理的应用</span></a></li></ol></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#快速幂"><span class="nav-number">1.</span> <span class="nav-text">快速幂</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#矩阵快速幂"><span class="nav-number">2.</span> <span class="nav-text">矩阵快速幂</span></a></li></ol></div>
             
 
           </div>
