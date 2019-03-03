@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="几何,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -88,21 +88,17 @@
 
 
 
-<meta name="description" content="题目大意： 给你一个多边形，求它的面积。 多边形面积可以用向量知识来求解。 对于一个凸多边形，如下：">
-<meta name="keywords" content="几何">
+<meta name="description" content="时间复杂度时间复杂度是同一问题可用不同算法解决，而一个算法的质量优劣将影响到算法乃至程序的效率。算法分析的目的在于选择合适算法和改进算法。计算机科学中，算法的时间复杂度是一个函数，它定性描述了该算法的运行时间。这是一个关于代表算法输入值的字符串的长度的函数。时间复杂度常用大O符号表述，不包括这个函数的低阶项和首项系数。使用这种方式时，时间复杂度可被称为是渐近的，它考察当输入值大小趋近无穷时的情况。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HDU-2036（多边形面积）">
-<meta property="og:url" content="https://boctorio.github.io/2019/01/17/HDU-2036/index.html">
+<meta property="og:title" content="时间复杂度的计算及其他补充知识">
+<meta property="og:url" content="https://boctorio.github.io/2019/03/03/时间复杂度的计算及其他补充知识/index.html">
 <meta property="og:site_name" content="Boctorio&#39;s Blog">
-<meta property="og:description" content="题目大意： 给你一个多边形，求它的面积。 多边形面积可以用向量知识来求解。 对于一个凸多边形，如下：">
+<meta property="og:description" content="时间复杂度时间复杂度是同一问题可用不同算法解决，而一个算法的质量优劣将影响到算法乃至程序的效率。算法分析的目的在于选择合适算法和改进算法。计算机科学中，算法的时间复杂度是一个函数，它定性描述了该算法的运行时间。这是一个关于代表算法输入值的字符串的长度的函数。时间复杂度常用大O符号表述，不包括这个函数的低阶项和首项系数。使用这种方式时，时间复杂度可被称为是渐近的，它考察当输入值大小趋近无穷时的情况。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://boctorio.github.io/2019/01/17/HDU-2036/凸.png">
-<meta property="og:image" content="https://boctorio.github.io/2019/01/17/HDU-2036/凹.png">
-<meta property="og:updated_time" content="2019-03-01T14:42:57.170Z">
+<meta property="og:updated_time" content="2019-03-03T06:12:35.560Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HDU-2036（多边形面积）">
-<meta name="twitter:description" content="题目大意： 给你一个多边形，求它的面积。 多边形面积可以用向量知识来求解。 对于一个凸多边形，如下：">
-<meta name="twitter:image" content="https://boctorio.github.io/2019/01/17/HDU-2036/凸.png">
+<meta name="twitter:title" content="时间复杂度的计算及其他补充知识">
+<meta name="twitter:description" content="时间复杂度时间复杂度是同一问题可用不同算法解决，而一个算法的质量优劣将影响到算法乃至程序的效率。算法分析的目的在于选择合适算法和改进算法。计算机科学中，算法的时间复杂度是一个函数，它定性描述了该算法的运行时间。这是一个关于代表算法输入值的字符串的长度的函数。时间复杂度常用大O符号表述，不包括这个函数的低阶项和首项系数。使用这种方式时，时间复杂度可被称为是渐近的，它考察当输入值大小趋近无穷时的情况。">
 
 
 
@@ -132,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="https://boctorio.github.io/2019/01/17/HDU-2036/">
+  <link rel="canonical" href="https://boctorio.github.io/2019/03/03/时间复杂度的计算及其他补充知识/">
 
 
 
 
 
-  <title>HDU-2036（多边形面积） | Boctorio's Blog</title>
+  <title>时间复杂度的计算及其他补充知识 | Boctorio's Blog</title>
   
 
 
@@ -296,7 +292,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://boctorio.github.io/2019/01/17/HDU-2036/">
+    <link itemprop="mainEntityOfPage" href="https://boctorio.github.io/2019/03/03/时间复杂度的计算及其他补充知识/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Boctorio">
@@ -313,7 +309,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">HDU-2036（多边形面积）</h1>
+          <h1 class="post-title" itemprop="name headline">时间复杂度的计算及其他补充知识</h1>
         
 
         <div class="post-meta">
@@ -325,8 +321,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-17T14:52:20+08:00">
-                2019-01-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-03T12:51:18+08:00">
+                2019-03-03
               </time>
             
 
@@ -357,7 +353,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  403
+                  1.5k
                 </span>
               
 
@@ -373,7 +369,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  6
                 </span>
               
             </div>
@@ -394,26 +390,46 @@
       
 
       
-        <p>题目大意：</p>
-<p>给你一个多边形，求它的面积。</p>
-<p>多边形面积可以用向量知识来求解。</p>
-<p>对于一个<strong>凸多边形</strong>，如下：</p>
+        <h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><p>时间复杂度是同一问题可用不同算法解决，而一个算法的质量优劣将影响到算法乃至程序的效率。算法分析的目的在于选择合适算法和改进算法。<br>计算机科学中，算法的时间复杂度是一个函数，它定性描述了该算法的运行时间。这是一个关于代表算法输入值的字符串的长度的函数。<strong>时间复杂度常用大O符号表述，不包括这个函数的低阶项和首项系数</strong>。使用这种方式时，时间复杂度可被称为是渐近的，它考察当输入值大小趋近无穷时的情况。（来自百度百科）</p>
 <a id="more"></a>
-<p><img src="/2019/01/17/HDU-2036/凸.png" alt=""></p>
-<p>其面积可以表示为 S = S△OAB+S△OBC+S△OCD+S△ODE</p>
-<p>对于△OAB 其面积用向量表示为 0.5 * |OA| * |OB| * sin∠AOB=0.5 * | <strong>OA</strong> x <strong>OB</strong>|</p>
-<p>其中<strong>OA</strong> x <strong>OB</strong>表示叉乘（非点乘，具体详见百度百科“向量积”）</p>
-<p>但因为向量叉乘有正有负，所以我们取的是绝对值，保证题目答案的正负。（正负取决于两条边的位置状态）</p>
-<p>这时候就可以简单的计算出多边形的面积。</p>
-<p>对于一个 <strong>凹多边形</strong>，如下：</p>
-<p><img src="/2019/01/17/HDU-2036/凹.png" alt=""></p>
-<p>其面积依然就可以用向量的方法求解</p>
-<p>假设点O为坐标原点，则 S = S△OAB+S△OBC+S△OCD+S△ODE+S△OEA</p>
-<p>S△OAB = 0.5 * <strong>OA</strong> x <strong>OB</strong> =0.5 * ( A.x * B.y - A.y * B.x )</p>
-<p>其中S均表示在叉乘意义下的值，由于其具有正负之分，所以可以用来计算凹多边形的面积（具体证明过程略）。</p>
-<p>这时候就可以计算出多边形的面积。</p>
-<p>代码如下：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta"># <span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n,i;</span><br><span class="line">	<span class="keyword">double</span> a[<span class="number">1000</span>];</span><br><span class="line">	<span class="keyword">double</span> b[<span class="number">1000</span>];</span><br><span class="line">	<span class="keyword">while</span>(~<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n) &amp;&amp; n)&#123;</span><br><span class="line">		<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">"%lf %lf"</span>,&amp;a[i],&amp;b[i]);</span><br><span class="line">		&#125;</span><br><span class="line">		a[<span class="number">0</span>]=a[n];</span><br><span class="line">		b[<span class="number">0</span>]=b[n];</span><br><span class="line">		<span class="keyword">double</span> res=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">			res=res+(a[i]*b[i+<span class="number">1</span>]-b[i]*a[i+<span class="number">1</span>])/<span class="number">2</span>;<span class="comment">//由于是逆时针方向，所以求出来结果为正。 </span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%.1lf\n"</span>,res);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>时间复杂度最重要的一句话也就是上面加粗的这一句。</p>
+<p>我们学习算法的目的就是使用算法使解决问题的时间复杂度尽量的小，就对于排序算法来说，排序有许多种方法，对于初学者来说，最简单的就是冒泡排序</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a[maxn];</span><br><span class="line"><span class="keyword">int</span> temp,n;</span><br><span class="line"><span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; n - <span class="number">1</span>; j++)</span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; n - <span class="number">1</span> - j; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(a[i] &gt; a[i + <span class="number">1</span>])</span><br><span class="line">            &#123;</span><br><span class="line">                temp = a[i];</span><br><span class="line">                a[i] = a[i + <span class="number">1</span>];</span><br><span class="line">                a[i + <span class="number">1</span>] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<p>可以看出，两层循环的情况下，里面的 if()语句总共运行了n*(n-1)/2次。展开最高项次数为2,因此时间复杂度为O(n^2)。</p>
+<p>再看一个判断质数的代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> n,i;</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line"><span class="comment">//时间复杂度O(n) 从定义出发：因子只有1和其本身，因此循环判断是否有其他因子</span></span><br><span class="line"><span class="keyword">for</span>(i=<span class="number">2</span>;i&lt;n;i++)&#123;</span><br><span class="line">	<span class="keyword">if</span>(n%i==<span class="number">0</span>)&#123;</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(i==n) <span class="built_in">printf</span>(<span class="string">"is prime\n"</span>);</span><br><span class="line"><span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"isn't prime\n"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//时间复杂度O(√n) 从因子的角度出发，如果在√n之前没有其他因子，那么之后也不会再有了</span></span><br><span class="line"><span class="keyword">for</span>(i=<span class="number">2</span>;i*i&lt;=n;i++)&#123;</span><br><span class="line">	<span class="keyword">if</span>(n%i==<span class="number">0</span>)&#123;</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(i==n) <span class="built_in">printf</span>(<span class="string">"is prime\n"</span>);</span><br><span class="line"><span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"isn't prime\n"</span>);</span><br></pre></td></tr></table></figure>
+<p>上面就是两个判断质数的时间复杂度的区别。</p>
+<p><strong>注意：上述循环中的结束条件( i &lt; n , i * i &lt;=n ) 均与 n 的值有关，在计算复杂度时，我们一般只考虑输入的值对代码时间的影响，</strong>比如如下面几个代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">100000</span>;i++)&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"Hello world\n"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10000</span>;i++)&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;i;j++)&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"Hello world\n"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">	</span><br><span class="line"><span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"Hello world\n"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这几个代码的时间复杂度均为O(1)，<strong>因为不管输入为任何值，对这一部分代码的运算不会有任何影响。</strong></p>
+<p>所以当我们考虑时间复杂度时，只考虑与输入相关的部分，<strong>但在做题时，要考虑这一部分代码对整体时间使用的影响。</strong></p>
+<p>然后看接下来的代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//计算n的二进制位数</span></span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line"><span class="keyword">int</span> sum=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span>(n&gt;<span class="number">0</span>)&#123;</span><br><span class="line">    n/=<span class="number">2</span>;</span><br><span class="line">    sum++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%d\n"</span>,n);</span><br></pre></td></tr></table></figure>
+<p>这个代码的复杂度为O( log(n) )，其中log的底数一般不写，这是在做题时可能遇到的比较低时间复杂度。</p>
+<p>接下来看这个代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(~<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n))&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>,n*n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个代码的时间复杂度为O(1)，因为我们前面说过忽略常数的影响，在OJ系统中，如果说多组输入，那么我们在计算复杂度时只需要考虑单组的时间复杂度。</p>
+<p>但是这个代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> t,n;</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;t);</span><br><span class="line"><span class="keyword">while</span>(t--)&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,n*n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个代码的时间复杂度为O( t )，因为 t 是一个<strong>输入的变量</strong>，是可以改变的变量，所以我们在计算时间复杂度是需要计算上 t 对代码的影响。</p>
+<p>虽然有些代码时间复杂度并不高，但在做题时，如果常数比较大，那么在写代码时仍要注意常数给代码带来的影响。</p>
+<p>一般情况下，OJ评测机的每秒运算次数大概为 1e8~1e9 次。</p>
+<h3 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h3><p>空间复杂度和时间复杂度是相对应的，空间复杂度为输入的变量对空间的要求，一维数组为O( n ) ，二维数组为O(n^2)或O(n*m)等多种形式，一般情况下，代码的数组大小最好在1e8之下，否则，内存就会超限，导致虽然代码正确，但是并不通过的情况发生。</p>
+<h3 id="OJ常见评测结果"><a href="#OJ常见评测结果" class="headerlink" title="OJ常见评测结果"></a>OJ常见评测结果</h3><h4 id="Accepted"><a href="#Accepted" class="headerlink" title="Accepted"></a>Accepted</h4><p>答案正确！多么完美的返回结果！</p>
+<p>#### </p>
+<h4 id="Wrong-Answer"><a href="#Wrong-Answer" class="headerlink" title="Wrong Answer"></a>Wrong Answer</h4><p>答案错误！一定是评测机坏了！本地对了就是对了，OJ上错误说明OJ肯定有问题！</p>
+<h4 id="Compile-Error"><a href="#Compile-Error" class="headerlink" title="Compile Error"></a>Compile Error</h4><p>编译错误。语言不小心选错了？哦，少复制了一点代码。 此处顺便@某过气OJ。</p>
+<h4 id="Time-Limit-Exceed"><a href="#Time-Limit-Exceed" class="headerlink" title="Time Limit Exceed"></a>Time Limit Exceed</h4><p>时间超限。一定是评测机太慢了！</p>
+<h4 id="Memory-Limit-Exceed"><a href="#Memory-Limit-Exceed" class="headerlink" title="Memory Limit Exceed"></a>Memory Limit Exceed</h4><p>内存超限。扣死了，内存都不会弄多点，这点内存都不舍得给我！</p>
+<h4 id="Presentation-Error"><a href="#Presentation-Error" class="headerlink" title="Presentation Error"></a>Presentation Error</h4><p>格式错误。不就多个空格，多个换行吗，又看不见那些字符，真是小心眼！</p>
+<h4 id="System-Error"><a href="#System-Error" class="headerlink" title="System Error"></a>System Error</h4><p>系统错误。辣鸡评测机，辣鸡OJ！</p>
+<h4 id="Output-Limit-Exceed"><a href="#Output-Limit-Exceed" class="headerlink" title="Output Limit Exceed"></a>Output Limit Exceed</h4><p>输出超限。我不是怕你看不懂吗，多输出点给你解释一下我的答案嘛！</p>
+<h4 id="Runtime-Error"><a href="#Runtime-Error" class="headerlink" title="Runtime Error"></a>Runtime Error</h4><p>运行错误。不就不小心除以零了嘛，就当我又创造了一门数学嘛！啊？数组下标越界了？我就是放这个变量出去数组外面玩了一会嘛。</p>
+<p>在刷题的足够多之后，一些超限问题或者运行错误等就会减少，剩下的就只有（听取）WA（声一片）了。哈哈哈哈哈。</p>
+<h3 id="常见刷题OJ"><a href="#常见刷题OJ" class="headerlink" title="常见刷题OJ"></a>常见刷题OJ</h3><p>杭州电子科技大学 ( 杭电 ) OJ : acm.hdu.edu.cn<a href="acm.hdu.edu.cn">杭电OJ</a>  ( 第11页之后有大量中文题目 )</p>
+<p>codeforces :  codeforces.com  (一起来肝cf啊！)</p>
+<p>洛谷：luogu.org</p>
+<p>vj : vjudge.net  (Virtual Judge，可以在这里创建比赛) </p>
 
       
     </div>
@@ -468,12 +484,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/几何/" rel="tag"><i class="fa fa-tag"></i> 几何</a>
-          
-        </div>
-      
 
       
       
@@ -483,8 +493,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/16/广西大学第一届程序设计大赛-D题/" rel="next" title="广西大学第一届程序设计大赛-数论只会GCD">
-                <i class="fa fa-chevron-left"></i> 广西大学第一届程序设计大赛-数论只会GCD
+              <a href="/2019/03/03/尺取/" rel="next" title="尺取+二分">
+                <i class="fa fa-chevron-left"></i> 尺取+二分
               </a>
             
           </div>
@@ -492,10 +502,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/02/01/欧拉函数及其部分性质/" rel="prev" title="欧拉函数及其部分性质">
-                欧拉函数及其部分性质 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -578,8 +584,17 @@ var jiathis_config={
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -637,6 +652,22 @@ var jiathis_config={
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#时间复杂度"><span class="nav-number">1.</span> <span class="nav-text">时间复杂度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#空间复杂度"><span class="nav-number">2.</span> <span class="nav-text">空间复杂度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OJ常见评测结果"><span class="nav-number">3.</span> <span class="nav-text">OJ常见评测结果</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Accepted"><span class="nav-number">3.1.</span> <span class="nav-text">Accepted</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Wrong-Answer"><span class="nav-number">3.2.</span> <span class="nav-text">Wrong Answer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Compile-Error"><span class="nav-number">3.3.</span> <span class="nav-text">Compile Error</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Time-Limit-Exceed"><span class="nav-number">3.4.</span> <span class="nav-text">Time Limit Exceed</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Memory-Limit-Exceed"><span class="nav-number">3.5.</span> <span class="nav-text">Memory Limit Exceed</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Presentation-Error"><span class="nav-number">3.6.</span> <span class="nav-text">Presentation Error</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#System-Error"><span class="nav-number">3.7.</span> <span class="nav-text">System Error</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Output-Limit-Exceed"><span class="nav-number">3.8.</span> <span class="nav-text">Output Limit Exceed</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Runtime-Error"><span class="nav-number">3.9.</span> <span class="nav-text">Runtime Error</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见刷题OJ"><span class="nav-number">4.</span> <span class="nav-text">常见刷题OJ</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
