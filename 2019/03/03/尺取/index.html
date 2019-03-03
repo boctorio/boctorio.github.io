@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="数论,欧拉函数,">
+  <meta name="keywords" content="尺取,算法,">
 
 
 
@@ -88,18 +88,18 @@
 
 
 
-<meta name="description" content="欧拉函数欧拉函数在数论，对正整数n，欧拉函数是小于n的正整数中与n互质的数的数目（φ(1)=1）。此函数以其首名研究者欧拉命名(Euler’s totient function)，它又称为Euler’s totient function、φ函数、欧拉商数等。 例如φ(8)=4，因为1,3,5,7均和8互质。 从欧拉函数引伸出来在环论方面的事实和拉格朗日定理构成了欧拉定理的证明。 欧拉函数的适用范围">
-<meta name="keywords" content="数论,欧拉函数">
+<meta name="description" content="尺取-问题引入尺取，顾名思义，就是像尺子一样取一段区间，来快速高效地找到你想要的区间。 接下来看一个题目：  给定一个长度为n的数列a1,a2,…,an及整数S,求不小于S的连续子序列的和的最小值  通俗一点来讲，求 min ( 区间和 ) 且 区间和 &amp;gt;= S。">
+<meta name="keywords" content="尺取,算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="欧拉函数及其部分性质">
-<meta property="og:url" content="https://boctorio.github.io/2019/02/01/欧拉函数及其部分性质/index.html">
+<meta property="og:title" content="尺取+二分">
+<meta property="og:url" content="https://boctorio.github.io/2019/03/03/尺取/index.html">
 <meta property="og:site_name" content="Boctorio&#39;s Blog">
-<meta property="og:description" content="欧拉函数欧拉函数在数论，对正整数n，欧拉函数是小于n的正整数中与n互质的数的数目（φ(1)=1）。此函数以其首名研究者欧拉命名(Euler’s totient function)，它又称为Euler’s totient function、φ函数、欧拉商数等。 例如φ(8)=4，因为1,3,5,7均和8互质。 从欧拉函数引伸出来在环论方面的事实和拉格朗日定理构成了欧拉定理的证明。 欧拉函数的适用范围">
+<meta property="og:description" content="尺取-问题引入尺取，顾名思义，就是像尺子一样取一段区间，来快速高效地找到你想要的区间。 接下来看一个题目：  给定一个长度为n的数列a1,a2,…,an及整数S,求不小于S的连续子序列的和的最小值  通俗一点来讲，求 min ( 区间和 ) 且 区间和 &amp;gt;= S。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-11T04:59:03.237Z">
+<meta property="og:updated_time" content="2019-03-03T03:21:22.018Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="欧拉函数及其部分性质">
-<meta name="twitter:description" content="欧拉函数欧拉函数在数论，对正整数n，欧拉函数是小于n的正整数中与n互质的数的数目（φ(1)=1）。此函数以其首名研究者欧拉命名(Euler’s totient function)，它又称为Euler’s totient function、φ函数、欧拉商数等。 例如φ(8)=4，因为1,3,5,7均和8互质。 从欧拉函数引伸出来在环论方面的事实和拉格朗日定理构成了欧拉定理的证明。 欧拉函数的适用范围">
+<meta name="twitter:title" content="尺取+二分">
+<meta name="twitter:description" content="尺取-问题引入尺取，顾名思义，就是像尺子一样取一段区间，来快速高效地找到你想要的区间。 接下来看一个题目：  给定一个长度为n的数列a1,a2,…,an及整数S,求不小于S的连续子序列的和的最小值  通俗一点来讲，求 min ( 区间和 ) 且 区间和 &amp;gt;= S。">
 
 
 
@@ -129,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="https://boctorio.github.io/2019/02/01/欧拉函数及其部分性质/">
+  <link rel="canonical" href="https://boctorio.github.io/2019/03/03/尺取/">
 
 
 
 
 
-  <title>欧拉函数及其部分性质 | Boctorio's Blog</title>
+  <title>尺取+二分 | Boctorio's Blog</title>
   
 
 
@@ -293,7 +293,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://boctorio.github.io/2019/02/01/欧拉函数及其部分性质/">
+    <link itemprop="mainEntityOfPage" href="https://boctorio.github.io/2019/03/03/尺取/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Boctorio">
@@ -310,7 +310,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">欧拉函数及其部分性质</h1>
+          <h1 class="post-title" itemprop="name headline">尺取+二分</h1>
         
 
         <div class="post-meta">
@@ -322,8 +322,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-01T17:16:15+08:00">
-                2019-02-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-03T08:35:24+08:00">
+                2019-03-03
               </time>
             
 
@@ -354,7 +354,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  987
+                  1.7k
                 </span>
               
 
@@ -370,7 +370,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4
+                  6
                 </span>
               
             </div>
@@ -391,39 +391,55 @@
       
 
       
-        <h3 id="欧拉函数"><a href="#欧拉函数" class="headerlink" title="欧拉函数"></a>欧拉函数</h3><h4 id="欧拉函数-1"><a href="#欧拉函数-1" class="headerlink" title="欧拉函数"></a>欧拉函数</h4><p>在数论，<strong>对正整数n，欧拉函数是小于n的正整数中与n互质的数的数目（φ(1)=1）</strong>。此函数以其首名研究者欧拉命名(Euler’s totient function)，它又称为Euler’s totient function、φ函数、欧拉商数等。 例如φ(8)=4，因为1,3,5,7均和8互质。 从欧拉函数引伸出来在环论方面的事实和拉格朗日定理构成了欧拉定理的证明。</p>
-<p>欧拉函数的适用范围非常大，许多题目中都会用到欧拉函数的性质。</p>
+        <h3 id="尺取-问题引入"><a href="#尺取-问题引入" class="headerlink" title="尺取-问题引入"></a>尺取-问题引入</h3><p>尺取，顾名思义，就是像尺子一样取一段区间，来快速高效地找到你想要的区间。</p>
+<p>接下来看一个题目：</p>
+<blockquote>
+<p>给定一个长度为n的数列a1,a2,…,an及整数S,求不小于S的连续子序列的和的最小值</p>
+</blockquote>
+<p>通俗一点来讲，求 min ( 区间和 ) 且 区间和 &gt;= S。</p>
 <a id="more"></a>
-<h5 id="欧拉函数表达式1："><a href="#欧拉函数表达式1：" class="headerlink" title="欧拉函数表达式1："></a>欧拉函数表达式1：</h5><p>欧拉函数的表达为：<br>$$<br>\varphi (x)=x\prod_{i=1}^{n}{(1-\frac{1}{p_i})}<br>$$</p>
-<p>其中p1,p2,…,pn 表示x的所有质因子，x是不为0的整数。</p>
-<h5 id="欧拉函数表达式2："><a href="#欧拉函数表达式2：" class="headerlink" title="欧拉函数表达式2："></a>欧拉函数表达式2：</h5><p>假设<br>$$<br>x= {p_1}^{k_1} * {p_2}^{k_2} * … * {p_n}^{k_n}<br>$$</p>
-<p>p1,p2,…,pn同上，则其另一种表达为：<br>$$<br>\varphi(x)=\prod_{i=1}^{n}{(p_i-1)*p_i^{k_i-1}}<br>$$</p>
-<p>特别的，<br>$$<br>\varphi(1)=1<br>$$</p>
-<h4 id="欧拉函数证明"><a href="#欧拉函数证明" class="headerlink" title="欧拉函数证明"></a>欧拉函数证明</h4><h5 id="容斥定理来证明"><a href="#容斥定理来证明" class="headerlink" title="容斥定理来证明"></a>容斥定理来证明</h5><p>对于正整数 x 而言，假设其质因子为p1,p2,p3,…,pn，则小于等于 x 且与 x 不互质的数字的个数为：<br>$$<br>g(x)=\frac{x}{p_1}+\frac{x}{p_2}+…+\frac{x}{p_n}-\frac{x}{p_1*p_2}-\frac{x}{p_1*p_3}- …<br>$$</p>
-<p>小于 x 且与 x 互质的数字的个数：<br>$$<br>f(x)=x-g(x)=n-\frac{x}{p_1}-\frac{x}{p_2}- … -\frac{x}{p_n}+\frac{x}{p_1*p_2}+\frac{x}{p_1*p_3}+ …<br>$$</p>
-<p>化简即可得表达式1。（具体化简过程我也不会）</p>
-<h4 id="欧拉函数计算"><a href="#欧拉函数计算" class="headerlink" title="欧拉函数计算"></a>欧拉函数计算</h4><h5 id="单值计算"><a href="#单值计算" class="headerlink" title="单值计算"></a>单值计算</h5><p>在编程时，习惯上，我们经常用<strong>表达式2</strong>计算欧拉函数的值：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">eular</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ret=<span class="number">1</span>,i;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">2</span>;i*i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">		<span class="comment">/*</span></span><br><span class="line"><span class="comment">		n%i==0时，i为n的质因子，因为如果i不是质因子，</span></span><br><span class="line"><span class="comment">		则一i定能分成更小的因子，对应的更小的因子一定在之前出现过了，与之矛盾，</span></span><br><span class="line"><span class="comment">		所以i一定不能分割成更小的因子，即i为n的质因子。</span></span><br><span class="line"><span class="comment">		*/</span></span><br><span class="line">        <span class="keyword">if</span>(n%i==<span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            n/=i,ret*=i<span class="number">-1</span>;</span><br><span class="line">            <span class="keyword">while</span>(n%i==<span class="number">0</span>) n/=i,ret*=i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(n&gt;<span class="number">1</span>) ret*=n<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="打表计算"><a href="#打表计算" class="headerlink" title="打表计算"></a>打表计算</h5><h4 id="欧拉函数性质"><a href="#欧拉函数性质" class="headerlink" title="欧拉函数性质"></a>欧拉函数性质</h4><h5 id="互质数之和"><a href="#互质数之和" class="headerlink" title="互质数之和"></a>互质数之和</h5><p>小于n的正整数中与n互质的数的数字之和为<br>$$<br>f(n)={n}*\frac{\varphi(n)}{2}<br>$$</p>
-<p>证明如下：</p>
+<p>暴力的情况下，总共有n*(n+1)/2个非零区间，如果我们对每一个区间都进行计算，那么时间复杂度为O（n^2）。对于n比较大的情况，暴力肯定会超时。（事实上，几乎所有的此类题目n都在 1e5~1e6左右）</p>
+<p>因此我们就需要更高效的算法来进行求解。</p>
+<p>接下来我们进行一下思考：</p>
 <blockquote>
-<p>对于每个小于 n 的数正整数 a ，如果gcd( n , a )=1,则gcd( n , n-a )=1（ 此处为gcd相关性质，不再证明。）。</p>
-<p>所以对于每个与 n 互质的正整数 a ，一定有一个与之对应的与 n 互质数的 n - a ;</p>
-<p>由此可知，欧拉函数的值总为偶数（1除外），并且总有一对之和为 n，</p>
-<p>至此，小于n的正整数中与n互质的数的数字之和就可以计算出来了。</p>
+<p>假如区间 [ l , r ]（l &lt;= r） 的和小于S，那么对于区间[ l + i , r ] ( l + i &lt;= r )肯定也小于S，也就是说，假如一个区间不符合题意，那么它的子区间肯定也不符合题意。因此，我们就可以在这个基础上减少许多的多余的计算。</p>
 </blockquote>
-<h5 id="积性函数"><a href="#积性函数" class="headerlink" title="积性函数"></a>积性函数</h5><p>欧拉函数是一个积性函数，如果 n , m 互质，则：<br>$$<br>\varphi(nm)=\varphi(n)*\varphi(m)<br>$$<br>可以推出，如果n为质数，则：<br>$$<br>\varphi(2n)=\varphi(n)<br>$$</p>
-<h5 id="欧拉定理变式"><a href="#欧拉定理变式" class="headerlink" title="欧拉定理变式"></a>欧拉定理变式</h5><p>对于任何两个互质的正整数 a , n ，(n&gt;2)<br>$$<br>{a}^{\varphi(n)}\equiv 1 mod n<br>$$</p>
-<h5 id="费马小定理"><a href="#费马小定理" class="headerlink" title="费马小定理"></a>费马小定理</h5><p>当 n = p 且 a 与素数 p 互质时，上式可变为</p>
-<p>$$<br>{a}^{p-1}\equiv 1 mod p<br>$$</p>
-<h5 id="n的因数（包括1和它自己）的欧拉函数之和等于n"><a href="#n的因数（包括1和它自己）的欧拉函数之和等于n" class="headerlink" title="n的因数（包括1和它自己）的欧拉函数之和等于n"></a>n的因数（包括1和它自己）的欧拉函数之和等于n</h5><p>写成数学表达式的形式即为<br>$$<br>n=\sum_{d|n}\varphi(d)<br>$$<br>其中 d|n 表示 n 能被 d 整除。</p>
-<p>证明如下：</p>
+<p>看懂了上面的思考部分，我们就可以开始尺取的讲解了。</p>
+<h3 id="尺取"><a href="#尺取" class="headerlink" title="尺取"></a>尺取</h3><ol>
+<li><p>我们设置两个变量 l , r ，表示当前我们所计算的区间 [ l , r )，初始 l = r = 0（我的数列第一个存储下标为0）。</p>
+</li>
+<li><p>然后我们开始移动 r , 使 r 逐渐变大，直到区间 [ l , r )的和不小于S（这里就用到了上面思考部分的知识，如果区间 [ l , r )的和小于S，那么其子区间就完全没有了计算的必要）。</p>
+</li>
+<li><p>当 [ l , r )不小于S时，我们开始移动 l ，使区间慢慢变小，然后继续计算当前区间的值。直到区间和又一次小于S</p>
 <blockquote>
-<p>对于每个 x ( 0 &lt;= x &lt;= n ) 都存在一个gcd( x , n )，可以证得，其值必然为n的因子。</p>
-<p>假设gcd( x , n ) = d ,（ d | n ） ，则gcd（ x / d , n / d ）= 1 ，即 x / d 与 n / d 互质。</p>
-<p>因此，我们可以求出 gcd( x , n ) 的值为 d 时对应的的数字个数，个数就是 n / d 所对应的欧拉函数值。</p>
-<p>由第一行可知，gcd( x , n )的值必然为n的因子，并且只有唯一对应值，因此就可推导出上述公式。</p>
+<p>这里又用到了之前思考部分的知识，在运行第三步时，我们已知 [ l , r - 1 )不符合要求，那么所有的 [ l+i , r-j )（l <strong>&lt;=</strong> l + i <strong>&lt;=</strong> r - j <strong>&lt;</strong> r）均不符合要求，也就是说，如果我们这个时候缩了一下 r 的值，那么肯定是不符合要求的，但是， [ l + i , r )却是可能符合要求的，因为[ l + i , r )并不在我们的否定区间内，所以我们要继续对它进行计算判断。</p>
 </blockquote>
+</li>
+<li><p>当 r = n 时，结束运算。</p>
+</li>
+</ol>
+<p>代码如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> n,s;</span><br><span class="line"><span class="keyword">int</span> a[maxn];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> l=<span class="number">0</span>,r=<span class="number">0</span>,sum=<span class="number">0</span>;<span class="comment">//sum为当前区间和</span></span><br><span class="line">	<span class="keyword">int</span> res=INF;</span><br><span class="line">	<span class="keyword">while</span>(r&lt;n)&#123;</span><br><span class="line">		sum+=a[r];<span class="comment">//扩大区间</span></span><br><span class="line">		r++;</span><br><span class="line">        <span class="comment">/*这个while是代码的核心，题目上给的约束条件就是用while进行判断，</span></span><br><span class="line"><span class="comment">        因此只要确定了while里面的内容，就可以轻易地求解尺取的相关问题</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">		<span class="keyword">while</span>(sum&gt;=s)&#123;<span class="comment">//这一步原本应为先判断sum是否&gt;=s,但由于while的特性，可以直接省略</span></span><br><span class="line">			res=min(res,sum);<span class="comment">//求出当前区间和是否更接近s</span></span><br><span class="line">			sum-=a[l];<span class="comment">//缩小区间</span></span><br><span class="line">			l++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,res);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样，我们就可以把时间复杂度缩小到O(n)了。</p>
+<p>这是尺取最基本的一类解决问题，其他形式的尺取问题也基本依靠于这个主要思想。</p>
+<h3 id="二分-问题引入"><a href="#二分-问题引入" class="headerlink" title="二分-问题引入"></a>二分-问题引入</h3><p>二分，顾名思义，就是用二分的方法找出答案。</p>
+<p>接下来看一个题目：</p>
+<blockquote>
+<p>农夫 John 建造了一座很长的畜栏，它包括N (2 &lt;= N &lt;= 100,000)个隔间，这些小隔间依次编号为x1,…,xN (0 &lt;= xi &lt;= 1,000,000,000). 但是，John的C (2 &lt;= C &lt;= N)头牛们并不喜欢这种布局，而且几头牛放在一个隔间里，他们就要发生争斗。为了不让牛互相伤害。John决定自己给牛分配隔间，使任意两头牛之间的最小距离尽可能的大，那么，这个最大的最小距离是什么呢？</p>
+<p>Input</p>
+<p>有多组测试数据，以EOF结束。 第一行：空格分隔的两个整数N和C 第二行——第N+1行：分别指出了xi的位置</p>
+<p>Output</p>
+<p>每组测试数据输出一个整数，满足题意的最大的最小值，注意换行。</p>
+</blockquote>
+<p>这个题就是经典的二分题目，暴力的做法就是直接 for 循环找到满足条件的最小的值。但是肯定是要超时的。</p>
+<p>那么我们怎么就需要更高效的方法了。</p>
+<h3 id="二分"><a href="#二分" class="headerlink" title="二分"></a>二分</h3><blockquote>
+<p>我们可以看出来，假设一个值 x（x是牛的距离） 不能使c头牛完全分配（即在距离为x的情况下隔间内放不下c头牛），那么比 x 大的值更不可以了；相反的，如果 x 能使c头牛完全分配（可行解，非最优解），那么比 x 大的值也可能使c头牛完全分配，从而最小距离也会变得更大。</p>
+</blockquote>
+<p>理解了上面的方法，就可以像尺取一样找到可能的答案了。</p>
+<p><strong>这里说一句，对于二分题而言假设答案可能的取值区间为 [ 1 , x ] ,那么对于区间里面的每一个值是否是可行解一定是{可行，可行，…..，可行，不可行，……，不可行，不可行}这样的值规律（不排除全部可行或全部不可行的情况）。如果题目不是这样的规律，那么就无法使用二分的方法求解。</strong></p>
+<p>代码如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> n,c;</span><br><span class="line"><span class="keyword">int</span> x[maxn];</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">check</span><span class="params">(<span class="keyword">int</span> s)</span></span>&#123;<span class="comment">//这个用到了贪心的思想 </span></span><br><span class="line">	<span class="keyword">int</span> sum=<span class="number">1</span>;<span class="comment">//初始一个隔间为a[0]，不进行计算 </span></span><br><span class="line">	<span class="keyword">int</span> pos=x[<span class="number">0</span>];<span class="comment">//pos是用来记录当前可行的最近的隔间的位置 </span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;n;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(x[i]-pos&gt;=s)&#123;<span class="comment">//这里判断当前隔间距离上一个隔间的距离是否不小于s </span></span><br><span class="line">			pos=x[i];<span class="comment">//当前位置可以放置牛，因此就把pos的值更新为当前隔间的位置 </span></span><br><span class="line">			sum++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(sum&gt;=c) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">	sort(x,x+n);</span><br><span class="line">	<span class="keyword">int</span> l=<span class="number">1</span>,r=(x[n<span class="number">-1</span>]-x[<span class="number">0</span>])/(c<span class="number">-1</span>);<span class="comment">//由于需要放c头牛,最大距离为(x[n-1]-x[0),因此每头牛之间的距离最大就为(x[n-1]-x[0])/(c-1) 向下取整。</span></span><br><span class="line">	<span class="keyword">while</span>(l&lt;=r)&#123;</span><br><span class="line">		<span class="keyword">int</span> mid=(l+r)/<span class="number">2</span>;</span><br><span class="line">		<span class="keyword">if</span>(check(mid))&#123;<span class="comment">//当前为可行解</span></span><br><span class="line">			l=mid+<span class="number">1</span>;<span class="comment">//由于为可行解，因此即使mid+1不为可行解，l的值也不会再改变，因此最后l的值为第一个不可行解</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span>&#123;</span><br><span class="line">			r=mid<span class="number">-1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,l<span class="number">-1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -480,9 +496,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/数论/" rel="tag"><i class="fa fa-tag"></i> 数论</a>
+            <a href="/tags/尺取/" rel="tag"><i class="fa fa-tag"></i> 尺取</a>
           
-            <a href="/tags/欧拉函数/" rel="tag"><i class="fa fa-tag"></i> 欧拉函数</a>
+            <a href="/tags/算法/" rel="tag"><i class="fa fa-tag"></i> 算法</a>
           
         </div>
       
@@ -495,8 +511,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/17/HDU-2036/" rel="next" title="HDU-2036（多边形面积）">
-                <i class="fa fa-chevron-left"></i> HDU-2036（多边形面积）
+              <a href="/2019/03/02/快速幂-矩阵快速幂/" rel="next" title="快速幂+矩阵快速幂">
+                <i class="fa fa-chevron-left"></i> 快速幂+矩阵快速幂
               </a>
             
           </div>
@@ -504,10 +520,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/02/01/GCD与LCM及其部分性质/" rel="prev" title="GCD与LCM及其部分性质">
-                GCD与LCM及其部分性质 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -668,7 +680,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#欧拉函数"><span class="nav-number">1.</span> <span class="nav-text">欧拉函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#欧拉函数-1"><span class="nav-number">1.1.</span> <span class="nav-text">欧拉函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#欧拉函数表达式1："><span class="nav-number">1.1.1.</span> <span class="nav-text">欧拉函数表达式1：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#欧拉函数表达式2："><span class="nav-number">1.1.2.</span> <span class="nav-text">欧拉函数表达式2：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#欧拉函数证明"><span class="nav-number">1.2.</span> <span class="nav-text">欧拉函数证明</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#容斥定理来证明"><span class="nav-number">1.2.1.</span> <span class="nav-text">容斥定理来证明</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#欧拉函数计算"><span class="nav-number">1.3.</span> <span class="nav-text">欧拉函数计算</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#单值计算"><span class="nav-number">1.3.1.</span> <span class="nav-text">单值计算</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#打表计算"><span class="nav-number">1.3.2.</span> <span class="nav-text">打表计算</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#欧拉函数性质"><span class="nav-number">1.4.</span> <span class="nav-text">欧拉函数性质</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#互质数之和"><span class="nav-number">1.4.1.</span> <span class="nav-text">互质数之和</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#积性函数"><span class="nav-number">1.4.2.</span> <span class="nav-text">积性函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#欧拉定理变式"><span class="nav-number">1.4.3.</span> <span class="nav-text">欧拉定理变式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#费马小定理"><span class="nav-number">1.4.4.</span> <span class="nav-text">费马小定理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#n的因数（包括1和它自己）的欧拉函数之和等于n"><span class="nav-number">1.4.5.</span> <span class="nav-text">n的因数（包括1和它自己）的欧拉函数之和等于n</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#尺取-问题引入"><span class="nav-number">1.</span> <span class="nav-text">尺取-问题引入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#尺取"><span class="nav-number">2.</span> <span class="nav-text">尺取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二分-问题引入"><span class="nav-number">3.</span> <span class="nav-text">二分-问题引入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二分"><span class="nav-number">4.</span> <span class="nav-text">二分</span></a></li></ol></div>
             
 
           </div>
