@@ -88,18 +88,18 @@
 
 
 
-<meta name="description" content="素数，是指因子只包含1和其本身的数，那么，我们怎么判断素数呢？ （以下代码均基于打表（1~1e6）的基础上完成）">
+<meta name="description" content="素数，是指因子只包含1和其本身的数，那么，我们怎么大批量的判断素数呢？ （以下代码均基于打表（1~1e6）的基础上完成）">
 <meta name="keywords" content="算法,素数">
 <meta property="og:type" content="article">
 <meta property="og:title" content="素数筛选法">
 <meta property="og:url" content="https://boctorio.github.io/2019/01/09/素数筛选法/index.html">
 <meta property="og:site_name" content="Boctorio&#39;s Blog">
-<meta property="og:description" content="素数，是指因子只包含1和其本身的数，那么，我们怎么判断素数呢？ （以下代码均基于打表（1~1e6）的基础上完成）">
+<meta property="og:description" content="素数，是指因子只包含1和其本身的数，那么，我们怎么大批量的判断素数呢？ （以下代码均基于打表（1~1e6）的基础上完成）">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-09T13:38:10.356Z">
+<meta property="og:updated_time" content="2019-03-05T07:06:34.788Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="素数筛选法">
-<meta name="twitter:description" content="素数，是指因子只包含1和其本身的数，那么，我们怎么判断素数呢？ （以下代码均基于打表（1~1e6）的基础上完成）">
+<meta name="twitter:description" content="素数，是指因子只包含1和其本身的数，那么，我们怎么大批量的判断素数呢？ （以下代码均基于打表（1~1e6）的基础上完成）">
 
 
 
@@ -366,7 +366,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1k
+                  998
                 </span>
               
 
@@ -403,12 +403,12 @@
       
 
       
-        <p>素数，是指因子只包含1和其本身的数，那么，我们怎么判断素数呢？</p>
+        <p>素数，是指因子只包含1和其本身的数，那么，我们怎么大批量的判断素数呢？</p>
 <p><strong>（以下代码均基于打表（1~1e6）的基础上完成）</strong></p>
 <a id="more"></a>
 <h4 id="1-按照定义计算"><a href="#1-按照定义计算" class="headerlink" title="1.按照定义计算"></a>1.按照定义计算</h4><p>素数的定义就是一个数的因子只包含1和其本身，那么我们直接就按照定义写：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta"># <span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta"># <span class="meta-keyword">define</span> maxn 1000000+10</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> pri[maxn];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">isprime</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;n;i++)</span><br><span class="line">		<span class="keyword">if</span>(n%i==<span class="number">0</span>)</span><br><span class="line">			<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	pri[<span class="number">1</span>]=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=maxn;i++)&#123;</span><br><span class="line">		pri[i]=isprime(i);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这是最基础的写法，也是最小白的写法。毕竟，当时我刚高一加入大学的某个协会时，考的就有判断素数…</p>
+<p>这是最基础的写法，也是最小白的写法。</p>
 <p>这种算法的复杂度为O(n^2),复杂度非常的大，对于1e6的数据范围来说肯定要超时，那么还有没有更优化的算法？答案是肯定的</p>
 <h4 id="2-基于定义计算的优化算法"><a href="#2-基于定义计算的优化算法" class="headerlink" title="2.基于定义计算的优化算法"></a>2.基于定义计算的优化算法</h4><p>我们对一个合数进行考虑，例如12：</p>
 <p>它的因子有1 2 3 4 6 12 ，而且1<em>12=12 ，  2</em>6=12 ， 3*4=12</p>

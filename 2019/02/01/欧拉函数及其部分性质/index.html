@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="Boctorio&#39;s Blog">
 <meta property="og:description" content="欧拉函数欧拉函数在数论，对正整数n，欧拉函数是小于n的正整数中与n互质的数的数目（φ(1)=1）。此函数以其首名研究者欧拉命名(Euler’s totient function)，它又称为Euler’s totient function、φ函数、欧拉商数等。 例如φ(8)=4，因为1,3,5,7均和8互质。 从欧拉函数引伸出来在环论方面的事实和拉格朗日定理构成了欧拉定理的证明。 欧拉函数的适用范围">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-11T04:59:03.237Z">
+<meta property="og:updated_time" content="2019-03-05T07:56:01.156Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="欧拉函数及其部分性质">
 <meta name="twitter:description" content="欧拉函数欧拉函数在数论，对正整数n，欧拉函数是小于n的正整数中与n互质的数的数目（φ(1)=1）。此函数以其首名研究者欧拉命名(Euler’s totient function)，它又称为Euler’s totient function、φ函数、欧拉商数等。 例如φ(8)=4，因为1,3,5,7均和8互质。 从欧拉函数引伸出来在环论方面的事实和拉格朗日定理构成了欧拉定理的证明。 欧拉函数的适用范围">
@@ -366,7 +366,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  987
+                  988
                 </span>
               
 
@@ -413,7 +413,7 @@
 <p>特别的，<br>$$<br>\varphi(1)=1<br>$$</p>
 <h4 id="欧拉函数证明"><a href="#欧拉函数证明" class="headerlink" title="欧拉函数证明"></a>欧拉函数证明</h4><h5 id="容斥定理来证明"><a href="#容斥定理来证明" class="headerlink" title="容斥定理来证明"></a>容斥定理来证明</h5><p>对于正整数 x 而言，假设其质因子为p1,p2,p3,…,pn，则小于等于 x 且与 x 不互质的数字的个数为：<br>$$<br>g(x)=\frac{x}{p_1}+\frac{x}{p_2}+…+\frac{x}{p_n}-\frac{x}{p_1*p_2}-\frac{x}{p_1*p_3}- …<br>$$</p>
 <p>小于 x 且与 x 互质的数字的个数：<br>$$<br>f(x)=x-g(x)=n-\frac{x}{p_1}-\frac{x}{p_2}- … -\frac{x}{p_n}+\frac{x}{p_1*p_2}+\frac{x}{p_1*p_3}+ …<br>$$</p>
-<p>化简即可得表达式1。（具体化简过程我也不会）</p>
+<p>化简即可得表达式1。（具体化简过程我也不会QAQ）</p>
 <h4 id="欧拉函数计算"><a href="#欧拉函数计算" class="headerlink" title="欧拉函数计算"></a>欧拉函数计算</h4><h5 id="单值计算"><a href="#单值计算" class="headerlink" title="单值计算"></a>单值计算</h5><p>在编程时，习惯上，我们经常用<strong>表达式2</strong>计算欧拉函数的值：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">eular</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ret=<span class="number">1</span>,i;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">2</span>;i*i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">		<span class="comment">/*</span></span><br><span class="line"><span class="comment">		n%i==0时，i为n的质因子，因为如果i不是质因子，</span></span><br><span class="line"><span class="comment">		则一i定能分成更小的因子，对应的更小的因子一定在之前出现过了，与之矛盾，</span></span><br><span class="line"><span class="comment">		所以i一定不能分割成更小的因子，即i为n的质因子。</span></span><br><span class="line"><span class="comment">		*/</span></span><br><span class="line">        <span class="keyword">if</span>(n%i==<span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            n/=i,ret*=i<span class="number">-1</span>;</span><br><span class="line">            <span class="keyword">while</span>(n%i==<span class="number">0</span>) n/=i,ret*=i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(n&gt;<span class="number">1</span>) ret*=n<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h5 id="打表计算"><a href="#打表计算" class="headerlink" title="打表计算"></a>打表计算</h5><h4 id="欧拉函数性质"><a href="#欧拉函数性质" class="headerlink" title="欧拉函数性质"></a>欧拉函数性质</h4><h5 id="互质数之和"><a href="#互质数之和" class="headerlink" title="互质数之和"></a>互质数之和</h5><p>小于n的正整数中与n互质的数的数字之和为<br>$$<br>f(n)={n}*\frac{\varphi(n)}{2}<br>$$</p>
