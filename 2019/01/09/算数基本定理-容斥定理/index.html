@@ -101,7 +101,7 @@
 <meta property="og:image" content="https://boctorio.github.io/2019/01/09/算数基本定理-容斥定理/LCM.png">
 <meta property="og:image" content="https://boctorio.github.io/2019/01/09/算数基本定理-容斥定理/veen.png">
 <meta property="og:image" content="https://boctorio.github.io/2019/01/09/算数基本定理-容斥定理/数学公式.png">
-<meta property="og:updated_time" content="2019-01-09T13:39:38.152Z">
+<meta property="og:updated_time" content="2019-03-05T09:19:09.960Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算数基本定理 + 容斥定理">
 <meta name="twitter:description" content="算数基本定理定义：任何一个大于1的自然数，如果N不为质数，那么N可以分解成有限个质数的乘积，并且在不计次序的情况下，这种分解方式是唯一的。 例如：60可以分解为 2^2 * 3 * 5">
@@ -231,6 +231,16 @@
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
             
             关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-comments"></i> <br>
+            
+            留言
           </a>
         </li>
       
@@ -429,15 +439,15 @@
 <p>根据GCD和LCM的定义</p>
 <p><img src="/2019/01/09/算数基本定理-容斥定理/GCD.png" alt=""></p>
 <p><img src="/2019/01/09/算数基本定理-容斥定理/LCM.png" alt=""></p>
-<h2 id="容斥定理"><a href="#容斥定理" class="headerlink" title="容斥定理"></a>容斥定理</h2><p>要计算几个集合并集的大小，我们要先将所有单个集合的大 小计算出来，然后减去所有两个集合相交的部分，再加回所 有三个集合相交的部分，再减去所有四个集合相交的部分， 依此类推，一直计算到所有集合相交的部分。</p>
+<h2 id="容斥定理"><a href="#容斥定理" class="headerlink" title="容斥定理"></a>容斥定理</h2><p>要计算几个集合并集的大小，我们要先将所有单个集合的大小计算出来，然后减去所有两个集合相交的部分，再加回所有三个集合相交的部分，再减去所有四个集合相交的部分， 依此类推，一直计算到所有集合相交的部分。</p>
 <p>用Venn图来表示</p>
 <p><img src="/2019/01/09/算数基本定理-容斥定理/veen.png" alt=""></p>
 <p>数学公式描述</p>
 <p><img src="/2019/01/09/算数基本定理-容斥定理/数学公式.png" alt=""></p>
 <p>如果要对n个物体进行选择，那么有多少种情况？</p>
-<p>代码    复杂度为O(2^n)</p>
+<p>代码复杂度为O(2^n)</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;(<span class="number">1</span> &lt;&lt; m);i++)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d"</span>,i&gt;&gt;j &amp; <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">""</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="容斥定理的应用"><a href="#容斥定理的应用" class="headerlink" title="容斥定理的应用"></a>容斥定理的应用</h4><p>问题：魔镜给小明m个数字（a1、a2 …… am）和一个整数n，魔镜定义：如果有一个数，是这m个数字里面任意一 个数的倍数，那么这个数称为LuckyNumber。而小明会的题 数为[1,n]闭区间内LuckyNumber的数量。 (0 &lt; m &lt; 15) 那么请你帮小明计算一下他会的题目数。</p>
+<h4 id="容斥定理的应用"><a href="#容斥定理的应用" class="headerlink" title="容斥定理的应用"></a>容斥定理的应用</h4><p>问题：魔镜给小明m个数字（a1、a2 …… am）和一个整数n，魔镜定义：如果有一个数，是这m个数字里面任意一 个数的倍数，那么这个数称为LuckyNumber。而小明会的题数为[1,n]闭区间内LuckyNumber的数量。 (0 &lt; m &lt; 15) 那么请你帮小明计算一下他会的题目数。</p>
 <p>代码  复杂度为O(2^n)</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">LL ans=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;(i&lt;&lt;m);i++)&#123;</span><br><span class="line">    <span class="keyword">int</span> cnt=<span class="number">0</span>;</span><br><span class="line">    LL LCM=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;m;j++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="number">1</span>&amp;(i&gt;&gt;j))&#123;<span class="comment">//按位运算判断第m个数是否使用 </span></span><br><span class="line">            cnt++;</span><br><span class="line">            LCM=lcm(LCM,a[j]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(cnt&amp;<span class="number">1</span>) ans+=n/LCM;<span class="comment">//判断n中元素使用的个数，奇加偶减</span></span><br><span class="line">    <span class="keyword">else</span> ans-=n/LCM;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,ans);</span><br></pre></td></tr></table></figure>
 
