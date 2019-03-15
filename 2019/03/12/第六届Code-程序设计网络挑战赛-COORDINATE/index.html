@@ -99,7 +99,7 @@
 <meta property="og:image" content="https://boctorio.github.io/2019/03/12/第六届Code-程序设计网络挑战赛-COORDINATE/z.jpg">
 <meta property="og:image" content="https://boctorio.github.io/2019/03/12/第六届Code-程序设计网络挑战赛-COORDINATE/小方格-4.jpg">
 <meta property="og:image" content="https://boctorio.github.io/2019/03/12/第六届Code-程序设计网络挑战赛-COORDINATE/小方格-2.jpg">
-<meta property="og:updated_time" content="2019-03-12T03:18:26.454Z">
+<meta property="og:updated_time" content="2019-03-15T04:37:42.220Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第六届Code+程序设计网络挑战赛-COORDINATE">
 <meta name="twitter:description" content="题目描述题目描述 在视频编码中，往往需要将一帧画面分块。 为了简化问题，我们考虑将一幅图片看作 $2^n ​$ * $ 2^n ​$的网格。为了对图片进行处理，编码器往往会遍历每个格子，但遍历格子的方式在不同的应用中是不同的。">
@@ -446,7 +446,7 @@
 <p>我们先从输入R出发进行计算</p>
 <h4 id="输入-R-x"><a href="#输入-R-x" class="headerlink" title="输入 R x"></a>输入 R x</h4><p>比如样例R 37，我们可以从题面的图片看出，它所对应的位置为第 4 行第 5 列（初始为第0行第0列，，以下缩写为（x,y））。</p>
 <p>我们观察Z遍历可发现，如果我们把方格分成四个小方格，每个方格大小一样，每个位置所对应的值的差是一个值的整数倍。比如对于 49 和 33 ，33 和 17 ，17 和 1 ，他们在小方格中位置相同，差值均为小方格的大小（$ 2^n $ * $ 2^n $ / 4），<strong>因此，我们可以根据每个数字所在的方格位置，判断它所在的方格，从而算出它对应的值</strong>。</p>
-<p>比如，对于（ 4 , 5 ），我们可以看出他所在的方块为第四块（小方块按遍历顺序编号1234），因此我们可以知道在Z中它的值 n &gt;=（$ 2^n $ * $ 2^n ​$ / 4）* 3 ,<strong>所以我们先保存这一部分值，然后将其对应到第一个方格所对应的位置（即行和列均减去边长的一半）</strong>，因为我们已经将它放在了第一个方格，其他三个方格已经没有作用了，因此我们可以将变长减小为现在的一半。然后重复此步操作。</p>
+<p>比如，对于（ 4 , 5 ），我们可以看出他所在的方块为第四块（小方块按遍历顺序编号1234），因此我们可以知道在Z中它的值 n &gt;=（$ 2^n $ * $ 2^n $ / 4）* 3 ,<strong>所以我们先保存这一部分值，然后将其对应到第一个方格所对应的位置（即行和列均减去边长的一半）</strong>，因为我们已经将它放在了第一个方格，其他三个方格已经没有作用了，因此我们可以将边长减小为现在的一半。然后重复此步操作。</p>
 <p>一次操作后，大方格的已经变成了</p>
 <p><img src="/2019/03/12/第六届Code-程序设计网络挑战赛-COORDINATE/小方格-4.jpg" alt=""></p>
 <p>而( 4 , 5 )现在所对应的位置为（ 0 ，1），再分成四个小方格后在第一个方格，因此对行和列不操作，边长再减小一半。</p>
@@ -543,6 +543,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/15/线段树基础模板/" rel="prev" title="线段树基础模板">
+                线段树基础模板 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -650,7 +654,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -663,7 +667,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
