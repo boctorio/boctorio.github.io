@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="Boctorio&#39;s Blog">
 <meta property="og:description" content="状压dp状态压缩dp，是一种将复杂的状态压缩成二进制数字的算法。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-21T03:49:44.245Z">
+<meta property="og:updated_time" content="2019-03-22T02:48:03.577Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="四大dp系列--状压dp">
 <meta name="twitter:description" content="状压dp状态压缩dp，是一种将复杂的状态压缩成二进制数字的算法。">
@@ -376,7 +376,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  960
+                  966
                 </span>
               
 
@@ -436,6 +436,7 @@
 <p>思考上述代码后，我们可以发现，每一个比较小的节点集合都是由比较大的节点集合计算出来的。即对于两个集合S( i ) ∈ S( j ) ，有 i &lt;= j 。我们在求S( i )时，需要先求出来S( j )的值。因此，我们也可以用循环的方法求解：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">int</span> d[maxn][maxn];</span><br><span class="line"><span class="keyword">int</span> dp[<span class="number">1</span>&lt;&lt;maxn][maxn];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> S=<span class="number">0</span>;S&lt;<span class="number">1</span>&lt;&lt;n;S++)&#123;</span><br><span class="line">		fill(dp[S],dp[S]+n,INF);</span><br><span class="line">	&#125;</span><br><span class="line">	dp[(<span class="number">1</span>&lt;&lt;n)<span class="number">-1</span>][<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> S=(<span class="number">1</span>&lt;&lt;n)<span class="number">-2</span>;S&gt;=<span class="number">0</span>;S--)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> v=<span class="number">0</span>;v&lt;n;v++)&#123;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> u=<span class="number">0</span>;u&lt;n;u++)&#123;</span><br><span class="line">				<span class="keyword">if</span>(!(S&gt;&gt;u&amp;<span class="number">1</span>))&#123;</span><br><span class="line">					dp[S][v]=min(dp[S][v],dp[S|<span class="number">1</span>&lt;&lt;u][u]+d[v][u]);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,dp[<span class="number">0</span>][<span class="number">0</span>]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这就是最基础的状压dp问题。</p>
+<p>（内容持续更新……）</p>
 
       
     </div>
@@ -638,7 +639,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
