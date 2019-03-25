@@ -99,7 +99,7 @@
 <meta property="og:image" content="https://boctorio.github.io/2019/03/24/第十届蓝桥杯-C-B组/A.jpg">
 <meta property="og:image" content="https://boctorio.github.io/2019/03/24/第十届蓝桥杯-C-B组/G.png">
 <meta property="og:image" content="https://boctorio.github.io/2019/03/24/第十届蓝桥杯-C-B组/J.png">
-<meta property="og:updated_time" content="2019-03-24T14:29:52.285Z">
+<meta property="og:updated_time" content="2019-03-25T09:10:23.042Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第十届蓝桥杯--C++-B组">
 <meta name="twitter:description" content="能力一般，水平有限。请多见谅。 A:组队 本题总分：5 分 ​     作为篮球队教练，你需要从以下名单中选出 1 号位至 5 号位各一名球员， 组成球队的首发阵容。 每位球员担任 1 号位至 5 号位时的评分如下表所示。请你计算首发阵容 1 号位至 5 号位的评分之和最大可能是多少？">
@@ -380,7 +380,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3.2k
+                  3.3k
                 </span>
               
 
@@ -396,7 +396,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  13
+                  14
                 </span>
               
             </div>
@@ -428,12 +428,14 @@
 <h4 id="B-年号字串"><a href="#B-年号字串" class="headerlink" title="B:年号字串"></a>B:年号字串</h4><blockquote>
 <p>本题总分：5 分<br>     小明用字母 A 对应数字 1，B 对应 2，以此类推，用 Z 对应 26。对于 27 以上的数字，小明用两位或更长位的字符串来对应，例如 AA 对应 27，AB 对 应 28，AZ 对应 52，LQ 对应 329。 请问 2019 对应的字符串是什么？</p>
 </blockquote>
-<p>不得不说，这个题遇见26居然还不进位！最后不得不手算……</p>
+<p>不得不说，这个题遇见26居然还不进位！比赛最后我不得不手算……</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">out</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(n&lt;=<span class="number">0</span>) <span class="keyword">return</span> ;</span><br><span class="line">	<span class="keyword">if</span>(n%<span class="number">26</span>!=<span class="number">0</span>)&#123;<span class="comment">//所有位不能为0 </span></span><br><span class="line">		out(n/<span class="number">26</span>);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%c"</span>,n%<span class="number">26</span>+<span class="string">'A'</span><span class="number">-1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span>&#123;<span class="comment">//如果为零，必须从高位借一位 </span></span><br><span class="line">		out((n<span class="number">-26</span>)/<span class="number">26</span>);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"Z"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n=<span class="number">2019</span>;</span><br><span class="line">	out(n);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>答案：BYQ。（算出BY的时候还激动了一下）</p>
 <h4 id="C-数列求值"><a href="#C-数列求值" class="headerlink" title="C: 数列求值"></a>C: 数列求值</h4><blockquote>
 <p>本题总分：10 分<br>    给定数列 1, 1, 1, 3, 5, 9, 17, …，从第 4 项开始，每项都是前 3 项的和。求 第 20190324 项的最后 4 位数字。</p>
 </blockquote>
 <p>一个 for 循环解决一切！</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> a=<span class="number">1</span>,b=<span class="number">1</span>,c=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">int</span> d;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">4</span>;i&lt;=<span class="number">20190324</span>;i++)&#123;</span><br><span class="line">		d=(a+b+c)%<span class="number">10000</span>;</span><br><span class="line">		a=b;</span><br><span class="line">		b=c;</span><br><span class="line">		c=d;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,d);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>答案：4659</p>
 <h4 id="D-数的分解"><a href="#D-数的分解" class="headerlink" title="D: 数的分解"></a>D: 数的分解</h4><blockquote>
 <p>本题总分：10 分<br>     把 2019 分解成 3 个各不相同的正整数之和，并且要求每个正整数都不包 含数字 2 和 4，一共有多少种不同的分解方法？ 注意交换 3 个整数的顺序被视为同一种方法，例如 1000+1001+18 和 1001+1000+18 被视为同一种。</p>
