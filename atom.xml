@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://boctorio.github.io/"/>
-  <updated>2019-04-07T13:55:04.047Z</updated>
+  <updated>2019-04-12T06:50:32.865Z</updated>
   <id>https://boctorio.github.io/</id>
   
   <author>
@@ -15,6 +15,20 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Seven Segment Display</title>
+    <link href="https://boctorio.github.io/2019/04/12/Seven-Segment-Display/"/>
+    <id>https://boctorio.github.io/2019/04/12/Seven-Segment-Display/</id>
+    <published>2019-04-12T06:50:32.000Z</published>
+    <updated>2019-04-12T06:50:32.865Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>华容道</title>
@@ -325,9 +339,9 @@
       <category term="算法" scheme="https://boctorio.github.io/categories/%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="尺取" scheme="https://boctorio.github.io/tags/%E5%B0%BA%E5%8F%96/"/>
-    
       <category term="算法" scheme="https://boctorio.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="尺取" scheme="https://boctorio.github.io/tags/%E5%B0%BA%E5%8F%96/"/>
     
   </entry>
   
@@ -350,9 +364,9 @@
       <category term="数论" scheme="https://boctorio.github.io/categories/%E6%95%B0%E8%AE%BA/"/>
     
     
-      <category term="算法" scheme="https://boctorio.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="快速幂" scheme="https://boctorio.github.io/tags/%E5%BF%AB%E9%80%9F%E5%B9%82/"/>
+    
+      <category term="算法" scheme="https://boctorio.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -460,31 +474,6 @@
       <category term="LCM" scheme="https://boctorio.github.io/tags/LCM/"/>
     
       <category term="数论" scheme="https://boctorio.github.io/tags/%E6%95%B0%E8%AE%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>欧拉函数及其部分性质</title>
-    <link href="https://boctorio.github.io/2019/02/01/%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0%E5%8F%8A%E5%85%B6%E9%83%A8%E5%88%86%E6%80%A7%E8%B4%A8/"/>
-    <id>https://boctorio.github.io/2019/02/01/欧拉函数及其部分性质/</id>
-    <published>2019-02-01T09:16:15.000Z</published>
-    <updated>2019-03-26T06:40:51.351Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="欧拉函数"><a href="#欧拉函数" class="headerlink" title="欧拉函数"></a>欧拉函数</h3><h4 id="欧拉函数-1"><a href="#欧拉函数-1" class="headerlink" title="欧拉函数"></a>欧拉函数</h4><p>在数论，<strong>对正整数n，欧拉函数是小于n的正整数中与n互质的数的数目（φ(1)=1）</strong>。此函数以其首名研究者欧拉命名(Euler’s totient function)，它又称为Euler’s totient function、φ函数、欧拉商数等。 例如φ(8)=4，因为1,3,5,7均和8互质。 从欧拉函数引伸出来在环论方面的事实和拉格朗日定理构成了欧拉定理的证明。</p><p>欧拉函数的适用范围非常大，许多题目中都会用到欧拉函数的性质。</p><a id="more"></a><h5 id="欧拉函数表达式1："><a href="#欧拉函数表达式1：" class="headerlink" title="欧拉函数表达式1："></a>欧拉函数表达式1：</h5><p>欧拉函数的表达为：<br>$$<br>\varphi (x)=x\prod_{i=1}^{n}{(1-\frac{1}{p_i})}<br>$$</p><p>其中p1,p2,…,pn 表示x的所有质因子，x是不为0的整数。</p><h5 id="欧拉函数表达式2："><a href="#欧拉函数表达式2：" class="headerlink" title="欧拉函数表达式2："></a>欧拉函数表达式2：</h5><p>假设<br>$$<br>x= {p_1}^{k_1} * {p_2}^{k_2} * … * {p_n}^{k_n}<br>$$</p><p>p1,p2,…,pn同上，则其另一种表达为：<br>$$<br>\varphi(x)=\prod_{i=1}^{n}{(p_i-1)*p_i^{k_i-1}}<br>$$</p><p>特别的，<br>$$<br>\varphi(1)=1<br>$$</p><h4 id="欧拉函数证明"><a href="#欧拉函数证明" class="headerlink" title="欧拉函数证明"></a>欧拉函数证明</h4><h5 id="容斥定理来证明"><a href="#容斥定理来证明" class="headerlink" title="容斥定理来证明"></a>容斥定理来证明</h5><p>对于正整数 x 而言，假设其质因子为p1,p2,p3,…,pn，则小于等于 x 且与 x 不互质的数字的个数为：<br>$$<br>g(x)=\frac{x}{p_1}+\frac{x}{p_2}+…+\frac{x}{p_n}-\frac{x}{p_1*p_2}-\frac{x}{p_1*p_3}- …<br>$$</p><p>小于 x 且与 x 互质的数字的个数：<br>$$<br>f(x)=x-g(x)=n-\frac{x}{p_1}-\frac{x}{p_2}- … -\frac{x}{p_n}+\frac{x}{p_1*p_2}+\frac{x}{p_1*p_3}+ …<br>$$</p><p>化简即可得表达式1。（具体化简过程我也不会QAQ）</p><h4 id="欧拉函数计算"><a href="#欧拉函数计算" class="headerlink" title="欧拉函数计算"></a>欧拉函数计算</h4><h5 id="单值计算"><a href="#单值计算" class="headerlink" title="单值计算"></a>单值计算</h5><p>在编程时，习惯上，我们经常用<strong>表达式2</strong>计算欧拉函数的值：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">eular</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ret=<span class="number">1</span>,i;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">2</span>;i*i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">n%i==0时，i为n的质因子，因为如果i不是质因子，</span></span><br><span class="line"><span class="comment">则一i定能分成更小的因子，对应的更小的因子一定在之前出现过了，与之矛盾，</span></span><br><span class="line"><span class="comment">所以i一定不能分割成更小的因子，即i为n的质因子。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">        <span class="keyword">if</span>(n%i==<span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            n/=i,ret*=i<span class="number">-1</span>;</span><br><span class="line">            <span class="keyword">while</span>(n%i==<span class="number">0</span>) n/=i,ret*=i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(n&gt;<span class="number">1</span>) ret*=n<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h5 id="打表计算"><a href="#打表计算" class="headerlink" title="打表计算"></a>打表计算</h5><h4 id="欧拉函数性质"><a href="#欧拉函数性质" class="headerlink" title="欧拉函数性质"></a>欧拉函数性质</h4><h5 id="互质数之和"><a href="#互质数之和" class="headerlink" title="互质数之和"></a>互质数之和</h5><p>小于n的正整数中与n互质的数的数字之和为<br>$$<br>f(n)={n}*\frac{\varphi(n)}{2}<br>$$</p><p>证明如下：</p><blockquote><p>对于每个小于 n 的数正整数 a ，如果gcd( n , a )=1,则gcd( n , n-a )=1（ 此处为gcd相关性质，不再证明。）。</p><p>所以对于每个与 n 互质的正整数 a ，一定有一个与之对应的与 n 互质数的 n - a ;</p><p>由此可知，欧拉函数的值总为偶数（1除外），并且总有一对之和为 n，</p><p>至此，小于n的正整数中与n互质的数的数字之和就可以计算出来了。</p></blockquote><h5 id="积性函数"><a href="#积性函数" class="headerlink" title="积性函数"></a>积性函数</h5><p>欧拉函数是一个积性函数，如果 n , m 互质，则：<br>$$<br>\varphi(nm)=\varphi(n)*\varphi(m)<br>$$<br>可以推出，如果n为质数，则：<br>$$<br>\varphi(2n)=\varphi(n)<br>$$</p><h5 id="欧拉定理变式"><a href="#欧拉定理变式" class="headerlink" title="欧拉定理变式"></a>欧拉定理变式</h5><p>对于任何两个互质的正整数 a , n ，(n&gt;2)<br>$$<br>{a}^{\varphi(n)}\equiv 1 mod n<br>$$</p><h5 id="费马小定理"><a href="#费马小定理" class="headerlink" title="费马小定理"></a>费马小定理</h5><p>当 n = p 且 a 与素数 p 互质时，上式可变为</p><p>$$<br>{a}^{p-1}\equiv 1 mod p<br>$$</p><h5 id="n的因数（包括1和它自己）的欧拉函数之和等于n"><a href="#n的因数（包括1和它自己）的欧拉函数之和等于n" class="headerlink" title="n的因数（包括1和它自己）的欧拉函数之和等于n"></a>n的因数（包括1和它自己）的欧拉函数之和等于n</h5><p>写成数学表达式的形式即为<br>$$<br>n=\sum_{d|n}\varphi(d)<br>$$<br>其中 d|n 表示 n 能被 d 整除。</p><p>证明如下：</p><blockquote><p>对于每个 x ( 0 &lt;= x &lt;= n ) 都存在一个gcd( x , n )，可以证得，其值必然为n的因子。</p><p>假设gcd( x , n ) = d ,（ d | n ） ，则gcd（ x / d , n / d ）= 1 ，即 x / d 与 n / d 互质。</p><p>因此，我们可以求出 gcd( x , n ) 的值为 d 时对应的的数字个数，个数就是 n / d 所对应的欧拉函数值。</p><p>由第一行可知，gcd( x , n )的值必然为n的因子，并且只有唯一对应值，因此就可推导出上述公式。</p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;欧拉函数&quot;&gt;&lt;a href=&quot;#欧拉函数&quot; class=&quot;headerlink&quot; title=&quot;欧拉函数&quot;&gt;&lt;/a&gt;欧拉函数&lt;/h3&gt;&lt;h4 id=&quot;欧拉函数-1&quot;&gt;&lt;a href=&quot;#欧拉函数-1&quot; class=&quot;headerlink&quot; title=&quot;欧拉函数&quot;&gt;&lt;/a&gt;欧拉函数&lt;/h4&gt;&lt;p&gt;在数论，&lt;strong&gt;对正整数n，欧拉函数是小于n的正整数中与n互质的数的数目（φ(1)=1）&lt;/strong&gt;。此函数以其首名研究者欧拉命名(Euler’s totient function)，它又称为Euler’s totient function、φ函数、欧拉商数等。 例如φ(8)=4，因为1,3,5,7均和8互质。 从欧拉函数引伸出来在环论方面的事实和拉格朗日定理构成了欧拉定理的证明。&lt;/p&gt;
-&lt;p&gt;欧拉函数的适用范围非常大，许多题目中都会用到欧拉函数的性质。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="数论" scheme="https://boctorio.github.io/categories/%E6%95%B0%E8%AE%BA/"/>
-    
-    
-      <category term="数论" scheme="https://boctorio.github.io/tags/%E6%95%B0%E8%AE%BA/"/>
-    
-      <category term="欧拉函数" scheme="https://boctorio.github.io/tags/%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0/"/>
     
   </entry>
   

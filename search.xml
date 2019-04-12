@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Seven Segment Display]]></title>
+    <url>%2F2019%2F04%2F12%2FSeven-Segment-Display%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
     <title><![CDATA[华容道]]></title>
     <url>%2F2019%2F04%2F07%2F%E5%8D%8E%E5%AE%B9%E9%81%93%2F</url>
     <content type="text"><![CDATA[模拟界的泥石流。 差点就想要手算了。 题目描述： Cao Cao was hunted down by thousands of enemy soldiers when he escaped from Hua Rong Dao. Assuming Hua Rong Dao is a narrow aisle (one N*4 rectangle), while Cao Cao can be regarded as one 2*2 grid. Cross general can be regarded as one 1*2 grid.Vertical general can be regarded as one 2*1 grid. Soldiers can be regarded as one 1*1 grid. Now Hua Rong Dao is full of people, no grid is empty. There is only one Cao Cao. The number of Cross general, vertical general, and soldier is not fixed. How many ways can all the people stand? Input There is a single integer T (T≤4) in the first line of the test data indicating that there are T test cases. Then for each case, only one integer N (1≤N≤4) in a single line indicates the length of Hua Rong Dao. Output For each test case, print the number of ways all the people can stand in a single line. Sample Input 1234&gt; 2&gt; 1&gt; 2&gt; Sample Output 123&gt; 0&gt; 18&gt; 题目的大致意思就是：给你一个 n*4 的网格，你要找到所有的方案，使得在这个网格中有且仅有一个 2*2 大小的曹操，其他的网格任意放。 看到数据范围我就惊了，从没看过这么小的数据范围，然而当我写的时候才发现这是有多么的艰难…… 大致思路就是： 先固定曹操的位置。 枚举 1*2 和 2*1 的方块的个数。 固定 1*2 方块 固定 2*1 方块 全部完成后判断是否是已经出现过的排列方式，如果没出现过，那么累加；否则不累加。 代码写的我都有点不敢相信这是正确的… 由于写的着急，没有进行剪枝和其他优化操作，时间可能会耗费太多。但由于数据范围很小，所以在本地跑出来直接输出就行了。 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192939495969798#include&lt;stdio.h&gt;#include&lt;math.h&gt;#include&lt;map&gt;#include&lt;string.h&gt;#include&lt;algorithm&gt;using namespace std;#define ll long longll mp[10][10];int n,m;map&lt;ll,ll&gt;p;//标记出现过的放置情况 int sum=0;void output()&#123; for(int i=0;i&lt;n;i++)&#123; for(int j=0;j&lt;m;j++)&#123; printf("%lld ",mp[i][j]); &#125; printf("\n"); &#125; printf("\n");&#125;int judge()&#123;//判断当前情况是否出现过 ll res=0; for(int i=0;i&lt;n;i++)&#123; for(int j=0;j&lt;m;j++)&#123; res=res*4+mp[i][j]; &#125; &#125; if(!p[res])&#123; p[res]++; sum++;// output(); return 1; &#125; else return 0;&#125;int val(int num,int maxv)&#123;//放完 1*2 的方块以后放 2*1 的方块 if(num==maxv) return judge(); for(int i=0;i&lt;n;i++)&#123; for(int j=0;j&lt;m;j++)&#123; if(!mp[i][j] &amp;&amp; !mp[i+1][j] &amp;&amp;i+1&lt;n)&#123; mp[i][j]=mp[i+1][j]=3; val(num+1,maxv); mp[i][j]=mp[i+1][j]=0; &#125; &#125; &#125;&#125;int cal(int num,int maxc,int maxv)&#123;//放 1*2 的方块 if(num==maxc)&#123; return val(0,maxv); &#125; int res=0; for(int i=0;i&lt;n;i++)&#123; for(int j=0;j&lt;m;j++)&#123; if(!mp[i][j] &amp;&amp; !mp[i][j+1] &amp;&amp; j+1&lt;m)&#123; mp[i][j]=mp[i][j+1]=2; int x=cal(num+1,maxc,maxv); if(x&lt;0) return x; res+=x; mp[i][j]=mp[i][j+1]=0; &#125; &#125; &#125; return res;&#125;int caocao(int x,int y)&#123;//枚举曹操的位置 if(x&gt;=n-1 || y&gt;=m-1) return 0; mp[x][y]=mp[x+1][y+1]=mp[x][y+1]=mp[x+1][y]=1; int res=0; for(int i=0;i&lt;=8;i++)&#123; for(int j=0;j&lt;=8;j++)&#123;//枚举 1*2 2*1 方块的个数。 int x=cal(0,i,j); if(x&lt;0) continue; res+=cal(0,i,j); &#125; &#125; mp[x][y]=mp[x+1][y+1]=mp[x][y+1]=mp[x+1][y]=0; return res;&#125;int main()&#123; m=4; int t; scanf("%d",&amp;t); while(t--)&#123; p.clear(); sum=0; scanf("%d",&amp;n); int res=0; for(int i=0;i&lt;n;i++)&#123; for(int j=0;j&lt;m;j++)&#123; caocao(i,j); &#125; &#125; printf("%d\n",sum); &#125; return 0;&#125;]]></content>
@@ -124,8 +129,8 @@
         <category>算法</category>
       </categories>
       <tags>
-        <tag>尺取</tag>
         <tag>算法</tag>
+        <tag>尺取</tag>
       </tags>
   </entry>
   <entry>
@@ -136,8 +141,8 @@
         <category>数论</category>
       </categories>
       <tags>
-        <tag>算法</tag>
         <tag>快速幂</tag>
+        <tag>算法</tag>
       </tags>
   </entry>
   <entry>
