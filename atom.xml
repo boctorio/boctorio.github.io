@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://boctorio.github.io/"/>
-  <updated>2019-04-16T02:21:44.813Z</updated>
+  <updated>2019-04-16T04:08:07.532Z</updated>
   <id>https://boctorio.github.io/</id>
   
   <author>
@@ -17,11 +17,25 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>树状数组</title>
+    <link href="https://boctorio.github.io/2019/04/16/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/"/>
+    <id>https://boctorio.github.io/2019/04/16/树状数组/</id>
+    <published>2019-04-16T03:21:17.000Z</published>
+    <updated>2019-04-16T04:08:07.532Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Nim博弈--简单证明</title>
     <link href="https://boctorio.github.io/2019/04/15/Nim%E5%8D%9A%E5%BC%88-%E7%AE%80%E5%8D%95%E8%AF%81%E6%98%8E/"/>
     <id>https://boctorio.github.io/2019/04/15/Nim博弈-简单证明/</id>
     <published>2019-04-15T09:32:37.000Z</published>
-    <updated>2019-04-16T02:21:44.813Z</updated>
+    <updated>2019-04-16T03:10:48.990Z</updated>
     
     <content type="html"><![CDATA[<p>Nim博弈是ACM入门的博弈之一，其基本描述为：</p><blockquote><p>有若干堆石子，每堆石子的数量都是有限的，合法的移动是“选择一堆石子并拿走若干颗（不能不拿）”，如果轮到某个人时所有的石子堆都已经被拿空了，则判负（因为他此刻没有任何合法的移动）。</p><a id="more"></a><p>这游戏看上去有点复杂，先从简单情况开始研究吧。如果轮到你的时候，只剩下一堆石子，那么此时的必胜策略肯定是把这堆石子全部拿完一颗也不给对手剩，然后对手就输了。如果剩下两堆不相等的石子，必胜策略是通过取多的一堆的石子将两堆石子变得相等，以后如果对手在某一堆里拿若干颗，你就可以在另一堆中拿同样多的颗数，直至胜利。如果你面对的是两堆相等的石子，那么此时你是没有任何必胜策略的，反而对手可以遵循上面的策略保证必胜。如果是三堆石子……好像已经很难分析了，看来我们必须要借助一些其它好用的（最好是程式化的）分析方法了，或者说，我们最好能够设计出一种在有必胜策略时就能找到必胜策略的算法。（源自百度百科）</p></blockquote><p>如果有点基础的同学就会知道Nim博弈的判断胜负的办法：</p><blockquote><p>将每堆石子个数异或，如果异或结果非零，则先手必胜，否则先手必败。</p></blockquote><p>我们先对必败局面，即最终异或结果为  $0​$  （假设异或结果为 $A​$）进行分析：</p><p>如果现在第一个人拿任意一堆石子中的 $B​$ 个，那么现在剩余石子的异或结果 $A’​$必定不为  $0​$ ，而且可以看出$A’=B​$。</p><p>接下来是第二个人的操作。在二进制的情况下，$A’$ 的位数和 $B$ 的位数相同（假定为 $n+1$位），<strong>即剩余的所有石子中必定有一堆石子的数量（假定为 $C$ ）不少于 $2^n$ 个，且二进制下第 $n$ 位必定为 1 。假如我们拿出这一堆石子中的 $2 ^ n$ 个，现在剩下的所有石子异或结果 $A’’$ 一定小于  $2 ^ n$ ($A’’$ 第 $n$ 位此时变成了 $0$ )</strong> ，所以我们可以从这 $C$ 个石子中拿走  $2^n-A’’$ 个，剩余 $A’’$ 个，这样，剩余的石子异或的结果一定为 $A’’$ ^ $A’’ $  $=0$ 。这样，第二个人就能在一次操作后将异或的结果变为  $0$ 。</p><p>第二个人持续上述操作，就能够使第一个人当前的异或结果永远为 $0​$ ，第二个人当前的异或结果永远不为 $0​$ ，而最终当取完所有石子时，结果也为  $0​$ 。</p><p>假如初始 $A​$ 不为零，那么第一个人也可通过上述操作使得异或结果为 $0​$ 。</p><p>这样就证明了异或结果可以判断最终胜负的正确性。</p><p>（持续更新……）</p>]]></content>
     
@@ -45,7 +59,7 @@
     <link href="https://boctorio.github.io/2019/04/13/%E8%8F%9C%E9%B8%A1%E7%9A%84CCPC%E6%B2%B3%E5%8D%97%E7%9C%81%E8%B5%9B%E4%B8%80%E6%97%A5%E6%B8%B8/"/>
     <id>https://boctorio.github.io/2019/04/13/菜鸡的CCPC河南省赛一日游/</id>
     <published>2019-04-13T14:23:26.000Z</published>
-    <updated>2019-04-14T03:19:21.210Z</updated>
+    <updated>2019-04-16T03:13:21.076Z</updated>
     
     <content type="html"><![CDATA[<p>希望下回有个好成绩。</p><a id="more"></a><p>公元2019年4月13日。</p><p>清晨一如既往地冷，校园内三三两两的学生在路上悠闲地走着。餐厅内工作人员已经在这个放假的日子早早的起床做饭。</p><p>餐厅中央侧边的两张餐桌旁，坐着我们学校早起的参赛选手们。在体育节放假的这两天，两回训练赛早就冲淡了我们比赛的紧张感。我们坐在这里，吃着饭，聊着即将到来的CCPC省赛。</p><p>餐厅外，象征着青春活力的太阳已经爬上了天空。</p><p>吃完饭后，我们出了餐厅，就朝着东门的方向走去，7:50我们将准时出发去郑州轻工业大学。</p><p>这次比赛学校多了不少新的队员，都是在之前的三次积分赛上选拔出来的优秀选手。其中还包括两只大一的队伍，他们很努力；他们也很幸运，能够在大一就有机会去参加省赛。还有一只留学生的队伍，他们是教练的学生，对算法有着和我们一样的兴趣，但是我们一行人只有会长能够和他们谈笑风生，我这个连四级都没有过的人只能在旁边看着他们聊天。</p><p>这次比赛由于教练有事，所以我们教练又找了一个带队老师。这位老师在我们的校赛方面也提供很大的帮助。很年轻的一位老师，性格也很好，和我们的教练一样好。</p><p>清点完人数，我们就踏上了去打比赛的征途。又是熟悉的大巴，和蓝桥杯、天梯赛的大巴一样，坐满了我们心情忐忑的一行人。去年我们的学长在ICPC省赛中拿到了非常优异的成绩，作为学校大二的顶尖力量（其实也不过如此），我们队的压力–主要是我的压力–也是非常的大，想拿个更好的成绩去向学长们报汇报。学长为了培养我们，牺牲了自己的课余时间，给我们开公开课，开集训，我也不想在这样一个比赛中拿到并不是非常优异的成绩去报答学长们的付出。</p><p>今天的阳光很好。前几天天阴着，刮着冷风，像是又一季的冬天。</p><p>由于学校行程的安排，我们在到达轻大的时候开幕式已经开始了。报完到后，我们又在外面逛了许久，轻大看起来还是那么广阔，在清晨阳光的照射下，图书馆前的广场看起来有了别样的感觉。不久，我们就前往了考场。</p><p>到达机房门口，我们看到了比赛的环境，win10系统，电脑也和上回来的时候不一样了，看来是主办方为了省赛确实花了很大力气。</p><p>由于没有参加开幕式，到达机房时间有点早，我们几个队伍也在机房外面闲谈了起来，免不了的一波毒奶。</p><p>进入机房后，惊奇的发现键盘也换了，上次打天梯赛的键盘是老式的键盘，按起来也非常的费力。这一次的换了一种薄膜键盘，虽然用起来并没有机械键盘那么舒服，但是相比之前的还是好了很多。</p><p>在距比赛开始前几分钟，我和我队友就发现现场好像并没有纸质题面。询问了一下考场的老师，老师也说去问一下。果然没多久，就传来了比赛推迟的消息。十分钟后，又传来了比赛推迟的消息。10:20，比赛正式开始了。</p><p>由于刚开始我们以为会发三个纸质题面，但是发下来之后发现只有一个，有点大乱了我们的阵脚，dicer提议把题面撕成两份，我和codancer一人看半份，dicer看电脑。当我看了第一题我的脑子里只剩下了“？？？？？？？？”，这…应该不是签到题吧。于是我又看了B，这…应该也不是签到题吧。当我在看B的时候，dicer看了一下榜，说 D E 好像是签到题，我看了一下，确实是签到题，然后dicer就迅速的敲起了键盘，两个签到题花了8分钟写完了。</p><p>之后过了好久，没人再开出来其他题了。由于我拿的是前半部分，所以一直在看ABC，差点看自闭了，图论是我的弱项，然而BC全是树形结构，然后我就GG了。签到题写完后，dicer看了 A ，感觉可写，就给codancer说了一下，于是他们就开始全心攻A题，我觉得BC我不可写，就让codancer把另一半题面给了我，我看了 F，发现是个数学题，这就很不错了嘛。刚开始看懂题意，那不就是直接模拟吗，dicer看了题，提醒我说数据范围1e18,然后我又陷入了自闭之中，之后我就开始了漫长的化简之旅。</p><p>在纸上算了一会后，我发现符合条件的区间可以被分为不连续和连续两部分，然后我就开始继续慢慢计算每个小区间怎么处理，然后想了一个极其复杂的处理方法。我正在疯狂想办法化简的时候，dicer 和 codancer 经过激烈的讨论以及盲猜了一发结论WA了之后，看出来 A 是dp，于是把代码全盘来写。我在化简的时候发现可以先计算出小区间的范围，然后根据l r 值进行判断，激动了一下，但是看他们还在写 A ，我就决定先把代码写在纸上，看看能不能行的通，不一会，他们俩就又交了一发 A ，WA了，然后我问 A 题怎么样了，他们说害还得再找找思路有没有问题，我就说让我先敲 F 题吧，然后他们就在旁边讨论找反例来了。</p><p>我根据我的思路，很快写好了 F 题，但是测样例的时候四个就过了一个，我思考起是不是哪里写错了，就看着代码一步步的进行计算，他们在讨论了一阵之后，发现了问题在哪，然后又开始修改他们的代码，我就在旁边看我的思路是不是哪错了，之后没一会，他们又交了一发 A ，过了！然后看榜单，发现排名前几，但是罚时有点多，三题垫底。</p><p>我又开始了我的改bug之旅，他们又在旁边讨论起了 C 题，我对着样例又计算了一遍，才发现区间是左闭右开的，赶紧改bug，测样例，过了！提交，过了！</p><p>我问他们 C 题怎么样了，他们说稍微有点思路，但是复杂度太大，我看了看题，发现复杂度确实有点高。看了一眼榜单，发现开出来的这几个都差不多了，于是想着再开一个新题，我看了 H 还是图论，但是看着好像没那么难（还是太年轻了）于是就开始看起了 H 题，他们俩觉得  C 题有点不可写之后，就决定开一道新的题出来。发现 I 是一个暴力的题目，我看了看题，感觉不可写，复杂度太大了。但是他们说省赛的复杂度不用管，全是玄学复杂度。争执了一会后，我就说让他们试试吧。反正现在也开不出来其他的题目了。于是我又看起了我的 H 题。</p><p>我在纸上算了一会后，发现还是有点复杂，情况太多了。想着既然没开出来，说不定就是因为太复杂了呢。然后就继续疯狂的枚举那么多的情况，最多的时候直接开了 7 8 个数组存变量，正在我怀疑人生的时候，他们开始了调试   I 题，我想着放松会大脑，就看着他们调试，也看看是不是有设么bug，过了一会，他们调试完了，随便测试了一下样例，输入样例，过了快一秒，答案才出来，我们直接被吓了一下，但是想着省赛都是玄学复杂度，就叫一下试试吧。提交，看着他那个圈圈一直在转，我觉得肯定要凉了，又过了好久，评测机返回了 AC ，欢呼了一下。看了一下榜单，排名第5，还是有点靠后，想着必须再做一题才能保证前三名吧。</p><p>此时还剩了两个小时。榜单上 C 和 H 都有人做了出来，我继续算我的 H ,他们看起了 C。我刚才看了一会 H 了，想着思路应该差不多了，就直接上机开始敲代码，但是敲到一半，发现越敲越难敲，思路好像越来越不对了， 手放在键盘上，但是就是不知道应该写些什么。他们为我写的咋样了，我说应该差不多了，然后他们继续看 C ，我继续写代码，最后是在写不下去了，我说你们来写写试试吧。</p><p>dicer开始敲代码，我把我的思路给他们说了一下。由于他们没怎么看这个题，这个题并没有看得太明白，所以对我的思路也没办法找反例。我就在旁边说我的思路，dicer在敲代码，实现我的每一步功能，敲了好久，他们问我是不是写完了，我想了一下，应该是没啥问题了，于是测样例，果然没过。看代码，发现少了两步功能，加上后，再继续测，样例过了。然后就直接交，不出所料，果然是 WA 了。由于现在只剩这一个可写题了，我们就集中精力做这个题，他们让我把思路再发给他们说一下，我说了之后，codancer问我如果第一个是父节点怎么办，我想了一下……悲伤！果然是个假算法！然后陷入了疯狂的自闭……算法是错的，只能推倒重来。</p><p>他们因为时间复杂度一直没写 C 题，但是现在已经没办法了，他们就决定试一下，我就在旁边一会看他们敲代码，一会想着如何解决 H 题，最后二十分钟左右，我又想出了一个算法，实现简单，而且还没啥大问题。他们看起来也打算放弃 C 题了，我就说让我在挣扎一下，他们同意了，于是他们在旁边看我敲起了代码，一直敲了十几分钟，最后几分钟，代码算是敲完了，测样例，没过…检查了一下，发现我手残把两个输出设置的一样。被嘲讽了一波后过了样例，此时还有三分钟，提交，焦急的的等待着评判结果，WA……，还有两分钟，再看了一下代码，有一个地方忘记写了，加上后，测样例，提交，又WA……此时剩下了最后一分钟，机房里面有人已经开始收拾起了行李，我还在看我的代码，但是最后还是没检查出来，不得不失落地走了。</p><p>赛后看群消息，发现金奖和一A有500奖金，然后又小激动了一下，继而又后悔起了差四分钟 1A 的 H 题，太亏了。</p><p>之前教练和我们说的是比赛完直接走，但是我们想参加颁奖典礼，于是和带队老师说了一下，老师也同意了。颁奖典礼现场，赞助方现场发现金！！！简直不要太阔气。拿了500，也算是有点收获。最后第九名，没达到预期的排名，心有不甘，接下来还有一场ICPC省赛，希望接下来一场比赛能好好打，争取不丢学长的脸。</p>]]></content>
     
@@ -455,31 +469,6 @@
       <category term="算法" scheme="https://boctorio.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
       <category term="并查集" scheme="https://boctorio.github.io/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>背包问题</title>
-    <link href="https://boctorio.github.io/2019/03/02/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/"/>
-    <id>https://boctorio.github.io/2019/03/02/背包问题/</id>
-    <published>2019-03-02T00:59:21.000Z</published>
-    <updated>2019-03-26T06:27:07.747Z</updated>
-    
-    <content type="html"><![CDATA[<p>背包问题是很经典的dp问题，在许多基础的比赛中都会用到。可以这样说，背包问题就是学习dp的第一步，但是其难度对于初学者来说也并不小。</p><p>这篇文章主要介绍一下基础的01背包和完全背包。</p><a id="more"></a><h4 id="01背包"><a href="#01背包" class="headerlink" title="01背包"></a>01背包</h4><p>01背包是最简单的背包问题，其大致描述为：</p><blockquote><p>有N件物品和一个容量为V的背包。第i件物品的重量是w[i]，价值是v[i]。求解将哪些物品装入背包可使这些物品的重量总和不超过背包容量，且价值总和最大。</p></blockquote><h5 id="二维dp"><a href="#二维dp" class="headerlink" title="二维dp"></a>二维dp</h5><p>这里我们用一个二维数组dp[maxn][maxn] 来求解背包问题。</p><p>其中第一维表示前 i 个物品，第二维表示前 i 个物品在容量为 j 时的最大价值总和。</p><p>这里有一个状态方程：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dp[i][j]=max(dp[i-1][j],dp[i-1][j-w[i]]+v[i]);</span><br></pre></td></tr></table></figure><p>dp[ i ][ j ]上面说过，表示的是前 i 件物品在容量为 j 时的最大价值，那么得到dp[ i ][ j ]，其中就涉及到了关于第 i 件物品选和不选的问题。</p><p>当我们选择第 i 件物品时，总容量为 j ，我们需要腾出来 w[ i ] 的空间来装第 i 件物品，因此得出当选择第 i 件物品时的最大价值 dp[ i - 1 ][ j - w[ i ] ] + v[ i ]。</p><p>当我们不选择第 i 件物品时，那么之前的容量也必然为 j ，因为没有东西放进去，所以我们可以得到当不选择第 i 件物品时的最大价值 dp[ i - 1 ][ j ]。</p><p>理解了方程的意义，我们就可以写出来解决背包问题的代码了。</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=N;i++)&#123;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=V;j++)&#123;</span><br><span class="line"><span class="keyword">if</span>(j&lt;v[i]) dp[i][j]=dp[i<span class="number">-1</span>][j];<span class="comment">//容量太小，装不下第 i 个物品 </span></span><br><span class="line"><span class="keyword">else</span> dp[i][j]=max(dp[i<span class="number">-1</span>][j],dp[i<span class="number">-1</span>][j-v[i]]+w[i]);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>最终求出来的dp[N][V]即为答案。</p><p>这是用二维数组来求解最大价值。我们如果在纸上模拟这个过程，会发现在两层 for 循环的情况下，每个位置的值只会变化一次，当第 i 行求解完之后，我们就再也不会改变第 i 行的值了。</p><p>那么这对空间的要求是巨大的，我们是否可以把二维数组压缩成一位数组？答案是可以！</p><h5 id="一维dp"><a href="#一维dp" class="headerlink" title="一维dp"></a>一维dp</h5><p>我们如果在纸上模拟这个过程，会发现在两层 for 循环的情况下，每个位置的值只会变化一次，当第 i 行求解完之后，我们就再也不会改变第 i 行的值了。</p><p>上面的代码过程用图像可以表示为：</p><p><img src="/2019/03/02/背包问题/01背包-1.png" alt=""></p><p>从上面代码和图片中可以看出，影响dp[ i ][ j ]的值为 dp[ i - 1][ j ] 和dp[ i - 1 ][ j - w[ i ] ]，两个数的一维二维坐标均小于等于 i , j ，所以我们第一步先改变一下循环的顺序：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=N;i++)&#123;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> j=V;j&gt;=<span class="number">1</span>;j--)&#123;<span class="comment">//这里的循环顺序改变了</span></span><br><span class="line"><span class="keyword">if</span>(j&lt;v[i]) dp[i][j]=dp[i<span class="number">-1</span>][j];</span><br><span class="line"><span class="keyword">else</span> dp[i][j]=max(dp[i<span class="number">-1</span>][j],dp[i<span class="number">-1</span>][j-v[i]]+w[i]);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>如果表示成一维的话，那么过程就变成了：</p><p><img src="/2019/03/02/背包问题/01背包-2.png" alt=""></p><p>可以发现，此时代码中   <strong>if(j&lt;v[i]) dp[i][j]=dp[i-1][j]</strong> 已经失去了原本的作用。</p><p>然后将二维数组压缩成一位数组：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> j=V;j&gt;=w[i];j--)&#123;<span class="comment">//根据上面的代码，这里假如j&lt;w[i]时，dp[j]=dp[j],可以直接省略</span></span><br><span class="line">dp[j]=max(dp[j],dp[j-w[i]]+v[i]);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>在这里可能有人疑问，为什么循环顺序要变化？</p><p>当我们从前往后改变一维数组的值时，我们可能会改变了后面的数的正确的值，因为后面的数还会用到前面的是，从而导致最终结果偏离正确结果。</p><p>所以我们选用从后往前的方式进行遍历，前面已经说过，影响这个元素的值一维二维坐标均小于当前坐标，所以即使我们改变了后面的数值，也不会对前面的值有影响。</p><p>这样，我们就可以节省大量的空间（还在第二层循环时减少了时间）。</p><h4 id="完全背包"><a href="#完全背包" class="headerlink" title="完全背包"></a>完全背包</h4><blockquote><p>有N种物品和一个容量为V的背包。第i种物品的重量是w[i]，价值是v[i]。每种物品都可以无限件使用。求解将哪些物品装入背包可使这些物品的重量总和不超过背包容量，且价值总和最大。</p></blockquote><p>完全背包和01背包最大的区别就是物品件数的改变。完全背包每种物品可以无限次使用，而01背包只是用一次。</p><p>我们再来看一下01背包一维dp时循环顺序的问题。</p><p>上面已经说过，假如第二层for循环的顺序是j++，那么最终结果会偏离正确结果。但是是怎么偏离的呢？我们继续深入探讨一下。</p><blockquote><p>假如dp[ j ]&lt;dp[ j - w[ i ] ] + v[ i ] ，那么dp[ j ]=dp[ j - w[ i ] ] + v[ i ]，</p><p>然后对于 k ( j &lt; k &lt;= V)，如果dp[ j ]影响到了dp[ k ] ，那么影响的结果一定是dp[ k ] = dp[ k - w[ i ] ] + v[ i ],其中 k - w[ i ] = j ( 只考虑直接影响 )，</p><p>所以我们可以继续递推得出dp[ k ] = dp[ j - w[ i ] ] +v[ i ] +v[ i ]=dp[ j - w[ i ] ] + 2 * v[ i ]。</p></blockquote><p>这里我们就发现，v[ i ]被使用了两次，这在01背包中肯定是错误的，但是在完全背包中却没有任何问题，因为每件物品可以无限次使用，因此我们就可以得出完全背包的求解方法：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> j=w[i];j&lt;=V;j++)&#123;</span><br><span class="line">dp[j]=max(dp[j],dp[j-w[i]]+v[i]);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>这和01背包的区别只在于第二层循环的顺序。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;背包问题是很经典的dp问题，在许多基础的比赛中都会用到。可以这样说，背包问题就是学习dp的第一步，但是其难度对于初学者来说也并不小。&lt;/p&gt;
-&lt;p&gt;这篇文章主要介绍一下基础的01背包和完全背包。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="算法" scheme="https://boctorio.github.io/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="算法" scheme="https://boctorio.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="背包" scheme="https://boctorio.github.io/tags/%E8%83%8C%E5%8C%85/"/>
     
   </entry>
   
