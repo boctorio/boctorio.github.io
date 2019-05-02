@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[凸包]]></title>
+    <url>%2F2019%2F04%2F30%2F%E5%87%B8%E5%8C%85%2F</url>
+    <content type="text"><![CDATA[凸包 凸包（Convex Hull）是一个计算几何（图形学）中的概念。在一个实数向量空间V中，对于给定集合X，所有包含X的凸集的交集S被称为X的凸包。X的凸包可以用X内所有点(X1，…Xn)的凸组合来构造.在二维欧几里得空间中，凸包可想象为一条刚好包著所有点的橡皮圈。用不严谨的话来讲，给定二维平面上的点集，凸包就是将最外层的点连接起来构成的凸多边形，它能包含点集中所有的点。（来源于百度百科） 凸包是计算几何题目中经常出现的概念，一般形式为给你 $ n ​$ 个点，求这些点所构成的凸包的面积。 这张动图是求凸包的过程。 求凸包的基本顺序为： 找到凸包上的一个点，一般为x坐标最小的点。 将找到的点设为原点，根据极角排序方式将剩余的点进行排序 循环找凸包上的点 如果当前点比上一个点更可能是凸包上的点，那么就覆盖上一个点，更新为当前点。 如果当前点没有上一个点适合当凸包上的点，那么就先放进凸包集合中，继续寻找下一个点。 循环结束。 关于当前点是否更有可能是凸包上的点，用下面的几张图来讲解： 当前凸包内有三个点v0,v1,v2，接下来判断v3的时候，我们需要对它进行判断： $v1$ 与 $v2,v3$ 相连，判断两条线的夹角的方向，如果是逆时针方向，那么就可以放入凸包集合中: 接下来同样的办法判断v4: 如果是顺时针方向，那么 $v4$ 就优于 $v3$ ，我们删去 $v3$ ，接下来继续判断： 逆时针，所以可以放入图包集合： 之后一直重复这个过程即可。 代码如下： 1234567891011121314151617181920212223242526272829303132struct node&#123; int x,y; int pos;&#125;p[maxn],q[maxn];int n,l;node getmag(node a,node b)&#123;//计算边 表示从a-&gt;b的向量 node s; s.x=b.x-a.x; s.y=b.y-a.y; return s;&#125;int multiX(node a,node b)&#123;//叉乘的正负代表两条直线夹角的顺逆 return a.x*b.y-a.y*b.x;&#125;bool cmp(node a,node b)&#123;//根据极角排序 return multiX(getmag(p[1],a),getmag(p[1],b))&gt;0;&#125;void graham()&#123; int id=1; for(int i=2;i&lt;=n;i++)&#123;//找出最开始的一个点 if(p[i].x&lt;p[id].x || (p[i].x==p[id].x &amp;&amp; p[i].y&lt;p[id].y)) id=i; &#125; if(id!=1) swap(p[id],p[1]); sort(p+2,p+n+1,cmp);//极角排序 q[++l]=p[1];//p: 所有点集合 q: 凸包点集合 for(int i=2;i&lt;=n;i++)&#123; //如果夹角是顺时针方向，那么就可以取代 while(l&gt;=2 &amp;&amp; multiX(getmag(q[l-1],p[i]),getmag(q[l-1],q[l]))&gt;=0) l--; q[++l]=p[i]; &#125;&#125;]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>凸包</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[树状数组]]></title>
     <url>%2F2019%2F04%2F16%2F%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%2F</url>
     <content type="text"><![CDATA[树状数组在数据结构上和线段树类似，功能上均用来求解区间的修改，查询，计数等问题。 树状数组树状数组的突出优点为代码简洁，相比于线段树，其修改、查询函数均非常简短。 线段树的数据结构为： 将线段树数组的位置进行改变就得到了树状数组：]]></content>
@@ -174,8 +185,8 @@
         <category>算法</category>
       </categories>
       <tags>
-        <tag>算法</tag>
         <tag>尺取</tag>
+        <tag>算法</tag>
       </tags>
   </entry>
   <entry>
@@ -198,8 +209,8 @@
         <category>算法</category>
       </categories>
       <tags>
-        <tag>并查集</tag>
         <tag>算法</tag>
+        <tag>并查集</tag>
       </tags>
   </entry>
   <entry>

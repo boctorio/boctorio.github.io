@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://boctorio.github.io/"/>
-  <updated>2019-04-17T12:54:31.758Z</updated>
+  <updated>2019-05-02T08:45:51.838Z</updated>
   <id>https://boctorio.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>凸包</title>
+    <link href="https://boctorio.github.io/2019/04/30/%E5%87%B8%E5%8C%85/"/>
+    <id>https://boctorio.github.io/2019/04/30/凸包/</id>
+    <published>2019-04-30T11:13:39.000Z</published>
+    <updated>2019-05-02T08:45:51.838Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="凸包"><a href="#凸包" class="headerlink" title="凸包"></a>凸包</h3><blockquote><p>凸包（Convex Hull）是一个计算几何（图形学）中的概念。<br>在一个实数向量空间V中，对于给定集合X，所有包含X的凸集的交集S被称为X的凸包。X的凸包可以用X内所有点(X1，…Xn)的凸组合来构造.<br>在二维欧几里得空间中，凸包可想象为一条刚好包著所有点的橡皮圈。<br>用不严谨的话来讲，给定二维平面上的点集，凸包就是将最外层的点连接起来构成的凸多边形，它能包含点集中所有的点。（来源于百度百科）</p></blockquote><a id="more"></a><p>凸包是计算几何题目中经常出现的概念，一般形式为给你 $ n ​$ 个点，求这些点所构成的凸包的面积。</p><p><img src="/2019/04/30/凸包/凸包.gif" alt=""></p><p>这张动图是求凸包的过程。</p><p>求凸包的基本顺序为：</p><blockquote><ol><li>找到凸包上的一个点，一般为x坐标最小的点。</li><li>将找到的点设为原点，根据极角排序方式将剩余的点进行排序</li><li>循环找凸包上的点<ol><li>如果当前点比上一个点更可能是凸包上的点，那么就覆盖上一个点，更新为当前点。</li><li>如果当前点没有上一个点适合当凸包上的点，那么就先放进凸包集合中，继续寻找下一个点。</li></ol></li><li>循环结束。</li></ol></blockquote><p>关于当前点是否更有可能是凸包上的点，用下面的几张图来讲解：</p><p><img src="/2019/04/30/凸包/t1.png" alt=""></p><p>当前凸包内有三个点v0,v1,v2，接下来判断v3的时候，我们需要对它进行判断：</p><p><img src="/2019/04/30/凸包/t2.png" alt=""></p><p>$v1$ 与 $v2,v3$ 相连，判断两条线的夹角的方向，如果是逆时针方向，那么就可以放入凸包集合中:</p><p><img src="/2019/04/30/凸包/t3.png" alt=""></p><p>接下来同样的办法判断v4:</p><p><img src="/2019/04/30/凸包/t4.png" alt=""></p><p>如果是顺时针方向，那么 $v4$ 就优于 $v3$ ，我们删去 $v3$ ，接下来继续判断：</p><p><img src="/2019/04/30/凸包/t6.png" alt=""></p><p>逆时针，所以可以放入图包集合：</p><p><img src="/2019/04/30/凸包/t5.png" alt=""></p><p>之后一直重复这个过程即可。</p><p>代码如下：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line"><span class="keyword">int</span> x,y;</span><br><span class="line"><span class="keyword">int</span> pos;</span><br><span class="line">&#125;p[maxn],q[maxn];</span><br><span class="line"><span class="keyword">int</span> n,l;</span><br><span class="line"><span class="function">node <span class="title">getmag</span><span class="params">(node a,node b)</span></span>&#123;<span class="comment">//计算边 表示从a-&gt;b的向量 </span></span><br><span class="line">node s;</span><br><span class="line">s.x=b.x-a.x;</span><br><span class="line">s.y=b.y-a.y;</span><br><span class="line"><span class="keyword">return</span> s;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">multiX</span><span class="params">(node a,node b)</span></span>&#123;<span class="comment">//叉乘的正负代表两条直线夹角的顺逆 </span></span><br><span class="line"><span class="keyword">return</span> a.x*b.y-a.y*b.x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(node a,node b)</span></span>&#123;<span class="comment">//根据极角排序</span></span><br><span class="line"><span class="keyword">return</span> multiX(getmag(p[<span class="number">1</span>],a),getmag(p[<span class="number">1</span>],b))&gt;<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">graham</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="keyword">int</span> id=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;i++)&#123;<span class="comment">//找出最开始的一个点 </span></span><br><span class="line"><span class="keyword">if</span>(p[i].x&lt;p[id].x || (p[i].x==p[id].x &amp;&amp; p[i].y&lt;p[id].y)) id=i;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(id!=<span class="number">1</span>) swap(p[id],p[<span class="number">1</span>]);</span><br><span class="line"></span><br><span class="line">sort(p+<span class="number">2</span>,p+n+<span class="number">1</span>,cmp);<span class="comment">//极角排序 </span></span><br><span class="line">q[++l]=p[<span class="number">1</span>];<span class="comment">//p: 所有点集合  q: 凸包点集合 </span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;i++)&#123;</span><br><span class="line"><span class="comment">//如果夹角是顺时针方向，那么就可以取代 </span></span><br><span class="line"><span class="keyword">while</span>(l&gt;=<span class="number">2</span> &amp;&amp; multiX(getmag(q[l<span class="number">-1</span>],p[i]),getmag(q[l<span class="number">-1</span>],q[l]))&gt;=<span class="number">0</span>) l--;</span><br><span class="line">q[++l]=p[i];</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;凸包&quot;&gt;&lt;a href=&quot;#凸包&quot; class=&quot;headerlink&quot; title=&quot;凸包&quot;&gt;&lt;/a&gt;凸包&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;凸包（Convex Hull）是一个计算几何（图形学）中的概念。&lt;br&gt;在一个实数向量空间V中，对于给定集合X，所有包含X的凸集的交集S被称为X的凸包。X的凸包可以用X内所有点(X1，…Xn)的凸组合来构造.&lt;br&gt;在二维欧几里得空间中，凸包可想象为一条刚好包著所有点的橡皮圈。&lt;br&gt;用不严谨的话来讲，给定二维平面上的点集，凸包就是将最外层的点连接起来构成的凸多边形，它能包含点集中所有的点。（来源于百度百科）&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="算法" scheme="https://boctorio.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="凸包" scheme="https://boctorio.github.io/tags/%E5%87%B8%E5%8C%85/"/>
+    
+  </entry>
   
   <entry>
     <title>树状数组</title>
@@ -423,9 +447,9 @@
       <category term="算法" scheme="https://boctorio.github.io/categories/%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="算法" scheme="https://boctorio.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="尺取" scheme="https://boctorio.github.io/tags/%E5%B0%BA%E5%8F%96/"/>
+    
+      <category term="算法" scheme="https://boctorio.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -451,32 +475,6 @@
       <category term="算法" scheme="https://boctorio.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
       <category term="快速幂" scheme="https://boctorio.github.io/tags/%E5%BF%AB%E9%80%9F%E5%B9%82/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>并查集</title>
-    <link href="https://boctorio.github.io/2019/03/02/%E5%B9%B6%E6%9F%A5%E9%9B%86/"/>
-    <id>https://boctorio.github.io/2019/03/02/并查集/</id>
-    <published>2019-03-02T03:15:44.000Z</published>
-    <updated>2019-03-26T06:26:26.082Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>并查集，在一些有N个元素的集合应用问题中，我们通常是在开始时让每个元素构成一个单元素的集合，然后按一定顺序将属于同一组的元素所在的集合合并，其间要反复查找一个元素在哪个集合中。</p><p>简而言之，并查集就是将一些具有一定关系的元素进行合并，以此来减少查询的时间。</p><p>并查集是基于树形结构的数据而使用的。</p><a id="more"></a><h4 id="问题提出"><a href="#问题提出" class="headerlink" title="问题提出"></a>问题提出</h4><p>接下来看一个题目：</p><blockquote><p>   某省调查城镇交通状况，得到现有城镇道路统计表，表中列出了每条道路直接连通的城镇。省政府“畅通工程”的目标是使全省任何两个城镇间都可以实现交通（但不一定有直接的道路相连，只要互相间接通过道路可达即可）。问最少还需要建设多少条道路？ </p><p>Input</p><p>测试输入包含若干测试用例。每个测试用例的第1行给出两个正整数，分别是城镇数目N ( &lt; 1000 )和道路数目M；随后的M行对应M条道路，每行给出一对正整数，分别是该条道路直接连通的两个城镇的编号。为简单起见，城镇从1到N编号。<br>注意:两个城市之间可以有多条道路相通,也就是说<br>3 3<br>1 2<br>1 2<br>2 1<br>这种输入也是合法的<br>当N为0时，输入结束，该用例不被处理。  </p><p>Output</p><p>对每个测试用例，在1行里输出最少还需要建设的道路数目。  </p></blockquote><p>这个题就是经典的并查集。可以看出，当两个城镇互相联通（直接或间接）时，这两个城镇之间就不需要再进行任何道路建设。所以我们需要找出有多少个<strong>城镇集合</strong>是互不联通的。</p><p>如何说明和标记两个城镇是否互相联通？解决这个问题，就是我们的最终目的。</p><h4 id="并查集"><a href="#并查集" class="headerlink" title="并查集"></a>并查集</h4><p>给出一个上面题目的一个样例：</p><blockquote><p>5 2</p><p>1 2</p><p>3 5</p></blockquote><p>它所对应的图形为：</p><p><img src="/2019/03/02/并查集/并查集-1.png" alt=""></p><p>如果仅仅从图片上看，我们很明显的可以看出来答案是2。</p><p>由于所有元素各不相同，对于每个集合，总会有一个最小值，而我们一般把这个最小值作为每个集合的根节点。</p><p>以上图为例，1,2,3,4,5对应的根节点分别为 1,1,3,3,4。总共有3种根节点，因此答案为3-1=2；</p><p>也可以说，总共有3个元素对应的根节点是其本身。</p><p>并查集的作用就是是每个集合里面的元素都找到其对应的根节点。</p><p>当我们合并两个元素时，这两个元素可能并不是自己所在集合的根节点，因此我们需要找到其对应的根节点，然后将两个根节点进行合并。</p><p>网上有一个很形象的比喻：</p><blockquote><p>话说江湖上散落着各式各样的大侠，有上千个之多。他们没有什么正当职业，整天背着剑在外面走来走去，碰到和自己不是一路人的，就免不了要打一架。但大侠们有一个优点就是讲义气，绝对不打自己的朋友。而且他们信奉“朋友的朋友就是我的朋友”，只要是能通过朋友关系串联起来的，不管拐了多少个弯，都认为是自己人。这样一来，江湖上就形成了一个一个的群落，通过两两之间的朋友关系串联起来。而不在同一个群落的人，无论如何都无法通过朋友关系连起来，于是就可以放心往死了打。但是两个原本互不相识的人，如何判断是否属于一个朋友圈呢？</p><p>我们可以在每个朋友圈内推举出一个比较有名望的人，作为该圈子的代表人物，这样，每个圈子就可以这样命名“齐达内朋友之队”“罗纳尔多朋友之队”……两人只要互相对一下自己的队长是不是同一个人，就可以确定敌友关系了。</p><p>但是还有问题啊，大侠们只知道自己直接的朋友是谁，很多人压根就不认识队长，要判断自己的队长是谁，只能漫无目的的通过朋友的朋友关系问下去：“你是不是队长？你是不是队长？”这样一来，队长面子上挂不住了，而且效率太低，还有可能陷入无限循环中。于是队长下令，重新组队。队内所有人实行分等级制度，形成树状结构，我队长就是根节点，下面分别是二级队员、三级队员。每个人只要记住自己的上级是谁就行了。遇到判断敌友的时候，只要一层层向上问，直到最高层，就可以在短时间内确定队长是谁了。由于我们关心的只是两个人之间是否连通，至于他们是如何连通的，以及每个圈子内部的结构是怎样的，甚至队长是谁，并不重要。所以我们可以放任队长随意重新组队，只要不搞错敌友关系就好了。于是，门派产生了。</p></blockquote><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">1000</span>+<span class="number">10</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> INF=<span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">int</span> n,m,u,v;</span><br><span class="line"><span class="keyword">int</span> dep[maxn];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span>&#123;<span class="comment">//刚开始每个节点的根节点都是其本身 </span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">dep[i]=i;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line"><span class="keyword">if</span>(x!=dep[x])</span><br><span class="line">dep[x]=find(dep[x]);<span class="comment">//这个的作用就是递归找到最后的根节点</span></span><br><span class="line"><span class="keyword">return</span> dep[x];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Union</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>&#123;<span class="comment">//将两个元素进行合并，两个根节点不一样，就将两个根节点进行合并，大的合并到小的根节点上 </span></span><br><span class="line"><span class="keyword">int</span> dx=find(x);</span><br><span class="line"><span class="keyword">int</span> dy=find(y);</span><br><span class="line"><span class="keyword">if</span>(dx&lt;dy) dep[dy]=dx;<span class="comment">//将大的合并到小的上面</span></span><br><span class="line"><span class="keyword">else</span> dep[dx]=dy;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;n,&amp;m);</span><br><span class="line">init();</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)&#123;</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;u,&amp;v);</span><br><span class="line"><span class="keyword">if</span>(find(u)!=find(v)) Union(u,v);<span class="comment">//如果两个元素根节点不一样，就进行合并</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> res=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;<span class="comment">//统计总共有多少个根节点，即集合</span></span><br><span class="line"><span class="keyword">if</span>(dep[i]==i) res++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%d\n"</span>,res<span class="number">-1</span>);</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>按照上面的例子，函数init()就是创造一个最初的江湖，find()就是用来找到自己的队长，Union()就是来将两位大侠所在的队伍结盟。对于一个队伍来说，队伍的操作只能由队长来进行，所以我们最后只需要将两个队长串联起来就可以了。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h4 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h4&gt;&lt;p&gt;并查集，在一些有N个元素的集合应用问题中，我们通常是在开始时让每个元素构成一个单元素的集合，然后按一定顺序将属于同一组的元素所在的集合合并，其间要反复查找一个元素在哪个集合中。&lt;/p&gt;
-&lt;p&gt;简而言之，并查集就是将一些具有一定关系的元素进行合并，以此来减少查询的时间。&lt;/p&gt;
-&lt;p&gt;并查集是基于树形结构的数据而使用的。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="算法" scheme="https://boctorio.github.io/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="并查集" scheme="https://boctorio.github.io/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/"/>
-    
-      <category term="算法" scheme="https://boctorio.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
