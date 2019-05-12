@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Nim博弈,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -88,18 +88,25 @@
 
 
 
-<meta name="description" content="Nim博弈是ACM入门的博弈之一，其基本描述为：  有若干堆石子，每堆石子的数量都是有限的，合法的移动是“选择一堆石子并拿走若干颗（不能不拿）”，如果轮到某个人时所有的石子堆都已经被拿空了，则判负（因为他此刻没有任何合法的移动）。">
-<meta name="keywords" content="Nim博弈">
+<meta name="description" content="Tarjan算法是用来求强连通的一种算法。在学习算法之前，我们需要了解强连通的概念。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Nim博弈--简单证明">
-<meta property="og:url" content="https://boctorio.github.io/2019/04/15/Nim博弈-简单证明/index.html">
+<meta property="og:title" content="Tarjan算法">
+<meta property="og:url" content="https://boctorio.github.io/2019/05/12/Tarjan算法/index.html">
 <meta property="og:site_name" content="Boctorio&#39;s Blog">
-<meta property="og:description" content="Nim博弈是ACM入门的博弈之一，其基本描述为：  有若干堆石子，每堆石子的数量都是有限的，合法的移动是“选择一堆石子并拿走若干颗（不能不拿）”，如果轮到某个人时所有的石子堆都已经被拿空了，则判负（因为他此刻没有任何合法的移动）。">
+<meta property="og:description" content="Tarjan算法是用来求强连通的一种算法。在学习算法之前，我们需要了解强连通的概念。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-16T03:10:48.990Z">
+<meta property="og:image" content="https://boctorio.github.io/2019/05/12/Tarjan算法/1.png">
+<meta property="og:image" content="https://boctorio.github.io/2019/05/12/Tarjan算法/2.png">
+<meta property="og:image" content="https://boctorio.github.io/2019/05/12/Tarjan算法/3.png">
+<meta property="og:image" content="https://boctorio.github.io/2019/05/12/Tarjan算法/4.png">
+<meta property="og:image" content="https://boctorio.github.io/2019/05/12/Tarjan算法/5.png">
+<meta property="og:image" content="https://boctorio.github.io/2019/05/12/Tarjan算法/6.png">
+<meta property="og:image" content="https://boctorio.github.io/2019/05/12/Tarjan算法/7.png">
+<meta property="og:updated_time" content="2019-05-12T08:19:26.830Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Nim博弈--简单证明">
-<meta name="twitter:description" content="Nim博弈是ACM入门的博弈之一，其基本描述为：  有若干堆石子，每堆石子的数量都是有限的，合法的移动是“选择一堆石子并拿走若干颗（不能不拿）”，如果轮到某个人时所有的石子堆都已经被拿空了，则判负（因为他此刻没有任何合法的移动）。">
+<meta name="twitter:title" content="Tarjan算法">
+<meta name="twitter:description" content="Tarjan算法是用来求强连通的一种算法。在学习算法之前，我们需要了解强连通的概念。">
+<meta name="twitter:image" content="https://boctorio.github.io/2019/05/12/Tarjan算法/1.png">
 
 
 
@@ -129,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="https://boctorio.github.io/2019/04/15/Nim博弈-简单证明/">
+  <link rel="canonical" href="https://boctorio.github.io/2019/05/12/Tarjan算法/">
 
 
 
 
 
-  <title>Nim博弈--简单证明 | Boctorio's Blog</title>
+  <title>Tarjan算法 | Boctorio's Blog</title>
   
 
 
@@ -313,7 +320,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://boctorio.github.io/2019/04/15/Nim博弈-简单证明/">
+    <link itemprop="mainEntityOfPage" href="https://boctorio.github.io/2019/05/12/Tarjan算法/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Boctorio">
@@ -330,7 +337,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Nim博弈--简单证明</h1>
+          <h1 class="post-title" itemprop="name headline">Tarjan算法</h1>
         
 
         <div class="post-meta">
@@ -342,8 +349,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-15T17:32:37+08:00">
-                2019-04-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-12T14:59:33+08:00">
+                2019-05-12
               </time>
             
 
@@ -353,28 +360,6 @@
           </span>
 
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/博弈/" itemprop="url" rel="index">
-                    <span itemprop="name">博弈</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -382,7 +367,7 @@
 
           
           
-             <span id="/2019/04/15/Nim博弈-简单证明/" class="leancloud_visitors" data-flag-title="Nim博弈--简单证明">
+             <span id="/2019/05/12/Tarjan算法/" class="leancloud_visitors" data-flag-title="Tarjan算法">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -408,7 +393,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  797
+                  711
                 </span>
               
 
@@ -424,7 +409,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  3
                 </span>
               
             </div>
@@ -445,23 +430,40 @@
       
 
       
-        <p>Nim博弈是ACM入门的博弈之一，其基本描述为：</p>
-<blockquote>
-<p>有若干堆石子，每堆石子的数量都是有限的，合法的移动是“选择一堆石子并拿走若干颗（不能不拿）”，如果轮到某个人时所有的石子堆都已经被拿空了，则判负（因为他此刻没有任何合法的移动）。</p>
+        <p>Tarjan算法是用来求强连通的一种算法。在学习算法之前，我们需要了解强连通的概念。</p>
 <a id="more"></a>
-<p>这游戏看上去有点复杂，先从简单情况开始研究吧。如果轮到你的时候，只剩下一堆石子，那么此时的必胜策略肯定是把这堆石子全部拿完一颗也不给对手剩，然后对手就输了。如果剩下两堆不相等的石子，必胜策略是通过取多的一堆的石子将两堆石子变得相等，以后如果对手在某一堆里拿若干颗，你就可以在另一堆中拿同样多的颗数，直至胜利。如果你面对的是两堆相等的石子，那么此时你是没有任何必胜策略的，反而对手可以遵循上面的策略保证必胜。如果是三堆石子……好像已经很难分析了，看来我们必须要借助一些其它好用的（最好是程式化的）分析方法了，或者说，我们最好能够设计出一种在有必胜策略时就能找到必胜策略的算法。（源自百度百科）</p>
-</blockquote>
-<p>如果有点基础的同学就会知道Nim博弈的判断胜负的办法：</p>
 <blockquote>
-<p>将每堆石子个数异或，如果异或结果非零，则先手必胜，否则先手必败。</p>
+<p><strong>强联通</strong>：</p>
+<p>​    在一张有向图中，对于任意两个点v1,v2,存在从v1-&gt;v2 和v2-&gt;v1 的路径，则称这张图为强连通图。</p>
+<p><strong>强联通子图</strong>：</p>
+<p>​    在一张有向图中，存在一张子图是强连通图，则称这个子图为强连通子图，其极大强连通子图称之为<strong>强连通分量</strong>。</p>
 </blockquote>
-<p>我们先对必败局面，即最终异或结果为  $0​$  （假设异或结果为 $A​$）进行分析：</p>
-<p>如果现在第一个人拿任意一堆石子中的 $B​$ 个，那么现在剩余石子的异或结果 $A’​$必定不为  $0​$ ，而且可以看出$A’=B​$。</p>
-<p>接下来是第二个人的操作。在二进制的情况下，$A’$ 的位数和 $B$ 的位数相同（假定为 $n+1$位），<strong>即剩余的所有石子中必定有一堆石子的数量（假定为 $C$ ）不少于 $2^n$ 个，且二进制下第 $n$ 位必定为 1 。假如我们拿出这一堆石子中的 $2 ^ n$ 个，现在剩下的所有石子异或结果 $A’’$ 一定小于  $2 ^ n$ ($A’’$ 第 $n$ 位此时变成了 $0$ )</strong> ，所以我们可以从这 $C$ 个石子中拿走  $2^n-A’’$ 个，剩余 $A’’$ 个，这样，剩余的石子异或的结果一定为 $A’’$ ^ $A’’ $  $=0$ 。这样，第二个人就能在一次操作后将异或的结果变为  $0$ 。</p>
-<p>第二个人持续上述操作，就能够使第一个人当前的异或结果永远为 $0​$ ，第二个人当前的异或结果永远不为 $0​$ ，而最终当取完所有石子时，结果也为  $0​$ 。</p>
-<p>假如初始 $A​$ 不为零，那么第一个人也可通过上述操作使得异或结果为 $0​$ 。</p>
-<p>这样就证明了异或结果可以判断最终胜负的正确性。</p>
-<p>（持续更新……）</p>
+<p>Tarjan的作用就是求强连通分量。</p>
+<p>在遍历之前，我们需要建立一个栈来统计当前未被处理的节点。</p>
+<p>对于下图：</p>
+<p><img src="/2019/05/12/Tarjan算法/1.png" alt=""></p>
+<p>我们从节点1开始dfs遍历，其中DFN表示遍历的编号，LOW表示连通块中最小的遍历的编号：</p>
+<p>（此时栈中元素为：1 2 3 6）</p>
+<p><img src="/2019/05/12/Tarjan算法/2.png" alt=""></p>
+<p>遍历到节点6后，开始回溯，此时判断DFN是否等于LOW，如果相等，那么这是强连通分量上的一个点：</p>
+<p>（此时栈中元素为：1 2 3）</p>
+<p><img src="/2019/05/12/Tarjan算法/3.png" alt=""></p>
+<p>回溯到节点3时，没有其他路可走，那么就判断DFN是否等于LOW，同时更新LOW[ 3 ]的值：</p>
+<p>（此时栈中元素为：1 2）</p>
+<p><img src="/2019/05/12/Tarjan算法/4.png" alt=""></p>
+<p>接下来从节点2向下遍历：</p>
+<p>（此时栈中元素为：1 2 5）</p>
+<p><img src="/2019/05/12/Tarjan算法/5.png" alt=""></p>
+<p>由于5 -&gt; 1 中节点1已经访问过了，那么此时我们更新LOW[ 5 ] = LOW[ 1 ] = 1,然后回溯更新LOW[2]=LOW[ 1 ]：</p>
+<p>（此时栈中元素为：1 2 5）</p>
+<p><img src="/2019/05/12/Tarjan算法/6.png" alt=""></p>
+<p>回溯到节点1，向下搜节点4，节点5被访问过，回溯LOW[ 4 ]=LOW[ 5 ] = 1 ：</p>
+<p>（此时栈中元素：1 2 5 4）</p>
+<p><img src="/2019/05/12/Tarjan算法/7.png" alt=""></p>
+<p>继续回溯到节点1，此时节点1相邻边已被访问完毕，判断DFN是否等于LOW，相等就开始标记强连通分量。将栈中元素LOW相等的全部连通。</p>
+<p>完毕。</p>
+<p>模板为：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> n,m,tt,cnt,sig;</span><br><span class="line"><span class="keyword">int</span> vis[maxn],low[maxn],dfn[maxn];</span><br><span class="line"><span class="keyword">int</span> color[maxn];<span class="comment">//color[]为染色，即强连通中的元素染成同一种颜色。</span></span><br><span class="line"><span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt;st;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;vec[maxn];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">memset</span>(vis,<span class="number">0</span>,<span class="keyword">sizeof</span>(vis));</span><br><span class="line">	<span class="built_in">memset</span>(low,<span class="number">0</span>,<span class="keyword">sizeof</span>(low));</span><br><span class="line">	<span class="built_in">memset</span>(dfn,<span class="number">0</span>,<span class="keyword">sizeof</span>(dfn));</span><br><span class="line">	<span class="built_in">memset</span>(color,<span class="number">0</span>,<span class="keyword">sizeof</span>(color));</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) vec[i].clear();</span><br><span class="line">	<span class="keyword">while</span>(!st.empty()) st.pop();</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">tarjan</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">	vis[x]=<span class="number">1</span>;</span><br><span class="line">	dfn[x]=low[x]=cnt++;</span><br><span class="line">	st.push(x);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;vec[x].size();i++)&#123;</span><br><span class="line">		<span class="keyword">int</span> y=vec[x][i];</span><br><span class="line">		<span class="keyword">if</span>(vis[y]==<span class="number">0</span>) tarjan(y);<span class="comment">//未被访问过，向下遍历</span></span><br><span class="line">		<span class="keyword">if</span>(vis[y]==<span class="number">1</span>) low[x]=min(low[x],low[y]);<span class="comment">//更新LOW下标</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(low[x]==dfn[x])&#123;</span><br><span class="line">		sig++;<span class="comment">//染色序号</span></span><br><span class="line">		<span class="keyword">int</span> flag=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">while</span>(!flag)&#123;<span class="comment">//将栈中x及其以后的节点全部标记为同一种颜色（sig）</span></span><br><span class="line">			<span class="keyword">int</span> t=st.top(); st.pop();</span><br><span class="line">			<span class="keyword">if</span>(t==x) flag=<span class="number">1</span>;</span><br><span class="line">			color[t]=sig;</span><br><span class="line">			vis[t]=<span class="number">-1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">	tt=<span class="number">-1</span>;cnt=<span class="number">1</span>;sig=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(vis[i]==<span class="number">0</span>) tarjan(i);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/*</span></span><br><span class="line"><span class="comment">	此处添加其他操作 </span></span><br><span class="line"><span class="comment">	*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -511,7 +513,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://boctorio.github.io/2019/04/15/Nim博弈-简单证明/" title="Nim博弈--简单证明">https://boctorio.github.io/2019/04/15/Nim博弈-简单证明/</a>
+    <a href="https://boctorio.github.io/2019/05/12/Tarjan算法/" title="Tarjan算法">https://boctorio.github.io/2019/05/12/Tarjan算法/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -534,12 +536,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Nim博弈/" rel="tag"><i class="fa fa-tag"></i> Nim博弈</a>
-          
-        </div>
-      
 
       
       
@@ -549,8 +545,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/13/菜鸡的CCPC河南省赛一日游/" rel="next" title="菜鸡的CCPC河南省赛一日游">
-                <i class="fa fa-chevron-left"></i> 菜鸡的CCPC河南省赛一日游
+              <a href="/2019/05/09/最短编辑距离/" rel="next" title="最短编辑距离">
+                <i class="fa fa-chevron-left"></i> 最短编辑距离
               </a>
             
           </div>
@@ -558,10 +554,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/04/16/树状数组/" rel="prev" title="树状数组">
-                树状数组 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
