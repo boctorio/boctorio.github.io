@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[梯度下降]]></title>
+    <url>%2F2019%2F05%2F18%2F%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>AI</category>
+      </categories>
+      <tags>
+        <tag>梯度下降</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[二分图匹配]]></title>
+    <url>%2F2019%2F05%2F16%2F%E4%BA%8C%E5%88%86%E5%9B%BE%E5%8C%B9%E9%85%8D%2F</url>
+    <content type="text"><![CDATA[给定一个二分图G，在G的一个子图M中，M的边集{E}中的任意两条边都不依附于同一个顶点，则称M是一个匹配。（源于百度百科） 通俗来讲，有一堆人（图中的点），每个人都有一定的人际关系（图中的边），你需要使他们和他们的朋友两两组队，每个人只能在一个队伍。这就是二分图匹配。 极大匹配(Maximal Matching)是指在当前已完成的匹配下,无法再通过增加未完成匹配的边的方式来增加匹配的边数。 最大匹配(maximum matching)是所有极大匹配当中边数最大的一个匹配。选择这样的边数最大的子集称为图的最大匹配问题。 一般问题都是求解二分图最大匹配问题。求解最大匹配最常用的算法为匈牙利算法。 匈牙利算法匈牙利算法 这是网上最好的一篇关于匈牙利算法的文章，我不能写的比他更好了。 匈牙利算法代码量并不多，记忆起来也不复杂，在做题时遇到最主要的问题就是建图。如何将问题转化成简单的二分图匹配问题，是最需要解决的。 建图接下来直接看一个比较复杂的二分图问题： poj3020 这个题大致意思就是一个天线可以覆盖本身以及相邻四个方向其中一个，问最少需要多少个天线才能覆盖所有点。 建图思路（懒得码字了→_→）。]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Tarjan算法]]></title>
     <url>%2F2019%2F05%2F12%2FTarjan%E7%AE%97%E6%B3%95%2F</url>
     <content type="text"><![CDATA[Tarjan算法是用来求强连通的一种算法。在学习算法之前，我们需要了解强连通的概念。 强联通： ​ 在一张有向图中，对于任意两个点v1,v2,存在从v1-&gt;v2 和v2-&gt;v1 的路径，则称这张图为强连通图。 强联通子图： ​ 在一张有向图中，存在一张子图是强连通图，则称这个子图为强连通子图，其极大强连通子图称之为强连通分量。 Tarjan的作用就是求强连通分量。 在遍历之前，我们需要建立一个栈来统计当前未被处理的节点。 对于下图： 我们从节点1开始dfs遍历，其中DFN表示遍历的编号，LOW表示连通块中最小的遍历的编号： （此时栈中元素为：1 2 3 6） 遍历到节点6后，开始回溯，此时判断DFN是否等于LOW，如果相等，那么这是强连通分量上的一个点： （此时栈中元素为：1 2 3） 回溯到节点3时，没有其他路可走，那么就判断DFN是否等于LOW，同时更新LOW[ 3 ]的值： （此时栈中元素为：1 2） 接下来从节点2向下遍历： （此时栈中元素为：1 2 5） 由于5 -&gt; 1 中节点1已经访问过了，那么此时我们更新LOW[ 5 ] = LOW[ 1 ] = 1,然后回溯更新LOW[2]=LOW[ 1 ]： （此时栈中元素为：1 2 5） 回溯到节点1，向下搜节点4，节点5被访问过，回溯LOW[ 4 ]=LOW[ 5 ] = 1 ： （此时栈中元素：1 2 5 4） 继续回溯到节点1，此时节点1相邻边已被访问完毕，判断DFN是否等于LOW，相等就开始标记强连通分量。将栈中元素LOW相等的全部连通。 完毕。 模板为： 123456789101112131415161718192021222324252627282930313233343536373839404142int n,m,tt,cnt,sig;int vis[maxn],low[maxn],dfn[maxn];int color[maxn];//color[]为染色，即强连通中的元素染成同一种颜色。stack&lt;int&gt;st;vector&lt;int&gt;vec[maxn];void init()&#123; memset(vis,0,sizeof(vis)); memset(low,0,sizeof(low)); memset(dfn,0,sizeof(dfn)); memset(color,0,sizeof(color)); for(int i=1;i&lt;=n;i++) vec[i].clear(); while(!st.empty()) st.pop();&#125;void tarjan(int x)&#123; vis[x]=1; dfn[x]=low[x]=cnt++; st.push(x); for(int i=0;i&lt;vec[x].size();i++)&#123; int y=vec[x][i]; if(vis[y]==0) tarjan(y);//未被访问过，向下遍历 if(vis[y]==1) low[x]=min(low[x],low[y]);//更新LOW下标 &#125; if(low[x]==dfn[x])&#123; sig++;//染色序号 int flag=0; while(!flag)&#123;//将栈中x及其以后的节点全部标记为同一种颜色（sig） int t=st.top(); st.pop(); if(t==x) flag=1; color[t]=sig; vis[t]=-1; &#125; &#125;&#125;void solve()&#123; tt=-1;cnt=1;sig=0; for(int i=1;i&lt;=n;i++)&#123; if(vis[i]==0) tarjan(i); &#125; /* 此处添加其他操作 */&#125;]]></content>
@@ -206,8 +228,8 @@
         <category>算法</category>
       </categories>
       <tags>
-        <tag>尺取</tag>
         <tag>算法</tag>
+        <tag>尺取</tag>
       </tags>
   </entry>
   <entry>
