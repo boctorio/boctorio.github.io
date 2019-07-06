@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Boctorio&#39;s Blog</title>
   
-  <subtitle>欢迎访问我校OJ   https://www.hpuoj.com</subtitle>
+  <subtitle>欢迎访问我校OJ   https://hpuoj.com</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://boctorio.github.io/"/>
