@@ -1132,11 +1132,12 @@ pre .javascript .function {
   font-size: 20px;
   font-weight: normal;
   font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+  color: #9acd32 !important;
 }
 .site-subtitle {
   margin-top: 10px;
   font-size: 13px;
-  color: #ddd;
+  color: #9acd32 !important;
 }
 .use-motion .brand {
   opacity: 0;
@@ -1208,6 +1209,7 @@ pre .javascript .function {
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
   transition-delay: 0s;
+  color: #9acd32 !important;
 }
 .menu .menu-item a:hover,
 .menu-item-active a {
@@ -2001,7 +2003,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #9037c2;
+  background: #286096;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2785,7 +2787,7 @@ pre .javascript .function {
   overflow: hidden;
   padding: 0;
   width: 240px;
-  background: url("/images/kenan2.png");
+  background: url("/images/test2.png");
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12);
   border-radius: initial;
 }
