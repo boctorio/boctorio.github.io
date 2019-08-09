@@ -88,21 +88,21 @@
 
 
 
-<meta name="description" content="题目描述题目描述 在视频编码中，往往需要将一帧画面分块。 为了简化问题，我们考虑将一幅图片看作 $2^n ​$ * $ 2^n ​$的网格。为了对图片进行处理，编码器往往会遍历每个格子，但遍历格子的方式在不同的应用中是不同的。">
+<meta name="description" content="题目描述题目描述 在视频编码中，往往需要将一帧画面分块。 为了简化问题，我们考虑将一幅图片看作 $2^n $ * $ 2^n $的网格。为了对图片进行处理，编码器往往会遍历每个格子，但遍历格子的方式在不同的应用中是不同的。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第六届Code+程序设计网络挑战赛-COORDINATE">
 <meta property="og:url" content="https://boctorio.github.io/2019/03/12/第六届Code-程序设计网络挑战赛-COORDINATE/index.html">
 <meta property="og:site_name" content="Boctorio&#39;s Blog">
-<meta property="og:description" content="题目描述题目描述 在视频编码中，往往需要将一帧画面分块。 为了简化问题，我们考虑将一幅图片看作 $2^n ​$ * $ 2^n ​$的网格。为了对图片进行处理，编码器往往会遍历每个格子，但遍历格子的方式在不同的应用中是不同的。">
+<meta property="og:description" content="题目描述题目描述 在视频编码中，往往需要将一帧画面分块。 为了简化问题，我们考虑将一幅图片看作 $2^n $ * $ 2^n $的网格。为了对图片进行处理，编码器往往会遍历每个格子，但遍历格子的方式在不同的应用中是不同的。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://boctorio.github.io/2019/03/12/第六届Code-程序设计网络挑战赛-COORDINATE/R.jpeg">
 <meta property="og:image" content="https://boctorio.github.io/2019/03/12/第六届Code-程序设计网络挑战赛-COORDINATE/z.jpg">
 <meta property="og:image" content="https://boctorio.github.io/2019/03/12/第六届Code-程序设计网络挑战赛-COORDINATE/小方格-4.jpg">
 <meta property="og:image" content="https://boctorio.github.io/2019/03/12/第六届Code-程序设计网络挑战赛-COORDINATE/小方格-2.jpg">
-<meta property="og:updated_time" content="2019-03-26T06:25:23.029Z">
+<meta property="og:updated_time" content="2019-08-09T00:13:19.592Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第六届Code+程序设计网络挑战赛-COORDINATE">
-<meta name="twitter:description" content="题目描述题目描述 在视频编码中，往往需要将一帧画面分块。 为了简化问题，我们考虑将一幅图片看作 $2^n ​$ * $ 2^n ​$的网格。为了对图片进行处理，编码器往往会遍历每个格子，但遍历格子的方式在不同的应用中是不同的。">
+<meta name="twitter:description" content="题目描述题目描述 在视频编码中，往往需要将一帧画面分块。 为了简化问题，我们考虑将一幅图片看作 $2^n $ * $ 2^n $的网格。为了对图片进行处理，编码器往往会遍历每个格子，但遍历格子的方式在不同的应用中是不同的。">
 <meta name="twitter:image" content="https://boctorio.github.io/2019/03/12/第六届Code-程序设计网络挑战赛-COORDINATE/R.jpeg">
 
 
@@ -354,8 +354,8 @@
             
 			  <span class="post-updated">
 			    &nbsp; | &nbsp; 更新于
-			    <time itemprop="dateUpdated" datetime="2019-03-26T14:25:23+08:00" content="2019-03-26">
-			      2019-03-26
+			    <time itemprop="dateUpdated" datetime="2019-08-09T08:13:19+08:00" content="2019-08-09">
+			      2019-08-09
 			    </time>
 			  </span>
 			
@@ -378,8 +378,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/OJ系统题目/" itemprop="url" rel="index">
-                    <span itemprop="name">OJ系统题目</span>
+                  <a href="/categories/递归/" itemprop="url" rel="index">
+                    <span itemprop="name">递归</span>
                   </a>
                 </span>
 
@@ -460,17 +460,17 @@
       
         <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p><strong>题目描述</strong></p>
 <p>在视频编码中，往往需要将一帧画面分块。</p>
-<p>为了简化问题，我们考虑将一幅图片看作 $2^n ​$ * $ 2^n ​$的网格。为了对图片进行处理，编码器往往会遍历每个格子，但遍历格子的方式在不同的应用中是不同的。</p>
+<p>为了简化问题，我们考虑将一幅图片看作 $2^n $ * $ 2^n $的网格。为了对图片进行处理，编码器往往会遍历每个格子，但遍历格子的方式在不同的应用中是不同的。</p>
 <a id="more"></a>
 <p>其中一种方式叫做光栅遍历，就是按照从左到右，从上到下的顺序依次进行标号。下图是一个 8×8 的例子：</p>
 <p><img src="/2019/03/12/第六届Code-程序设计网络挑战赛-COORDINATE/R.jpeg" alt=""></p>
 <p>  另一种方式叫做 Z 字型遍历。先看一个 8×8 的例子：</p>
 <p><img src="/2019/03/12/第六届Code-程序设计网络挑战赛-COORDINATE/z.jpg" alt=""></p>
 <p>可以构造性的给出描述：</p>
-<p>1.对于$2^0 $ * $ 2^0 ​$的网格，直接遍历</p>
-<p>2.对于$2^k $ * $ 2^k $ (k&gt;0)的网格，将其横着从中间、竖着从中间各分成两半，形成4个$2^{k-1} $ * $ 2^{k-1} ​$的方格，这四个方格按照左上、右上、左下、右下的顺序依次遍历。</p>
+<p>1.对于$2^0 $ * $ 2^0 $的网格，直接遍历</p>
+<p>2.对于$2^k $ * $ 2^k $ (k&gt;0)的网格，将其横着从中间、竖着从中间各分成两半，形成4个$2^{k-1} $ * $ 2^{k-1} $的方格，这四个方格按照左上、右上、左下、右下的顺序依次遍历。</p>
 <p><strong>输入格式</strong></p>
-<p>输入的第一行为两个整数 <em>n</em>,<em>m</em> ,$2^n​$ 为矩形的边长，<em>m</em> 为询问次数。</p>
+<p>输入的第一行为两个整数 <em>n</em>,<em>m</em> ,$2^n$ 为矩形的边长，<em>m</em> 为询问次数。</p>
 <p>接下来 <em>m</em> 行，每行是一个询问，询每个询问给出一个方格，方式有两种，如下：</p>
 <ul>
 <li>Z <em>x</em> 给出 Z 字形遍历中标号是 <em>x</em> 的方格。</li>
@@ -493,7 +493,7 @@
 <p>而( 4 , 5 )现在所对应的位置为（ 0 ，1），再分成四个小方格后在第一个方格，因此对行和列不操作，边长再减小一半。</p>
 <p>现在，他的所对应的位置依然为（ 0 , 1 ）现在的大方格为</p>
 <p><img src="/2019/03/12/第六届Code-程序设计网络挑战赛-COORDINATE/小方格-2.jpg" alt=""></p>
-<p>所在小方格编号为2，因此列数减去当前边长的一半，保存当前面积（$ 2^1 $ * $ 2^1 ​$ / 4 * 1）。此时，它的坐标已经变成了（0 ，0），计算结束。</p>
+<p>所在小方格编号为2，因此列数减去当前边长的一半，保存当前面积（$ 2^1 $ * $ 2^1 $ / 4 * 1）。此时，它的坐标已经变成了（0 ，0），计算结束。</p>
 <p>上面进行了三次操作，其大致顺序为：</p>
 <blockquote>
 <p>1.找到坐标对应的小方格编号。</p>
@@ -713,7 +713,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">51</span>
+                  <span class="site-state-item-count">53</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -724,7 +724,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -735,7 +735,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

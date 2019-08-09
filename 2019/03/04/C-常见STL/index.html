@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="Boctorio&#39;s Blog">
 <meta property="og:description" content="学识浅薄，下面写的只是一小部分STL比较浅显的使用方法，不对其内部运行规则进行讨论，只对平时做题可能用到的功能进行讲解。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-26T06:29:07.110Z">
+<meta property="og:updated_time" content="2019-08-09T00:07:24.740Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++常见STL">
 <meta name="twitter:description" content="学识浅薄，下面写的只是一小部分STL比较浅显的使用方法，不对其内部运行规则进行讨论，只对平时做题可能用到的功能进行讲解。">
@@ -349,8 +349,8 @@
             
 			  <span class="post-updated">
 			    &nbsp; | &nbsp; 更新于
-			    <time itemprop="dateUpdated" datetime="2019-03-26T14:29:07+08:00" content="2019-03-26">
-			      2019-03-26
+			    <time itemprop="dateUpdated" datetime="2019-08-09T08:07:24+08:00" content="2019-08-09">
+			      2019-08-09
 			    </time>
 			  </span>
 			
@@ -373,8 +373,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
+                  <a href="/categories/STL/" itemprop="url" rel="index">
+                    <span itemprop="name">STL</span>
                   </a>
                 </span>
 
@@ -466,8 +466,8 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这个会报错:[Error] 'vector' does not name a type</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vec;<span class="comment">//这个形式前半部分为数据类型，后半部分为定义的变量。相当于平时用的 int n;</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//然而下面这个就不会报错</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;vec;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//或者</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;vec;<span class="comment">//这是不用写using namespace std;的写法。使用std的方式，但其长度明显变长，可读性明显下降。</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>因此，在程序开头写上using namespace std;是最好的选择，接下来讲的<strong>STL(Standard Template Library, 标准模板库)</strong>也是基于其基础上。</p>
 <h3 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h3><p>头文件：#include\<vector></vector></p>
-<p>vector 与数组相比最大的优点是可以根据需要动态的分配内存。对于<strong>图的储存</strong>（有向图，无向图）有非常大的作用。在一般题目中，图的顶点数大约为$$10^5​$$左右，所有边总共有$$n*(n-1)/2​$$个，因此如果用二维数组储存边，那么一定会内存超限。</p>
-<p>而vector就没有这个缺点，vector根据输入的边的数量可以动态的分配内存（一般题目输入边的数量也在$$10^6​$$以下），这样，就可以很容易的储存图。而且在查找时，还会节约许多时间。</p>
+<p>vector 与数组相比最大的优点是可以根据需要动态的分配内存。对于<strong>图的储存</strong>（有向图，无向图）有非常大的作用。在一般题目中，图的顶点数大约为$$10^5$$左右，所有边总共有$$n*(n-1)/2$$个，因此如果用二维数组储存边，那么一定会内存超限。</p>
+<p>而vector就没有这个缺点，vector根据输入的边的数量可以动态的分配内存（一般题目输入边的数量也在$$10^6$$以下），这样，就可以很容易的储存图。而且在查找时，还会节约许多时间。</p>
 <h4 id="vector的存储方式"><a href="#vector的存储方式" class="headerlink" title="vector的存储方式"></a>vector的存储方式</h4><p>接下来看二维数组和vector的对比：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;vec[maxn];<span class="comment">//定义一维vector数组</span></span><br><span class="line"><span class="keyword">int</span> m[maxn][maxn];</span><br><span class="line"><span class="keyword">int</span> u,v,m;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)&#123;<span class="comment">//二维数组直接分配maxn*maxn的内存，在输入时不需要再分配内存。</span></span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;u,&amp;v);</span><br><span class="line">	a[u][v]=<span class="number">1</span>;<span class="comment">//表示两个顶点之间有一条边 </span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)&#123;<span class="comment">//一维vector数组输入时动态分配内存，内存大小最大只为m,要远远小于maxn*maxn</span></span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;u,&amp;v);</span><br><span class="line">	vec[u].push_back(v);<span class="comment">//表示u连接向v </span></span><br><span class="line">	vec[v].push_back(u);<span class="comment">//根据有向图和无向图选择是否添加这一句</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>因此在一般情况下，使用vector存图是非常节省内存的方法。</p>
@@ -693,7 +693,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">51</span>
+                  <span class="site-state-item-count">53</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -704,7 +704,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -715,7 +715,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
