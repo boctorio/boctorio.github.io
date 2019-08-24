@@ -1,1 +1,1475 @@
-<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0"><meta charset="utf-8"><title>最大子段和 | Boctorio&#39;s Blog</title><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="description" content="最大字段和问题为：  给你一个数组，求这个数组中连续子区间和的最大值。"><meta property="og:type" content="article"><meta property="og:title" content="最大子段和"><meta property="og:url" content="https://boctorio.github.io/2019/08/08/最大区间子段和/index.html"><meta property="og:site_name" content="Boctorio&#39;s Blog"><meta property="og:description" content="最大字段和问题为：  给你一个数组，求这个数组中连续子区间和的最大值。"><meta property="og:locale" content="zh-Hans"><meta property="og:image" content="https://boctorio.github.io/2019/08/08/最大区间子段和/1.png"><meta property="og:image" content="https://boctorio.github.io/2019/08/08/最大区间子段和/2.png"><meta property="og:image" content="https://boctorio.github.io/2019/08/08/最大区间子段和/3.png"><meta property="og:image" content="https://boctorio.github.io/2019/08/08/最大区间子段和/4.png"><meta property="og:image" content="https://boctorio.github.io/2019/08/08/最大区间子段和/5.png"><meta property="og:updated_time" content="2019-08-09T00:32:12.083Z"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="最大子段和"><meta name="twitter:description" content="最大字段和问题为：  给你一个数组，求这个数组中连续子区间和的最大值。"><meta name="twitter:image" content="https://boctorio.github.io/2019/08/08/最大区间子段和/1.png"><link rel="alternate" href="/atom.xml" title="Boctorio&#39;s Blog" type="application/atom+xml"><link rel="icon" href="/favicon.png"><link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css"><link rel="stylesheet" href="/css/style.css"></head></html><body><div id="container"><div id="wrap"><header id="header"><div id="banner"></div><div id="header-outer" class="outer"><div id="header-title" class="inner"><h1 id="logo-wrap"> <a href="/" id="logo">Boctorio&#39;s Blog</a></h1><h2 id="subtitle-wrap"> <a href="/" id="subtitle">欢迎访问我校OJ https://hpuoj.com</a></h2></div><div id="header-inner" class="inner"><nav id="main-nav"><a id="main-nav-toggle" class="nav-icon"></a> <a class="main-nav-link" href="/">Home</a> <a class="main-nav-link" href="/archives">Archives</a></nav><nav id="sub-nav"><a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a><a id="nav-search-btn" class="nav-icon" title="Search"></a></nav><div id="search-form-wrap"><form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://boctorio.github.io"></form></div></div></div></header><div class="outer"><section id="main"><article id="post-最大区间子段和" class="article article-type-post" itemscope="" itemprop="blogPost"><div class="article-meta"> <a href="/2019/08/08/最大区间子段和/" class="article-date"><time datetime="2019-08-08T13:09:03.000Z" itemprop="datePublished">2019-08-08</time></a><div class="article-category"> <a class="article-category-link" href="/categories/区间子段和/">区间子段和</a></div></div><div class="article-inner"><header class="article-header"><h1 class="article-title" itemprop="name"> 最大子段和</h1></header><div class="article-entry" itemprop="articleBody"><p>最大字段和问题为：</p><blockquote><p>给你一个数组，求这个数组中连续子区间和的最大值。</p></blockquote><a id="more"></a><h3 id="最大字段和"><a href="#最大字段和" class="headerlink" title="最大字段和"></a>最大字段和</h3><p>前置知识：<strong>线段树</strong>。</p><p>我们将数组中所有的元素存入线段树，然后利用线段树求解此问题。<br>我们需要开四个数组：$pre[\space],nxt[\space],sum[\space],val[\space]$，其分别对应于：</p><blockquote><p>$pre[\space]$:最大前缀<br>$nxt[\space]$:最大后缀<br>$sum[\space]$:区间和<br>$val[\space]$:区间最大字段和</p></blockquote><p>对于每个数组，其更新为：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pre[i]=max(pre[i*<span class="number">2</span>+<span class="number">1</span>],sum[i*<span class="number">2</span>+<span class="number">1</span>]+pre[i*<span class="number">2</span>+<span class="number">2</span>]);</span><br><span class="line">nxt[i]=max(nxt[i*<span class="number">2</span>+<span class="number">2</span>],sum[n*<span class="number">2</span>+<span class="number">2</span>]+nxt[i*<span class="number">2</span>+<span class="number">1</span>]);</span><br><span class="line">sum[i]=sum[i*<span class="number">2</span>+<span class="number">1</span>]+sum[i*<span class="number">2</span>+<span class="number">2</span>];</span><br><span class="line">val[i]=max(max(val[i*<span class="number">2</span>+<span class="number">1</span>],val[i*<span class="number">2</span>+<span class="number">2</span>]),nxt[i*<span class="number">2</span>+<span class="number">1</span>]+pre[i*<span class="number">2</span>+<span class="number">2</span>]);</span><br></pre></td></tr></table></figure><p>其更新原理为：</p><h4 id="pre"><a href="#pre" class="headerlink" title="pre[]"></a>pre[]</h4><p>对于下面这个区间：</p><p><img src="/2019/08/08/最大区间子段和/1.png" alt=""></p><p>他的最大前缀可能为</p><p><img src="/2019/08/08/最大区间子段和/2.png" alt=""></p><p>其对应的子区间状态为(pre[i]=pre[i*2+1])：</p><p><img src="/2019/08/08/最大区间子段和/3.png" alt=""></p><p>而对于另一种前缀:</p><p><img src="/2019/08/08/最大区间子段和/4.png" alt=""></p><p>其对应子区间状态为(pre[i]=sum[i*2+1]+pre[i*2+2])：</p><p><img src="/2019/08/08/最大区间子段和/5.png" alt=""></p><h4 id="nxt"><a href="#nxt" class="headerlink" title="nxt[]"></a>nxt[]</h4><p>同上,略。</p><h4 id="sum"><a href="#sum" class="headerlink" title="sum[]"></a>sum[]</h4><p>区间求和，线段树基本操作。</p><h4 id="val"><a href="#val" class="headerlink" title="val[]"></a>val[]</h4><p>对于一个最大字段和，其有可能是只在左半边或右半边，也有可能左右兼有。即可得。</p></div><footer class="article-footer"> <a data-url="https://boctorio.github.io/2019/08/08/最大区间子段和/" data-id="cjzpm186z002pmoude5bq1tpn" class="article-share-link">Share</a></footer></div><nav id="article-nav"> <a href="/2019/08/13/All-one-Matrices-2019牛客暑期多校训练营-第八场-A题/" id="article-nav-newer" class="article-nav-link-wrap"><strong class="article-nav-caption">Newer</strong><div class="article-nav-title"> All-one Matrices--2019牛客暑期多校训练营(第八场)-A题</div></a> <a href="/2019/08/08/Snowy-Smile-2019杭电暑期多校训练营-第六场-E题/" id="article-nav-older" class="article-nav-link-wrap"><strong class="article-nav-caption">Older</strong><div class="article-nav-title">Snowy Smile--2019杭电暑期多校训练营(第六场)-E题</div></a></nav></article></section><aside id="sidebar"><div class="widget-wrap"><h3 class="widget-title">Categories</h3><div class="widget"><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AI/">AI</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/STL/">STL</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tarjan/">Tarjan</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/bitset/">bitset</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/dp/">dp</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/dp/字符串/">字符串</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/前缀和/">前缀和</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/前缀和/单调栈/">单调栈</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/匈牙利算法/">匈牙利算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/区间dp/">区间dp</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/区间子段和/">区间子段和</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/博弈/">博弈</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/图论/">图论</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/多边形面积/">多边形面积</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/多边形面积/叉积/">叉积</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/尺取/">尺取</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/并查集/">并查集</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/思维/">思维</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/拓扑排序/">拓扑排序</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/换根dp/">换根dp</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数位dp/">数位dp</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数论/">数论</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/数论/二次剩余/">二次剩余</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂项/">杂项</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/树状数组/">树状数组</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/模拟/">模拟</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/模板库/">模板库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/游记/">游记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/状压dp/">状压dp</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/矩阵快速幂/">矩阵快速幂</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/线性基/">线性基</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/线段树/">线段树</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/线段树/最大子段和/">最大子段和</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/网络流/">网络流</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/背包/">背包</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/递归/">递归</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/题解/">题解</a></li></ul></div></div><div class="widget-wrap"><h3 class="widget-title">Tags</h3><div class="widget"><ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BFS/">BFS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DFS/">DFS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GCD/">GCD</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LCM/">LCM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nim博弈/">Nim博弈</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dp/">dp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/几何/">几何</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/凸包/">凸包</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/匈牙利算法/">匈牙利算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博弈/">博弈</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/子序列/">子序列</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/容斥定理/">容斥定理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/尺取/">尺取</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/并查集/">并查集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/快速幂/">快速幂</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数位dp/">数位dp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数论/">数论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/梯度下降/">梯度下降</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模拟/">模拟</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/欧拉函数/">欧拉函数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/游记/">游记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算数基本定理/">算数基本定理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/素数/">素数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/线段树/">线段树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/背包/">背包</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/蓝桥杯/">蓝桥杯</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/质数/">质数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/费马小定理/">费马小定理</a></li></ul></div></div><div class="widget-wrap"><h3 class="widget-title">Tag Cloud</h3><div class="widget tagcloud"> <a href="/tags/BFS/" style="font-size:10px">BFS</a> <a href="/tags/DFS/" style="font-size:10px">DFS</a> <a href="/tags/GCD/" style="font-size:10px">GCD</a> <a href="/tags/LCM/" style="font-size:10px">LCM</a> <a href="/tags/Nim博弈/" style="font-size:10px">Nim博弈</a> <a href="/tags/dp/" style="font-size:16.67px">dp</a> <a href="/tags/几何/" style="font-size:10px">几何</a> <a href="/tags/凸包/" style="font-size:10px">凸包</a> <a href="/tags/匈牙利算法/" style="font-size:10px">匈牙利算法</a> <a href="/tags/博弈/" style="font-size:10px">博弈</a> <a href="/tags/子序列/" style="font-size:10px">子序列</a> <a href="/tags/容斥定理/" style="font-size:10px">容斥定理</a> <a href="/tags/尺取/" style="font-size:10px">尺取</a> <a href="/tags/并查集/" style="font-size:10px">并查集</a> <a href="/tags/快速幂/" style="font-size:10px">快速幂</a> <a href="/tags/数位dp/" style="font-size:13.33px">数位dp</a> <a href="/tags/数论/" style="font-size:13.33px">数论</a> <a href="/tags/梯度下降/" style="font-size:10px">梯度下降</a> <a href="/tags/模拟/" style="font-size:10px">模拟</a> <a href="/tags/欧拉函数/" style="font-size:10px">欧拉函数</a> <a href="/tags/游记/" style="font-size:13.33px">游记</a> <a href="/tags/算数基本定理/" style="font-size:10px">算数基本定理</a> <a href="/tags/算法/" style="font-size:20px">算法</a> <a href="/tags/素数/" style="font-size:10px">素数</a> <a href="/tags/线段树/" style="font-size:10px">线段树</a> <a href="/tags/背包/" style="font-size:10px">背包</a> <a href="/tags/蓝桥杯/" style="font-size:10px">蓝桥杯</a> <a href="/tags/质数/" style="font-size:10px">质数</a> <a href="/tags/费马小定理/" style="font-size:10px">费马小定理</a></div></div><div class="widget-wrap"><h3 class="widget-title">Archives</h3><div class="widget"><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li></ul></div></div><div class="widget-wrap"><h3 class="widget-title">Recent Posts</h3><div class="widget"><ul><li> <a href="/2019/08/16/二次剩余/">二次剩余</a></li><li> <a href="/2019/08/16/Quadratic-equation-2019牛客暑期多校训练营-第九场-B题/">Quadratic equation--2019牛客暑期多校训练营(第九场)-B题</a></li><li> <a href="/2019/08/14/网络流/">网络流</a></li><li> <a href="/2019/08/13/All-one-Matrices-2019牛客暑期多校训练营-第八场-A题/">All-one Matrices--2019牛客暑期多校训练营(第八场)-A题</a></li><li> <a href="/2019/08/08/最大区间子段和/">最大子段和</a></li></ul></div></div></aside></div><footer id="footer"><div class="outer"><div id="footer-info" class="inner"> &copy; 2019 Boctorio<br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></div></div></footer></div><nav id="mobile-nav"> <a href="/" class="mobile-nav-link">Home</a> <a href="/archives" class="mobile-nav-link">Archives</a></nav><script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><link rel="stylesheet" href="/fancybox/jquery.fancybox.css"><script src="/fancybox/jquery.fancybox.pack.js"></script><script src="/js/script.js"></script></div></body>
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Boctorio's Blog" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="最大字段和问题为：  给你一个数组，求这个数组中连续子区间和的最大值。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="最大子段和">
+<meta property="og:url" content="https://boctorio.github.io/2019/08/08/最大区间子段和/index.html">
+<meta property="og:site_name" content="Boctorio&#39;s Blog">
+<meta property="og:description" content="最大字段和问题为：  给你一个数组，求这个数组中连续子区间和的最大值。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://boctorio.github.io/2019/08/08/最大区间子段和/1.png">
+<meta property="og:image" content="https://boctorio.github.io/2019/08/08/最大区间子段和/2.png">
+<meta property="og:image" content="https://boctorio.github.io/2019/08/08/最大区间子段和/3.png">
+<meta property="og:image" content="https://boctorio.github.io/2019/08/08/最大区间子段和/4.png">
+<meta property="og:image" content="https://boctorio.github.io/2019/08/08/最大区间子段和/5.png">
+<meta property="og:updated_time" content="2019-08-09T00:32:12.083Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="最大子段和">
+<meta name="twitter:description" content="最大字段和问题为：  给你一个数组，求这个数组中连续子区间和的最大值。">
+<meta name="twitter:image" content="https://boctorio.github.io/2019/08/08/最大区间子段和/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://boctorio.github.io/2019/08/08/最大区间子段和/">
+
+
+
+
+
+  <title>最大子段和 | Boctorio's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Boctorio's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">欢迎访问我校OJ   https://hpuoj.com</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-comments"></i> <br>
+            
+            留言
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://boctorio.github.io/2019/08/08/最大区间子段和/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Boctorio">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Boctorio's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">最大子段和</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-08T21:09:03+08:00">
+                2019-08-08
+              </time>
+            
+            
+            
+			  <span class="post-updated">
+			    &nbsp; | &nbsp; 更新于
+			    <time itemprop="dateUpdated" datetime="2019-08-09T08:32:12+08:00" content="2019-08-09">
+			      2019-08-09
+			    </time>
+			  </span>
+			
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/区间子段和/" itemprop="url" rel="index">
+                    <span itemprop="name">区间子段和</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/08/08/最大区间子段和/" class="leancloud_visitors" data-flag-title="最大子段和">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  307
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>最大字段和问题为：</p>
+<blockquote>
+<p>给你一个数组，求这个数组中连续子区间和的最大值。</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="最大字段和"><a href="#最大字段和" class="headerlink" title="最大字段和"></a>最大字段和</h3><p>前置知识：<strong>线段树</strong>。</p>
+<p>我们将数组中所有的元素存入线段树，然后利用线段树求解此问题。<br>我们需要开四个数组：$pre[\space],nxt[\space],sum[\space],val[\space]$，其分别对应于：</p>
+<blockquote>
+<p>$pre[\space]$:最大前缀<br>$nxt[\space]$:最大后缀<br>$sum[\space]$:区间和<br>$val[\space]$:区间最大字段和</p>
+</blockquote>
+<p>对于每个数组，其更新为：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pre[i]=max(pre[i*<span class="number">2</span>+<span class="number">1</span>],sum[i*<span class="number">2</span>+<span class="number">1</span>]+pre[i*<span class="number">2</span>+<span class="number">2</span>]);</span><br><span class="line">nxt[i]=max(nxt[i*<span class="number">2</span>+<span class="number">2</span>],sum[n*<span class="number">2</span>+<span class="number">2</span>]+nxt[i*<span class="number">2</span>+<span class="number">1</span>]);</span><br><span class="line">sum[i]=sum[i*<span class="number">2</span>+<span class="number">1</span>]+sum[i*<span class="number">2</span>+<span class="number">2</span>];</span><br><span class="line">val[i]=max(max(val[i*<span class="number">2</span>+<span class="number">1</span>],val[i*<span class="number">2</span>+<span class="number">2</span>]),nxt[i*<span class="number">2</span>+<span class="number">1</span>]+pre[i*<span class="number">2</span>+<span class="number">2</span>]);</span><br></pre></td></tr></table></figure>
+<p>其更新原理为：</p>
+<h4 id="pre"><a href="#pre" class="headerlink" title="pre[]"></a>pre[]</h4><p>对于下面这个区间：</p>
+<p><img src="/2019/08/08/最大区间子段和/1.png" alt=""></p>
+<p>他的最大前缀可能为</p>
+<p><img src="/2019/08/08/最大区间子段和/2.png" alt=""></p>
+<p>其对应的子区间状态为(pre[i]=pre[i*2+1])：</p>
+<p><img src="/2019/08/08/最大区间子段和/3.png" alt=""></p>
+<p>而对于另一种前缀:</p>
+<p><img src="/2019/08/08/最大区间子段和/4.png" alt=""></p>
+<p>其对应子区间状态为(pre[i]=sum[i*2+1]+pre[i*2+2])：</p>
+<p><img src="/2019/08/08/最大区间子段和/5.png" alt=""></p>
+<h4 id="nxt"><a href="#nxt" class="headerlink" title="nxt[]"></a>nxt[]</h4><p>同上,略。</p>
+<h4 id="sum"><a href="#sum" class="headerlink" title="sum[]"></a>sum[]</h4><p>区间求和，线段树基本操作。</p>
+<h4 id="val"><a href="#val" class="headerlink" title="val[]"></a>val[]</h4><p>对于一个最大字段和，其有可能是只在左半边或右半边，也有可能左右兼有。即可得。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>感谢您的支持</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="Boctorio 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="Boctorio 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Boctorio
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://boctorio.github.io/2019/08/08/最大区间子段和/" title="最大子段和">https://boctorio.github.io/2019/08/08/最大区间子段和/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/08/Snowy-Smile-2019杭电暑期多校训练营-第六场-E题/" rel="next" title="Snowy Smile--2019杭电暑期多校训练营(第六场)-E题">
+                <i class="fa fa-chevron-left"></i> Snowy Smile--2019杭电暑期多校训练营(第六场)-E题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/08/13/All-one-Matrices-2019牛客暑期多校训练营-第八场-A题/" rel="prev" title="All-one Matrices--2019牛客暑期多校训练营(第八场)-A题">
+                All-one Matrices--2019牛客暑期多校训练营(第八场)-A题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80Mjk0Mi8xOTQ4OA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Boctorio</p>
+              <p class="site-description motion-element" itemprop="description">无人与我立黄昏，无人问我粥可温</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">57</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友链
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.todest.cn" title="亦往沧劫" target="_blank">亦往沧劫</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://drew233.github.io" title="Uncle_drew" target="_blank">Uncle_drew</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://hpumengzhao.github.io" title="codancer" target="_blank">codancer</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://dreamatom.top" title="JQM" target="_blank">JQM</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.wzy1999.wang" title="执念" target="_blank">执念</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://prestu.github.io" title="prestu" target="_blank">prestu</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://dicer-zz.github.io" title="Dicer" target="_blank">Dicer</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://hongjay233.github.io" title="鸿杰" target="_blank">鸿杰</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#最大字段和"><span class="nav-number">1.</span> <span class="nav-text">最大字段和</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#pre"><span class="nav-number">1.1.</span> <span class="nav-text">pre[]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#nxt"><span class="nav-number">1.2.</span> <span class="nav-text">nxt[]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sum"><span class="nav-number">1.3.</span> <span class="nav-text">sum[]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#val"><span class="nav-number">1.4.</span> <span class="nav-text">val[]</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Boctorio</span>
+
+  
+
+  
+      <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+      <span class="post-meta-divider">|</span>
+      <span id="busuanzi_container_site_uv">总访客<span id="busuanzi_value_site_uv"></span>人</span>
+      <span class="post-meta-divider">|</span>
+
+  
+
+</div>
+<!--
+
+
+   <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+-->
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://c.lcfile.com/static/js/av-min-1.0.0.js"></script>
+  <script>AV.initialize("zfcoxFsbiNX6Qe9eP7ebToTP-gzGzoHsz", "e1nVkwcNzP5Iwwa32s2lYaWk");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+  <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":true,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":120,"height":120},"mobile":{"show":false},"log":false});</script>
+</body>
+</html>
