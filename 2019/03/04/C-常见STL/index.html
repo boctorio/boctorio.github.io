@@ -1,4 +1,1018 @@
-<!DOCTYPE html><html class="theme-next gemini use-motion" lang="zh-Hans"><head><meta name="generator" content="Hexo 3.8.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="theme-color" content="#222"><script src="/lib/pace/pace.min.js?v=1.0.2"></script><link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"><link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css"><link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4"><link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4"><link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4"><link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222"><meta name="keywords" content="Hexo, NexT"><link rel="alternate" href="/atom.xml" title="Boctorio's Blog" type="application/atom+xml"><meta name="description" content="学识浅薄，下面写的只是一小部分STL比较浅显的使用方法，不对其内部运行规则进行讨论，只对平时做题可能用到的功能进行讲解。"><meta property="og:type" content="article"><meta property="og:title" content="C++常见STL"><meta property="og:url" content="https://boctorio.github.io/2019/03/04/C-常见STL/index.html"><meta property="og:site_name" content="Boctorio&#39;s Blog"><meta property="og:description" content="学识浅薄，下面写的只是一小部分STL比较浅显的使用方法，不对其内部运行规则进行讨论，只对平时做题可能用到的功能进行讲解。"><meta property="og:locale" content="zh-Hans"><meta property="og:updated_time" content="2019-08-09T00:07:24.740Z"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="C++常见STL"><meta name="twitter:description" content="学识浅薄，下面写的只是一小部分STL比较浅显的使用方法，不对其内部运行规则进行讨论，只对平时做题可能用到的功能进行讲解。"><script type="text/javascript" id="hexo.configurations">var NexT=window.NexT||{},CONFIG={root:"/",scheme:"Gemini",version:"5.1.4",sidebar:{position:"left",display:"post",offset:12,b2t:!1,scrollpercent:!1,onmobile:!1},fancybox:!0,tabs:!0,motion:{enable:!0,async:!1,transition:{post_block:"fadeIn",post_header:"slideDownIn",post_body:"slideDownIn",coll_header:"slideLeftIn",sidebar:"slideUpIn"}},duoshuo:{userId:"0",author:"博主"},algolia:{applicationID:"",apiKey:"",indexName:"",hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}}}</script><link rel="canonical" href="https://boctorio.github.io/2019/03/04/C-常见STL/"><title>C++常见STL | Boctorio's Blog</title></head><body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans"><div class="container sidebar-position-left page-post-detail"><div class="headband"></div><header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-wrapper"><div class="site-meta"><div class="custom-logo-site-title"><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span> <span class="site-title">Boctorio's Blog</span><span class="logo-line-after"><i></i></span></a></div><p class="site-subtitle">欢迎访问我校OJ https://hpuoj.com</p></div><div class="site-nav-toggle"> <button><span class="btn-bar"></span><span class="btn-bar"></span><span class="btn-bar"></span></button></div></div><nav class="site-nav"><ul id="menu" class="menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i><br> 首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i><br> 标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i><br> 分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i><br> 归档</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i><br> 关于</a></li><li class="menu-item menu-item-guestbook"><a href="/guestbook/" rel="section"><i class="menu-item-icon fa fa-fw fa-comments"></i><br> 留言</a></li><li class="menu-item menu-item-search"><a href="javascript:;" class="popup-trigger"><i class="menu-item-icon fa fa-search fa-fw"></i><br> 搜索</a></li></ul><div class="site-search"><div class="popup search-popup local-search-popup"><div class="local-search-header clearfix"><span class="search-icon"><i class="fa fa-search"></i></span><span class="popup-btn-close"><i class="fa fa-times-circle"></i></span><div class="local-search-input-wrapper"> <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input"></div></div><div id="local-search-result"></div></div></div></nav></div></header><main id="main" class="main"><div class="main-inner"><div class="content-wrap"><div id="content" class="content"><div id="posts" class="posts-expand"><article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article"><div class="post-block"><link itemprop="mainEntityOfPage" href="https://boctorio.github.io/2019/03/04/C-常见STL/"><span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person"><meta itemprop="name" content="Boctorio"><meta itemprop="description" content=""><meta itemprop="image" content="/images/avatar.gif"></span><span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization"><meta itemprop="name" content="Boctorio's Blog"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">C++常见STL</h1><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i></span> <span class="post-meta-item-text">发表于</span> <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-04T19:54:44+08:00">2019-03-04</time> <span class="post-updated">&nbsp; | &nbsp; 更新于 <time itemprop="dateUpdated" datetime="2019-08-09T08:07:24+08:00" content="2019-08-09">2019-08-09</time></span></span> <span class="post-category"><span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-folder-o"></i></span> <span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/STL/" itemprop="url" rel="index"><span itemprop="name">STL</span></a></span></span> <span id="/2019/03/04/C-常见STL/" class="leancloud_visitors" data-flag-title="C++常见STL"><span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-eye"></i></span> <span class="post-meta-item-text">阅读次数&#58;</span><span class="leancloud-visitors-count"></span> <span>℃</span></span><div class="post-wordcount"><span class="post-meta-item-icon"><i class="fa fa-file-word-o"></i></span> <span class="post-meta-item-text">字数统计&#58;</span> <span title="字数统计">2.2k</span> <span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-clock-o"></i></span> <span class="post-meta-item-text">阅读时长 &asymp;</span> <span title="阅读时长">8</span></div></div></header><div class="post-body" itemprop="articleBody"><p>学识浅薄，下面写的只是一小部分STL比较浅显的使用方法，不对其内部运行规则进行讨论，只对平时做题可能用到的功能进行讲解。</p><a id="more"></a><h3 id="using-namespace-std"><a href="#using-namespace-std" class="headerlink" title="using namespace std"></a>using namespace std</h3><p>namespace是指标识符的各种可见范围。命名空间用关键字namespace 来定义。命名空间是C++的一种机制，用来把单个标识符下的大量有逻辑联系的程序实体组合到一起。此标识符作为此组群的名字。</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;......&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;......&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;......&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;<span class="comment">//一般写在标准函数库后面</span></span><br></pre></td></tr></table></figure><p>std是一个命名空间，使用这句的主要原因是处理程序中的命名冲突。</p><blockquote><p>命名空间是用来组织和重用代码的。如同名字一样的意思，NameSpace（名字空间），之所以出来这样一个东西，是因为人类可用的单词数太少，并且不同的人写的程序不可能所有的变量都没有重名现象，对于库来说，这个问题尤其严重，如果两个人写的库文件中出现同名的变量或函数(不可避免)，使用起来就有问题了。为了解决这个问题，引入了名字空间这个概念，通过使用 namespace xxx；你所使用的库函数或变量就是在该名字空间中定义的，这样一来就不会引起不必要的冲突了。</p></blockquote><p>通俗来说，我们使用的scanf()，printf()是来自于&lt;stdio.h&gt;函数库,pow()是来自&lt;math.h&gt;函数库等等。函数库是开发人员写的，但是我们在调用函数时可能会遇到两个函数库里面有名字重复了，因此我们使用了命名空间开区分重复的变量名称的所在空间。</p><p>比如接下来要讲的vector,英文释义为“矢量”（显而易见一个非常容易用到的词）。这个词会有很多开发人员使用，我们现在使用vector是在std命名空间内的，因此如果不在前面写using namespace std的话，那我们就得这样使用：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这个会报错:[Error] 'vector' does not name a type</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vec;<span class="comment">//这个形式前半部分为数据类型，后半部分为定义的变量。相当于平时用的 int n;</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//然而下面这个就不会报错</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;vec;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//或者</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;vec;<span class="comment">//这是不用写using namespace std;的写法。使用std的方式，但其长度明显变长，可读性明显下降。</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>因此，在程序开头写上using namespace std;是最好的选择，接下来讲的<strong>STL(Standard Template Library, 标准模板库)</strong>也是基于其基础上。</p><h3 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h3><p>头文件：#include\<vector></vector></p><p>vector 与数组相比最大的优点是可以根据需要动态的分配内存。对于<strong>图的储存</strong>（有向图，无向图）有非常大的作用。在一般题目中，图的顶点数大约为$$10^5$$左右，所有边总共有$$n*(n-1)/2$$个，因此如果用二维数组储存边，那么一定会内存超限。</p><p>而vector就没有这个缺点，vector根据输入的边的数量可以动态的分配内存（一般题目输入边的数量也在$$10^6$$以下），这样，就可以很容易的储存图。而且在查找时，还会节约许多时间。</p><h4 id="vector的存储方式"><a href="#vector的存储方式" class="headerlink" title="vector的存储方式"></a>vector的存储方式</h4><p>接下来看二维数组和vector的对比：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;vec[maxn];<span class="comment">//定义一维vector数组</span></span><br><span class="line"><span class="keyword">int</span> m[maxn][maxn];</span><br><span class="line"><span class="keyword">int</span> u,v,m;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)&#123;<span class="comment">//二维数组直接分配maxn*maxn的内存，在输入时不需要再分配内存。</span></span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;u,&amp;v);</span><br><span class="line">	a[u][v]=<span class="number">1</span>;<span class="comment">//表示两个顶点之间有一条边 </span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)&#123;<span class="comment">//一维vector数组输入时动态分配内存，内存大小最大只为m,要远远小于maxn*maxn</span></span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;u,&amp;v);</span><br><span class="line">	vec[u].push_back(v);<span class="comment">//表示u连接向v </span></span><br><span class="line">	vec[v].push_back(u);<span class="comment">//根据有向图和无向图选择是否添加这一句</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>因此在一般情况下，使用vector存图是非常节省内存的方法。</p><h4 id="vector的使用"><a href="#vector的使用" class="headerlink" title="vector的使用"></a>vector的使用</h4><p>输入之后，边以数组的形式保存，使用时可以这样操作：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;vec[x].size();i++)&#123;<span class="comment">//x为节点</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,vec[x][i]);<span class="comment">//这段代码作用为输出与节点x相连的所有节点</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//相同作用下二维数组的操作</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">	<span class="keyword">if</span>(a[x][i]==<span class="number">1</span>) <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,i);<span class="comment">//对所有节点进行判断，如果相连则输出</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>上面的vec[x].size()表示输入时保存的与x相连的节点的数量。这个相比二维数组优点在于可以不用遍历那些没有边连接的节点，节省了大量的时间。</p><p>因此不管是在时间还是空间上，vector都优于二维数组。</p><h3 id="map"><a href="#map" class="headerlink" title="map"></a>map</h3><p>头文件：#include\<map></map></p><p>map 是一种容器，用来存储若干元素，这些元素都是由<strong>关键值和映射值</strong> 配对组成的。</p><p>简而言之，map里面的元素都有一定的映射关系。</p><p>map的基本应用形式为：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; mp;<span class="comment">//一个整数对应一个整数</span></span><br><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">char</span>,<span class="keyword">int</span>&gt; mp;<span class="comment">//一个字符对应一个整数</span></span><br></pre></td></tr></table></figure><h4 id="map的存储方式"><a href="#map的存储方式" class="headerlink" title="map的存储方式"></a>map的存储方式</h4><p>接下来看它们的存储方式：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> n,x;</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt;mp;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;<span class="comment">//输入n个数，每个数出现的次数进行统计 </span></span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;x);</span><br><span class="line">	mp[x]++;<span class="comment">//mp[x]中， x代表上面的第一个int;mp[x]的值即为第二个int，初始值为0 </span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> s;</span><br><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">char</span>,<span class="keyword">int</span>&gt;mp2;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;<span class="comment">//输入n个字符，每个字符出现的次数进行统计</span></span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%c"</span>,&amp;s);</span><br><span class="line">	mp2[s]++;<span class="comment">//mp2[s]中， s代表上面的第一个char;mp2[x]的值即为第二个int，初始值为0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="map的使用"><a href="#map的使用" class="headerlink" title="map的使用"></a>map的使用</h4><p>使用就是直接使用：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a;</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%d"</span>,mp[a]);<span class="comment">//输出数字a出现的次数</span></span><br></pre></td></tr></table></figure><p>因此，map主要作用就是<strong>计数（数字的个数、字符的个数、字符串的个数都可以计算）</strong>，map&lt;…,…&gt;中，前面是记的元素，就像是数学函数f(x)中的x，后面一个数据类型，就是函数f(x)中的f(x)。</p><p>接下来看一个示例：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">输入n,m。表示输入n个数</span></span><br><span class="line"><span class="comment">接下来m次询问，每次输入一个数，输出这个数出现的次数 </span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt;mp;</span><br><span class="line">	<span class="keyword">int</span> n,m,x,a;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;x);</span><br><span class="line">		mp[x]++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span>(m--)&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,mp[a]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>关于map中其他元素的计数方式可以下去自行进行探索。</p><h3 id="set"><a href="#set" class="headerlink" title="set"></a>set</h3><p>set的内部结构和map类似，set的主要作用是对输入的元素进行<strong>去重和排序</strong>。</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> n,x;</span><br><span class="line"><span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt;se;</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;x);</span><br><span class="line">	se.insert(x);<span class="comment">//向se中插入x</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt;::iterator it=se.begin();it!=se.end();it++)&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,*z);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">iterator是STL中的迭代器，其主要功能为遍历形如vector ,map,set等数据结构的所有元素 </span></span><br><span class="line"><span class="comment">迭代器是一种检查容器内元素并遍历元素的数据类型。C++更趋向于使用迭代器而不是下标操作，</span></span><br><span class="line"><span class="comment">因为标准库为每一种标准容器（如vector）定义了一种迭代器类型，而只用少数容器（如vector）支持下标操作访问容器元素。</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure><p>这个输出就是输入的元素<strong>去重过后的升序序列</strong>。</p><p>接下来说几个set中常用操作</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//下面几个使用比较多，需要掌握</span></span><br><span class="line">se.insert()<span class="comment">//插入操作</span></span><br><span class="line">se.begin()<span class="comment">//返回指向第一个元素的迭代器</span></span><br><span class="line">se.end()<span class="comment">//返回指向最后一个元素的迭代器</span></span><br><span class="line">se.empty()<span class="comment">//检查se是否为空，空的话返回true，非空的话返回false</span></span><br><span class="line">se.clear()<span class="comment">//清空所有元素</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//下面这些用的不多，可以了解了解</span></span><br><span class="line">se.count() 返回某个值元素的个数</span><br><span class="line">se.erase() 删除集合中的元素</span><br><span class="line">se.find() 返回一个指向被查找到元素的迭代器</span><br><span class="line">se.max_size() 返回集合能容纳的元素的最大限值</span><br><span class="line">se.size() 集合中元素的数目</span><br><span class="line">se.swap() 交换两个集合变</span><br></pre></td></tr></table></figure></div><div><div style="padding:10px 0;margin:20px auto;width:90%;text-align:center"><div>感谢您的支持</div> <button id="rewardButton" disable="enable" onclick='var qr=document.getElementById("QR");"none"===qr.style.display?qr.style.display="block":qr.style.display="none"'> <span>打赏</span></button><div id="QR" style="display:none"><div id="wechat" style="display:inline-block"> <img id="wechat_qr" src="/images/wechatpay.png" alt="Boctorio 微信支付"><p>微信支付</p></div><div id="alipay" style="display:inline-block"> <img id="alipay_qr" src="/images/alipay.png" alt="Boctorio 支付宝"><p>支付宝</p></div></div></div></div><div><ul class="post-copyright"><li class="post-copyright-author"> <strong>本文作者：</strong> Boctorio</li><li class="post-copyright-link"> <strong>本文链接：</strong> <a href="https://boctorio.github.io/2019/03/04/C-常见STL/" title="C++常见STL">https://boctorio.github.io/2019/03/04/C-常见STL/</a></li><li class="post-copyright-license"> <strong>版权声明：</strong> 本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！</li></ul></div><div><div><div style="text-align:center;color:#ccc;font-size:14px">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div></div></div><footer class="post-footer"><div class="post-nav"><div class="post-nav-next post-nav-item"><a href="/2019/03/03/时间复杂度的计算及其他补充知识/" rel="next" title="时间复杂度的计算及其他补充知识"><i class="fa fa-chevron-left"></i> 时间复杂度的计算及其他补充知识</a></div><span class="post-nav-divider"></span><div class="post-nav-prev post-nav-item"> <a href="/2019/03/12/第六届Code-程序设计网络挑战赛-COORDINATE/" rel="prev" title="第六届Code+程序设计网络挑战赛-COORDINATE">第六届Code+程序设计网络挑战赛-COORDINATE<i class="fa fa-chevron-right"></i></a></div></div></footer></div></article><div class="post-spread"><div class="jiathis_style"> <span class="jiathis_txt">分享到：</span> <a class="jiathis_button_fav">收藏夹</a> <a class="jiathis_button_copy">复制网址</a> <a class="jiathis_button_email">邮件</a> <a class="jiathis_button_weixin">微信</a> <a class="jiathis_button_qzone">QQ空间</a> <a class="jiathis_button_tqq">腾讯微博</a> <a class="jiathis_button_douban">豆瓣</a> <a class="jiathis_button_share">一键分享</a> <a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a><a class="jiathis_counter_style"></a></div><script type="text/javascript">var jiathis_config={data_track_clickback:!0,summary:"",shortUrl:!1,hideMore:!1}</script><script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script></div></div></div><div class="comments" id="comments"><div id="lv-container" data-id="city" data-uid="MTAyMC80Mjk0Mi8xOTQ4OA=="></div></div></div><div class="sidebar-toggle"><div class="sidebar-toggle-line-wrap"><span class="sidebar-toggle-line sidebar-toggle-line-first"></span><span class="sidebar-toggle-line sidebar-toggle-line-middle"></span><span class="sidebar-toggle-line sidebar-toggle-line-last"></span></div></div><aside id="sidebar" class="sidebar"><div class="sidebar-inner"><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap"> 文章目录</li><li class="sidebar-nav-overview" data-target="site-overview-wrap"> 站点概览</li></ul><section class="site-overview-wrap sidebar-panel"><div class="site-overview"><div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person"><p class="site-author-name" itemprop="name">Boctorio</p><p class="site-description motion-element" itemprop="description">无人与我立黄昏，无人问我粥可温</p></div><nav class="site-state motion-element"><div class="site-state-item site-state-posts"> <a href="/archives/"><span class="site-state-item-count">57</span> <span class="site-state-item-name">日志</span></a></div><div class="site-state-item site-state-categories"> <a href="/categories/index.html"><span class="site-state-item-count">38</span> <span class="site-state-item-name">分类</span></a></div><div class="site-state-item site-state-tags"> <a href="/tags/index.html"><span class="site-state-item-count">29</span> <span class="site-state-item-name">标签</span></a></div></nav><div class="feed-link motion-element"><a href="/atom.xml" rel="alternate"><i class="fa fa-rss"></i> RSS</a></div><div class="links-of-blogroll motion-element links-of-blogroll-inline"><div class="links-of-blogroll-title"><i class="fa fa-fw fa-link"></i> 友链</div><ul class="links-of-blogroll-list"><li class="links-of-blogroll-item"> <a href="https://blog.todest.cn" title="亦往沧劫" target="_blank">亦往沧劫</a></li><li class="links-of-blogroll-item"> <a href="https://drew233.github.io" title="Uncle_drew" target="_blank">Uncle_drew</a></li><li class="links-of-blogroll-item"> <a href="https://hpumengzhao.github.io" title="codancer" target="_blank">codancer</a></li><li class="links-of-blogroll-item"> <a href="https://dreamatom.top" title="JQM" target="_blank">JQM</a></li><li class="links-of-blogroll-item"> <a href="https://blog.wzy1999.wang" title="执念" target="_blank">执念</a></li><li class="links-of-blogroll-item"> <a href="https://prestu.github.io" title="prestu" target="_blank">prestu</a></li><li class="links-of-blogroll-item"> <a href="https://dicer-zz.github.io" title="Dicer" target="_blank">Dicer</a></li><li class="links-of-blogroll-item"> <a href="https://hongjay233.github.io" title="鸿杰" target="_blank">鸿杰</a></li></ul></div></div></section><section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active"><div class="post-toc"><div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#using-namespace-std"><span class="nav-number">1.</span> <span class="nav-text">using namespace std</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vector"><span class="nav-number">2.</span> <span class="nav-text">vector</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#vector的存储方式"><span class="nav-number">2.1.</span> <span class="nav-text">vector的存储方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vector的使用"><span class="nav-number">2.2.</span> <span class="nav-text">vector的使用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#map"><span class="nav-number">3.</span> <span class="nav-text">map</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#map的存储方式"><span class="nav-number">3.1.</span> <span class="nav-text">map的存储方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#map的使用"><span class="nav-number">3.2.</span> <span class="nav-text">map的使用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#set"><span class="nav-number">4.</span> <span class="nav-text">set</span></a></li></ol></div></div></section></div></aside></div></main><footer id="footer" class="footer"><div class="footer-inner"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div class="copyright">&copy; <span itemprop="copyrightYear">2019</span><span class="with-love"><i class="fa fa-user"></i></span> <span class="author" itemprop="copyrightHolder">Boctorio</span> <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span> <span class="post-meta-divider">|</span> <span id="busuanzi_container_site_uv">总访客<span id="busuanzi_value_site_uv"></span>人</span> <span class="post-meta-divider">|</span></div></div></footer><div class="back-to-top"><i class="fa fa-arrow-up"></i></div></div><script type="text/javascript">"[object Function]"!==Object.prototype.toString.call(window.Promise)&&(window.Promise=null)</script><script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script><script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script><script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script><script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script><script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script><script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script><script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script><script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script><script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script><script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script><script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script><script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script><script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script><script type="text/javascript">!function(e,t){var n,c=e.getElementsByTagName(t)[0];"function"!=typeof LivereTower&&((n=e.createElement(t)).src="https://cdn-city.livere.com/js/embed.dist.js",n.async=!0,c.parentNode.insertBefore(n,c))}(document,"script")</script><script type="text/javascript">
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/ven/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/ven/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/ven/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/ven/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Boctorio's Blog" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="学识浅薄，下面写的只是一小部分STL比较浅显的使用方法，不对其内部运行规则进行讨论，只对平时做题可能用到的功能进行讲解。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++常见STL">
+<meta property="og:url" content="https://boctorio.github.io/2019/03/04/C-常见STL/index.html">
+<meta property="og:site_name" content="Boctorio&#39;s Blog">
+<meta property="og:description" content="学识浅薄，下面写的只是一小部分STL比较浅显的使用方法，不对其内部运行规则进行讨论，只对平时做题可能用到的功能进行讲解。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-08-09T00:07:24.740Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++常见STL">
+<meta name="twitter:description" content="学识浅薄，下面写的只是一小部分STL比较浅显的使用方法，不对其内部运行规则进行讨论，只对平时做题可能用到的功能进行讲解。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://boctorio.github.io/2019/03/04/C-常见STL/">
+
+
+
+
+
+  <title>C++常见STL | Boctorio's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Boctorio's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">欢迎访问我校OJ   https://hpuoj.com</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-comments"></i> <br>
+            
+            留言
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://boctorio.github.io/2019/03/04/C-常见STL/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Boctorio">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Boctorio's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">C++常见STL</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-04T19:54:44+08:00">
+                2019-03-04
+              </time>
+            
+            
+            
+			  <span class="post-updated">
+			    &nbsp; | &nbsp; 更新于
+			    <time itemprop="dateUpdated" datetime="2019-08-09T08:07:24+08:00" content="2019-08-09">
+			      2019-08-09
+			    </time>
+			  </span>
+			
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/STL/" itemprop="url" rel="index">
+                    <span itemprop="name">STL</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/03/04/C-常见STL/" class="leancloud_visitors" data-flag-title="C++常见STL">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.2k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  8
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>学识浅薄，下面写的只是一小部分STL比较浅显的使用方法，不对其内部运行规则进行讨论，只对平时做题可能用到的功能进行讲解。</p>
+<a id="more"></a>
+<h3 id="using-namespace-std"><a href="#using-namespace-std" class="headerlink" title="using namespace std"></a>using namespace std</h3><p>namespace是指标识符的各种可见范围。命名空间用关键字namespace 来定义。命名空间是C++的一种机制，用来把单个标识符下的大量有逻辑联系的程序实体组合到一起。此标识符作为此组群的名字。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;......&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;......&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;......&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;<span class="comment">//一般写在标准函数库后面</span></span><br></pre></td></tr></table></figure>
+<p>std是一个命名空间，使用这句的主要原因是处理程序中的命名冲突。</p>
+<blockquote>
+<p>命名空间是用来组织和重用代码的。如同名字一样的意思，NameSpace（名字空间），之所以出来这样一个东西，是因为人类可用的单词数太少，并且不同的人写的程序不可能所有的变量都没有重名现象，对于库来说，这个问题尤其严重，如果两个人写的库文件中出现同名的变量或函数(不可避免)，使用起来就有问题了。为了解决这个问题，引入了名字空间这个概念，通过使用 namespace xxx；你所使用的库函数或变量就是在该名字空间中定义的，这样一来就不会引起不必要的冲突了。</p>
+</blockquote>
+<p>通俗来说，我们使用的scanf()，printf()是来自于&lt;stdio.h&gt;函数库,pow()是来自&lt;math.h&gt;函数库等等。函数库是开发人员写的，但是我们在调用函数时可能会遇到两个函数库里面有名字重复了，因此我们使用了命名空间开区分重复的变量名称的所在空间。</p>
+<p>比如接下来要讲的vector,英文释义为“矢量”（显而易见一个非常容易用到的词）。这个词会有很多开发人员使用，我们现在使用vector是在std命名空间内的，因此如果不在前面写using namespace std的话，那我们就得这样使用：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这个会报错:[Error] 'vector' does not name a type</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vec;<span class="comment">//这个形式前半部分为数据类型，后半部分为定义的变量。相当于平时用的 int n;</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//然而下面这个就不会报错</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;vec;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//或者</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;vec;<span class="comment">//这是不用写using namespace std;的写法。使用std的方式，但其长度明显变长，可读性明显下降。</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>因此，在程序开头写上using namespace std;是最好的选择，接下来讲的<strong>STL(Standard Template Library, 标准模板库)</strong>也是基于其基础上。</p>
+<h3 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h3><p>头文件：#include\<vector></vector></p>
+<p>vector 与数组相比最大的优点是可以根据需要动态的分配内存。对于<strong>图的储存</strong>（有向图，无向图）有非常大的作用。在一般题目中，图的顶点数大约为$$10^5$$左右，所有边总共有$$n*(n-1)/2$$个，因此如果用二维数组储存边，那么一定会内存超限。</p>
+<p>而vector就没有这个缺点，vector根据输入的边的数量可以动态的分配内存（一般题目输入边的数量也在$$10^6$$以下），这样，就可以很容易的储存图。而且在查找时，还会节约许多时间。</p>
+<h4 id="vector的存储方式"><a href="#vector的存储方式" class="headerlink" title="vector的存储方式"></a>vector的存储方式</h4><p>接下来看二维数组和vector的对比：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;vec[maxn];<span class="comment">//定义一维vector数组</span></span><br><span class="line"><span class="keyword">int</span> m[maxn][maxn];</span><br><span class="line"><span class="keyword">int</span> u,v,m;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)&#123;<span class="comment">//二维数组直接分配maxn*maxn的内存，在输入时不需要再分配内存。</span></span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;u,&amp;v);</span><br><span class="line">	a[u][v]=<span class="number">1</span>;<span class="comment">//表示两个顶点之间有一条边 </span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)&#123;<span class="comment">//一维vector数组输入时动态分配内存，内存大小最大只为m,要远远小于maxn*maxn</span></span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;u,&amp;v);</span><br><span class="line">	vec[u].push_back(v);<span class="comment">//表示u连接向v </span></span><br><span class="line">	vec[v].push_back(u);<span class="comment">//根据有向图和无向图选择是否添加这一句</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>因此在一般情况下，使用vector存图是非常节省内存的方法。</p>
+<h4 id="vector的使用"><a href="#vector的使用" class="headerlink" title="vector的使用"></a>vector的使用</h4><p>输入之后，边以数组的形式保存，使用时可以这样操作：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;vec[x].size();i++)&#123;<span class="comment">//x为节点</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,vec[x][i]);<span class="comment">//这段代码作用为输出与节点x相连的所有节点</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//相同作用下二维数组的操作</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">	<span class="keyword">if</span>(a[x][i]==<span class="number">1</span>) <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,i);<span class="comment">//对所有节点进行判断，如果相连则输出</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面的vec[x].size()表示输入时保存的与x相连的节点的数量。这个相比二维数组优点在于可以不用遍历那些没有边连接的节点，节省了大量的时间。</p>
+<p>因此不管是在时间还是空间上，vector都优于二维数组。</p>
+<h3 id="map"><a href="#map" class="headerlink" title="map"></a>map</h3><p>头文件：#include\<map></map></p>
+<p>map 是一种容器，用来存储若干元素，这些元素都是由<strong>关键值和映射值 </strong> 配对组成的。</p>
+<p>简而言之，map里面的元素都有一定的映射关系。</p>
+<p>map的基本应用形式为：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; mp;<span class="comment">//一个整数对应一个整数</span></span><br><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">char</span>,<span class="keyword">int</span>&gt; mp;<span class="comment">//一个字符对应一个整数</span></span><br></pre></td></tr></table></figure>
+<h4 id="map的存储方式"><a href="#map的存储方式" class="headerlink" title="map的存储方式"></a>map的存储方式</h4><p>接下来看它们的存储方式：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> n,x;</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt;mp;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;<span class="comment">//输入n个数，每个数出现的次数进行统计 </span></span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;x);</span><br><span class="line">	mp[x]++;<span class="comment">//mp[x]中， x代表上面的第一个int;mp[x]的值即为第二个int，初始值为0 </span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> s;</span><br><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">char</span>,<span class="keyword">int</span>&gt;mp2;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;<span class="comment">//输入n个字符，每个字符出现的次数进行统计</span></span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%c"</span>,&amp;s);</span><br><span class="line">	mp2[s]++;<span class="comment">//mp2[s]中， s代表上面的第一个char;mp2[x]的值即为第二个int，初始值为0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="map的使用"><a href="#map的使用" class="headerlink" title="map的使用"></a>map的使用</h4><p>使用就是直接使用：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a;</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%d"</span>,mp[a]);<span class="comment">//输出数字a出现的次数</span></span><br></pre></td></tr></table></figure>
+<p>因此，map主要作用就是<strong>计数（数字的个数、字符的个数、字符串的个数都可以计算）</strong>，map&lt;…,…&gt;中，前面是记的元素，就像是数学函数f(x)中的x，后面一个数据类型，就是函数f(x)中的f(x)。</p>
+<p>接下来看一个示例：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">输入n,m。表示输入n个数</span></span><br><span class="line"><span class="comment">接下来m次询问，每次输入一个数，输出这个数出现的次数 </span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt;mp;</span><br><span class="line">	<span class="keyword">int</span> n,m,x,a;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;x);</span><br><span class="line">		mp[x]++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span>(m--)&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,mp[a]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>关于map中其他元素的计数方式可以下去自行进行探索。</p>
+<h3 id="set"><a href="#set" class="headerlink" title="set"></a>set</h3><p>set的内部结构和map类似，set的主要作用是对输入的元素进行<strong>去重和排序</strong>。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> n,x;</span><br><span class="line"><span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt;se;</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;x);</span><br><span class="line">	se.insert(x);<span class="comment">//向se中插入x</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt;::iterator it=se.begin();it!=se.end();it++)&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,*z);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">iterator是STL中的迭代器，其主要功能为遍历形如vector ,map,set等数据结构的所有元素 </span></span><br><span class="line"><span class="comment">迭代器是一种检查容器内元素并遍历元素的数据类型。C++更趋向于使用迭代器而不是下标操作，</span></span><br><span class="line"><span class="comment">因为标准库为每一种标准容器（如vector）定义了一种迭代器类型，而只用少数容器（如vector）支持下标操作访问容器元素。</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p>这个输出就是输入的元素<strong>去重过后的升序序列</strong>。</p>
+<p>接下来说几个set中常用操作</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//下面几个使用比较多，需要掌握</span></span><br><span class="line">se.insert()<span class="comment">//插入操作</span></span><br><span class="line">se.begin()<span class="comment">//返回指向第一个元素的迭代器</span></span><br><span class="line">se.end()<span class="comment">//返回指向最后一个元素的迭代器</span></span><br><span class="line">se.empty()<span class="comment">//检查se是否为空，空的话返回true，非空的话返回false</span></span><br><span class="line">se.clear()<span class="comment">//清空所有元素</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//下面这些用的不多，可以了解了解</span></span><br><span class="line">se.count() 返回某个值元素的个数</span><br><span class="line">se.erase() 删除集合中的元素</span><br><span class="line">se.find() 返回一个指向被查找到元素的迭代器</span><br><span class="line">se.max_size() 返回集合能容纳的元素的最大限值</span><br><span class="line">se.size() 集合中元素的数目</span><br><span class="line">se.swap() 交换两个集合变</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>感谢您的支持</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="Boctorio 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="Boctorio 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Boctorio
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://boctorio.github.io/2019/03/04/C-常见STL/" title="C++常见STL">https://boctorio.github.io/2019/03/04/C-常见STL/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/03/时间复杂度的计算及其他补充知识/" rel="next" title="时间复杂度的计算及其他补充知识">
+                <i class="fa fa-chevron-left"></i> 时间复杂度的计算及其他补充知识
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/12/第六届Code-程序设计网络挑战赛-COORDINATE/" rel="prev" title="第六届Code+程序设计网络挑战赛-COORDINATE">
+                第六届Code+程序设计网络挑战赛-COORDINATE <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80Mjk0Mi8xOTQ4OA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Boctorio</p>
+              <p class="site-description motion-element" itemprop="description">无人与我立黄昏，无人问我粥可温</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">57</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友链
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.todest.cn" title="亦往沧劫" target="_blank">亦往沧劫</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://drew233.github.io" title="Uncle_drew" target="_blank">Uncle_drew</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://hpumengzhao.github.io" title="codancer" target="_blank">codancer</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://dreamatom.top" title="JQM" target="_blank">JQM</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.wzy1999.wang" title="执念" target="_blank">执念</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://prestu.github.io" title="prestu" target="_blank">prestu</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://dicer-zz.github.io" title="Dicer" target="_blank">Dicer</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://hongjay233.github.io" title="鸿杰" target="_blank">鸿杰</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#using-namespace-std"><span class="nav-number">1.</span> <span class="nav-text">using namespace std</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vector"><span class="nav-number">2.</span> <span class="nav-text">vector</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#vector的存储方式"><span class="nav-number">2.1.</span> <span class="nav-text">vector的存储方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vector的使用"><span class="nav-number">2.2.</span> <span class="nav-text">vector的使用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#map"><span class="nav-number">3.</span> <span class="nav-text">map</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#map的存储方式"><span class="nav-number">3.1.</span> <span class="nav-text">map的存储方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#map的使用"><span class="nav-number">3.2.</span> <span class="nav-text">map的使用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#set"><span class="nav-number">4.</span> <span class="nav-text">set</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Boctorio</span>
+
+  
+
+  
+      <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+      <span class="post-meta-divider">|</span>
+      <span id="busuanzi_container_site_uv">总访客<span id="busuanzi_value_site_uv"></span>人</span>
+      <span class="post-meta-divider">|</span>
+
+  
+
+</div>
+<!--
+
+
+   <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+-->
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/ven/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/ven/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/ven/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/ven/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/ven/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/ven/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
     // Popup Window;
     var isfetched = false;
     var isXml = true;
@@ -313,7 +1327,131 @@
         onPopupClose();
       }
     });
-  </script><script src="https://c.lcfile.com/static/js/av-min-1.0.0.js"></script><script>AV.initialize("zfcoxFsbiNX6Qe9eP7ebToTP-gzGzoHsz","e1nVkwcNzP5Iwwa32s2lYaWk")</script><script>function showTime(e){var t=new AV.Query(e),c=[],u=$(".leancloud_visitors");u.each(function(){c.push($(this).attr("id").trim())}),t.containedIn("url",c),t.find().done(function(e){var t=".leancloud-visitors-count";if(0!==e.length){for(var n=0;n<e.length;n++){var o=e[n],i=o.get("url"),s=o.get("time"),r=document.getElementById(i);$(r).find(t).text(s)}for(n=0;n<c.length;n++){i=c[n],r=document.getElementById(i);var l=$(r).find(t);""==l.text()&&l.text(0)}}else u.find(t).text(0)}).fail(function(e,t){console.log("Error: "+t.code+" "+t.message)})}function addCount(i){var e=$(".leancloud_visitors"),s=e.attr("id").trim(),r=e.attr("data-flag-title").trim(),t=new AV.Query(i);t.equalTo("url",s),t.find({success:function(e){if(0<e.length){var t=e[0];t.fetchWhenSave(!0),t.increment("time"),t.save(null,{success:function(e){$(document.getElementById(s)).find(".leancloud-visitors-count").text(e.get("time"))},error:function(e,t){console.log("Failed to save Visitor num, with error message: "+t.message)}})}else{var n=new i,o=new AV.ACL;o.setPublicReadAccess(!0),o.setPublicWriteAccess(!0),n.setACL(o),n.set("title",r),n.set("url",s),n.set("time",1),n.save(null,{success:function(e){$(document.getElementById(s)).find(".leancloud-visitors-count").text(e.get("time"))},error:function(e,t){console.log("Failed to create")}})}},error:function(e){console.log("Error:"+e.code+" "+e.message)}})}$(function(){var e=AV.Object.extend("Counter");1==$(".leancloud_visitors").length?addCount(e):1<$(".post-title-link").length&&showTime(e)})</script><script type="text/x-mathjax-config">
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://c.lcfile.com/static/js/av-min-1.0.0.js"></script>
+  <script>AV.initialize("zfcoxFsbiNX6Qe9eP7ebToTP-gzGzoHsz", "e1nVkwcNzP5Iwwa32s2lYaWk");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
       MathJax.Hub.Config({
         tex2jax: {
           inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
@@ -321,11 +1459,24 @@
           skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
         }
       });
-    </script><script type="text/x-mathjax-config">
+    </script>
+
+    <script type="text/x-mathjax-config">
       MathJax.Hub.Queue(function() {
         var all = MathJax.Hub.getAllJax(), i;
         for (i=0; i < all.length; i += 1) {
           all[i].SourceElement().parentNode.className += ' has-jax';
         }
       });
-    </script><script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({pluginRootPath:"live2dw/",pluginJsPath:"lib/",pluginModelPath:"assets/",tagMode:!0,debug:!1,model:{jsonPath:"/live2dw/assets/wanko.model.json"},display:{position:"right",width:120,height:120},mobile:{show:!1},log:!1})</script></body></html>
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+  <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":true,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":120,"height":120},"mobile":{"show":false},"log":false});</script>
+</body>
+</html>
