@@ -119,8 +119,8 @@
           for (var i = 0, len = data.link.length; i < len; i++) {
           
             //var minSrc = 'https://raw.githubusercontent.com/yourgithub/Blog_Album/master/min_photos/' + data.link[i];
-            var minSrc = 'https://raw.githubusercontent.com/boctorio/photo_hub/master/min_photos/' + data.link[i];
-      
+            var minSrc = 'https://raw.githubusercontent.com/boctorio/photo_hub/master/photos/' + data.link[i];
+    
            // var src = 'https://raw.githubusercontent.com/yourgithub/Blog_Album/master/photos/' + data.link[i];
             var src = 'https://raw.githubusercontent.com/boctorio/photo_hub/master/photos/' + data.link[i];
            
