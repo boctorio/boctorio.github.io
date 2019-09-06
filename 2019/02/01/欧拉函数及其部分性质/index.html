@@ -1,4 +1,1045 @@
-<!DOCTYPE html><html class="theme-next gemini use-motion" lang="zh-Hans"><head><meta name="generator" content="Hexo 3.8.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="theme-color" content="#222"><script src="/lib/pace/pace.min.js?v=1.0.2"></script><link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"><link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css"><link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4"><link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4"><link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4"><link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222"><meta name="keywords" content="数论,欧拉函数,"><link rel="alternate" href="/atom.xml" title="Boctorio's Blog" type="application/atom+xml"><meta name="description" content="欧拉函数欧拉函数在数论，对正整数n，欧拉函数是小于n的正整数中与n互质的数的数目（φ(1)=1）。此函数以其首名研究者欧拉命名(Euler’s totient function)，它又称为Euler’s totient function、φ函数、欧拉商数等。 例如φ(8)=4，因为1,3,5,7均和8互质。 从欧拉函数引伸出来在环论方面的事实和拉格朗日定理构成了欧拉定理的证明。 欧拉函数的适用范围"><meta name="keywords" content="数论,欧拉函数"><meta property="og:type" content="article"><meta property="og:title" content="欧拉函数及其部分性质"><meta property="og:url" content="https://boctorio.github.io/2019/02/01/欧拉函数及其部分性质/index.html"><meta property="og:site_name" content="Boctorio&#39;s Blog"><meta property="og:description" content="欧拉函数欧拉函数在数论，对正整数n，欧拉函数是小于n的正整数中与n互质的数的数目（φ(1)=1）。此函数以其首名研究者欧拉命名(Euler’s totient function)，它又称为Euler’s totient function、φ函数、欧拉商数等。 例如φ(8)=4，因为1,3,5,7均和8互质。 从欧拉函数引伸出来在环论方面的事实和拉格朗日定理构成了欧拉定理的证明。 欧拉函数的适用范围"><meta property="og:locale" content="zh-Hans"><meta property="og:updated_time" content="2019-03-26T06:40:51.351Z"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="欧拉函数及其部分性质"><meta name="twitter:description" content="欧拉函数欧拉函数在数论，对正整数n，欧拉函数是小于n的正整数中与n互质的数的数目（φ(1)=1）。此函数以其首名研究者欧拉命名(Euler’s totient function)，它又称为Euler’s totient function、φ函数、欧拉商数等。 例如φ(8)=4，因为1,3,5,7均和8互质。 从欧拉函数引伸出来在环论方面的事实和拉格朗日定理构成了欧拉定理的证明。 欧拉函数的适用范围"><script type="text/javascript" id="hexo.configurations">var NexT=window.NexT||{},CONFIG={root:"/",scheme:"Gemini",version:"5.1.4",sidebar:{position:"left",display:"post",offset:12,b2t:!1,scrollpercent:!1,onmobile:!1},fancybox:!0,tabs:!0,motion:{enable:!0,async:!1,transition:{post_block:"fadeIn",post_header:"slideDownIn",post_body:"slideDownIn",coll_header:"slideLeftIn",sidebar:"slideUpIn"}},duoshuo:{userId:"0",author:"博主"},algolia:{applicationID:"",apiKey:"",indexName:"",hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}}}</script><link rel="canonical" href="https://boctorio.github.io/2019/02/01/欧拉函数及其部分性质/"><title>欧拉函数及其部分性质 | Boctorio's Blog</title><script src="/js/src/photoswipe.min.js?v=5.1.4"></script><script src="/js/src/photoswipe-ui-default.min.js?v=5.1.4"></script></head><body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans"><div class="container sidebar-position-left page-post-detail"><div class="headband"></div><header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-wrapper"><div class="site-meta"><div class="custom-logo-site-title"><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span> <span class="site-title">Boctorio's Blog</span><span class="logo-line-after"><i></i></span></a></div><p class="site-subtitle">欢迎访问我校OJ https://hpuoj.com</p></div><div class="site-nav-toggle"> <button><span class="btn-bar"></span><span class="btn-bar"></span><span class="btn-bar"></span></button></div></div><nav class="site-nav"><ul id="menu" class="menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i><br> 首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i><br> 标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i><br> 分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i><br> 归档</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i><br> 关于</a></li><li class="menu-item menu-item-guestbook"><a href="/guestbook/" rel="section"><i class="menu-item-icon fa fa-fw fa-comments"></i><br> 留言</a></li><li class="menu-item menu-item-photos"><a href="/photos/" rel="section"><i class="menu-item-icon fa fa-fw fa-camera"></i><br> 相册</a></li><li class="menu-item menu-item-template"><a href="/template/" rel="section"><i class="menu-item-icon fa fa-fw fa-book"></i><br> 模板库</a></li><li class="menu-item menu-item-search"><a href="javascript:;" class="popup-trigger"><i class="menu-item-icon fa fa-search fa-fw"></i><br> 搜索</a></li></ul><div class="site-search"><div class="popup search-popup local-search-popup"><div class="local-search-header clearfix"><span class="search-icon"><i class="fa fa-search"></i></span><span class="popup-btn-close"><i class="fa fa-times-circle"></i></span><div class="local-search-input-wrapper"> <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input"></div></div><div id="local-search-result"></div></div></div></nav></div></header><main id="main" class="main"><div class="main-inner"><div class="content-wrap"><div id="content" class="content"><div id="posts" class="posts-expand"><article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article"><div class="post-block"><link itemprop="mainEntityOfPage" href="https://boctorio.github.io/2019/02/01/欧拉函数及其部分性质/"><span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person"><meta itemprop="name" content="Boctorio"><meta itemprop="description" content=""><meta itemprop="image" content="/images/avatar.gif"></span><span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization"><meta itemprop="name" content="Boctorio's Blog"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">欧拉函数及其部分性质</h1><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i></span> <span class="post-meta-item-text">发表于</span> <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-01T17:16:15+08:00">2019-02-01</time> <span class="post-updated">&nbsp; | &nbsp; 更新于 <time itemprop="dateUpdated" datetime="2019-03-26T14:40:51+08:00" content="2019-03-26">2019-03-26</time></span></span> <span class="post-category"><span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-folder-o"></i></span> <span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/数论/" itemprop="url" rel="index"><span itemprop="name">数论</span></a></span></span> <span id="/2019/02/01/欧拉函数及其部分性质/" class="leancloud_visitors" data-flag-title="欧拉函数及其部分性质"><span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-eye"></i></span> <span class="post-meta-item-text">阅读次数&#58;</span><span class="leancloud-visitors-count"></span> <span>℃</span></span><div class="post-wordcount"><span class="post-meta-item-icon"><i class="fa fa-file-word-o"></i></span> <span class="post-meta-item-text">字数统计&#58;</span> <span title="字数统计">988</span> <span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-clock-o"></i></span> <span class="post-meta-item-text">阅读时长 &asymp;</span> <span title="阅读时长">4</span></div></div></header><div class="post-body" itemprop="articleBody"><h3 id="欧拉函数"><a href="#欧拉函数" class="headerlink" title="欧拉函数"></a>欧拉函数</h3><h4 id="欧拉函数-1"><a href="#欧拉函数-1" class="headerlink" title="欧拉函数"></a>欧拉函数</h4><p>在数论，<strong>对正整数n，欧拉函数是小于n的正整数中与n互质的数的数目（φ(1)=1）</strong>。此函数以其首名研究者欧拉命名(Euler’s totient function)，它又称为Euler’s totient function、φ函数、欧拉商数等。 例如φ(8)=4，因为1,3,5,7均和8互质。 从欧拉函数引伸出来在环论方面的事实和拉格朗日定理构成了欧拉定理的证明。</p><p>欧拉函数的适用范围非常大，许多题目中都会用到欧拉函数的性质。</p><a id="more"></a><h5 id="欧拉函数表达式1："><a href="#欧拉函数表达式1：" class="headerlink" title="欧拉函数表达式1："></a>欧拉函数表达式1：</h5><p>欧拉函数的表达为：<br>$$<br>\varphi (x)=x\prod_{i=1}^{n}{(1-\frac{1}{p_i})}<br>$$</p><p>其中p1,p2,…,pn 表示x的所有质因子，x是不为0的整数。</p><h5 id="欧拉函数表达式2："><a href="#欧拉函数表达式2：" class="headerlink" title="欧拉函数表达式2："></a>欧拉函数表达式2：</h5><p>假设<br>$$<br>x= {p_1}^{k_1} * {p_2}^{k_2} * … * {p_n}^{k_n}<br>$$</p><p>p1,p2,…,pn同上，则其另一种表达为：<br>$$<br>\varphi(x)=\prod_{i=1}^{n}{(p_i-1)*p_i^{k_i-1}}<br>$$</p><p>特别的，<br>$$<br>\varphi(1)=1<br>$$</p><h4 id="欧拉函数证明"><a href="#欧拉函数证明" class="headerlink" title="欧拉函数证明"></a>欧拉函数证明</h4><h5 id="容斥定理来证明"><a href="#容斥定理来证明" class="headerlink" title="容斥定理来证明"></a>容斥定理来证明</h5><p>对于正整数 x 而言，假设其质因子为p1,p2,p3,…,pn，则小于等于 x 且与 x 不互质的数字的个数为：<br>$$<br>g(x)=\frac{x}{p_1}+\frac{x}{p_2}+…+\frac{x}{p_n}-\frac{x}{p_1*p_2}-\frac{x}{p_1*p_3}- …<br>$$</p><p>小于 x 且与 x 互质的数字的个数：<br>$$<br>f(x)=x-g(x)=n-\frac{x}{p_1}-\frac{x}{p_2}- … -\frac{x}{p_n}+\frac{x}{p_1*p_2}+\frac{x}{p_1*p_3}+ …<br>$$</p><p>化简即可得表达式1。（具体化简过程我也不会QAQ）</p><h4 id="欧拉函数计算"><a href="#欧拉函数计算" class="headerlink" title="欧拉函数计算"></a>欧拉函数计算</h4><h5 id="单值计算"><a href="#单值计算" class="headerlink" title="单值计算"></a>单值计算</h5><p>在编程时，习惯上，我们经常用<strong>表达式2</strong>计算欧拉函数的值：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">eular</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ret=<span class="number">1</span>,i;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">2</span>;i*i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">		<span class="comment">/*</span></span><br><span class="line"><span class="comment">		n%i==0时，i为n的质因子，因为如果i不是质因子，</span></span><br><span class="line"><span class="comment">		则一i定能分成更小的因子，对应的更小的因子一定在之前出现过了，与之矛盾，</span></span><br><span class="line"><span class="comment">		所以i一定不能分割成更小的因子，即i为n的质因子。</span></span><br><span class="line"><span class="comment">		*/</span></span><br><span class="line">        <span class="keyword">if</span>(n%i==<span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            n/=i,ret*=i<span class="number">-1</span>;</span><br><span class="line">            <span class="keyword">while</span>(n%i==<span class="number">0</span>) n/=i,ret*=i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(n&gt;<span class="number">1</span>) ret*=n<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h5 id="打表计算"><a href="#打表计算" class="headerlink" title="打表计算"></a>打表计算</h5><h4 id="欧拉函数性质"><a href="#欧拉函数性质" class="headerlink" title="欧拉函数性质"></a>欧拉函数性质</h4><h5 id="互质数之和"><a href="#互质数之和" class="headerlink" title="互质数之和"></a>互质数之和</h5><p>小于n的正整数中与n互质的数的数字之和为<br>$$<br>f(n)={n}*\frac{\varphi(n)}{2}<br>$$</p><p>证明如下：</p><blockquote><p>对于每个小于 n 的数正整数 a ，如果gcd( n , a )=1,则gcd( n , n-a )=1（ 此处为gcd相关性质，不再证明。）。</p><p>所以对于每个与 n 互质的正整数 a ，一定有一个与之对应的与 n 互质数的 n - a ;</p><p>由此可知，欧拉函数的值总为偶数（1除外），并且总有一对之和为 n，</p><p>至此，小于n的正整数中与n互质的数的数字之和就可以计算出来了。</p></blockquote><h5 id="积性函数"><a href="#积性函数" class="headerlink" title="积性函数"></a>积性函数</h5><p>欧拉函数是一个积性函数，如果 n , m 互质，则：<br>$$<br>\varphi(nm)=\varphi(n)*\varphi(m)<br>$$<br>可以推出，如果n为质数，则：<br>$$<br>\varphi(2n)=\varphi(n)<br>$$</p><h5 id="欧拉定理变式"><a href="#欧拉定理变式" class="headerlink" title="欧拉定理变式"></a>欧拉定理变式</h5><p>对于任何两个互质的正整数 a , n ，(n&gt;2)<br>$$<br>{a}^{\varphi(n)}\equiv 1 mod n<br>$$</p><h5 id="费马小定理"><a href="#费马小定理" class="headerlink" title="费马小定理"></a>费马小定理</h5><p>当 n = p 且 a 与素数 p 互质时，上式可变为</p><p>$$<br>{a}^{p-1}\equiv 1 mod p<br>$$</p><h5 id="n的因数（包括1和它自己）的欧拉函数之和等于n"><a href="#n的因数（包括1和它自己）的欧拉函数之和等于n" class="headerlink" title="n的因数（包括1和它自己）的欧拉函数之和等于n"></a>n的因数（包括1和它自己）的欧拉函数之和等于n</h5><p>写成数学表达式的形式即为<br>$$<br>n=\sum_{d|n}\varphi(d)<br>$$<br>其中 d|n 表示 n 能被 d 整除。</p><p>证明如下：</p><blockquote><p>对于每个 x ( 0 &lt;= x &lt;= n ) 都存在一个gcd( x , n )，可以证得，其值必然为n的因子。</p><p>假设gcd( x , n ) = d ,（ d | n ） ，则gcd（ x / d , n / d ）= 1 ，即 x / d 与 n / d 互质。</p><p>因此，我们可以求出 gcd( x , n ) 的值为 d 时对应的的数字个数，个数就是 n / d 所对应的欧拉函数值。</p><p>由第一行可知，gcd( x , n )的值必然为n的因子，并且只有唯一对应值，因此就可推导出上述公式。</p></blockquote></div><div><div style="padding:10px 0;margin:20px auto;width:90%;text-align:center"><div>感谢您的支持</div> <button id="rewardButton" disable="enable" onclick='var qr=document.getElementById("QR");"none"===qr.style.display?qr.style.display="block":qr.style.display="none"'> <span>打赏</span></button><div id="QR" style="display:none"><div id="wechat" style="display:inline-block"> <img id="wechat_qr" src="/images/wechatpay.png" alt="Boctorio 微信支付"><p>微信支付</p></div><div id="alipay" style="display:inline-block"> <img id="alipay_qr" src="/images/alipay.png" alt="Boctorio 支付宝"><p>支付宝</p></div></div></div></div><div><ul class="post-copyright"><li class="post-copyright-author"> <strong>本文作者：</strong> Boctorio</li><li class="post-copyright-link"> <strong>本文链接：</strong> <a href="https://boctorio.github.io/2019/02/01/欧拉函数及其部分性质/" title="欧拉函数及其部分性质">https://boctorio.github.io/2019/02/01/欧拉函数及其部分性质/</a></li><li class="post-copyright-license"> <strong>版权声明：</strong> 本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！</li></ul></div><div><div><div style="text-align:center;color:#ccc;font-size:14px">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div></div></div><footer class="post-footer"><div class="post-tags"><a href="/tags/数论/" rel="tag"><i class="fa fa-tag"></i> 数论</a><a href="/tags/欧拉函数/" rel="tag"><i class="fa fa-tag"></i> 欧拉函数</a></div><div class="post-nav"><div class="post-nav-next post-nav-item"><a href="/2019/01/17/HDU-2036/" rel="next" title="HDU-2036（多边形面积）"><i class="fa fa-chevron-left"></i> HDU-2036（多边形面积）</a></div><span class="post-nav-divider"></span><div class="post-nav-prev post-nav-item"> <a href="/2019/02/01/GCD与LCM及其部分性质/" rel="prev" title="GCD与LCM及其部分性质">GCD与LCM及其部分性质<i class="fa fa-chevron-right"></i></a></div></div></footer></div></article><div class="post-spread"><div class="jiathis_style"> <span class="jiathis_txt">分享到：</span> <a class="jiathis_button_fav">收藏夹</a> <a class="jiathis_button_copy">复制网址</a> <a class="jiathis_button_email">邮件</a> <a class="jiathis_button_weixin">微信</a> <a class="jiathis_button_qzone">QQ空间</a> <a class="jiathis_button_tqq">腾讯微博</a> <a class="jiathis_button_douban">豆瓣</a> <a class="jiathis_button_share">一键分享</a> <a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a><a class="jiathis_counter_style"></a></div><script type="text/javascript">var jiathis_config={data_track_clickback:!0,summary:"",shortUrl:!1,hideMore:!1}</script><script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script></div></div></div><div class="comments" id="comments"><div id="lv-container" data-id="city" data-uid="MTAyMC80Mjk0Mi8xOTQ4OA=="></div></div></div><div class="sidebar-toggle"><div class="sidebar-toggle-line-wrap"><span class="sidebar-toggle-line sidebar-toggle-line-first"></span><span class="sidebar-toggle-line sidebar-toggle-line-middle"></span><span class="sidebar-toggle-line sidebar-toggle-line-last"></span></div></div><aside id="sidebar" class="sidebar"><div class="sidebar-inner"><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap"> 文章目录</li><li class="sidebar-nav-overview" data-target="site-overview-wrap"> 站点概览</li></ul><section class="site-overview-wrap sidebar-panel"><div class="site-overview"><div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person"><p class="site-author-name" itemprop="name">Boctorio</p><p class="site-description motion-element" itemprop="description">无人与我立黄昏，无人问我粥可温</p></div><nav class="site-state motion-element"><div class="site-state-item site-state-posts"> <a href="/archives/"><span class="site-state-item-count">60</span> <span class="site-state-item-name">日志</span></a></div><div class="site-state-item site-state-categories"> <a href="/categories/index.html"><span class="site-state-item-count">40</span> <span class="site-state-item-name">分类</span></a></div><div class="site-state-item site-state-tags"> <a href="/tags/index.html"><span class="site-state-item-count">29</span> <span class="site-state-item-name">标签</span></a></div></nav><div class="feed-link motion-element"><a href="/atom.xml" rel="alternate"><i class="fa fa-rss"></i> RSS</a></div><div class="links-of-blogroll motion-element links-of-blogroll-inline"><div class="links-of-blogroll-title"><i class="fa fa-fw fa-link"></i> 友链</div><ul class="links-of-blogroll-list"><li class="links-of-blogroll-item"> <a href="https://blog.todest.cn" title="亦往沧劫" target="_blank">亦往沧劫</a></li><li class="links-of-blogroll-item"> <a href="https://cndrew.cn" title="Uncle_drew" target="_blank">Uncle_drew</a></li><li class="links-of-blogroll-item"> <a href="https://hpumengzhao.github.io" title="codancer" target="_blank">codancer</a></li><li class="links-of-blogroll-item"> <a href="https://dreamatom.top" title="JQM" target="_blank">JQM</a></li><li class="links-of-blogroll-item"> <a href="https://blog.wzy1999.wang" title="执念" target="_blank">执念</a></li><li class="links-of-blogroll-item"> <a href="https://prestu.github.io" title="prestu" target="_blank">prestu</a></li><li class="links-of-blogroll-item"> <a href="https://dicer-zz.github.io" title="Dicer" target="_blank">Dicer</a></li><li class="links-of-blogroll-item"> <a href="https://hongjay233.github.io" title="鸿杰" target="_blank">鸿杰</a></li></ul></div></div></section><section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active"><div class="post-toc"><div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#欧拉函数"><span class="nav-number">1.</span> <span class="nav-text">欧拉函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#欧拉函数-1"><span class="nav-number">1.1.</span> <span class="nav-text">欧拉函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#欧拉函数表达式1："><span class="nav-number">1.1.1.</span> <span class="nav-text">欧拉函数表达式1：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#欧拉函数表达式2："><span class="nav-number">1.1.2.</span> <span class="nav-text">欧拉函数表达式2：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#欧拉函数证明"><span class="nav-number">1.2.</span> <span class="nav-text">欧拉函数证明</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#容斥定理来证明"><span class="nav-number">1.2.1.</span> <span class="nav-text">容斥定理来证明</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#欧拉函数计算"><span class="nav-number">1.3.</span> <span class="nav-text">欧拉函数计算</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#单值计算"><span class="nav-number">1.3.1.</span> <span class="nav-text">单值计算</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#打表计算"><span class="nav-number">1.3.2.</span> <span class="nav-text">打表计算</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#欧拉函数性质"><span class="nav-number">1.4.</span> <span class="nav-text">欧拉函数性质</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#互质数之和"><span class="nav-number">1.4.1.</span> <span class="nav-text">互质数之和</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#积性函数"><span class="nav-number">1.4.2.</span> <span class="nav-text">积性函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#欧拉定理变式"><span class="nav-number">1.4.3.</span> <span class="nav-text">欧拉定理变式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#费马小定理"><span class="nav-number">1.4.4.</span> <span class="nav-text">费马小定理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#n的因数（包括1和它自己）的欧拉函数之和等于n"><span class="nav-number">1.4.5.</span> <span class="nav-text">n的因数（包括1和它自己）的欧拉函数之和等于n</span></a></li></ol></li></ol></li></ol></div></div></section></div></aside></div></main><footer id="footer" class="footer"><div class="footer-inner"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div class="copyright">&copy; <span itemprop="copyrightYear">2019</span><span class="with-love"><i class="fa fa-user"></i></span> <span class="author" itemprop="copyrightHolder">Boctorio</span> <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span> <span class="post-meta-divider">|</span> <span id="busuanzi_container_site_uv">总访客<span id="busuanzi_value_site_uv"></span>人</span> <span class="post-meta-divider">|</span></div></div></footer><div class="back-to-top"><i class="fa fa-arrow-up"></i></div></div><script type="text/javascript">"[object Function]"!==Object.prototype.toString.call(window.Promise)&&(window.Promise=null)</script><script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script><script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script><script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script><script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script><script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script><script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script><script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script><script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script><script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script><script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script><script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script><script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script><script src="/js/src/photoswipe.min.js?v=5.1.4"></script><script src="/js/src/photoswipe-ui-default.min.js?v=5.1.4"></script><script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script><script type="text/javascript">!function(e,t){var n,c=e.getElementsByTagName(t)[0];"function"!=typeof LivereTower&&((n=e.createElement(t)).src="https://cdn-city.livere.com/js/embed.dist.js",n.async=!0,c.parentNode.insertBefore(n,c))}(document,"script")</script><script type="text/javascript">
+
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="数论,欧拉函数,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Boctorio's Blog" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="欧拉函数欧拉函数在数论，对正整数n，欧拉函数是小于n的正整数中与n互质的数的数目（φ(1)=1）。此函数以其首名研究者欧拉命名(Euler’s totient function)，它又称为Euler’s totient function、φ函数、欧拉商数等。 例如φ(8)=4，因为1,3,5,7均和8互质。 从欧拉函数引伸出来在环论方面的事实和拉格朗日定理构成了欧拉定理的证明。 欧拉函数的适用范围">
+<meta name="keywords" content="数论,欧拉函数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="欧拉函数及其部分性质">
+<meta property="og:url" content="https://boctorio.github.io/2019/02/01/欧拉函数及其部分性质/index.html">
+<meta property="og:site_name" content="Boctorio&#39;s Blog">
+<meta property="og:description" content="欧拉函数欧拉函数在数论，对正整数n，欧拉函数是小于n的正整数中与n互质的数的数目（φ(1)=1）。此函数以其首名研究者欧拉命名(Euler’s totient function)，它又称为Euler’s totient function、φ函数、欧拉商数等。 例如φ(8)=4，因为1,3,5,7均和8互质。 从欧拉函数引伸出来在环论方面的事实和拉格朗日定理构成了欧拉定理的证明。 欧拉函数的适用范围">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-26T06:40:51.351Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="欧拉函数及其部分性质">
+<meta name="twitter:description" content="欧拉函数欧拉函数在数论，对正整数n，欧拉函数是小于n的正整数中与n互质的数的数目（φ(1)=1）。此函数以其首名研究者欧拉命名(Euler’s totient function)，它又称为Euler’s totient function、φ函数、欧拉商数等。 例如φ(8)=4，因为1,3,5,7均和8互质。 从欧拉函数引伸出来在环论方面的事实和拉格朗日定理构成了欧拉定理的证明。 欧拉函数的适用范围">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://boctorio.github.io/2019/02/01/欧拉函数及其部分性质/">
+
+
+
+
+
+  <title>欧拉函数及其部分性质 | Boctorio's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <script src="/js/src/photoswipe.min.js?v=5.1.4"></script>
+  <script src="/js/src/photoswipe-ui-default.min.js?v=5.1.4"></script>
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+  
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Boctorio's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">欢迎访问我校OJ   https://hpuoj.com</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-comments"></i> <br>
+            
+            留言
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-photos">
+          <a href="/photos/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-camera"></i> <br>
+            
+            相册
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-template">
+          <a href="/template/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br>
+            
+            模板库
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://boctorio.github.io/2019/02/01/欧拉函数及其部分性质/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Boctorio">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Boctorio's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">欧拉函数及其部分性质</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-01T17:16:15+08:00">
+                2019-02-01
+              </time>
+            
+            
+            
+			  <span class="post-updated">
+			    &nbsp; | &nbsp; 更新于
+			    <time itemprop="dateUpdated" datetime="2019-03-26T14:40:51+08:00" content="2019-03-26">
+			      2019-03-26
+			    </time>
+			  </span>
+			
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/数论/" itemprop="url" rel="index">
+                    <span itemprop="name">数论</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/02/01/欧拉函数及其部分性质/" class="leancloud_visitors" data-flag-title="欧拉函数及其部分性质">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  988
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="欧拉函数"><a href="#欧拉函数" class="headerlink" title="欧拉函数"></a>欧拉函数</h3><h4 id="欧拉函数-1"><a href="#欧拉函数-1" class="headerlink" title="欧拉函数"></a>欧拉函数</h4><p>在数论，<strong>对正整数n，欧拉函数是小于n的正整数中与n互质的数的数目（φ(1)=1）</strong>。此函数以其首名研究者欧拉命名(Euler’s totient function)，它又称为Euler’s totient function、φ函数、欧拉商数等。 例如φ(8)=4，因为1,3,5,7均和8互质。 从欧拉函数引伸出来在环论方面的事实和拉格朗日定理构成了欧拉定理的证明。</p>
+<p>欧拉函数的适用范围非常大，许多题目中都会用到欧拉函数的性质。</p>
+<a id="more"></a>
+<h5 id="欧拉函数表达式1："><a href="#欧拉函数表达式1：" class="headerlink" title="欧拉函数表达式1："></a>欧拉函数表达式1：</h5><p>欧拉函数的表达为：<br>$$<br>\varphi (x)=x\prod_{i=1}^{n}{(1-\frac{1}{p_i})}<br>$$</p>
+<p>其中p1,p2,…,pn 表示x的所有质因子，x是不为0的整数。</p>
+<h5 id="欧拉函数表达式2："><a href="#欧拉函数表达式2：" class="headerlink" title="欧拉函数表达式2："></a>欧拉函数表达式2：</h5><p>假设<br>$$<br>x= {p_1}^{k_1} * {p_2}^{k_2} * … * {p_n}^{k_n}<br>$$</p>
+<p>p1,p2,…,pn同上，则其另一种表达为：<br>$$<br>\varphi(x)=\prod_{i=1}^{n}{(p_i-1)*p_i^{k_i-1}}<br>$$</p>
+<p>特别的，<br>$$<br>\varphi(1)=1<br>$$</p>
+<h4 id="欧拉函数证明"><a href="#欧拉函数证明" class="headerlink" title="欧拉函数证明"></a>欧拉函数证明</h4><h5 id="容斥定理来证明"><a href="#容斥定理来证明" class="headerlink" title="容斥定理来证明"></a>容斥定理来证明</h5><p>对于正整数 x 而言，假设其质因子为p1,p2,p3,…,pn，则小于等于 x 且与 x 不互质的数字的个数为：<br>$$<br>g(x)=\frac{x}{p_1}+\frac{x}{p_2}+…+\frac{x}{p_n}-\frac{x}{p_1*p_2}-\frac{x}{p_1*p_3}- …<br>$$</p>
+<p>小于 x 且与 x 互质的数字的个数：<br>$$<br>f(x)=x-g(x)=n-\frac{x}{p_1}-\frac{x}{p_2}- … -\frac{x}{p_n}+\frac{x}{p_1*p_2}+\frac{x}{p_1*p_3}+ …<br>$$</p>
+<p>化简即可得表达式1。（具体化简过程我也不会QAQ）</p>
+<h4 id="欧拉函数计算"><a href="#欧拉函数计算" class="headerlink" title="欧拉函数计算"></a>欧拉函数计算</h4><h5 id="单值计算"><a href="#单值计算" class="headerlink" title="单值计算"></a>单值计算</h5><p>在编程时，习惯上，我们经常用<strong>表达式2</strong>计算欧拉函数的值：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">eular</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ret=<span class="number">1</span>,i;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">2</span>;i*i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">		<span class="comment">/*</span></span><br><span class="line"><span class="comment">		n%i==0时，i为n的质因子，因为如果i不是质因子，</span></span><br><span class="line"><span class="comment">		则一i定能分成更小的因子，对应的更小的因子一定在之前出现过了，与之矛盾，</span></span><br><span class="line"><span class="comment">		所以i一定不能分割成更小的因子，即i为n的质因子。</span></span><br><span class="line"><span class="comment">		*/</span></span><br><span class="line">        <span class="keyword">if</span>(n%i==<span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            n/=i,ret*=i<span class="number">-1</span>;</span><br><span class="line">            <span class="keyword">while</span>(n%i==<span class="number">0</span>) n/=i,ret*=i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(n&gt;<span class="number">1</span>) ret*=n<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="打表计算"><a href="#打表计算" class="headerlink" title="打表计算"></a>打表计算</h5><h4 id="欧拉函数性质"><a href="#欧拉函数性质" class="headerlink" title="欧拉函数性质"></a>欧拉函数性质</h4><h5 id="互质数之和"><a href="#互质数之和" class="headerlink" title="互质数之和"></a>互质数之和</h5><p>小于n的正整数中与n互质的数的数字之和为<br>$$<br>f(n)={n}*\frac{\varphi(n)}{2}<br>$$</p>
+<p>证明如下：</p>
+<blockquote>
+<p>对于每个小于 n 的数正整数 a ，如果gcd( n , a )=1,则gcd( n , n-a )=1（ 此处为gcd相关性质，不再证明。）。</p>
+<p>所以对于每个与 n 互质的正整数 a ，一定有一个与之对应的与 n 互质数的 n - a ;</p>
+<p>由此可知，欧拉函数的值总为偶数（1除外），并且总有一对之和为 n，</p>
+<p>至此，小于n的正整数中与n互质的数的数字之和就可以计算出来了。</p>
+</blockquote>
+<h5 id="积性函数"><a href="#积性函数" class="headerlink" title="积性函数"></a>积性函数</h5><p>欧拉函数是一个积性函数，如果 n , m 互质，则：<br>$$<br>\varphi(nm)=\varphi(n)*\varphi(m)<br>$$<br>可以推出，如果n为质数，则：<br>$$<br>\varphi(2n)=\varphi(n)<br>$$</p>
+<h5 id="欧拉定理变式"><a href="#欧拉定理变式" class="headerlink" title="欧拉定理变式"></a>欧拉定理变式</h5><p>对于任何两个互质的正整数 a , n ，(n&gt;2)<br>$$<br>{a}^{\varphi(n)}\equiv 1 mod n<br>$$</p>
+<h5 id="费马小定理"><a href="#费马小定理" class="headerlink" title="费马小定理"></a>费马小定理</h5><p>当 n = p 且 a 与素数 p 互质时，上式可变为</p>
+<p>$$<br>{a}^{p-1}\equiv 1 mod p<br>$$</p>
+<h5 id="n的因数（包括1和它自己）的欧拉函数之和等于n"><a href="#n的因数（包括1和它自己）的欧拉函数之和等于n" class="headerlink" title="n的因数（包括1和它自己）的欧拉函数之和等于n"></a>n的因数（包括1和它自己）的欧拉函数之和等于n</h5><p>写成数学表达式的形式即为<br>$$<br>n=\sum_{d|n}\varphi(d)<br>$$<br>其中 d|n 表示 n 能被 d 整除。</p>
+<p>证明如下：</p>
+<blockquote>
+<p>对于每个 x ( 0 &lt;= x &lt;= n ) 都存在一个gcd( x , n )，可以证得，其值必然为n的因子。</p>
+<p>假设gcd( x , n ) = d ,（ d | n ） ，则gcd（ x / d , n / d ）= 1 ，即 x / d 与 n / d 互质。</p>
+<p>因此，我们可以求出 gcd( x , n ) 的值为 d 时对应的的数字个数，个数就是 n / d 所对应的欧拉函数值。</p>
+<p>由第一行可知，gcd( x , n )的值必然为n的因子，并且只有唯一对应值，因此就可推导出上述公式。</p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>感谢您的支持</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="Boctorio 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="Boctorio 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Boctorio
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://boctorio.github.io/2019/02/01/欧拉函数及其部分性质/" title="欧拉函数及其部分性质">https://boctorio.github.io/2019/02/01/欧拉函数及其部分性质/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数论/" rel="tag"><i class="fa fa-tag"></i> 数论</a>
+          
+            <a href="/tags/欧拉函数/" rel="tag"><i class="fa fa-tag"></i> 欧拉函数</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/17/HDU-2036/" rel="next" title="HDU-2036（多边形面积）">
+                <i class="fa fa-chevron-left"></i> HDU-2036（多边形面积）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/01/GCD与LCM及其部分性质/" rel="prev" title="GCD与LCM及其部分性质">
+                GCD与LCM及其部分性质 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80Mjk0Mi8xOTQ4OA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Boctorio</p>
+              <p class="site-description motion-element" itemprop="description">无人与我立黄昏，无人问我粥可温</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">61</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友链
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.todest.cn" title="亦往沧劫" target="_blank">亦往沧劫</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://cndrew.cn" title="Uncle_drew" target="_blank">Uncle_drew</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://hpumengzhao.github.io" title="codancer" target="_blank">codancer</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://dreamatom.top" title="JQM" target="_blank">JQM</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.wzy1999.wang" title="执念" target="_blank">执念</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://prestu.github.io" title="prestu" target="_blank">prestu</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://dicer-zz.github.io" title="Dicer" target="_blank">Dicer</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://hongjay233.github.io" title="鸿杰" target="_blank">鸿杰</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#欧拉函数"><span class="nav-number">1.</span> <span class="nav-text">欧拉函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#欧拉函数-1"><span class="nav-number">1.1.</span> <span class="nav-text">欧拉函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#欧拉函数表达式1："><span class="nav-number">1.1.1.</span> <span class="nav-text">欧拉函数表达式1：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#欧拉函数表达式2："><span class="nav-number">1.1.2.</span> <span class="nav-text">欧拉函数表达式2：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#欧拉函数证明"><span class="nav-number">1.2.</span> <span class="nav-text">欧拉函数证明</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#容斥定理来证明"><span class="nav-number">1.2.1.</span> <span class="nav-text">容斥定理来证明</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#欧拉函数计算"><span class="nav-number">1.3.</span> <span class="nav-text">欧拉函数计算</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#单值计算"><span class="nav-number">1.3.1.</span> <span class="nav-text">单值计算</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#打表计算"><span class="nav-number">1.3.2.</span> <span class="nav-text">打表计算</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#欧拉函数性质"><span class="nav-number">1.4.</span> <span class="nav-text">欧拉函数性质</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#互质数之和"><span class="nav-number">1.4.1.</span> <span class="nav-text">互质数之和</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#积性函数"><span class="nav-number">1.4.2.</span> <span class="nav-text">积性函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#欧拉定理变式"><span class="nav-number">1.4.3.</span> <span class="nav-text">欧拉定理变式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#费马小定理"><span class="nav-number">1.4.4.</span> <span class="nav-text">费马小定理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#n的因数（包括1和它自己）的欧拉函数之和等于n"><span class="nav-number">1.4.5.</span> <span class="nav-text">n的因数（包括1和它自己）的欧拉函数之和等于n</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Boctorio</span>
+
+  
+
+  
+      <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+      <span class="post-meta-divider">|</span>
+      <span id="busuanzi_container_site_uv">总访客<span id="busuanzi_value_site_uv"></span>人</span>
+      <span class="post-meta-divider">|</span>
+
+  
+
+</div>
+<!--
+
+
+   <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+-->
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+<script src="/js/src/photoswipe.min.js?v=5.1.4"></script>
+<script src="/js/src/photoswipe-ui-default.min.js?v=5.1.4"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
     // Popup Window;
     var isfetched = false;
     var isXml = true;
@@ -313,7 +1354,131 @@
         onPopupClose();
       }
     });
-  </script><script src="https://c.lcfile.com/static/js/av-min-1.0.0.js"></script><script>AV.initialize("zfcoxFsbiNX6Qe9eP7ebToTP-gzGzoHsz","e1nVkwcNzP5Iwwa32s2lYaWk")</script><script>function showTime(e){var t=new AV.Query(e),c=[],u=$(".leancloud_visitors");u.each(function(){c.push($(this).attr("id").trim())}),t.containedIn("url",c),t.find().done(function(e){var t=".leancloud-visitors-count";if(0!==e.length){for(var n=0;n<e.length;n++){var o=e[n],i=o.get("url"),s=o.get("time"),r=document.getElementById(i);$(r).find(t).text(s)}for(n=0;n<c.length;n++){i=c[n],r=document.getElementById(i);var l=$(r).find(t);""==l.text()&&l.text(0)}}else u.find(t).text(0)}).fail(function(e,t){console.log("Error: "+t.code+" "+t.message)})}function addCount(i){var e=$(".leancloud_visitors"),s=e.attr("id").trim(),r=e.attr("data-flag-title").trim(),t=new AV.Query(i);t.equalTo("url",s),t.find({success:function(e){if(0<e.length){var t=e[0];t.fetchWhenSave(!0),t.increment("time"),t.save(null,{success:function(e){$(document.getElementById(s)).find(".leancloud-visitors-count").text(e.get("time"))},error:function(e,t){console.log("Failed to save Visitor num, with error message: "+t.message)}})}else{var n=new i,o=new AV.ACL;o.setPublicReadAccess(!0),o.setPublicWriteAccess(!0),n.setACL(o),n.set("title",r),n.set("url",s),n.set("time",1),n.save(null,{success:function(e){$(document.getElementById(s)).find(".leancloud-visitors-count").text(e.get("time"))},error:function(e,t){console.log("Failed to create")}})}},error:function(e){console.log("Error:"+e.code+" "+e.message)}})}$(function(){var e=AV.Object.extend("Counter");1==$(".leancloud_visitors").length?addCount(e):1<$(".post-title-link").length&&showTime(e)})</script><script type="text/x-mathjax-config">
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://c.lcfile.com/static/js/av-min-1.0.0.js"></script>
+  <script>AV.initialize("zfcoxFsbiNX6Qe9eP7ebToTP-gzGzoHsz", "e1nVkwcNzP5Iwwa32s2lYaWk");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
       MathJax.Hub.Config({
         tex2jax: {
           inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
@@ -321,11 +1486,24 @@
           skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
         }
       });
-    </script><script type="text/x-mathjax-config">
+    </script>
+
+    <script type="text/x-mathjax-config">
       MathJax.Hub.Queue(function() {
         var all = MathJax.Hub.getAllJax(), i;
         for (i=0; i < all.length; i += 1) {
           all[i].SourceElement().parentNode.className += ' has-jax';
         }
       });
-    </script><script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({pluginRootPath:"live2dw/",pluginJsPath:"lib/",pluginModelPath:"assets/",tagMode:!0,debug:!1,model:{jsonPath:"/live2dw/assets/wanko.model.json"},display:{position:"right",width:120,height:120},mobile:{show:!1},log:!1})</script></body></html>
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+  <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":true,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":120,"height":120},"mobile":{"show":false},"log":false});</script>
+</body>
+</html>
