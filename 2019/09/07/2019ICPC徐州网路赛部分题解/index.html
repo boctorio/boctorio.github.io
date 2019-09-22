@@ -1,4 +1,1031 @@
-<!DOCTYPE html><html class="theme-next gemini use-motion" lang="zh-Hans"><head><meta name="generator" content="Hexo 3.8.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="theme-color" content="#222"><script src="/lib/pace/pace.min.js?v=1.0.2"></script><link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"><link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css"><link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4"><link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4"><link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4"><link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222"><meta name="keywords" content="Hexo, NexT"><link rel="alternate" href="/atom.xml" title="Boctorio's Blog" type="application/atom+xml"><meta name="description" content="其实今天成绩不怎么样，学校排名依然100+。但由于过题数量较多，打完后心里还是比较愉快的。"><meta property="og:type" content="article"><meta property="og:title" content="2019ICPC徐州网络赛部分题解"><meta property="og:url" content="https://boctorio.github.io/2019/09/07/2019ICPC徐州网路赛部分题解/index.html"><meta property="og:site_name" content="Boctorio&#39;s Blog"><meta property="og:description" content="其实今天成绩不怎么样，学校排名依然100+。但由于过题数量较多，打完后心里还是比较愉快的。"><meta property="og:locale" content="zh-Hans"><meta property="og:updated_time" content="2019-09-09T01:57:52.882Z"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="2019ICPC徐州网络赛部分题解"><meta name="twitter:description" content="其实今天成绩不怎么样，学校排名依然100+。但由于过题数量较多，打完后心里还是比较愉快的。"><script type="text/javascript" id="hexo.configurations">var NexT=window.NexT||{},CONFIG={root:"/",scheme:"Gemini",version:"5.1.4",sidebar:{position:"left",display:"post",offset:12,b2t:!1,scrollpercent:!1,onmobile:!1},fancybox:!0,tabs:!0,motion:{enable:!0,async:!1,transition:{post_block:"fadeIn",post_header:"slideDownIn",post_body:"slideDownIn",coll_header:"slideLeftIn",sidebar:"slideUpIn"}},duoshuo:{userId:"0",author:"博主"},algolia:{applicationID:"",apiKey:"",indexName:"",hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}}}</script><link rel="canonical" href="https://boctorio.github.io/2019/09/07/2019ICPC徐州网路赛部分题解/"><title>2019ICPC徐州网络赛部分题解 | Boctorio's Blog</title><script src="/js/src/photoswipe.min.js?v=5.1.4"></script><script src="/js/src/photoswipe-ui-default.min.js?v=5.1.4"></script></head><body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans"><div class="container sidebar-position-left page-post-detail"><div class="headband"></div><header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-wrapper"><div class="site-meta"><div class="custom-logo-site-title"><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span> <span class="site-title">Boctorio's Blog</span><span class="logo-line-after"><i></i></span></a></div><p class="site-subtitle">欢迎访问我校OJ https://hpuoj.com</p></div><div class="site-nav-toggle"> <button><span class="btn-bar"></span><span class="btn-bar"></span><span class="btn-bar"></span></button></div></div><nav class="site-nav"><ul id="menu" class="menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i><br> 首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i><br> 标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i><br> 分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i><br> 归档</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i><br> 关于</a></li><li class="menu-item menu-item-guestbook"><a href="/guestbook/" rel="section"><i class="menu-item-icon fa fa-fw fa-comments"></i><br> 留言</a></li><li class="menu-item menu-item-photos"><a href="/photos/" rel="section"><i class="menu-item-icon fa fa-fw fa-camera"></i><br> 相册</a></li><li class="menu-item menu-item-template"><a href="/template/" rel="section"><i class="menu-item-icon fa fa-fw fa-book"></i><br> 模板库</a></li><li class="menu-item menu-item-resource"><a href="/resource/" rel="section"><i class="menu-item-icon fa fa-fw fa-download"></i><br> 资源整合</a></li><li class="menu-item menu-item-search"><a href="javascript:;" class="popup-trigger"><i class="menu-item-icon fa fa-search fa-fw"></i><br> 搜索</a></li></ul><div class="site-search"><div class="popup search-popup local-search-popup"><div class="local-search-header clearfix"><span class="search-icon"><i class="fa fa-search"></i></span><span class="popup-btn-close"><i class="fa fa-times-circle"></i></span><div class="local-search-input-wrapper"> <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input"></div></div><div id="local-search-result"></div></div></div></nav></div></header><main id="main" class="main"><div class="main-inner"><div class="content-wrap"><div id="content" class="content"><div id="posts" class="posts-expand"><article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article"><div class="post-block"><link itemprop="mainEntityOfPage" href="https://boctorio.github.io/2019/09/07/2019ICPC徐州网路赛部分题解/"><span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person"><meta itemprop="name" content="Boctorio"><meta itemprop="description" content=""><meta itemprop="image" content="/images/avatar.gif"></span><span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization"><meta itemprop="name" content="Boctorio's Blog"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">2019ICPC徐州网络赛部分题解</h1><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i></span> <span class="post-meta-item-text">发表于</span> <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-07T18:42:34+08:00">2019-09-07</time> <span class="post-updated">&nbsp; | &nbsp; 更新于 <time itemprop="dateUpdated" datetime="2019-09-09T09:57:52+08:00" content="2019-09-09">2019-09-09</time></span></span> <span class="post-category"><span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-folder-o"></i></span> <span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/ICPC/" itemprop="url" rel="index"><span itemprop="name">ICPC</span></a></span></span> <span id="/2019/09/07/2019ICPC徐州网路赛部分题解/" class="leancloud_visitors" data-flag-title="2019ICPC徐州网络赛部分题解"><span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-eye"></i></span> <span class="post-meta-item-text">阅读次数&#58;</span><span class="leancloud-visitors-count"></span> <span>℃</span></span><div class="post-wordcount"><span class="post-meta-item-icon"><i class="fa fa-file-word-o"></i></span> <span class="post-meta-item-text">字数统计&#58;</span> <span title="字数统计">3.4k</span> <span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-clock-o"></i></span> <span class="post-meta-item-text">阅读时长 &asymp;</span> <span title="阅读时长">18</span></div></div></header><div class="post-body" itemprop="articleBody"><p>其实今天成绩不怎么样，学校排名依然100+。但由于过题数量较多，打完后心里还是比较愉快的。</p><a id="more"></a><p><a href="https://nanti.jisuanke.com/t/41383" target="_blank" rel="noopener">A.Who is better?</a></p><p>中国剩余定理+斐波那契博弈，首先利用中国剩余定理算出$n$，然后使用斐波那契博弈计算胜负状态。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">exgcd</span><span class="params">(a, b)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> b == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>, <span class="number">0</span>, a</span><br><span class="line">    x, y, q = exgcd(b, a % b)</span><br><span class="line">    x, y = y, (x - a // b * y)</span><br><span class="line">    <span class="keyword">return</span> x, y, q</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">put1</span><span class="params">()</span>:</span></span><br><span class="line">    n = int(input())</span><br><span class="line">    <span class="keyword">return</span> n</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">put2</span><span class="params">()</span>:</span></span><br><span class="line">    a1, r1 = map(int, input().split())</span><br><span class="line">    <span class="keyword">return</span> a1, r1</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">solve</span><span class="params">(flag)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> flag:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Tankernb!"</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        arr = [<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line">        cnt = <span class="number">2</span></span><br><span class="line">        <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">            res = arr[cnt - <span class="number">1</span>] + arr[cnt - <span class="number">2</span>]</span><br><span class="line">            <span class="keyword">if</span> ans&lt;res:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            arr.append(res)</span><br><span class="line">            cnt = cnt + <span class="number">1</span></span><br><span class="line">        flag = <span class="keyword">False</span></span><br><span class="line">        <span class="keyword">for</span> num <span class="keyword">in</span> arr:</span><br><span class="line">            <span class="keyword">if</span> num == ans:</span><br><span class="line">                flag = <span class="keyword">True</span></span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">if</span> flag:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"Lbnb!"</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"Zgxnb!"</span></span><br><span class="line">flag = <span class="keyword">False</span></span><br><span class="line">n = put1()</span><br><span class="line">a1, r1 = put2()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(n - <span class="number">1</span>):</span><br><span class="line">    a2, r2 = put2()</span><br><span class="line">    r= r2 - r1</span><br><span class="line">    x, y, d = exgcd(a1, a2)</span><br><span class="line">    tmp = a2 // d</span><br><span class="line">    <span class="keyword">if</span> r% d != <span class="number">0</span>:</span><br><span class="line">        flag = <span class="keyword">True</span></span><br><span class="line">    r1 = ((x * r// d) % tmp + tmp) % tmp * a1 + r1</span><br><span class="line">    a1 = a1 * (a2 // d)</span><br><span class="line">lcm = a1</span><br><span class="line">ans = (r1 % lcm + lcm) % lcm</span><br><span class="line">print(solve(flag))</span><br></pre></td></tr></table></figure><p><a href="https://nanti.jisuanke.com/t/41384" target="_blank" rel="noopener">B.so easy</a></p><p>题目大意为：给你一个长度为$n$的数组，数组内元素按顺序为$1~n$，接下来由$q$个操作，$z=1$时操作为删除$x$，$z=2$时操作为查询当前数组内$x$右边距离最近的一个数（包括其本身）。</p><p>由于b范围巨大，不能开数组去计算，因此用$map$来求解。每次删除，就将这个数链接到其下一个数，如果这个数在$map$中没出现过，就直接链接到这个数，并在$map$中加入这个数；如果出现过，就用并查集的方法继续向后找。$mp[i]$表示的是第$i$个数接下来链接到的数字。</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pii pair<span class="meta-string">&lt;int,int&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf=<span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">const</span> ll INF=<span class="number">0x3f3f3f3f3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">const</span> ll mod=<span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">1000000</span>+<span class="number">10</span>;</span><br><span class="line"><span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt;mp;</span><br><span class="line"><span class="keyword">int</span> n,q,op,x;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(x&gt;n) <span class="keyword">return</span> mp[x]=<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">if</span>(mp[x]==<span class="number">0</span>)&#123;</span><br><span class="line">        mp[x]=x;</span><br><span class="line">        <span class="keyword">return</span> mp[x];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> x==mp[x]?mp[x]:mp[x]=find(mp[x]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;n,&amp;q);</span><br><span class="line">    <span class="keyword">while</span>(q--)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;op,&amp;x);</span><br><span class="line">        <span class="keyword">if</span>(op==<span class="number">1</span>) mp[x]=find(x+<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,find(x));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><a href="https://nanti.jisuanke.com/t/41385" target="_blank" rel="noopener">C.Buy Watermelon</a></p><p>签到题，大于2的偶数即可分，否则不可分。</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    <span class="keyword">if</span>(n&gt;<span class="number">2</span> &amp;&amp; n%<span class="number">2</span>==<span class="number">0</span>) <span class="built_in">printf</span>(<span class="string">"YES\n"</span>);</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"NO\n"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><a href="https://nanti.jisuanke.com/t/41386" target="_blank" rel="noopener">D.Carneginon</a></p><p>题目大意为：你有一个字符串$T$，接下来输入n个字符串$S$，对于每个字符串$S$:</p><blockquote><p>如果$len_T&gt;len_S$ &amp;&amp; $S$是$T$的字串，输出<code>my child!</code><br>如果$len_T&gt;len_S$ &amp;&amp; $S$不是$T$的字串，输出<code>oh, child!</code><br>如果$len_T&lt;len_S$ &amp;&amp; $T$是$S$的字串，输出<code>my teacher!</code><br>如果$len_T&lt;len_S$ &amp;&amp; $T$不是$S$的字串，输出<code>senior!</code><br>如果$len_T=len_S$ &amp;&amp; $T$等于$S$，输出<code>jntm!</code><br>如果$len_T=len_S$ &amp;&amp; $T$不等于$S$，输出<code>friend!</code></p></blockquote><p>KMP暴力题，预先处理完$T$ 的$nxt[]$数组，接下来如果$len_S\leq len_T$的话，直接跑KMP，否则对$S$跑一遍KMP。</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pii pair<span class="meta-string">&lt;int,int&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf=<span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">const</span> ll INF=<span class="number">0x3f3f3f3f3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">const</span> ll mod=<span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">1000000</span>+<span class="number">10</span>;</span><br><span class="line"><span class="keyword">char</span> s[maxn],t[maxn];</span><br><span class="line"><span class="keyword">int</span> nxt[maxn],nxt2[maxn];</span><br><span class="line"><span class="keyword">int</span> T,n,m;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">get_next</span><span class="params">(<span class="keyword">char</span> *B,<span class="keyword">int</span> m)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    j=<span class="number">0</span>;i=<span class="number">1</span>;</span><br><span class="line">    nxt[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(i&lt;m)&#123;</span><br><span class="line">        <span class="keyword">if</span>(B[i]==B[j])&#123;</span><br><span class="line">            nxt[i++]=++j;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(j) j=nxt[j<span class="number">-1</span>];</span><br><span class="line">            <span class="keyword">else</span> i++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">get_next2</span><span class="params">(<span class="keyword">char</span> *B,<span class="keyword">int</span> m)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    j=<span class="number">0</span>;i=<span class="number">1</span>;</span><br><span class="line">    nxt2[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(i&lt;m)&#123;</span><br><span class="line">        <span class="keyword">if</span>(B[i]==B[j])&#123;</span><br><span class="line">            nxt2[i++]=++j;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(j) j=nxt2[j<span class="number">-1</span>];</span><br><span class="line">            <span class="keyword">else</span> i++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">kmp_search</span><span class="params">(<span class="keyword">char</span>* A,<span class="keyword">char</span>* B,<span class="keyword">int</span> n,<span class="keyword">int</span> m)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    i=j=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(i&lt;n&amp;&amp;j&lt;m)&#123;</span><br><span class="line">        <span class="keyword">if</span>(A[i]==B[j]) i++,j++;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(j) j=nxt[j<span class="number">-1</span>];</span><br><span class="line">        <span class="keyword">else</span> i++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(j==m)&#123;</span><br><span class="line">        <span class="keyword">return</span> i-m+<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">kmp_search2</span><span class="params">(<span class="keyword">char</span>* A,<span class="keyword">char</span>* B,<span class="keyword">int</span> n,<span class="keyword">int</span> m)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    i=j=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(i&lt;n&amp;&amp;j&lt;m)&#123;</span><br><span class="line">        <span class="keyword">if</span>(A[i]==B[j]) i++,j++;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(j) j=nxt2[j<span class="number">-1</span>];</span><br><span class="line">        <span class="keyword">else</span> i++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(j==m)&#123;</span><br><span class="line">        <span class="keyword">return</span> i-m+<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%s"</span>,t);</span><br><span class="line">    n=<span class="built_in">strlen</span>(t);</span><br><span class="line">    get_next(t,n);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;T);</span><br><span class="line">    <span class="keyword">while</span>(T--)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%s"</span>,s);</span><br><span class="line">        <span class="keyword">int</span> m=<span class="built_in">strlen</span>(s);</span><br><span class="line">        <span class="keyword">if</span>(n&gt;m)&#123;</span><br><span class="line">            <span class="keyword">if</span>(kmp_search(t,s,n,m)!=<span class="number">-1</span>) <span class="built_in">printf</span>(<span class="string">"my child!\n"</span>);</span><br><span class="line">            <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"oh, child!\n"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(n==m)&#123;</span><br><span class="line">            <span class="keyword">if</span>(kmp_search(t,s,n,m)!=<span class="number">-1</span>) <span class="built_in">printf</span>(<span class="string">"jntm!\n"</span>);</span><br><span class="line">            <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"friend!\n"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(n&lt;m)&#123;</span><br><span class="line">            get_next2(s,m);</span><br><span class="line">            <span class="keyword">if</span>(kmp_search2(s,t,m,n)!=<span class="number">-1</span>) <span class="built_in">printf</span>(<span class="string">"my teacher!\n"</span>);</span><br><span class="line">            <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"senior!\n"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><a href="https://nanti.jisuanke.com/t/41387" target="_blank" rel="noopener">E.XKC’s basketball team</a></p><p>题目大意：给你一个长度为$n$的数组以及一个数$m$，对于每个位置$i$，找到右边最远的位置$j$，使得$w_j\geq w_i+m(j\geq i)$ 。</p><p>首先我们进行离散化，将每个数所对应的位置储存在离散化后所对应的数组编号中，这样我们就能根据大小对每个数的位置进行统计，在离散化后的数组中，对于一个数$w_i$，假设我们能够找到一个数$w_j$，使得$w_j\geq w_i$,那么$w_{j+1}&gt;w_i$ ,因此我们可以用状态转移方程$pos[i]=min(pos[i],pos[i+1])$去节省查询时间。<br>接下来对于每个数，我们使用lower_bound()​函数找到第一个大于等于$w_i+m$的数的位置即可。</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pii pair<span class="meta-string">&lt;int,int&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf=<span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">const</span> ll INF=<span class="number">0x3f3f3f3f3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">const</span> ll mod=<span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">1000000</span>+<span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> a[maxn],b[maxn],c[maxn];</span><br><span class="line"><span class="keyword">int</span> pos[maxn];</span><br><span class="line"><span class="keyword">int</span> ans[maxn];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,m;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;n,&amp;m);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a[i]);</span><br><span class="line">        b[i]=a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    sort(b,b+n);</span><br><span class="line">    <span class="keyword">int</span> N=unique(b,b+n)-b;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        c[i]=lower_bound(b,b+N,a[i])-b;</span><br><span class="line">        pos[c[i]]=i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=N<span class="number">-2</span>;i&gt;=<span class="number">0</span>;i--) pos[i]=max(pos[i],pos[i+<span class="number">1</span>]);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(i) <span class="built_in">printf</span>(<span class="string">" "</span>);</span><br><span class="line">        <span class="keyword">int</span> x=lower_bound(b,b+N,a[i]+m)-b;</span><br><span class="line">        <span class="keyword">if</span>(x==N || pos[x]&lt;i) <span class="built_in">printf</span>(<span class="string">"-1"</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"%d"</span>,pos[x]-i<span class="number">-1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><a href="https://nanti.jisuanke.com/t/41388" target="_blank" rel="noopener">F.Little M’s attack plan</a></p><p><a href="https://nanti.jisuanke.com/t/41389" target="_blank" rel="noopener">G.Colorful String</a></p><p>题目大意为：给你一个字符串，求$\sum每个子回文字符串中字母的种类数$ 。</p><p>马拉车+序列自动机，使用马拉车找出以这个字符为中心最长的回文串的长度，然后利用序列自动机for一个26的循环找出26个字母中每个字母离中间这个字符最近的位置，然后进行判断统计贡献即可。</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">const</span> ll maxn=<span class="number">1000000</span>+<span class="number">10</span>;</span><br><span class="line"><span class="keyword">char</span> s[maxn],t[maxn];</span><br><span class="line">ll n;</span><br><span class="line">ll f[maxn][<span class="number">30</span>];</span><br><span class="line">ll vis[maxn];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Manacher</span><span class="params">(ll l)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(ll i=l;i&gt;<span class="number">0</span>;i--)  </span><br><span class="line">    &#123;</span><br><span class="line">        t[<span class="number">2</span>*i]=s[i];  </span><br><span class="line">        t[<span class="number">2</span>*i+<span class="number">1</span>]=<span class="string">'#'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    t[<span class="number">0</span>]=<span class="string">'$'</span>;</span><br><span class="line">    t[<span class="number">1</span>]=<span class="string">'#'</span>;</span><br><span class="line">    ll id,mx,ans;</span><br><span class="line">    id=mx=ans=<span class="number">0</span>;  </span><br><span class="line">    <span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=<span class="number">2</span>*l+<span class="number">1</span>;i++)  </span><br><span class="line">    &#123;  </span><br><span class="line">        <span class="keyword">if</span>(mx&gt;i) vis[i]=min(vis[<span class="number">2</span>*id-i],mx-i);    </span><br><span class="line">        <span class="keyword">else</span> vis[i]=<span class="number">1</span>;    </span><br><span class="line">        <span class="keyword">while</span>(t[i+vis[i]]==t[i-vis[i]]) vis[i]++;    </span><br><span class="line">        <span class="keyword">if</span>(mx&lt;vis[i]+i)  </span><br><span class="line">        &#123;    </span><br><span class="line">            id=i;    </span><br><span class="line">            mx=vis[i]+i;    </span><br><span class="line">        &#125;    </span><br><span class="line">        ans=max(ans,vis[i]);  </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%s"</span>,s+<span class="number">1</span>);</span><br><span class="line">    n=<span class="built_in">strlen</span>(s+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span>(ll i=n;i&gt;<span class="number">0</span>;i--)&#123;</span><br><span class="line">        <span class="keyword">for</span>(ll j=<span class="number">0</span>;j&lt;<span class="number">26</span>;j++)&#123;</span><br><span class="line">            f[i<span class="number">-1</span>][j]=f[i][j];</span><br><span class="line">        &#125;</span><br><span class="line">        f[i<span class="number">-1</span>][s[i]-<span class="string">'a'</span>]=i;</span><br><span class="line">    &#125;</span><br><span class="line">    Manacher(n);</span><br><span class="line">    ll res=<span class="number">0</span>;</span><br><span class="line">    ll pos,len,cur;</span><br><span class="line">    <span class="keyword">for</span>(ll i=<span class="number">2</span>;i&lt;=n*<span class="number">2</span>;i++)&#123;</span><br><span class="line">        pos=(i+<span class="number">1</span>)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(i%<span class="number">2</span>==<span class="number">0</span>) len=(vis[i]+<span class="number">1</span>)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">else</span> len=vis[i]/<span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(ll j=<span class="number">0</span>;j&lt;<span class="number">26</span>;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s[pos]==<span class="string">'a'</span>+j)&#123;<span class="comment">//如果相等，长度等于贡献</span></span><br><span class="line">                res+=len;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            cur=f[pos][j];</span><br><span class="line">            <span class="keyword">if</span>(cur &amp;&amp; cur&lt;=pos+len<span class="number">-1</span>)&#123;</span><br><span class="line">                res+=pos+len-cur;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,res);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><a href="https://nanti.jisuanke.com/t/41390" target="_blank" rel="noopener">H.function</a></p><p><a href="https://nanti.jisuanke.com/t/41391" target="_blank" rel="noopener">I.query</a></p><p>题目大意：给你一个$1~n$的全排列，$m$组查询，每次查询在$[l,r]$中满足$min(pi,pj)=gcd(pi,pj)(l\leq i\leq j\leq r)$的元素的对数。</p><p>首先我们可以从这个式子中看出来，满足这个式子的情况一定是一个数是另一个数的倍数。假如我们打表计算，我们可以统计出在$10^5$的范围内，满足这个条件的数对大约有1e6个左右，因此我们可以将这些数对变成二维象限内的坐标，坐标的值为$(min(pi,pj),max(pi,pj))$。<br>那么这个题就转化成了：找出二维平面以$(l,l)$为左下角坐标，$(r,r)$为右上角坐标的矩阵内的点的个数。这个我们可以用树状数组统计前缀和来求解。</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pii pair<span class="meta-string">&lt;int,int&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf=<span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">const</span> ll INF=<span class="number">0x3f3f3f3f3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">const</span> ll mod=<span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">2000000</span>+<span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> a[maxn];</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> l,r,val;</span><br><span class="line">&#125;p[maxn];</span><br><span class="line">node q[maxn];</span><br><span class="line"><span class="built_in">map</span>&lt;pii,<span class="keyword">int</span>&gt;mp;</span><br><span class="line"><span class="keyword">int</span> tree[maxn];</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(node i,node j)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(i.r==j.r)&#123;</span><br><span class="line">        <span class="keyword">if</span>(i.l==j.l)&#123;</span><br><span class="line">            <span class="keyword">return</span> i.val&lt;j.val;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> i.l&lt;j.l;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> i.r&lt;j.r;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lowbit</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;<span class="keyword">return</span> x&amp;(-x);&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(;x&lt;=maxn;x+=lowbit(x)) tree[x]++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">querr</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> res=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(;x;x-=lowbit(x)) res+=tree[x];</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,m,x;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;n,&amp;m);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;x);</span><br><span class="line">        a[x]=i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> sum=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=i*<span class="number">2</span>;j&lt;=n;j+=i)&#123;</span><br><span class="line">            p[sum].l=min(a[i],a[j]);</span><br><span class="line">            p[sum].r=max(a[i],a[j]);</span><br><span class="line">            p[sum++].val=<span class="number">0</span>;</span><br><span class="line">            <span class="comment">// printf("l=%d r=%d\n",min(a[i],a[j]),max(a[i],a[j]));</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;q[i].l,&amp;q[i].r);</span><br><span class="line">        <span class="keyword">int</span> l=q[i].l,r=q[i].r;</span><br><span class="line">        p[sum].l=l<span class="number">-1</span>,p[sum].r=l<span class="number">-1</span>,p[sum++].val=<span class="number">1</span>;</span><br><span class="line">        p[sum].l=l<span class="number">-1</span>,p[sum].r=r,p[sum++].val=<span class="number">1</span>;</span><br><span class="line">        p[sum].l=r,p[sum].r=l<span class="number">-1</span>,p[sum++].val=<span class="number">1</span>;</span><br><span class="line">        p[sum].l=r,p[sum].r=r,p[sum++].val=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    sort(p,p+sum,cmp);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;sum;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(p[i].val==<span class="number">0</span>) add(p[i].l);</span><br><span class="line">        <span class="keyword">else</span> mp[pii(p[i].l,p[i].r)]=querr(p[i].l);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)&#123;</span><br><span class="line">        <span class="comment">// printf("%d-%d-%d+%d=",mp[pii(q[i].r,q[i].r)],mp[pii(q[i].l-1,q[i].r)],mp[pii(q[i].r,q[i].l-1)],mp[pii(q[i].l-1,q[i].l-1)]);</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,mp[pii(q[i].r,q[i].r)]-mp[pii(q[i].l<span class="number">-1</span>,q[i].r)]-mp[pii(q[i].r,q[i].l<span class="number">-1</span>)]+mp[pii(q[i].l<span class="number">-1</span>,q[i].l<span class="number">-1</span>)]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><a href="https://nanti.jisuanke.com/t/41392" target="_blank" rel="noopener">J.Random Access Iteartor</a></p><p><a href="https://nanti.jisuanke.com/t/41393" target="_blank" rel="noopener">K.Center</a></p><p>题目大意为：给你$n$个二维平面坐标内的点，问最少再需要几个点可以将它们变成一个中心对称图形。</p><p>中心对称图形的概念即为关于平面内某一点对称，因此我们可以直接找出以这个点为对城中心或者以两个点连成的线段的中点作为对称中心。总共约有$n^2+n=1e6$个，然后对每个点进行处理计算即可。</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pii pair<span class="meta-string">&lt;int,int&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> ll maxn=<span class="number">1000000</span>+<span class="number">10</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> x,y;</span><br><span class="line">&#125;a[maxn];</span><br><span class="line"><span class="built_in">map</span>&lt;pii,<span class="keyword">int</span>&gt;mp,mp2;</span><br><span class="line"><span class="built_in">vector</span>&lt;pii&gt;vec;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;a[i].x,&amp;a[i].y);</span><br><span class="line">        mp2[pii(a[i].x,a[i].y)]++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> num=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        mp[pii(a[i].x*<span class="number">2</span>,a[i].y*<span class="number">2</span>)]++;</span><br><span class="line">        num=max(num,mp[pii(a[i].x*<span class="number">2</span>,a[i].y*<span class="number">2</span>)]);</span><br><span class="line">        vec.push_back(pii(a[i].x*<span class="number">2</span>,a[i].y*<span class="number">2</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>;j&lt;n;j++)&#123;</span><br><span class="line">            mp[pii(a[i].x+a[j].x,a[i].y+a[j].y)]++;</span><br><span class="line">            <span class="keyword">if</span>(num&lt;mp[pii(a[i].x+a[j].x,a[i].y+a[j].y)])&#123;</span><br><span class="line">                num=mp[pii(a[i].x+a[j].x,a[i].y+a[j].y)];</span><br><span class="line">                vec.clear();</span><br><span class="line">                vec.push_back(pii(a[i].x+a[j].x,a[i].y+a[j].y));</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(num==mp[pii(a[i].x+a[j].x,a[i].y+a[j].y)])&#123;</span><br><span class="line">                vec.push_back(pii(a[i].x+a[j].x,a[i].y+a[j].y));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> res=n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;vec.size();i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> x=vec[i].first,y=vec[i].second;</span><br><span class="line">        <span class="keyword">int</span> cur=n;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>((a[j].x*<span class="number">2</span>==x &amp;&amp; a[j].y*<span class="number">2</span>==y) || (mp2[pii(x-a[j].x,y-a[j].y)])) cur--;</span><br><span class="line">        &#125;</span><br><span class="line">        res=min(res,cur);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,res);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><a href="https://nanti.jisuanke.com/t/4138494" target="_blank" rel="noopener">L.Dice</a></p><p><a href="https://nanti.jisuanke.com/t/41395" target="_blank" rel="noopener">M.Longest subsequence</a></p><p>题目大意为：给你两个长分别为$n,m$的两个字符串$S,T$，问从$S$中找到的最长的字典序严格大于$T$的字串的长度最长为多长。</p><p>由于一定要严格大于，因此我们只要找到前面$i$相同，第i+1个比$T[i+1]$即可，然后取最优解。找相同前缀可以用序列自动机来处理。</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pii pair<span class="meta-string">&lt;int,int&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">1000000</span>+<span class="number">10</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> INF=<span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">char</span> s[maxn],t[maxn];</span><br><span class="line"><span class="keyword">int</span> nxt[maxn][<span class="number">30</span>];</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vec;</span><br><span class="line"><span class="keyword">int</span> ans=<span class="number">0</span>,cnt=<span class="number">0</span>,n,m,flag;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">(<span class="keyword">char</span> *s)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> len=<span class="built_in">strlen</span>(s);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">26</span>;i++) nxt[len][i]=INF;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=len<span class="number">-1</span>;i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;<span class="number">26</span>;j++)&#123;</span><br><span class="line">            nxt[i][j]=nxt[i+<span class="number">1</span>][j];</span><br><span class="line">        &#125;</span><br><span class="line">        nxt[i][s[i]-<span class="string">'a'</span>]=i;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d %d %s %s"</span>,&amp;n,&amp;m,s,t);</span><br><span class="line">    init(s);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=t[cnt]-<span class="string">'a'</span>+<span class="number">1</span>;j&lt;<span class="number">26</span>;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nxt[i][j]!=INF)&#123;</span><br><span class="line">                flag=<span class="number">1</span>;</span><br><span class="line">                ans=max(ans,cnt+n-nxt[i][j]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(s[i]==t[cnt])&#123;</span><br><span class="line">            cnt++;</span><br><span class="line">            vec.push_back(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(cnt==m) <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(!flag)&#123;</span><br><span class="line">        <span class="keyword">if</span>(vec.size()&gt;=m)&#123;</span><br><span class="line">            <span class="keyword">if</span>(vec[m<span class="number">-1</span>]==n<span class="number">-1</span>) <span class="built_in">printf</span>(<span class="string">"-1\n"</span>);</span><br><span class="line">            <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,m+(n-vec[m<span class="number">-1</span>]<span class="number">-1</span>));</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"-1\n"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(vec.size()&gt;=m&amp;&amp;vec[m<span class="number">-1</span>]!=<span class="number">-1</span>)&#123;</span><br><span class="line">        ans=max(ans,m+(n-vec[m<span class="number">-1</span>]<span class="number">-1</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div><div><div style="padding:10px 0;margin:20px auto;width:90%;text-align:center"><div>感谢您的支持</div> <button id="rewardButton" disable="enable" onclick='var qr=document.getElementById("QR");"none"===qr.style.display?qr.style.display="block":qr.style.display="none"'> <span>打赏</span></button><div id="QR" style="display:none"><div id="wechat" style="display:inline-block"> <img id="wechat_qr" src="/images/wechatpay.png" alt="Boctorio 微信支付"><p>微信支付</p></div><div id="alipay" style="display:inline-block"> <img id="alipay_qr" src="/images/alipay.png" alt="Boctorio 支付宝"><p>支付宝</p></div></div></div></div><div><ul class="post-copyright"><li class="post-copyright-author"> <strong>本文作者：</strong> Boctorio</li><li class="post-copyright-link"> <strong>本文链接：</strong> <a href="https://boctorio.github.io/2019/09/07/2019ICPC徐州网路赛部分题解/" title="2019ICPC徐州网络赛部分题解">https://boctorio.github.io/2019/09/07/2019ICPC徐州网路赛部分题解/</a></li><li class="post-copyright-license"> <strong>版权声明：</strong> 本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！</li></ul></div><div><div><div style="text-align:center;color:#ccc;font-size:14px">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div></div></div><footer class="post-footer"><div class="post-nav"><div class="post-nav-next post-nav-item"><a href="/2019/09/06/2018CCPC吉林站部分题解/" rel="next" title="2018CCPC吉林站部分题解"><i class="fa fa-chevron-left"></i> 2018CCPC吉林站部分题解</a></div><span class="post-nav-divider"></span><div class="post-nav-prev post-nav-item"> <a href="/2019/09/08/2019ICPC南昌网络赛部分题解/" rel="prev" title="2019ICPC南昌网络赛部分题解">2019ICPC南昌网络赛部分题解<i class="fa fa-chevron-right"></i></a></div></div></footer></div></article><div class="post-spread"><div class="jiathis_style"> <span class="jiathis_txt">分享到：</span> <a class="jiathis_button_fav">收藏夹</a> <a class="jiathis_button_copy">复制网址</a> <a class="jiathis_button_email">邮件</a> <a class="jiathis_button_weixin">微信</a> <a class="jiathis_button_qzone">QQ空间</a> <a class="jiathis_button_tqq">腾讯微博</a> <a class="jiathis_button_douban">豆瓣</a> <a class="jiathis_button_share">一键分享</a> <a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a><a class="jiathis_counter_style"></a></div><script type="text/javascript">var jiathis_config={data_track_clickback:!0,summary:"",shortUrl:!1,hideMore:!1}</script><script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script></div></div></div><div class="comments" id="comments"><div id="lv-container" data-id="city" data-uid="MTAyMC80Mjk0Mi8xOTQ4OA=="></div></div></div><div class="sidebar-toggle"><div class="sidebar-toggle-line-wrap"><span class="sidebar-toggle-line sidebar-toggle-line-first"></span><span class="sidebar-toggle-line sidebar-toggle-line-middle"></span><span class="sidebar-toggle-line sidebar-toggle-line-last"></span></div></div><aside id="sidebar" class="sidebar"><div class="sidebar-inner"><section class="site-overview-wrap sidebar-panel sidebar-panel-active"><div class="site-overview"><div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person"><p class="site-author-name" itemprop="name">Boctorio</p><p class="site-description motion-element" itemprop="description">无人与我立黄昏，无人问我粥可温</p></div><nav class="site-state motion-element"><div class="site-state-item site-state-posts"> <a href="/archives/"><span class="site-state-item-count">69</span> <span class="site-state-item-name">日志</span></a></div><div class="site-state-item site-state-categories"> <a href="/categories/index.html"><span class="site-state-item-count">44</span> <span class="site-state-item-name">分类</span></a></div><div class="site-state-item site-state-tags"> <a href="/tags/index.html"><span class="site-state-item-count">29</span> <span class="site-state-item-name">标签</span></a></div></nav><div class="feed-link motion-element"><a href="/atom.xml" rel="alternate"><i class="fa fa-rss"></i> RSS</a></div><div class="links-of-blogroll motion-element links-of-blogroll-inline"><div class="links-of-blogroll-title"><i class="fa fa-fw fa-link"></i> 友链</div><ul class="links-of-blogroll-list"><li class="links-of-blogroll-item"> <a href="https://blog.todest.cn" title="亦往沧劫" target="_blank">亦往沧劫</a></li><li class="links-of-blogroll-item"> <a href="https://cndrew.cn" title="Uncle_drew" target="_blank">Uncle_drew</a></li><li class="links-of-blogroll-item"> <a href="https://hpumengzhao.github.io" title="codancer" target="_blank">codancer</a></li><li class="links-of-blogroll-item"> <a href="https://dreamatom.top" title="JQM" target="_blank">JQM</a></li><li class="links-of-blogroll-item"> <a href="https://blog.wzy1999.wang" title="执念" target="_blank">执念</a></li><li class="links-of-blogroll-item"> <a href="https://prestu.github.io" title="prestu" target="_blank">prestu</a></li><li class="links-of-blogroll-item"> <a href="https://dicer-zz.github.io" title="Dicer" target="_blank">Dicer</a></li><li class="links-of-blogroll-item"> <a href="https://hongjay233.github.io" title="鸿杰" target="_blank">鸿杰</a></li></ul></div></div></section></div></aside></div></main><footer id="footer" class="footer"><div class="footer-inner"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div class="copyright">&copy; <span itemprop="copyrightYear">2019</span><span class="with-love"><i class="fa fa-user"></i></span> <span class="author" itemprop="copyrightHolder">Boctorio</span> <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span> <span class="post-meta-divider">|</span> <span id="busuanzi_container_site_uv">总访客<span id="busuanzi_value_site_uv"></span>人</span> <span class="post-meta-divider">|</span></div></div></footer><div class="back-to-top"><i class="fa fa-arrow-up"></i></div></div><script type="text/javascript">"[object Function]"!==Object.prototype.toString.call(window.Promise)&&(window.Promise=null)</script><script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script><script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script><script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script><script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script><script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script><script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script><script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script><script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script><script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script><script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script><script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script><script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script><script src="/js/src/photoswipe.min.js?v=5.1.4"></script><script src="/js/src/photoswipe-ui-default.min.js?v=5.1.4"></script><script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script><script type="text/javascript">!function(e,t){var n,c=e.getElementsByTagName(t)[0];"function"!=typeof LivereTower&&((n=e.createElement(t)).src="https://cdn-city.livere.com/js/embed.dist.js",n.async=!0,c.parentNode.insertBefore(n,c))}(document,"script")</script><script type="text/javascript">
+
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Boctorio's Blog" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="其实今天成绩不怎么样，学校排名依然100+。但由于过题数量较多，打完后心里还是比较愉快的。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2019ICPC徐州网络赛部分题解">
+<meta property="og:url" content="https://boctorio.github.io/2019/09/07/2019ICPC徐州网路赛部分题解/index.html">
+<meta property="og:site_name" content="Boctorio&#39;s Blog">
+<meta property="og:description" content="其实今天成绩不怎么样，学校排名依然100+。但由于过题数量较多，打完后心里还是比较愉快的。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-09-09T01:57:52.882Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2019ICPC徐州网络赛部分题解">
+<meta name="twitter:description" content="其实今天成绩不怎么样，学校排名依然100+。但由于过题数量较多，打完后心里还是比较愉快的。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://boctorio.github.io/2019/09/07/2019ICPC徐州网路赛部分题解/">
+
+
+
+
+
+  <title>2019ICPC徐州网络赛部分题解 | Boctorio's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <script src="/js/src/photoswipe.min.js?v=5.1.4"></script>
+  <script src="/js/src/photoswipe-ui-default.min.js?v=5.1.4"></script>
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+  
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Boctorio's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">欢迎访问我校OJ   https://hpuoj.com</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-comments"></i> <br>
+            
+            留言
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-photos">
+          <a href="/photos/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-camera"></i> <br>
+            
+            相册
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-template">
+          <a href="/template/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br>
+            
+            模板库
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-resource">
+          <a href="/resource/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-download"></i> <br>
+            
+            资源整合
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://boctorio.github.io/2019/09/07/2019ICPC徐州网路赛部分题解/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Boctorio">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Boctorio's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">2019ICPC徐州网络赛部分题解</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-07T18:42:34+08:00">
+                2019-09-07
+              </time>
+            
+            
+            
+			  <span class="post-updated">
+			    &nbsp; | &nbsp; 更新于
+			    <time itemprop="dateUpdated" datetime="2019-09-09T09:57:52+08:00" content="2019-09-09">
+			      2019-09-09
+			    </time>
+			  </span>
+			
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/ICPC/" itemprop="url" rel="index">
+                    <span itemprop="name">ICPC</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/09/07/2019ICPC徐州网路赛部分题解/" class="leancloud_visitors" data-flag-title="2019ICPC徐州网络赛部分题解">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3.4k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  18
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>其实今天成绩不怎么样，学校排名依然100+。但由于过题数量较多，打完后心里还是比较愉快的。</p>
+<a id="more"></a>
+<p><a href="https://nanti.jisuanke.com/t/41383" target="_blank" rel="noopener">A.Who is better?</a></p>
+<p>中国剩余定理+斐波那契博弈，首先利用中国剩余定理算出$n$，然后使用斐波那契博弈计算胜负状态。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">exgcd</span><span class="params">(a, b)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> b == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>, <span class="number">0</span>, a</span><br><span class="line">    x, y, q = exgcd(b, a % b)</span><br><span class="line">    x, y = y, (x - a // b * y)</span><br><span class="line">    <span class="keyword">return</span> x, y, q</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">put1</span><span class="params">()</span>:</span></span><br><span class="line">    n = int(input())</span><br><span class="line">    <span class="keyword">return</span> n</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">put2</span><span class="params">()</span>:</span></span><br><span class="line">    a1, r1 = map(int, input().split())</span><br><span class="line">    <span class="keyword">return</span> a1, r1</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">solve</span><span class="params">(flag)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> flag:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Tankernb!"</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        arr = [<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line">        cnt = <span class="number">2</span></span><br><span class="line">        <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">            res = arr[cnt - <span class="number">1</span>] + arr[cnt - <span class="number">2</span>]</span><br><span class="line">            <span class="keyword">if</span> ans&lt;res:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            arr.append(res)</span><br><span class="line">            cnt = cnt + <span class="number">1</span></span><br><span class="line">        flag = <span class="keyword">False</span></span><br><span class="line">        <span class="keyword">for</span> num <span class="keyword">in</span> arr:</span><br><span class="line">            <span class="keyword">if</span> num == ans:</span><br><span class="line">                flag = <span class="keyword">True</span></span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">if</span> flag:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"Lbnb!"</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"Zgxnb!"</span></span><br><span class="line">flag = <span class="keyword">False</span></span><br><span class="line">n = put1()</span><br><span class="line">a1, r1 = put2()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(n - <span class="number">1</span>):</span><br><span class="line">    a2, r2 = put2()</span><br><span class="line">    r= r2 - r1</span><br><span class="line">    x, y, d = exgcd(a1, a2)</span><br><span class="line">    tmp = a2 // d</span><br><span class="line">    <span class="keyword">if</span> r% d != <span class="number">0</span>:</span><br><span class="line">        flag = <span class="keyword">True</span></span><br><span class="line">    r1 = ((x * r// d) % tmp + tmp) % tmp * a1 + r1</span><br><span class="line">    a1 = a1 * (a2 // d)</span><br><span class="line">lcm = a1</span><br><span class="line">ans = (r1 % lcm + lcm) % lcm</span><br><span class="line">print(solve(flag))</span><br></pre></td></tr></table></figure>
+<p><a href="https://nanti.jisuanke.com/t/41384" target="_blank" rel="noopener">B.so easy</a></p>
+<p>题目大意为：给你一个长度为$n$的数组，数组内元素按顺序为$1~n$，接下来由$q$个操作，$z=1$时操作为删除$x$，$z=2$时操作为查询当前数组内$x$右边距离最近的一个数（包括其本身）。</p>
+<p>由于b范围巨大，不能开数组去计算，因此用$map$来求解。每次删除，就将这个数链接到其下一个数，如果这个数在$map$中没出现过，就直接链接到这个数，并在$map$中加入这个数；如果出现过，就用并查集的方法继续向后找。$mp[i]$表示的是第$i$个数接下来链接到的数字。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pii pair<span class="meta-string">&lt;int,int&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf=<span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">const</span> ll INF=<span class="number">0x3f3f3f3f3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">const</span> ll mod=<span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">1000000</span>+<span class="number">10</span>;</span><br><span class="line"><span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt;mp;</span><br><span class="line"><span class="keyword">int</span> n,q,op,x;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(x&gt;n) <span class="keyword">return</span> mp[x]=<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">if</span>(mp[x]==<span class="number">0</span>)&#123;</span><br><span class="line">        mp[x]=x;</span><br><span class="line">        <span class="keyword">return</span> mp[x];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> x==mp[x]?mp[x]:mp[x]=find(mp[x]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;n,&amp;q);</span><br><span class="line">    <span class="keyword">while</span>(q--)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;op,&amp;x);</span><br><span class="line">        <span class="keyword">if</span>(op==<span class="number">1</span>) mp[x]=find(x+<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,find(x));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://nanti.jisuanke.com/t/41385" target="_blank" rel="noopener">C.Buy Watermelon</a></p>
+<p>签到题，大于2的偶数即可分，否则不可分。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    <span class="keyword">if</span>(n&gt;<span class="number">2</span> &amp;&amp; n%<span class="number">2</span>==<span class="number">0</span>) <span class="built_in">printf</span>(<span class="string">"YES\n"</span>);</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"NO\n"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://nanti.jisuanke.com/t/41386" target="_blank" rel="noopener">D.Carneginon</a></p>
+<p>题目大意为：你有一个字符串$T$，接下来输入n个字符串$S$，对于每个字符串$S$:</p>
+<blockquote>
+<p>如果$len_T&gt;len_S$ &amp;&amp; $S$是$T$的字串，输出<code>my child!</code><br>如果$len_T&gt;len_S$ &amp;&amp; $S$不是$T$的字串，输出<code>oh, child!</code><br>如果$len_T&lt;len_S$ &amp;&amp; $T$是$S$的字串，输出<code>my teacher!</code><br>如果$len_T&lt;len_S$ &amp;&amp; $T$不是$S$的字串，输出<code>senior!</code><br>如果$len_T=len_S$ &amp;&amp; $T$等于$S$，输出<code>jntm!</code><br>如果$len_T=len_S$ &amp;&amp; $T$不等于$S$，输出<code>friend!</code></p>
+</blockquote>
+<p>KMP暴力题，预先处理完$T$ 的$nxt[]$数组，接下来如果$len_S\leq len_T$的话，直接跑KMP，否则对$S$跑一遍KMP。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pii pair<span class="meta-string">&lt;int,int&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf=<span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">const</span> ll INF=<span class="number">0x3f3f3f3f3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">const</span> ll mod=<span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">1000000</span>+<span class="number">10</span>;</span><br><span class="line"><span class="keyword">char</span> s[maxn],t[maxn];</span><br><span class="line"><span class="keyword">int</span> nxt[maxn],nxt2[maxn];</span><br><span class="line"><span class="keyword">int</span> T,n,m;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">get_next</span><span class="params">(<span class="keyword">char</span> *B,<span class="keyword">int</span> m)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    j=<span class="number">0</span>;i=<span class="number">1</span>;</span><br><span class="line">    nxt[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(i&lt;m)&#123;</span><br><span class="line">        <span class="keyword">if</span>(B[i]==B[j])&#123;</span><br><span class="line">            nxt[i++]=++j;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(j) j=nxt[j<span class="number">-1</span>];</span><br><span class="line">            <span class="keyword">else</span> i++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">get_next2</span><span class="params">(<span class="keyword">char</span> *B,<span class="keyword">int</span> m)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    j=<span class="number">0</span>;i=<span class="number">1</span>;</span><br><span class="line">    nxt2[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(i&lt;m)&#123;</span><br><span class="line">        <span class="keyword">if</span>(B[i]==B[j])&#123;</span><br><span class="line">            nxt2[i++]=++j;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(j) j=nxt2[j<span class="number">-1</span>];</span><br><span class="line">            <span class="keyword">else</span> i++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">kmp_search</span><span class="params">(<span class="keyword">char</span>* A,<span class="keyword">char</span>* B,<span class="keyword">int</span> n,<span class="keyword">int</span> m)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    i=j=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(i&lt;n&amp;&amp;j&lt;m)&#123;</span><br><span class="line">        <span class="keyword">if</span>(A[i]==B[j]) i++,j++;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(j) j=nxt[j<span class="number">-1</span>];</span><br><span class="line">        <span class="keyword">else</span> i++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(j==m)&#123;</span><br><span class="line">        <span class="keyword">return</span> i-m+<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">kmp_search2</span><span class="params">(<span class="keyword">char</span>* A,<span class="keyword">char</span>* B,<span class="keyword">int</span> n,<span class="keyword">int</span> m)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    i=j=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(i&lt;n&amp;&amp;j&lt;m)&#123;</span><br><span class="line">        <span class="keyword">if</span>(A[i]==B[j]) i++,j++;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(j) j=nxt2[j<span class="number">-1</span>];</span><br><span class="line">        <span class="keyword">else</span> i++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(j==m)&#123;</span><br><span class="line">        <span class="keyword">return</span> i-m+<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%s"</span>,t);</span><br><span class="line">    n=<span class="built_in">strlen</span>(t);</span><br><span class="line">    get_next(t,n);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;T);</span><br><span class="line">    <span class="keyword">while</span>(T--)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%s"</span>,s);</span><br><span class="line">        <span class="keyword">int</span> m=<span class="built_in">strlen</span>(s);</span><br><span class="line">        <span class="keyword">if</span>(n&gt;m)&#123;</span><br><span class="line">            <span class="keyword">if</span>(kmp_search(t,s,n,m)!=<span class="number">-1</span>) <span class="built_in">printf</span>(<span class="string">"my child!\n"</span>);</span><br><span class="line">            <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"oh, child!\n"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(n==m)&#123;</span><br><span class="line">            <span class="keyword">if</span>(kmp_search(t,s,n,m)!=<span class="number">-1</span>) <span class="built_in">printf</span>(<span class="string">"jntm!\n"</span>);</span><br><span class="line">            <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"friend!\n"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(n&lt;m)&#123;</span><br><span class="line">            get_next2(s,m);</span><br><span class="line">            <span class="keyword">if</span>(kmp_search2(s,t,m,n)!=<span class="number">-1</span>) <span class="built_in">printf</span>(<span class="string">"my teacher!\n"</span>);</span><br><span class="line">            <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"senior!\n"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://nanti.jisuanke.com/t/41387" target="_blank" rel="noopener">E.XKC’s basketball team</a></p>
+<p>题目大意：给你一个长度为$n$的数组以及一个数$m$，对于每个位置$i$，找到右边最远的位置$j$，使得$w_j\geq w_i+m(j\geq i)$ 。</p>
+<p>首先我们进行离散化，将每个数所对应的位置储存在离散化后所对应的数组编号中，这样我们就能根据大小对每个数的位置进行统计，在离散化后的数组中，对于一个数$w_i$，假设我们能够找到一个数$w_j$，使得$w_j\geq w_i$,那么$w_{j+1}&gt;w_i$ ,因此我们可以用状态转移方程$pos[i]=min(pos[i],pos[i+1])$去节省查询时间。<br>接下来对于每个数，我们使用lower_bound()​函数找到第一个大于等于$w_i+m$的数的位置即可。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pii pair<span class="meta-string">&lt;int,int&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf=<span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">const</span> ll INF=<span class="number">0x3f3f3f3f3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">const</span> ll mod=<span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">1000000</span>+<span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> a[maxn],b[maxn],c[maxn];</span><br><span class="line"><span class="keyword">int</span> pos[maxn];</span><br><span class="line"><span class="keyword">int</span> ans[maxn];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,m;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;n,&amp;m);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a[i]);</span><br><span class="line">        b[i]=a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    sort(b,b+n);</span><br><span class="line">    <span class="keyword">int</span> N=unique(b,b+n)-b;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        c[i]=lower_bound(b,b+N,a[i])-b;</span><br><span class="line">        pos[c[i]]=i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=N<span class="number">-2</span>;i&gt;=<span class="number">0</span>;i--) pos[i]=max(pos[i],pos[i+<span class="number">1</span>]);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(i) <span class="built_in">printf</span>(<span class="string">" "</span>);</span><br><span class="line">        <span class="keyword">int</span> x=lower_bound(b,b+N,a[i]+m)-b;</span><br><span class="line">        <span class="keyword">if</span>(x==N || pos[x]&lt;i) <span class="built_in">printf</span>(<span class="string">"-1"</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"%d"</span>,pos[x]-i<span class="number">-1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://nanti.jisuanke.com/t/41388" target="_blank" rel="noopener">F.Little M’s attack plan</a></p>
+<p><a href="https://nanti.jisuanke.com/t/41389" target="_blank" rel="noopener">G.Colorful String</a></p>
+<p>题目大意为：给你一个字符串，求$\sum每个子回文字符串中字母的种类数$ 。</p>
+<p>马拉车+序列自动机，使用马拉车找出以这个字符为中心最长的回文串的长度，然后利用序列自动机for一个26的循环找出26个字母中每个字母离中间这个字符最近的位置，然后进行判断统计贡献即可。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">const</span> ll maxn=<span class="number">1000000</span>+<span class="number">10</span>;</span><br><span class="line"><span class="keyword">char</span> s[maxn],t[maxn];</span><br><span class="line">ll n;</span><br><span class="line">ll f[maxn][<span class="number">30</span>];</span><br><span class="line">ll vis[maxn];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Manacher</span><span class="params">(ll l)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(ll i=l;i&gt;<span class="number">0</span>;i--)  </span><br><span class="line">    &#123;</span><br><span class="line">        t[<span class="number">2</span>*i]=s[i];  </span><br><span class="line">        t[<span class="number">2</span>*i+<span class="number">1</span>]=<span class="string">'#'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    t[<span class="number">0</span>]=<span class="string">'$'</span>;</span><br><span class="line">    t[<span class="number">1</span>]=<span class="string">'#'</span>;</span><br><span class="line">    ll id,mx,ans;</span><br><span class="line">    id=mx=ans=<span class="number">0</span>;  </span><br><span class="line">    <span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=<span class="number">2</span>*l+<span class="number">1</span>;i++)  </span><br><span class="line">    &#123;  </span><br><span class="line">        <span class="keyword">if</span>(mx&gt;i) vis[i]=min(vis[<span class="number">2</span>*id-i],mx-i);    </span><br><span class="line">        <span class="keyword">else</span> vis[i]=<span class="number">1</span>;    </span><br><span class="line">        <span class="keyword">while</span>(t[i+vis[i]]==t[i-vis[i]]) vis[i]++;    </span><br><span class="line">        <span class="keyword">if</span>(mx&lt;vis[i]+i)  </span><br><span class="line">        &#123;    </span><br><span class="line">            id=i;    </span><br><span class="line">            mx=vis[i]+i;    </span><br><span class="line">        &#125;    </span><br><span class="line">        ans=max(ans,vis[i]);  </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%s"</span>,s+<span class="number">1</span>);</span><br><span class="line">    n=<span class="built_in">strlen</span>(s+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span>(ll i=n;i&gt;<span class="number">0</span>;i--)&#123;</span><br><span class="line">        <span class="keyword">for</span>(ll j=<span class="number">0</span>;j&lt;<span class="number">26</span>;j++)&#123;</span><br><span class="line">            f[i<span class="number">-1</span>][j]=f[i][j];</span><br><span class="line">        &#125;</span><br><span class="line">        f[i<span class="number">-1</span>][s[i]-<span class="string">'a'</span>]=i;</span><br><span class="line">    &#125;</span><br><span class="line">    Manacher(n);</span><br><span class="line">    ll res=<span class="number">0</span>;</span><br><span class="line">    ll pos,len,cur;</span><br><span class="line">    <span class="keyword">for</span>(ll i=<span class="number">2</span>;i&lt;=n*<span class="number">2</span>;i++)&#123;</span><br><span class="line">        pos=(i+<span class="number">1</span>)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(i%<span class="number">2</span>==<span class="number">0</span>) len=(vis[i]+<span class="number">1</span>)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">else</span> len=vis[i]/<span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(ll j=<span class="number">0</span>;j&lt;<span class="number">26</span>;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s[pos]==<span class="string">'a'</span>+j)&#123;<span class="comment">//如果相等，长度等于贡献</span></span><br><span class="line">                res+=len;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            cur=f[pos][j];</span><br><span class="line">            <span class="keyword">if</span>(cur &amp;&amp; cur&lt;=pos+len<span class="number">-1</span>)&#123;</span><br><span class="line">                res+=pos+len-cur;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,res);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://nanti.jisuanke.com/t/41390" target="_blank" rel="noopener">H.function</a></p>
+<p><a href="https://nanti.jisuanke.com/t/41391" target="_blank" rel="noopener">I.query</a></p>
+<p>题目大意：给你一个$1~n$的全排列，$m$组查询，每次查询在$[l,r]$中满足$min(pi,pj)=gcd(pi,pj)(l\leq i\leq j\leq r)$的元素的对数。</p>
+<p>首先我们可以从这个式子中看出来，满足这个式子的情况一定是一个数是另一个数的倍数。假如我们打表计算，我们可以统计出在$10^5$的范围内，满足这个条件的数对大约有1e6个左右，因此我们可以将这些数对变成二维象限内的坐标，坐标的值为$(min(pi,pj),max(pi,pj))$。<br>那么这个题就转化成了：找出二维平面以$(l,l)$为左下角坐标，$(r,r)$为右上角坐标的矩阵内的点的个数。这个我们可以用树状数组统计前缀和来求解。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pii pair<span class="meta-string">&lt;int,int&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf=<span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">const</span> ll INF=<span class="number">0x3f3f3f3f3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">const</span> ll mod=<span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">2000000</span>+<span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> a[maxn];</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> l,r,val;</span><br><span class="line">&#125;p[maxn];</span><br><span class="line">node q[maxn];</span><br><span class="line"><span class="built_in">map</span>&lt;pii,<span class="keyword">int</span>&gt;mp;</span><br><span class="line"><span class="keyword">int</span> tree[maxn];</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(node i,node j)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(i.r==j.r)&#123;</span><br><span class="line">        <span class="keyword">if</span>(i.l==j.l)&#123;</span><br><span class="line">            <span class="keyword">return</span> i.val&lt;j.val;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> i.l&lt;j.l;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> i.r&lt;j.r;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lowbit</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;<span class="keyword">return</span> x&amp;(-x);&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(;x&lt;=maxn;x+=lowbit(x)) tree[x]++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">querr</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> res=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(;x;x-=lowbit(x)) res+=tree[x];</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,m,x;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;n,&amp;m);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;x);</span><br><span class="line">        a[x]=i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> sum=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=i*<span class="number">2</span>;j&lt;=n;j+=i)&#123;</span><br><span class="line">            p[sum].l=min(a[i],a[j]);</span><br><span class="line">            p[sum].r=max(a[i],a[j]);</span><br><span class="line">            p[sum++].val=<span class="number">0</span>;</span><br><span class="line">            <span class="comment">// printf("l=%d r=%d\n",min(a[i],a[j]),max(a[i],a[j]));</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;q[i].l,&amp;q[i].r);</span><br><span class="line">        <span class="keyword">int</span> l=q[i].l,r=q[i].r;</span><br><span class="line">        p[sum].l=l<span class="number">-1</span>,p[sum].r=l<span class="number">-1</span>,p[sum++].val=<span class="number">1</span>;</span><br><span class="line">        p[sum].l=l<span class="number">-1</span>,p[sum].r=r,p[sum++].val=<span class="number">1</span>;</span><br><span class="line">        p[sum].l=r,p[sum].r=l<span class="number">-1</span>,p[sum++].val=<span class="number">1</span>;</span><br><span class="line">        p[sum].l=r,p[sum].r=r,p[sum++].val=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    sort(p,p+sum,cmp);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;sum;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(p[i].val==<span class="number">0</span>) add(p[i].l);</span><br><span class="line">        <span class="keyword">else</span> mp[pii(p[i].l,p[i].r)]=querr(p[i].l);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)&#123;</span><br><span class="line">        <span class="comment">// printf("%d-%d-%d+%d=",mp[pii(q[i].r,q[i].r)],mp[pii(q[i].l-1,q[i].r)],mp[pii(q[i].r,q[i].l-1)],mp[pii(q[i].l-1,q[i].l-1)]);</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,mp[pii(q[i].r,q[i].r)]-mp[pii(q[i].l<span class="number">-1</span>,q[i].r)]-mp[pii(q[i].r,q[i].l<span class="number">-1</span>)]+mp[pii(q[i].l<span class="number">-1</span>,q[i].l<span class="number">-1</span>)]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://nanti.jisuanke.com/t/41392" target="_blank" rel="noopener">J.Random Access Iteartor</a></p>
+<p><a href="https://nanti.jisuanke.com/t/41393" target="_blank" rel="noopener">K.Center</a></p>
+<p>题目大意为：给你$n$个二维平面坐标内的点，问最少再需要几个点可以将它们变成一个中心对称图形。</p>
+<p>中心对称图形的概念即为关于平面内某一点对称，因此我们可以直接找出以这个点为对城中心或者以两个点连成的线段的中点作为对称中心。总共约有$n^2+n=1e6$个，然后对每个点进行处理计算即可。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pii pair<span class="meta-string">&lt;int,int&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> ll maxn=<span class="number">1000000</span>+<span class="number">10</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> x,y;</span><br><span class="line">&#125;a[maxn];</span><br><span class="line"><span class="built_in">map</span>&lt;pii,<span class="keyword">int</span>&gt;mp,mp2;</span><br><span class="line"><span class="built_in">vector</span>&lt;pii&gt;vec;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;a[i].x,&amp;a[i].y);</span><br><span class="line">        mp2[pii(a[i].x,a[i].y)]++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> num=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        mp[pii(a[i].x*<span class="number">2</span>,a[i].y*<span class="number">2</span>)]++;</span><br><span class="line">        num=max(num,mp[pii(a[i].x*<span class="number">2</span>,a[i].y*<span class="number">2</span>)]);</span><br><span class="line">        vec.push_back(pii(a[i].x*<span class="number">2</span>,a[i].y*<span class="number">2</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>;j&lt;n;j++)&#123;</span><br><span class="line">            mp[pii(a[i].x+a[j].x,a[i].y+a[j].y)]++;</span><br><span class="line">            <span class="keyword">if</span>(num&lt;mp[pii(a[i].x+a[j].x,a[i].y+a[j].y)])&#123;</span><br><span class="line">                num=mp[pii(a[i].x+a[j].x,a[i].y+a[j].y)];</span><br><span class="line">                vec.clear();</span><br><span class="line">                vec.push_back(pii(a[i].x+a[j].x,a[i].y+a[j].y));</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(num==mp[pii(a[i].x+a[j].x,a[i].y+a[j].y)])&#123;</span><br><span class="line">                vec.push_back(pii(a[i].x+a[j].x,a[i].y+a[j].y));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> res=n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;vec.size();i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> x=vec[i].first,y=vec[i].second;</span><br><span class="line">        <span class="keyword">int</span> cur=n;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>((a[j].x*<span class="number">2</span>==x &amp;&amp; a[j].y*<span class="number">2</span>==y) || (mp2[pii(x-a[j].x,y-a[j].y)])) cur--;</span><br><span class="line">        &#125;</span><br><span class="line">        res=min(res,cur);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,res);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://nanti.jisuanke.com/t/4138494" target="_blank" rel="noopener">L.Dice</a></p>
+<p><a href="https://nanti.jisuanke.com/t/41395" target="_blank" rel="noopener">M.Longest subsequence</a></p>
+<p>题目大意为：给你两个长分别为$n,m$的两个字符串$S,T$，问从$S$中找到的最长的字典序严格大于$T$的字串的长度最长为多长。</p>
+<p>由于一定要严格大于，因此我们只要找到前面$i$相同，第i+1个比$T[i+1]$即可，然后取最优解。找相同前缀可以用序列自动机来处理。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pii pair<span class="meta-string">&lt;int,int&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">1000000</span>+<span class="number">10</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> INF=<span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">char</span> s[maxn],t[maxn];</span><br><span class="line"><span class="keyword">int</span> nxt[maxn][<span class="number">30</span>];</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vec;</span><br><span class="line"><span class="keyword">int</span> ans=<span class="number">0</span>,cnt=<span class="number">0</span>,n,m,flag;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">(<span class="keyword">char</span> *s)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> len=<span class="built_in">strlen</span>(s);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">26</span>;i++) nxt[len][i]=INF;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=len<span class="number">-1</span>;i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;<span class="number">26</span>;j++)&#123;</span><br><span class="line">            nxt[i][j]=nxt[i+<span class="number">1</span>][j];</span><br><span class="line">        &#125;</span><br><span class="line">        nxt[i][s[i]-<span class="string">'a'</span>]=i;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d %d %s %s"</span>,&amp;n,&amp;m,s,t);</span><br><span class="line">    init(s);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=t[cnt]-<span class="string">'a'</span>+<span class="number">1</span>;j&lt;<span class="number">26</span>;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nxt[i][j]!=INF)&#123;</span><br><span class="line">                flag=<span class="number">1</span>;</span><br><span class="line">                ans=max(ans,cnt+n-nxt[i][j]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(s[i]==t[cnt])&#123;</span><br><span class="line">            cnt++;</span><br><span class="line">            vec.push_back(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(cnt==m) <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(!flag)&#123;</span><br><span class="line">        <span class="keyword">if</span>(vec.size()&gt;=m)&#123;</span><br><span class="line">            <span class="keyword">if</span>(vec[m<span class="number">-1</span>]==n<span class="number">-1</span>) <span class="built_in">printf</span>(<span class="string">"-1\n"</span>);</span><br><span class="line">            <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,m+(n-vec[m<span class="number">-1</span>]<span class="number">-1</span>));</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"-1\n"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(vec.size()&gt;=m&amp;&amp;vec[m<span class="number">-1</span>]!=<span class="number">-1</span>)&#123;</span><br><span class="line">        ans=max(ans,m+(n-vec[m<span class="number">-1</span>]<span class="number">-1</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>感谢您的支持</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="Boctorio 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="Boctorio 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Boctorio
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://boctorio.github.io/2019/09/07/2019ICPC徐州网路赛部分题解/" title="2019ICPC徐州网络赛部分题解">https://boctorio.github.io/2019/09/07/2019ICPC徐州网路赛部分题解/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/06/2018CCPC吉林站部分题解/" rel="next" title="2018CCPC吉林站部分题解">
+                <i class="fa fa-chevron-left"></i> 2018CCPC吉林站部分题解
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/09/08/2019ICPC南昌网络赛部分题解/" rel="prev" title="2019ICPC南昌网络赛部分题解">
+                2019ICPC南昌网络赛部分题解 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80Mjk0Mi8xOTQ4OA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Boctorio</p>
+              <p class="site-description motion-element" itemprop="description">无人与我立黄昏，无人问我粥可温</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">69</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友链
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.todest.cn" title="亦往沧劫" target="_blank">亦往沧劫</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://cndrew.cn" title="Uncle_drew" target="_blank">Uncle_drew</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://hpumengzhao.github.io" title="codancer" target="_blank">codancer</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://dreamatom.top" title="JQM" target="_blank">JQM</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.wzy1999.wang" title="执念" target="_blank">执念</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://prestu.github.io" title="prestu" target="_blank">prestu</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://dicer-zz.github.io" title="Dicer" target="_blank">Dicer</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://hongjay233.github.io" title="鸿杰" target="_blank">鸿杰</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Boctorio</span>
+
+  
+
+  
+      <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+      <span class="post-meta-divider">|</span>
+      <span id="busuanzi_container_site_uv">总访客<span id="busuanzi_value_site_uv"></span>人</span>
+      <span class="post-meta-divider">|</span>
+
+  
+
+</div>
+<!--
+
+
+   <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+-->
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+<script src="/js/src/photoswipe.min.js?v=5.1.4"></script>
+<script src="/js/src/photoswipe-ui-default.min.js?v=5.1.4"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
     // Popup Window;
     var isfetched = false;
     var isXml = true;
@@ -313,7 +1340,131 @@
         onPopupClose();
       }
     });
-  </script><script src="https://c.lcfile.com/static/js/av-min-1.0.0.js"></script><script>AV.initialize("zfcoxFsbiNX6Qe9eP7ebToTP-gzGzoHsz","e1nVkwcNzP5Iwwa32s2lYaWk")</script><script>function showTime(e){var t=new AV.Query(e),c=[],u=$(".leancloud_visitors");u.each(function(){c.push($(this).attr("id").trim())}),t.containedIn("url",c),t.find().done(function(e){var t=".leancloud-visitors-count";if(0!==e.length){for(var n=0;n<e.length;n++){var o=e[n],i=o.get("url"),s=o.get("time"),r=document.getElementById(i);$(r).find(t).text(s)}for(n=0;n<c.length;n++){i=c[n],r=document.getElementById(i);var l=$(r).find(t);""==l.text()&&l.text(0)}}else u.find(t).text(0)}).fail(function(e,t){console.log("Error: "+t.code+" "+t.message)})}function addCount(i){var e=$(".leancloud_visitors"),s=e.attr("id").trim(),r=e.attr("data-flag-title").trim(),t=new AV.Query(i);t.equalTo("url",s),t.find({success:function(e){if(0<e.length){var t=e[0];t.fetchWhenSave(!0),t.increment("time"),t.save(null,{success:function(e){$(document.getElementById(s)).find(".leancloud-visitors-count").text(e.get("time"))},error:function(e,t){console.log("Failed to save Visitor num, with error message: "+t.message)}})}else{var n=new i,o=new AV.ACL;o.setPublicReadAccess(!0),o.setPublicWriteAccess(!0),n.setACL(o),n.set("title",r),n.set("url",s),n.set("time",1),n.save(null,{success:function(e){$(document.getElementById(s)).find(".leancloud-visitors-count").text(e.get("time"))},error:function(e,t){console.log("Failed to create")}})}},error:function(e){console.log("Error:"+e.code+" "+e.message)}})}$(function(){var e=AV.Object.extend("Counter");1==$(".leancloud_visitors").length?addCount(e):1<$(".post-title-link").length&&showTime(e)})</script><script type="text/x-mathjax-config">
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://c.lcfile.com/static/js/av-min-1.0.0.js"></script>
+  <script>AV.initialize("zfcoxFsbiNX6Qe9eP7ebToTP-gzGzoHsz", "e1nVkwcNzP5Iwwa32s2lYaWk");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
       MathJax.Hub.Config({
         tex2jax: {
           inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
@@ -321,11 +1472,24 @@
           skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
         }
       });
-    </script><script type="text/x-mathjax-config">
+    </script>
+
+    <script type="text/x-mathjax-config">
       MathJax.Hub.Queue(function() {
         var all = MathJax.Hub.getAllJax(), i;
         for (i=0; i < all.length; i += 1) {
           all[i].SourceElement().parentNode.className += ' has-jax';
         }
       });
-    </script><script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({pluginRootPath:"live2dw/",pluginJsPath:"lib/",pluginModelPath:"assets/",tagMode:!0,debug:!1,model:{jsonPath:"/live2dw/assets/wanko.model.json"},display:{position:"right",width:120,height:120},mobile:{show:!1},log:!1})</script></body></html>
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+  <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":true,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":120,"height":120},"mobile":{"show":false},"log":false});</script>
+</body>
+</html>
