@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="Boctorio&#39;s Blog">
 <meta property="og:description" content="换根dp是一种用来求解树上各点到其他点的距离之和的算法。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-27T02:40:17.693Z">
+<meta property="og:updated_time" content="2019-10-03T13:17:34.104Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="换根dp">
 <meta name="twitter:description" content="换根dp是一种用来求解树上各点到其他点的距离之和的算法。">
@@ -382,8 +382,8 @@
             
 			  <span class="post-updated">
 			    &nbsp; | &nbsp; 更新于
-			    <time itemprop="dateUpdated" datetime="2019-08-27T10:40:17+08:00" content="2019-08-27">
-			      2019-08-27
+			    <time itemprop="dateUpdated" datetime="2019-10-03T21:17:34+08:00" content="2019-10-03">
+			      2019-10-03
 			    </time>
 			  </span>
 			
@@ -449,7 +449,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  573
+                  585
                 </span>
               
 
@@ -488,7 +488,7 @@
       
         <p>换根dp是一种用来求解树上各点到其他点的距离之和的算法。</p>
 <a id="more"></a>
-<p>在进行换根dp时，需要先利用 $dfs$ 计算出根节点到其他节点的距离之和，以及以每个节点为根节点的子树的节点数量。然后再对其进行换根dp。</p>
+<p>在进行换根dp时，需要先利用 $dfs$ 计算出根节点到其他节点的距离之和，以及以每个节点为根节点的子树的节点数量。然后再对其进行换根dp。以下假设每条边的长度为1。</p>
 <h4 id="Part1-计算根节点到其他节点距离之和"><a href="#Part1-计算根节点到其他节点距离之和" class="headerlink" title="Part1:计算根节点到其他节点距离之和"></a>Part1:计算根节点到其他节点距离之和</h4><p>我们在求解时利用递归的思想进行求解：</p>
 <blockquote>
 <p>假设 $a$ 为根节点，$b$ 为直系子节点，那么对于 $b$ 所在子树对 $a$ 的贡献为 $dis[b]+point[b]$  ,其中 $dis[b]$为 $b$到以b为根节点的子树中所有点的距离之和。$point[b]$为以 $b$ 为根节点的子树中的点的个数，其实很好理解，就相当于以 $b$ 为根节点中的所有路径长度全部 $+1$，然后就到达了 $a$ 节点。</p>
@@ -496,7 +496,7 @@
 <p>代码如下：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> dis[maxn];<span class="comment">//第一次dfs每个节点到其子节点距离之和 </span></span><br><span class="line"><span class="keyword">int</span> point[maxn];<span class="comment">//每个节点下子节点个数（包括这个节点本身） </span></span><br><span class="line"><span class="keyword">int</span> dp[maxn];<span class="comment">//最终结果  </span></span><br><span class="line"><span class="keyword">bool</span> vis[maxn];</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;vec[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">	vis[x]=<span class="literal">true</span>;</span><br><span class="line">	<span class="keyword">int</span> sum=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;vec[x].size();i++)&#123;</span><br><span class="line">		<span class="keyword">int</span> y=vec[x][i];</span><br><span class="line">		<span class="keyword">if</span>(!vis[y])&#123;</span><br><span class="line">			dfs(y);</span><br><span class="line">			sum+=point[y];</span><br><span class="line">			dis[x]+=dis[y]+point[y];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	point[x]=sum+<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="Part2-进行换根dp"><a href="#Part2-进行换根dp" class="headerlink" title="Part2:进行换根dp"></a>Part2:进行换根dp</h4><p>准备工作做完之后，我们就可以开始换根dp，换根dp的思想就是<strong>把与根相连的节点通过一定的操作将其变为根</strong>。</p>
-<p>依然利用上述节点 $a,b$ ,将根节点从 $a$ 移动到 $b$ ，$dp[b]$ 的值为：$dp[a]+-point[b]+(n-point[b])$，其中：</p>
+<p>依然利用上述节点 $a,b$ ,将根节点从 $a$ 移动到 $b$ ，$dp[b]$ 的值为：$dp[a]-point[b]+(n-point[b])$，其中：</p>
 <blockquote>
 <p>$-point[b]$ 表示从 $b$ 引申出来的 $point[b]$ 条路径长度全部 $- 1$.</p>
 <p>$n-point[b]$ 表示从 $a$ 引申出来的不包含 $b$ 的其他路径长度全部 $+1$</p>
@@ -706,7 +706,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">70</span>
+                  <span class="site-state-item-count">71</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -717,7 +717,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-count">46</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
