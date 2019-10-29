@@ -89,16 +89,17 @@
 
 
 
-<meta name="description" content="无人与我立黄昏，无人问我粥可温">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Boctorio&#39;s Blog">
-<meta property="og:url" content="https://boctorio.github.io/archives/2019/09/index.html">
+<meta name="description" content="没想到bitset的时间复杂度能够降到这种地步。 题目大意：给你一棵有$n$个节点，根节点为$1$的树，每个节点都有一个值$value[i]$，对于任意两个节点$i,j$，它们会告诉他们的$LCA$一个值$gcd(value[i],value[j])$，问最后每个节点所能听到的最大值为多少，若没有则输出$-1$。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[HDU6430]TeaTree">
+<meta property="og:url" content="https://boctorio.github.io/2019/10/29/HDU6430-TeaTree/index.html">
 <meta property="og:site_name" content="Boctorio&#39;s Blog">
-<meta property="og:description" content="无人与我立黄昏，无人问我粥可温">
+<meta property="og:description" content="没想到bitset的时间复杂度能够降到这种地步。 题目大意：给你一棵有$n$个节点，根节点为$1$的树，每个节点都有一个值$value[i]$，对于任意两个节点$i,j$，它们会告诉他们的$LCA$一个值$gcd(value[i],value[j])$，问最后每个节点所能听到的最大值为多少，若没有则输出$-1$。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-10-29T05:45:27.637Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Boctorio&#39;s Blog">
-<meta name="twitter:description" content="无人与我立黄昏，无人问我粥可温">
+<meta name="twitter:title" content="[HDU6430]TeaTree">
+<meta name="twitter:description" content="没想到bitset的时间复杂度能够降到这种地步。 题目大意：给你一棵有$n$个节点，根节点为$1$的树，每个节点都有一个值$value[i]$，对于任意两个节点$i,j$，它们会告诉他们的$LCA$一个值$gcd(value[i],value[j])$，问最后每个节点所能听到的最大值为多少，若没有则输出$-1$。">
 
 
 
@@ -128,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="https://boctorio.github.io/archives/2019/09/">
+  <link rel="canonical" href="https://boctorio.github.io/2019/10/29/HDU6430-TeaTree/">
 
 
 
 
 
-  <title>归档 | Boctorio's Blog</title>
+  <title>[HDU6430]TeaTree | Boctorio's Blog</title>
   
 
 
@@ -155,7 +156,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
@@ -330,390 +331,319 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://boctorio.github.io/2019/10/29/HDU6430-TeaTree/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Boctorio">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Boctorio's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
-         
+          <h1 class="post-title" itemprop="name headline">[HDU6430]TeaTree</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-29T11:38:30+08:00">
+                2019-10-29
+              </time>
+            
+            
+            
+			  <span class="post-updated">
+			    &nbsp; | &nbsp; 更新于
+			    <time itemprop="dateUpdated" datetime="2019-10-29T13:45:27+08:00" content="2019-10-29">
+			      2019-10-29
+			    </time>
+			  </span>
+			
+
+            
+
+            
+          </span>
+
           
-        好! 目前共计 76 篇日志。 继续努力。
-      </span>
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Bitset/" itemprop="url" rel="index">
+                    <span itemprop="name">Bitset</span>
+                  </a>
+                </span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
 
-        
+          
+            
+          
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
+             <span id="/2019/10/29/HDU6430-TeaTree/" class="leancloud_visitors" data-flag-title="[HDU6430]TeaTree">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/09/22/2019HPU-ICPC-Training-1/" itemprop="url">
+          
+
+          
+            <div class="post-wordcount">
               
-                <span itemprop="name">2019HPU-ICPC-Training-1部分题解</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  778
+                </span>
               
-            </a>
-        
-      </h2>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-22T19:39:03+08:00" content="2019-09-22">
-          09-22
-        </time>
-      </div>
+              
+                <span class="post-meta-divider">|</span>
+              
 
-    </header>
-  </article>
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
 
+          
 
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/09/21/2017CCPC杭州站部分题解/" itemprop="url">
-              
-                <span itemprop="name">2017CCPC杭州站部分题解</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-21T19:31:39+08:00" content="2019-09-21">
-          09-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
+      
+        <p>没想到bitset的时间复杂度能够降到这种地步。</p>
+<p>题目大意：给你一棵有$n$个节点，根节点为$1$的树，每个节点都有一个值$value[i]$，对于任意两个节点$i,j$，它们会告诉他们的$LCA$一个值$gcd(value[i],value[j])$，问最后每个节点所能听到的最大值为多少，若没有则输出$-1$。</p>
+<a id="more"></a>
+<p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=6430" target="_blank" rel="noopener">TeaTree</a></p>
+<div><div class="fold_hider"><div class="close hider_title">点击查看原题面</div></div><div class="fold">
+<p>Recently, TeaTree acquire  new knowledge gcd(Greatest Commen Divisor), now she want to test you.<br>As we know, teaTree is a tree and her root is node 1, she have n nodes and n-1 edges, for each node i, it has it’s value v[i].<br>For every two node i and j(i is not equal to j), they will tell their Lowest Commen Ancestors(LCA) a number:gcd(v[i],v[j]).<br>For each node, you have to calculate the max number that it heard. some definition:<br>In graph theory and computer science, the lowest commen ancestor(LCA) of two nodes u and v in a tree is the lowest(deepest) node that both u and v as descendants, where we define each node to be a descendant of itself.</p>
+<p> <strong>Input</strong>:<br>On the first line, there is a positive integer n, which describe the number of nodes.<br>Next line there are n-1 positive integers f[2], f[3], …, f[n], f[i] describe the father of node i on tree.<br>Next line there are n positive integers v[2], v[3], … , v[n], v[i] describe the value of node i.<br>n &lt;=100000, f[i]&lt;i, v[i]&lt;=100000</p>
+<p><strong>Output</strong>:<br>Your output should include n lines, for i-th line, output the max number that node i heard.<br>For the nodes who heard nothing, output -1.</p>
+<p><strong>Sample</strong> <strong>Input</strong></p>
+<blockquote>
+<p>4<br>1 1 3<br>4 1 6 9 </p>
+</blockquote>
+<p><strong>Sample</strong> <strong>Output</strong></p>
+<blockquote>
+<p>2<br>-1<br>3<br>-1</p>
+</blockquote>
 
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/09/15/2019ICPC上海网络赛部分题解/" itemprop="url">
-              
-                <span itemprop="name">2019ICPC上海网络赛部分题解</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-15T17:49:54+08:00" content="2019-09-15">
-          09-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+</div></div>
+<p>经过观察就能看出来，对于一个节点，它听到的值即为<strong>其本身及每棵与其直接相连的子树中</strong>任挑两个集合，每个集合中再挑出一个值所得到的最大的$gcd$。</p>
+<p>首先我们可以知道的是，$gcd(i,j)$一定为$i,j$的因子，因此我们可以将问题转化成求两个集合中均出现过的最大的因子，这一步我们可以用一个$bitset$来标记，$bitset[i]=1$即为这棵子树中有至少一个数的因子为$i$，然后用$dfs$的方法传参，计算出每棵子树中存在的所有因子。</p>
+<p>在求交时，我们可以用$bitset$的内置函数$_Find_first()$,找出$bitset$中第一个为$1$的元素的位置，由于无法求最后一个，因此我们只能将因子倒过来放，然后进行求解。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">100000</span>+<span class="number">10</span>;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;vec[maxn];</span><br><span class="line"><span class="keyword">int</span> a[maxn];</span><br><span class="line"><span class="keyword">int</span> ans[maxn];</span><br><span class="line"><span class="built_in">bitset</span>&lt;maxn&gt; dfs(<span class="keyword">int</span> x)&#123;</span><br><span class="line">    <span class="built_in">bitset</span>&lt;maxn&gt; cur(<span class="number">0</span>),mid;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i*i&lt;=a[x];i++)&#123;<span class="comment">//求本身的因子</span></span><br><span class="line">        <span class="keyword">if</span>(a[x]%i==<span class="number">0</span>)&#123;</span><br><span class="line">            cur[maxn-i]=<span class="number">1</span>;</span><br><span class="line">            cur[maxn-a[x]/i]=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> res=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;vec[x].size();i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> y=vec[x][i];</span><br><span class="line">        mid=dfs(y);</span><br><span class="line">        res=max(res,maxn-(<span class="keyword">int</span>)(cur&amp;mid)._Find_first());<span class="comment">//求最大的因子</span></span><br><span class="line">        cur|=mid;<span class="comment">//合并集合</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(res) ans[x]=res;</span><br><span class="line">    <span class="keyword">return</span> cur;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,x;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;x);</span><br><span class="line">        vec[x].push_back(i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a[i]);</span><br><span class="line">    <span class="built_in">memset</span>(ans,<span class="number">-1</span>,<span class="keyword">sizeof</span>(ans));</span><br><span class="line">    dfs(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans[i]); </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/09/11/BZOJ1066-蜥蜴/" itemprop="url">
-              
-                <span itemprop="name">[BZOJ1066]蜥蜴</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-11T15:30:54+08:00" content="2019-09-11">
-          09-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/09/11/BZOJ1070-修车/" itemprop="url">
-              
-                <span itemprop="name">[BZOJ1070]修车</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-11T11:37:48+08:00" content="2019-09-11">
-          09-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/09/10/费用流/" itemprop="url">
-              
-                <span itemprop="name">费用流</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-10T17:21:30+08:00" content="2019-09-10">
-          09-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/09/08/2019ICPC南昌网络赛部分题解/" itemprop="url">
-              
-                <span itemprop="name">2019ICPC南昌网络赛部分题解</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-08T20:31:38+08:00" content="2019-09-08">
-          09-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/09/07/2019ICPC徐州网路赛部分题解/" itemprop="url">
-              
-                <span itemprop="name">2019ICPC徐州网络赛部分题解</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-07T18:42:34+08:00" content="2019-09-07">
-          09-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/09/06/2018CCPC吉林站部分题解/" itemprop="url">
-              
-                <span itemprop="name">2018CCPC吉林站部分题解</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-06T11:25:50+08:00" content="2019-09-06">
-          09-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/09/03/The-beautiful-values-of-the-palace-2019ICPC南昌网络赛A题/" itemprop="url">
-              
-                <span itemprop="name">[2019ICPC南京网络赛A题]The beautiful values of the palace</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-03T16:26:04+08:00" content="2019-09-03">
-          09-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>感谢您的支持</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="Boctorio 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="Boctorio 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Boctorio
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://boctorio.github.io/2019/10/29/HDU6430-TeaTree/" title="[HDU6430]TeaTree">https://boctorio.github.io/2019/10/29/HDU6430-TeaTree/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/22/银川之旅/" rel="next" title="银川之旅">
+                <i class="fa fa-chevron-left"></i> 银川之旅
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2019/09/page/2/">2</a><a class="extend next" rel="next" href="/archives/2019/09/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
 
 
           </div>
@@ -721,6 +651,15 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80Mjk0Mi8xOTQ4OA=="></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -1006,6 +945,11 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+<script src="/js/src/photoswipe.min.js?v=5.1.4"></script>
+<script src="/js/src/photoswipe-ui-default.min.js?v=5.1.4"></script>
+
 
   
 
@@ -1034,6 +978,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
