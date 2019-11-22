@@ -1,0 +1,2077 @@
+
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Boctorio's Blog" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="做一个全方面发展的优（快）秀人（咸）才（鱼）(ง •_•)ง。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML5+CSS3基础元素使用">
+<meta property="og:url" content="https://boctorio.github.io/2019/11/12/HTML5-CSS3基础元素使用/index.html">
+<meta property="og:site_name" content="Boctorio&#39;s Blog">
+<meta property="og:description" content="做一个全方面发展的优（快）秀人（咸）才（鱼）(ง •_•)ง。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://boctorio.github.io/2019/11/12/HTML5-CSS3基础元素使用/button.png">
+<meta property="og:image" content="https://boctorio.github.io/2019/11/12/HTML5-CSS3基础元素使用/x.jpg">
+<meta property="og:image" content="https://boctorio.github.io/2019/11/12/HTML5-CSS3基础元素使用/html.png">
+<meta property="og:image" content="https://boctorio.github.io/2019/11/12/HTML5-CSS3基础元素使用/css.png">
+<meta property="og:image" content="https://boctorio.github.io/2019/11/12/HTML5-CSS3基础元素使用/keyframes.png">
+<meta property="og:updated_time" content="2019-11-22T02:11:58.976Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTML5+CSS3基础元素使用">
+<meta name="twitter:description" content="做一个全方面发展的优（快）秀人（咸）才（鱼）(ง •_•)ง。">
+<meta name="twitter:image" content="https://boctorio.github.io/2019/11/12/HTML5-CSS3基础元素使用/button.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://boctorio.github.io/2019/11/12/HTML5-CSS3基础元素使用/">
+
+
+
+
+
+  <title>HTML5+CSS3基础元素使用 | Boctorio's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <script src="/js/src/photoswipe.min.js?v=5.1.4"></script>
+  <script src="/js/src/photoswipe-ui-default.min.js?v=5.1.4"></script>
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+  
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Boctorio's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">欢迎访问我校OJ   https://hpuoj.com</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-comments"></i> <br>
+            
+            留言
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-photos">
+          <a href="/photos/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-camera"></i> <br>
+            
+            相册
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-template">
+          <a href="/template/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br>
+            
+            模板库
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-resource">
+          <a href="/resource/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-download"></i> <br>
+            
+            资源整合
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://boctorio.github.io/2019/11/12/HTML5-CSS3基础元素使用/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Boctorio">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Boctorio's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">HTML5+CSS3基础元素使用</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-12T22:20:06+08:00">
+                2019-11-12
+              </time>
+            
+            
+            
+			  <span class="post-updated">
+			    &nbsp; | &nbsp; 更新于
+			    <time itemprop="dateUpdated" datetime="2019-11-22T10:11:58+08:00" content="2019-11-22">
+			      2019-11-22
+			    </time>
+			  </span>
+			
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTML/" itemprop="url" rel="index">
+                    <span itemprop="name">HTML</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTML/css/" itemprop="url" rel="index">
+                    <span itemprop="name">css</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/11/12/HTML5-CSS3基础元素使用/" class="leancloud_visitors" data-flag-title="HTML5+CSS3基础元素使用">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.2k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  9
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>做一个全方面发展的优（快）秀人（咸）才（鱼）(ง •_•)ง。</p>
+<a id="more"></a>
+<p>HTML表中一些元素已经可以用css设计实现，但依然写在表格内用于了解。</p>
+<p>以下元素整理方式与<a href="bilibili.com/video/av5862916">HTML5+CSS+JS全方面解析</a>配套使用。</p>
+<h3 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h3><h4 id="HTML5基本元素"><a href="#HTML5基本元素" class="headerlink" title="HTML5基本元素"></a>HTML5基本元素</h4><table>
+<thead>
+<tr>
+<th style="text-align:center">书写方式</th>
+<th style="text-align:center">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">&lt;a href=”xxx”>&lt;/a></td>
+<td style="text-align:center">超链接，跳转到xxx（网址），不创建新标签页</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;a href=”xxx” target=”_self”>&lt;/a></td>
+<td style="text-align:center">超链接，跳转到xxx（网址），不创建新标签页</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;a href=”xxx” target=”_blank”>&lt;/a></td>
+<td style="text-align:center">超链接，跳转到xxx（网址），并创建新标签页</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;p>&lt;/p></td>
+<td style="text-align:center">段落（自动换行）</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;i>&lt;/i></td>
+<td style="text-align:center">斜体</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;em>&lt;/em></td>
+<td style="text-align:center">被强调的文本（效果为斜体）</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;b>&lt;/b></td>
+<td style="text-align:center">粗体</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;strong>&lt;/strong></td>
+<td style="text-align:center">被强调的文本（效果为粗体）$^①$</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;u>&lt;/u></td>
+<td style="text-align:center">下划线</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;s>&lt;/s></td>
+<td style="text-align:center">删除线</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;br /></td>
+<td style="text-align:center">换行</td>
+</tr>
+</tbody>
+</table>
+<p>①&lt;i>与&lt;b>仅表示效果，&lt;em>与&lt;strong>主要作用为语义上的强调，在阅读器以及翻译等其他方面有比&lt;i>和&lt;b>更多的效果。由于现在开发大部分使用css，&lt;i>和&lt;b>的直接使用已经逐渐减少。</p>
+<h4 id="HTML5表格元素"><a href="#HTML5表格元素" class="headerlink" title="HTML5表格元素"></a>HTML5表格元素</h4><table>
+<thead>
+<tr>
+<th style="text-align:center">书写方式</th>
+<th style="text-align:center">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">&lt;table>&lt;/table></td>
+<td style="text-align:center">创建表格</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;table border=”1px”>&lt;/table></td>
+<td style="text-align:center">定义表格边框宽度为1px</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;table align=”center”>&lt;/table></td>
+<td style="text-align:center">表格居中</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;tr>&lt;/tr></td>
+<td style="text-align:center">创建一行单元格，嵌套在&lt;table>&lt;/table>内</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;th>&lt;/th></td>
+<td style="text-align:center">创建一个单元格，嵌套在&lt;tr>&lt;/tr>内，作为表头元素字体加粗且居中</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;td>&lt;/td></td>
+<td style="text-align:center">创建一个单元格，嵌套在&lt;tr>&lt;/tr>内</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;td colspan=”2”>&lt;/td></td>
+<td style="text-align:center">以此单元格为起点，合并两个同一行相邻的单元格</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;td rowspan=”2”>&lt;/td></td>
+<td style="text-align:center">以此单元格为起点，合并两个同一列相邻的单元格</td>
+</tr>
+</tbody>
+</table>
+<h4 id="HTML5列表元素"><a href="#HTML5列表元素" class="headerlink" title="HTML5列表元素"></a>HTML5列表元素</h4><table>
+<thead>
+<tr>
+<th style="text-align:center">书写方式</th>
+<th style="text-align:center">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">&lt;ol>&lt;/ol></td>
+<td style="text-align:center">创建有序列表（默认标号为阿拉伯数字）</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;ul>&lt;/ul></td>
+<td style="text-align:center">创建无序列表</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;li>&lt;/li></td>
+<td style="text-align:center">创建列表中的项</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;ol reversed=”reversed”>&lt;/ol></td>
+<td style="text-align:center">反转有序列表的标号</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;ol type=””>&lt;/ol></td>
+<td style="text-align:center">选择标号类型（五种）：”A” , “a” , “I” , “i” , “1”，分别为大小写字母，大小写罗马数字以及阿拉伯数字</td>
+</tr>
+</tbody>
+</table>
+<h4 id="HTML5表单元素（上）"><a href="#HTML5表单元素（上）" class="headerlink" title="HTML5表单元素（上）"></a>HTML5表单元素（上）</h4><table>
+<thead>
+<tr>
+<th style="text-align:center">书写方式</th>
+<th style="text-align:center">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">&lt;form>&lt;/form></td>
+<td style="text-align:center">创建表单，表单内容均写在这里面</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;input /></td>
+<td style="text-align:center">单行文本框</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;input type=”text”/></td>
+<td style="text-align:center">同&lt;input /></td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;input value=”xxx”/></td>
+<td style="text-align:center">初始化，在文本框内置文本xxx</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;input placeholder=”xxx”/></td>
+<td style="text-align:center">初始化，在文本框内置文本xxx，且不占文本空间。作用为提示应输入的信息</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;input maxlength=”xxx”/></td>
+<td style="text-align:center">文本框文本最长输入长度为xxx</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;input readonly / ></td>
+<td style="text-align:center">只读，无法修改文本框内容</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;input type=”password”/></td>
+<td style="text-align:center">密码框，输入文本显示形式均为”*”</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;input type=”button” value=”xxx”/></td>
+<td style="text-align:center">设置按钮，按钮提示文本为xxx</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;input type=”submit” value=”xxx”/></td>
+<td style="text-align:center">设置按钮，按钮提示文本为xxx $^①$</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;textarea>xxx&lt;/textarea></td>
+<td style="text-align:center">设置多行文本框，且可调整大小，初始内容为xxx</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;textarea row=”10” cols=”15”>xxx&lt;/textarea></td>
+<td style="text-align:center">设置初始文本框为10行15列</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;input type=”number” /></td>
+<td style="text-align:center">数字框</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;input type=”checkbox” /></td>
+<td style="text-align:center">选择框（多选）</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;input type=”radio” /></td>
+<td style="text-align:center">选择框（单选）</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;input type=”radio” name=”xx”/></td>
+<td style="text-align:center">多个此语句并列，name为xx的元素只能选择一个</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;input type=”radio” checked/></td>
+<td style="text-align:center">初始为选中状态</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;select>&lt;/select></td>
+<td style="text-align:center">选择列表框</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;datalist>&lt;/datalist></td>
+<td style="text-align:center">选择列表框，可自定义输入内容，但需要利用&lt;input / >定义，用法为：&lt;input  list=”xxx”/> &lt;datalist id=”xxx”>&lt;/datalist></td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;option>&lt;/option></td>
+<td style="text-align:center">选择列表框元素，嵌套在&lt;select>&lt;/select>或&lt;datalist>&lt;/datalist>内</td>
+</tr>
+</tbody>
+</table>
+<p>①<img src="/2019/11/12/HTML5-CSS3基础元素使用/button.png" alt=""></p>
+<h4 id="HTML5表单元素（上）-1"><a href="#HTML5表单元素（上）-1" class="headerlink" title="HTML5表单元素（上）"></a>HTML5表单元素（上）</h4><table>
+<thead>
+<tr>
+<th style="text-align:center">书写方式</th>
+<th style="text-align:center">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">&lt;input type=”date”/ ></td>
+<td style="text-align:center">获取时间</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;input type=”color”/ ></td>
+<td style="text-align:center">获取颜色</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;input type=”image” src=”xxx”/></td>
+<td style="text-align:center">显示名字为xxx的图片</td>
+</tr>
+<tr>
+<td style="text-align:center"><input type="file" \=""></td>
+<td style="text-align:center">上传单个文件</td>
+</tr>
+<tr>
+<td style="text-align:center"><input type="file" multiple\=""></td>
+<td style="text-align:center">上传多个文件</td>
+</tr>
+</tbody>
+</table>
+<h4 id="HTML5嵌入图片与创建分区响应图"><a href="#HTML5嵌入图片与创建分区响应图" class="headerlink" title="HTML5嵌入图片与创建分区响应图"></a>HTML5嵌入图片与创建分区响应图</h4><table>
+<thead>
+<tr>
+<th style="text-align:center">书写方式</th>
+<th style="text-align:center">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">&lt;img src=”xx.jpg”>&lt;/img></td>
+<td style="text-align:center">显示xx.jpg</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;img src=”xx.jpg” width=”100px” heigth=”150px”>&lt;/img></td>
+<td style="text-align:center">设置图片宽高分别为100px,160px</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;img src=”xx.jpg” alt=”picture”>&lt;/img></td>
+<td style="text-align:center">图片加载失败时提示picture字样</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;a href=”xxx.com”>&lt;img src=”xx.jpg” alt=”picture”>&lt;/img>&lt;/a></td>
+<td style="text-align:center">跳转功能，点击图片跳转至xxx.com</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;form>&lt;input type=”image” src=”xxx”>&lt;/input>&lt;/form></td>
+<td style="text-align:center">点击图片在网址栏可显示坐标</td>
+</tr>
+<tr>
+<td style="text-align:center"><img src="/2019/11/12/HTML5-CSS3基础元素使用/x.jpg" usemap="#xx" \="">&lt;map name=”xx”>&lt;/map></td>
+<td style="text-align:center">定义图片可行跳转区域</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;area href=”xxx” shape=”rect” coords=” 1,2,3,4”>&lt;/area></td>
+<td style="text-align:center">定义图片跳转矩形区域，其中矩形的左上右下边界分别为1px,2px,3px,4px（距离左边界或上边界距离），嵌套在&lt;map>&lt;/map>中</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;area href=”xxx” shape=”circle” coords=” 1,2,3”>&lt;/area></td>
+<td style="text-align:center">定义图片跳转圆形区域，其中圆心坐标为1px，2px，半径为3px，嵌套在&lt;map>&lt;/map>中</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;area href=”xxx” shape=”poly” coords=” 1,2,3,4,…”>&lt;/area></td>
+<td style="text-align:center">定义图片跳转圆形区域，顶点为(1px,2px),(3px,4px),…其中顶点个数必须不小于三个，coords内数字个数必须不小于六个</td>
+</tr>
+</tbody>
+</table>
+<h4 id="HTML5嵌入视频"><a href="#HTML5嵌入视频" class="headerlink" title="HTML5嵌入视频"></a>HTML5嵌入视频</h4><table>
+<thead>
+<tr>
+<th style="text-align:center">书写方式</th>
+<th style="text-align:center">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><video src="xx.mp4" width="500px" heigth="500px" \="">&lt;/video></video></td>
+<td style="text-align:center">播放xx.mp4视频，视频框宽高为500px，500px</td>
+</tr>
+<tr>
+<td style="text-align:center"><video src="xx.mp4" controls\=""></video></td>
+<td style="text-align:center">设置控制栏</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;video src=”xx.mp4” controls preload=”auto”></td>
+<td style="text-align:center">自动加载视频</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;video src=”xx.mp4” controls preload=”none”></td>
+<td style="text-align:center">不加载视频</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;video src=”xx.mp4” controls preload=”metadata”></td>
+<td style="text-align:center">加载视频第一帧</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;video src=”xx.mp4” poster=”xxx.jpg”>&lt;/video></td>
+<td style="text-align:center">设置封面为xxx.jpg</td>
+</tr>
+<tr>
+<td style="text-align:center"><video src="xx.mp4" muted\="">&lt;/video></video></td>
+<td style="text-align:center">视频静音</td>
+</tr>
+</tbody>
+</table>
+<h3 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h3><p>以下以创建.css文件为例进行说明，css的使用方式为:</p>
+<blockquote>
+<p>HTML中：</p>
+<p><img src="/2019/11/12/HTML5-CSS3基础元素使用/html.png" alt=""></p>
+<p>CSS中:</p>
+<p> <img src="/2019/11/12/HTML5-CSS3基础元素使用/css.png" alt=""></p>
+<p>a.css为创建的css文件的名字，其路径需要与调用它的html一致，在css中创建xx类时前面必须加上点（.），若为内置文档类型（如&lt;a>&lt;/a>,&lt;p>&lt;/p>等）在设置时可省略点。</p>
+</blockquote>
+<h4 id="css选择器"><a href="#css选择器" class="headerlink" title="css选择器"></a>css选择器</h4><table>
+<thead>
+<tr>
+<th style="text-align:center">书写方式</th>
+<th style="text-align:center">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">*{…;}</td>
+<td style="text-align:center">通配符，对html中所有的元素均起作用</td>
+</tr>
+<tr>
+<td style="text-align:center">#id1{…;}</td>
+<td style="text-align:center">对元素id为id1的元素起作用</td>
+</tr>
+<tr>
+<td style="text-align:center">[href]{…;}</td>
+<td style="text-align:center">属性选择器，对href属性起作用（也可以为其他属性）</td>
+</tr>
+<tr>
+<td style="text-align:center">.xx:hover{…;}</td>
+<td style="text-align:center">当鼠标放置在该元素时触发设定的效果（冒号后面可设置其它类型的触发条件）</td>
+</tr>
+</tbody>
+</table>
+<h4 id="css控制边框和背景"><a href="#css控制边框和背景" class="headerlink" title="css控制边框和背景"></a>css控制边框和背景</h4><table>
+<thead>
+<tr>
+<th style="text-align:center">书写方式</th>
+<th style="text-align:center">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">border-size: 2px;</td>
+<td style="text-align:center">设置边框宽度为20px</td>
+</tr>
+<tr>
+<td style="text-align:center">border-color: blue;</td>
+<td style="text-align:center">设置边框颜色为blue</td>
+</tr>
+<tr>
+<td style="text-align:center">border-style: ;</td>
+<td style="text-align:center">边框样，可选择solid/dashed/dotted/inset/hidden，分别为实线/虚线/圆点/内嵌/隐藏</td>
+</tr>
+<tr>
+<td style="text-align:center">border:2px blue dashed;</td>
+<td style="text-align:center">简化设置边框样式，元素顺序可交换</td>
+</tr>
+<tr>
+<td style="text-align:center">border-top/button/left/right: ;</td>
+<td style="text-align:center">同border,分别设置四个边框属性</td>
+</tr>
+<tr>
+<td style="text-align:center">background-image:url(xxx) ;</td>
+<td style="text-align:center">设置xxx为背景图片</td>
+</tr>
+<tr>
+<td style="text-align:center">background-color:;</td>
+<td style="text-align:center">设置背景颜色</td>
+</tr>
+<tr>
+<td style="text-align:center">background-size: ;</td>
+<td style="text-align:center">设置背景填充样式</td>
+</tr>
+<tr>
+<td style="text-align:center">border-radius: 10px/10px;</td>
+<td style="text-align:center">定位圆心为(10px,10px)，画弧线，两个值不相等时为椭圆弧</td>
+</tr>
+</tbody>
+</table>
+<h4 id="css设置文本样式"><a href="#css设置文本样式" class="headerlink" title="css设置文本样式"></a>css设置文本样式</h4><table>
+<thead>
+<tr>
+<th style="text-align:center">书写方式</th>
+<th style="text-align:center">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">text-align: ;</td>
+<td style="text-align:center">设置文本对齐方式</td>
+</tr>
+<tr>
+<td style="text-align:center">direction: ;</td>
+<td style="text-align:center">设置文本排版方向</td>
+</tr>
+<tr>
+<td style="text-align:center">letter-spacing: ;</td>
+<td style="text-align:center">设置字母间距</td>
+</tr>
+<tr>
+<td style="text-align:center">word-spacing: ;</td>
+<td style="text-align:center">设置单词间距</td>
+</tr>
+<tr>
+<td style="text-align:center">line-heigth: ;</td>
+<td style="text-align:center">设置行高</td>
+</tr>
+<tr>
+<td style="text-align:center">text-indent: ;</td>
+<td style="text-align:center">设置文本缩进</td>
+</tr>
+<tr>
+<td style="text-align:center">text-decoration: ;</td>
+<td style="text-align:center">文本装饰，可设置下划线(underline)，上划线(overline)，删除线(line-through)等。</td>
+</tr>
+<tr>
+<td style="text-align:center">text-transform: ;</td>
+<td style="text-align:center">英文单词大小写转换，全为大写(uppercase)，全为小写(lowercase)，仅首字母大写(capitalize)等</td>
+</tr>
+<tr>
+<td style="text-align:center">font-family: ;</td>
+<td style="text-align:center">设置字体</td>
+</tr>
+<tr>
+<td style="text-align:center">font-size: ;</td>
+<td style="text-align:center">设置字体大小</td>
+</tr>
+<tr>
+<td style="text-align:center">font-style: ;</td>
+<td style="text-align:center">设置字体样式（粗体，斜体等）</td>
+</tr>
+<tr>
+<td style="text-align:center">font-variant: ;</td>
+<td style="text-align:center">设置字体大小写转换以及字体大小，如小型大写(small-caps)</td>
+</tr>
+<tr>
+<td style="text-align:center">font-weight: ;</td>
+<td style="text-align:center">设置字体粗细</td>
+</tr>
+<tr>
+<td style="text-align:center">text-shadow: 1px 2px 1px red;</td>
+<td style="text-align:center">设置文本阴影，参数分别为水平偏移，竖直偏移，模糊程度（可不写），颜色。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="css使用过渡"><a href="#css使用过渡" class="headerlink" title="css使用过渡"></a>css使用过渡</h4><p>使用过渡时利用之前学过的选择器 : .xx:hover{…;}，表示类名为xx的元素在鼠标放上去时执行当前类操作。</p>
+<p>其内部元素与之前无异，只是相当于创建了一个新的格式，在鼠标放上去时显示，但其增加了过度时的动画效果（css使用动画语句也写在 .xx:hover{…;}中）。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">书写方式</th>
+<th style="text-align:center">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">transition-delay: ;</td>
+<td style="text-align:center">过渡延迟（单位s或ms）</td>
+</tr>
+<tr>
+<td style="text-align:center">transition-duration: ;</td>
+<td style="text-align:center">平滑过渡，宽高大小均匀变化（单位s或ms）</td>
+</tr>
+<tr>
+<td style="text-align:center">transition-property: ;</td>
+<td style="text-align:center">设置有平滑过渡效果的元素（宽高，颜色等）</td>
+</tr>
+</tbody>
+</table>
+<h4 id="css使用动画"><a href="#css使用动画" class="headerlink" title="css使用动画"></a>css使用动画</h4><p>调用动画时需要将动画最终效果的元素放在一个新的类型 : @keyframes name{…;} .</p>
+<p><img src="/2019/11/12/HTML5-CSS3基础元素使用/keyframes.png" alt=""></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">书写方式</th>
+<th style="text-align:center">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">animation-duration: ;</td>
+<td style="text-align:center">同transition-duration: ;</td>
+</tr>
+<tr>
+<td style="text-align:center">animation-delay: ;</td>
+<td style="text-align:center">同transition-delay: ;</td>
+</tr>
+<tr>
+<td style="text-align:center">animation-name: ;</td>
+<td style="text-align:center">动画效果名称</td>
+</tr>
+<tr>
+<td style="text-align:center">anianimation-iteration-count: infinite;</td>
+<td style="text-align:center">动画效果执行无数次（也可设置为其他正整数）</td>
+</tr>
+<tr>
+<td style="text-align:center">anianimation-direction: alternate;</td>
+<td style="text-align:center">动画结束后反方向播放动画,即倒放</td>
+</tr>
+</tbody>
+</table>
+<h4 id="css使用变换"><a href="#css使用变换" class="headerlink" title="css使用变换"></a>css使用变换</h4><table>
+<thead>
+<tr>
+<th style="text-align:center">书写方式</th>
+<th style="text-align:center">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">transform: rotate(30deg) ;</td>
+<td style="text-align:center">顺时针旋转30°</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<h4 id="css盒子模型"><a href="#css盒子模型" class="headerlink" title="css盒子模型"></a>css盒子模型</h4>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>感谢您的支持</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="Boctorio 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="Boctorio 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Boctorio
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://boctorio.github.io/2019/11/12/HTML5-CSS3基础元素使用/" title="HTML5+CSS3基础元素使用">https://boctorio.github.io/2019/11/12/HTML5-CSS3基础元素使用/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/11/04/2019CCPC-Harbin/" rel="next" title="2019CCPC哈尔滨站部分题解">
+                <i class="fa fa-chevron-left"></i> 2019CCPC哈尔滨站部分题解
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80Mjk0Mi8xOTQ4OA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Boctorio</p>
+              <p class="site-description motion-element" itemprop="description">无人与我立黄昏，无人问我粥可温</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">80</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">53</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友链
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.todest.cn" title="亦往沧劫" target="_blank">亦往沧劫</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://cndrew.cn" title="Uncle_drew" target="_blank">Uncle_drew</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://hpumengzhao.github.io" title="codancer" target="_blank">codancer</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://dreamatom.top" title="JQM" target="_blank">JQM</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.wzy1999.wang" title="执念" target="_blank">执念</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://prestu.github.io" title="prestu" target="_blank">prestu</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://dicer-zz.github.io" title="Dicer" target="_blank">Dicer</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://hongjay233.github.io" title="鸿杰" target="_blank">鸿杰</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML"><span class="nav-number">1.</span> <span class="nav-text">HTML</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HTML5基本元素"><span class="nav-number">1.1.</span> <span class="nav-text">HTML5基本元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTML5表格元素"><span class="nav-number">1.2.</span> <span class="nav-text">HTML5表格元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTML5列表元素"><span class="nav-number">1.3.</span> <span class="nav-text">HTML5列表元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTML5表单元素（上）"><span class="nav-number">1.4.</span> <span class="nav-text">HTML5表单元素（上）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTML5表单元素（上）-1"><span class="nav-number">1.5.</span> <span class="nav-text">HTML5表单元素（上）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTML5嵌入图片与创建分区响应图"><span class="nav-number">1.6.</span> <span class="nav-text">HTML5嵌入图片与创建分区响应图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTML5嵌入视频"><span class="nav-number">1.7.</span> <span class="nav-text">HTML5嵌入视频</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS"><span class="nav-number">2.</span> <span class="nav-text">CSS</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#css选择器"><span class="nav-number">2.1.</span> <span class="nav-text">css选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#css控制边框和背景"><span class="nav-number">2.2.</span> <span class="nav-text">css控制边框和背景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#css设置文本样式"><span class="nav-number">2.3.</span> <span class="nav-text">css设置文本样式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#css使用过渡"><span class="nav-number">2.4.</span> <span class="nav-text">css使用过渡</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#css使用动画"><span class="nav-number">2.5.</span> <span class="nav-text">css使用动画</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#css使用变换"><span class="nav-number">2.6.</span> <span class="nav-text">css使用变换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#css盒子模型"><span class="nav-number">2.7.</span> <span class="nav-text">css盒子模型</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Boctorio</span>
+
+  
+
+  
+      <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+      <span class="post-meta-divider">|</span>
+      <span id="busuanzi_container_site_uv">总访客<span id="busuanzi_value_site_uv"></span>人</span>
+      <div class="BbeiAn-info"">
+        <a href="http://www.beian.miit.gov.cn/">豫ICP备19037412号</a>
+        
+        <span class="post-meta-divider">|</span>
+      </div>
+
+  
+
+</div>
+<!--
+
+
+   <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+-->
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+<script src="/js/src/photoswipe.min.js?v=5.1.4"></script>
+<script src="/js/src/photoswipe-ui-default.min.js?v=5.1.4"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://c.lcfile.com/static/js/av-min-1.0.0.js"></script>
+  <script>AV.initialize("zfcoxFsbiNX6Qe9eP7ebToTP-gzGzoHsz", "e1nVkwcNzP5Iwwa32s2lYaWk");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+  <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":true,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":120,"height":120},"mobile":{"show":false},"log":false});</script>
+</body>
+</html>
